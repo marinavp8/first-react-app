@@ -6,7 +6,7 @@ const Navigation = () => {
     return (
         <>
             <p>What's on your fridge?</p>
-            <Link to={'/sign-up'} className='nav-link'>Sign up</Link>
+            <Link to={'/signup'} className='nav-link'>Sign up</Link>
             <Link to={'/login'} className='nav-link'>Log in</Link>
             <Link to={'/log-in'} className='nav-link'>Profile</Link>
 
