@@ -5,14 +5,14 @@ const Navigation = () => {
 
     return (
         <>
-            <p>What's on your fridge?</p>
-            <Link to={'/signup'} className='nav-link'>Sign up</Link>
-            <Link to={'/login'} className='nav-link'>Log in</Link>
-            <Link to={'/log-in'} className='nav-link'>Profile</Link>
 
-            <Link to={'/log-in'} className='nav-link'>Search</Link>
-            <Link to={'/log-in'} className='nav-link'>Fit Recipes</Link>
-            <Link to={'/log-in'} className='nav-link'>Create your plan</Link>
+          
+            <Link to={'/signup'} className='nav-link'>Sign up</Link>
+            <Link to={'/'} className='nav-link'>What's on your fridge?</Link>
+
+            <Link to={'/login'} className='nav-link'>Log in</Link>
+            <Link to={'/createmenu'} className='nav-link'>Create menu</Link>
+            <Link to={'/menulist'} className='nav-link'>Menu list</Link>
         </>
 
     )
