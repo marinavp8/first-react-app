@@ -1,17 +1,16 @@
 import { useState } from "react"
 import edamamService from "../../services/edamam.services"
 
-const RecipieFilteredIng = () => {
-
-    const [ingredient, setIngredient] = useState('')
+const FilteredBreakfast = () => {
 
     const [recipes, setRecipes] = useState([])
 
+    const [ingredient, setIngredient] = useState('')
 
     const getRecipe = (ingredient) => {
 
         edamamService
-            .getRecipes(ingredient)
+            .getBreakfastRecipe(ingredient)
             .then(response => setRecipes(response.data.hits))
             .catch(err => console.log(err))
 
@@ -30,12 +29,11 @@ const RecipieFilteredIng = () => {
 
     }
 
-
     return (
         <div>
 
             <form onSubmit={pressImput}>
-                <label> Ingrediente:
+                <label> DESAYUNO buscar por ingrediente:
                 </label>
 
                 <input type="text" value={ingredient} onChange={pressChange} />
@@ -54,12 +52,4 @@ const RecipieFilteredIng = () => {
     )
 }
 
-export default RecipieFilteredIng
-
-{/* 
-{
-                recipes.map((recipe) => {
-                    return <img src={recipe.recipe.images.SMALL.url} alt="" />
-                })
-
-            } */}
+export default FilteredBreakfast

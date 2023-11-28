@@ -12,6 +12,8 @@ const Navigation = () => {
             <Link to={'/login'} className='nav-link'>Log in</Link>
             <Link to={'/createmenu'} className='nav-link'>Create menu</Link>
             <Link to={'/menulist'} className='nav-link'>Menu list</Link>
+
+            <Link to={'/search/results'} className='nav-link'> Filtros </Link>
         </>
 
     )

@@ -1,32 +1,28 @@
 import { useState } from "react"
 import edamamService from "../../services/edamam.services"
 
-const RecipieFilteredIng = () => {
+const FilteredMeal = () => {
 
-    const [ingredient, setIngredient] = useState('')
-
+    const [mealType, setMealType] = useState('')
     const [recipes, setRecipes] = useState([])
 
-
-    const getRecipe = (ingredient) => {
+    const getRecipe = (mealType) => {
 
         edamamService
-            .getRecipes(ingredient)
+            .getRecipeByMeal(mealType)
             .then(response => setRecipes(response.data.hits))
             .catch(err => console.log(err))
 
     }
 
     const pressChange = e => {
-
         const { value } = e.currentTarget
-
-        setIngredient(value)
+        setMealType(value)
     }
 
     const pressImput = e => {
         e.preventDefault()
-        getRecipe(ingredient)
+        getRecipe(mealType)
 
     }
 
@@ -35,10 +31,10 @@ const RecipieFilteredIng = () => {
         <div>
 
             <form onSubmit={pressImput}>
-                <label> Ingrediente:
+                <label> Breakfast/Dinner/lunch/snack/teatime:
                 </label>
 
-                <input type="text" value={ingredient} onChange={pressChange} />
+                <input type="text" value={mealType} onChange={pressChange} />
 
 
                 <button type='submit'> Enviar </button>
@@ -54,12 +50,4 @@ const RecipieFilteredIng = () => {
     )
 }
 
-export default RecipieFilteredIng
-
-{/* 
-{
-                recipes.map((recipe) => {
-                    return <img src={recipe.recipe.images.SMALL.url} alt="" />
-                })
-
-            } */}
+export default FilteredMeal

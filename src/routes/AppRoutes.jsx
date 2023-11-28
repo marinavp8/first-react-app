@@ -3,10 +3,10 @@ import { Routes, Route } from 'react-router-dom'
 import SignupPage from "../pages/SignupPage/SignupPage"
 import LoginPage from "../pages/LoginPage/LoginPage"
 import MainPage from "../pages/HomePage/HomePage"
-import RecipieFilteredIng from "../components/RecipieFilteredIng/RecipieFilteredIng"
 import MenuCreate from "../components/MenuCreate/MenuCreate"
 import MenuList from "../components/MenuList/MenuList"
 import MenuDetails from "../components/MenuDetails/MenuDetails"
+import FiltersPage from '../pages/Filters/FiltersPage'
 
 
 
@@ -23,7 +23,7 @@ const AppRoutes = () => {
             <Route path={'/signup'} element={<SignupPage />} />
             <Route path={'/login'} element={<LoginPage />} />
 
-            <Route path={'/search/results'} element={<RecipieFilteredIng />} />
+            <Route path={'/search/results'} element={<FiltersPage />} />
 
             <Route path={'/createmenu'} element={< MenuCreate />} />
             <Route path={'/menulist'} element={< MenuList />} />

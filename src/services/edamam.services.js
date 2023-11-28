@@ -9,17 +9,28 @@ class EdamamService {
     }
 
     getRecipes(ingredient) {
-        return this.api.get(`/search?ingredient=${ingredient}`)  //aqui creo un objeto clave valor y recojo ingredient en req.query
+        return this.api.get(`/search?ingredient=${ingredient}`)
     }
 
     getOneRecipe(id) {
         return this.api.get(`/recipes/${id}`)
     }
-    getRecipeByMeal(mealtype) {
-        return this.api.get(`/recipes/mealtype`, mealtype)
+
+    getRecipeByMeal(mealType) {
+        return this.api.get(`/recipes?mealType=${mealType}`)
     }
     getRecipeByDiet(diet) {
         return this.api.get(`/recipes/diet`, diet)
+    }
+    getDinnerRecipe(ingredient) {
+        return this.api.get(`/search/dinner?ingredient=${ingredient}`)
+
+    }
+    getBreakfastRecipe(ingredient) {
+        return this.api.get(`/search/breakfast?ingredient=${ingredient}`)
+    }
+    getLunchRecipe(ingredient) {
+        return this.api.get(`/search/lunch?ingredient=${ingredient}`)
     }
 }
 
