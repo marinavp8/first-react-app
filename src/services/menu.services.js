@@ -20,6 +20,17 @@ class menuServices {
         return this.api.get(`/${_id}`, _id)
     }
 
+    editMenu(menuId, formData) {
+        console.log(menuId)
+        console.log(formData)
+        return this.api.put(`/updateMenu/${menuId}`, formData)
+    }
+
+    deleteMenu(_id) {
+        return this.api.delete(`/deleteMenu/${_id}`)
+    }
+
+
 }
 
 const menuService = new menuServices()

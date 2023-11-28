@@ -7,6 +7,7 @@ import RecipieFilteredIng from "../components/RecipieFilteredIng/RecipieFiltered
 import MenuCreate from "../components/MenuCreate/MenuCreate"
 import MenuList from "../components/MenuList/MenuList"
 import MenuDetails from "../components/MenuDetails/MenuDetails"
+import MenuEdit from "../components/MenuEdit/MenuEdit"
 
 
 
@@ -28,6 +29,7 @@ const AppRoutes = () => {
             <Route path={'/createmenu'} element={< MenuCreate />} />
             <Route path={'/menulist'} element={< MenuList />} />
             <Route path={':_id'} element={<MenuDetails />} />
+            <Route path={'/edit/:_id'} element={<MenuEdit />} />
 
 
         </Routes>
