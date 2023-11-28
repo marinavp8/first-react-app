@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom'
 
+
 const Navigation = () => {
 
 
     return (
         <>
-
-          
             <Link to={'/signup'} className='nav-link'>Sign up</Link>
             <Link to={'/'} className='nav-link'>What's on your fridge?</Link>
 
