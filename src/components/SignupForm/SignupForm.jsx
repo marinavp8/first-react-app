@@ -47,7 +47,7 @@ const SignupForm = () => {
 
             <Form.Group className="mb-3" controlId="password">
                 <Form.Label>Contraseña</Form.Label>
-                <Form.Control type="password" value={signupData.password} onChange={handleInputChange} name="password" />
+                <Form.Control type="password" value={signuprData.password} onChange={handleInputChange} name="password" />
             </Form.Group>
 
             <div className="d-grid">
