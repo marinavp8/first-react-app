@@ -2,6 +2,7 @@ import { useState } from "react"
 import edamamService from "../../services/edamam.services"
 
 import { Form, Button, Card, Container, Row, Col, CardGroup } from "react-bootstrap"
+import { Link } from "react-router-dom"
 
 const RecipieFilteredIng = () => {
 
@@ -32,6 +33,13 @@ const RecipieFilteredIng = () => {
 
     }
 
+    const id = recipes.map(recipe => {
+
+        const urlUri = recipe.recipe.uri
+        let startPos = urlUri.length - 32;
+        let part = urlUri.slice(startPos)
+        return part
+    })
 
     return (
         <div>
@@ -65,7 +73,7 @@ const RecipieFilteredIng = () => {
                                                     <p>Type :{recipe.recipe.cuisineType} </p>
                                                     <p>Perfect for {recipe.recipe.mealType} !</p>
                                                 </Card.Text>
-                                                <Button variant="dark">ver detalles</Button>
+                                                <Link to={`/recipes/detail`} className="btn btn-dark btn-sm">ver detalles</Link>
                                             </Card.Body>
                                         </Card>
                                     </Col>
@@ -80,27 +88,16 @@ const RecipieFilteredIng = () => {
 
         </div >
 
+
     )
+
+
+
+
+
 }
+
+
 
 export default RecipieFilteredIng
 
-{/* <div>
-
-<form onSubmit={pressImput}>
-    <label> Ingrediente:
-    </label>
-
-    <input type="text" value={ingredient} onChange={pressChange} />
-
-
-    <button type='submit'> Enviar </button>
-    <div>
-        {
-            recipes.map((recipe) => {
-                return <img src={recipe.recipe.images.SMALL.url} alt="img" />
-            })
-        }
-    </div>
-</form>
-</div> */}

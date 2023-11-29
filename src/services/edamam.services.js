@@ -12,8 +12,8 @@ class EdamamService {
         return this.api.get(`/search?ingredient=${ingredient}`)
     }
 
-    getOneRecipe(id) {
-        return this.api.get(`/recipes/${id}`)
+    getOneRecipe(uri) {
+        return this.api.get(`/recipes/detail=${uri}`)
     }
 
     getRecipeByMeal(mealType) {

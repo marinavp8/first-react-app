@@ -12,6 +12,7 @@ import PrivateRoute from './PrivateRoute'
 import MenuEdit from "../components/MenuEdit/MenuEdit"
 import YourFridge from '../pages/YourFridge/YourFridge'
 import RecipeProvider from "../contexts/recipe.context"
+import RecipeDetails from '../pages/RecipeDetailsPage/RecipeDetails'
 
 const AppRoutes = () => {
 
@@ -30,6 +31,7 @@ const AppRoutes = () => {
             <Route path={'/fridge'} element={<YourFridge />} />
 
             <Route path={'/search/results'} element={<FiltersPage />} />
+            <Route path={'/recipes/:id'} element={<RecipeDetails />} />
             <Route element=" <RecipeProvider/>">
                 <Route path={'/createmenu'} element={< MenuCreate />} />
             </Route>
