@@ -9,8 +9,8 @@ class menuServices {
 
     }
 
-    getMenus() {
-        return this.api.get('/getallmenus')
+    getMenus(ownerId) {
+        return this.api.get(`/getallmenus/${ownerId}`)
     }
 
     createMenu(menuData) {
@@ -18,7 +18,7 @@ class menuServices {
     }
 
     detailsMenu(_id) {
-        return this.api.get(`/${_id}`, _id)
+        return this.api.get(`/${_id}`)
     }
 
     editMenu(menuId, formData) {

@@ -1,8 +1,11 @@
 import { useState } from "react"
 import { Form, Button, Row, Col } from "react-bootstrap"
 import menuService from "../../services/menu.services"
+import { AuthContext } from "../../contexts/auth.contexts"
+import { useContext } from "react"
 
 const newMenuForm = () => {
+    const { loggedUser } = useContext(AuthContext)
 
     const [menuData, setMenuData] = useState({
 
@@ -45,6 +48,8 @@ const newMenuForm = () => {
     const handleMenuSubmit = e => {
 
         e.preventDefault()
+
+        menuData.owner = loggedUser._id
 
         menuService
             .createMenu(menuData)
