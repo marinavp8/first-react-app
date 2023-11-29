@@ -1,5 +1,6 @@
 import { Col, Container, Row } from "react-bootstrap"
 import LoginForm from "../../components/LoginForm/LoginForm"
+import { Link } from "react-router-dom"
 
 const LoginPage = () => {
 
@@ -19,7 +20,10 @@ const LoginPage = () => {
 
                 </Col>
 
+
             </Row>
+
+            <Link to={'/signup'} className='nav-link'>Not logged! Sign up here!</Link>
 
         </Container>
     )
