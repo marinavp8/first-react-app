@@ -5,6 +5,7 @@ import { Form, Button } from "react-bootstrap"
 
 const SignupForm = () => {
 
+
     const [signupData, setSignupData] = useState({
         username: '',
         email: '',
@@ -26,7 +27,7 @@ const SignupForm = () => {
 
         authService
             .signup(signupData)
-            .then(() => navigate(('/')))
+            .then(() => navigate('/createmenu'))
             .catch(err => console.log(err))
 
     }
@@ -47,7 +48,7 @@ const SignupForm = () => {
 
             <Form.Group className="mb-3" controlId="password">
                 <Form.Label>Contraseña</Form.Label>
-                <Form.Control type="password" value={signuprData.password} onChange={handleInputChange} name="password" />
+                <Form.Control type="password" value={signupData.password} onChange={handleInputChange} name="password" />
             </Form.Group>
 
             <div className="d-grid">

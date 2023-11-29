@@ -11,7 +11,7 @@ import HomePage from '../pages/HomePage/HomePage'
 import PrivateRoute from './PrivateRoute'
 import MenuEdit from "../components/MenuEdit/MenuEdit"
 import YourFridge from '../pages/YourFridge/YourFridge'
-import RecipeProvider from "../contexts/recipe.context"
+// import RecipeProvider from "../contexts/recipe.context"
 
 const AppRoutes = () => {
 
@@ -30,9 +30,9 @@ const AppRoutes = () => {
             <Route path={'/fridge'} element={<YourFridge />} />
 
             <Route path={'/search/results'} element={<FiltersPage />} />
-            <Route element=" <RecipeProvider/>">
-                <Route path={'/createmenu'} element={< MenuCreate />} />
-            </Route>
+            {/* <Route element={<RecipeProvider />}> */}
+            <Route path={'/createmenu'} element={< MenuCreate />} />
+            {/* </Route> */}
             <Route path={'/menulist'} element={< MenuList />} />
             <Route path={':_id'} element={<MenuDetails />} />
             <Route path={'/edit/:_id'} element={<MenuEdit />} />

@@ -4,7 +4,7 @@ const RecipeContext = createContext()
 
 const RecipeProvider = ({ children }) => {
 
-    const [selectedRecipeId, setSelectedRecipeId] = useState(null)
+    const [selectedRecipeId, setSelectedRecipeId] = useState("")
 
     const setRecipeId = (id) => {
         setSelectedRecipeId(id)
@@ -17,4 +17,4 @@ const RecipeProvider = ({ children }) => {
     )
 }
 
-export default { RecipeContext, RecipeProvider }
+export { RecipeContext, RecipeProvider }
