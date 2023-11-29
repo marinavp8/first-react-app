@@ -18,12 +18,11 @@ const LoginPage = () => {
 
                     <LoginForm />
 
+                    <Link to={'/signup'} className='nav-link'>Not logged! Sign up here!</Link>
+
                 </Col>
 
-
             </Row>
-
-            <Link to={'/signup'} className='nav-link'>Not logged! Sign up here!</Link>
 
         </Container>
     )

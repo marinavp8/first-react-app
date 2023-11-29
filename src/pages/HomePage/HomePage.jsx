@@ -1,6 +1,6 @@
 
+import { Container } from "react-bootstrap"
 import RecipieFilteredIng from "../../components/FilteredRecipe/RecipieFilteredIng"
-import edamamService from "../../services/edamam.services"
 
 const HomePage = () => {
 
@@ -8,9 +8,12 @@ const HomePage = () => {
 
 
         <>
+            <Container>
 
-            <h1>whats on your fridge?</h1>
-            <RecipieFilteredIng />
+                <h1>whats on your fridge?</h1>
+                <RecipieFilteredIng />
+
+            </Container>
 
         </>
 

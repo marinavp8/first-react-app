@@ -2,13 +2,16 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import authService from "../../services/auth.services"
 import { Form, Button } from "react-bootstrap"
+import uploadServices from "../../services/upload.services"
+
 
 const SignupForm = () => {
 
     const [signupData, setSignupData] = useState({
         username: '',
         email: '',
-        password: ''
+        password: '',
+        avatar: ''
     })
 
     const handleInputChange = e => {
@@ -31,6 +34,19 @@ const SignupForm = () => {
 
     }
 
+    const handleFileUpload = e => {
+
+        const formData = new FormData()
+        formData.append('imageData', e.target.files[0])
+
+        uploadServices
+            .uploadimage(formData)
+            .then(({ data }) => {
+                setSignupData({ ...signupData, avatar: data.cloudinary_url })
+            })
+            .catch(err => console.log(err))
+    }
+
     return (
 
         <Form onSubmit={handleSubmit}>
@@ -47,7 +63,12 @@ const SignupForm = () => {
 
             <Form.Group className="mb-3" controlId="password">
                 <Form.Label>Contraseña</Form.Label>
-                <Form.Control type="password" value={signuprData.password} onChange={handleInputChange} name="password" />
+                <Form.Control type="password" value={signupData.password} onChange={handleInputChange} name="password" />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="avatar">
+                <Form.Label>Imagen de perfil</Form.Label>
+                <Form.Control type="file" onChange={handleFileUpload} name="avatar" />
             </Form.Group>
 
             <div className="d-grid">

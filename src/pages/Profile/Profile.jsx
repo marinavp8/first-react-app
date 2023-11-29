@@ -18,6 +18,8 @@ const ProfilePage = () => {
 
                     <h1> Este es tu perfil,{loggedUser.username}</h1>
 
+                    <h2> Datos de: {loggedUser.username}</h2>
+
                     <Link to={'/menulist'} className='nav-link'>My menus</Link>
 
                     <hr />
