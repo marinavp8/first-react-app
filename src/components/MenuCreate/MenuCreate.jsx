@@ -3,6 +3,9 @@ import { Form, Button, Row, Col } from "react-bootstrap"
 import menuService from "../../services/menu.services"
 import { AuthContext } from "../../contexts/auth.contexts"
 import { useContext } from "react"
+import FilteredBreakfast from "../FilteredRecipe/FilteredBreakfast"
+import FilteredLunch from "../FilteredRecipe/FilteredLunch"
+import FilteredDinner from "../FilteredRecipe/FilteredDinner"
 
 const newMenuForm = () => {
     const { loggedUser } = useContext(AuthContext)
@@ -79,6 +82,15 @@ const newMenuForm = () => {
                             <Form.Label>Dinner Recipe ID</Form.Label>
                             <Form.Control type="text" value={day.recipeDinnerId} onChange={(e) => handleDayChange(index, 'recipeDinnerId', e.target.value)} />
                         </Form.Group>
+
+
+                        <div>
+                            <FilteredBreakfast />
+                            <FilteredLunch />
+                            <FilteredDinner />
+                        </div>
+
+
                     </div>
                 ))}
                 <div className="d-grid">

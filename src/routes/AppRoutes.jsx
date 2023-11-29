@@ -30,6 +30,8 @@ const AppRoutes = () => {
 
             <Route path={'/search/results'} element={<FiltersPage />} />
 
+
+
             <Route path={'/createmenu'} element={< MenuCreate />} />
             <Route path={'/menulist'} element={< MenuList />} />
             <Route path={':_id'} element={<MenuDetails />} />

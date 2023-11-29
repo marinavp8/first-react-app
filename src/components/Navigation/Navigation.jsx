@@ -14,18 +14,15 @@ const Navigation = () => {
         <>
             <Navbar bg="dark" data-bs-theme="dark" className='mb-5' expand="lg">
                 <Container>
-                    <Navbar.Brand href="#home">recipes-for-all App</Navbar.Brand>
+                    <Link to={'/'} className='nav-link'><Navbar.Brand href="#home">recipes-for-all App</Navbar.Brand></Link>
+
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
 
-                            <Link to={'/'} className='nav-link'>Inicio</Link>
-
                             <Link to={'/fridge'} className='nav-link'>What's on your fridge?</Link>
 
                             <Link to={'/createmenu'} className='nav-link'>Create menu</Link>
-
-                            <Link to={'/menulist'} className='nav-link'>Menu list</Link>
 
                             <Link to={'/search/results'} className='nav-link'> Filtros </Link>
 
@@ -34,6 +31,8 @@ const Navigation = () => {
                                 loggedUser
                                     ?
                                     <>
+                                        <Link to={'/menulist'} className='nav-link'>Menu list</Link>
+
                                         <span className='nav-link' onClick={logout}>Cerrar sesión</span>
 
                                         <Link to={'/profile'} className='nav-link'>Perfil</Link>
@@ -42,7 +41,7 @@ const Navigation = () => {
                                     </>
                                     :
                                     <>
-                                        <Link to={'/signup'} className='nav-link'>Registro</Link>
+                                        {/* <Link to={'/signup'} className='nav-link'>Registro</Link> */}
 
                                         <Link to={'/login'} className='nav-link'>Inicio de sesión</Link>
                                     </>
