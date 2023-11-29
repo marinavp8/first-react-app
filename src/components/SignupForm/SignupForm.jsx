@@ -2,13 +2,17 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import authService from "../../services/auth.services"
 import { Form, Button } from "react-bootstrap"
+import uploadServices from "../../services/upload.services"
+
 
 const SignupForm = () => {
+
 
     const [signupData, setSignupData] = useState({
         username: '',
         email: '',
-        password: ''
+        password: '',
+        avatar: ''
     })
 
     const handleInputChange = e => {
@@ -26,9 +30,22 @@ const SignupForm = () => {
 
         authService
             .signup(signupData)
-            .then(() => navigate(('/')))
+            .then(() => navigate('/createmenu'))
             .catch(err => console.log(err))
 
+    }
+
+    const handleFileUpload = e => {
+
+        const formData = new FormData()
+        formData.append('imageData', e.target.files[0])
+
+        uploadServices
+            .uploadimage(formData)
+            .then(({ data }) => {
+                setSignupData({ ...signupData, avatar: data.cloudinary_url })
+            })
+            .catch(err => console.log(err))
     }
 
     return (

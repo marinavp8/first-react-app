@@ -1,8 +1,11 @@
 import { Col, Container, Row } from "react-bootstrap"
 import LoginForm from "../../components/LoginForm/LoginForm"
 import { Link } from "react-router-dom"
+import { useNavigate } from 'react-router-dom'
 
 const LoginPage = () => {
+
+    let navigate = useNavigate()
 
     return (
 
@@ -18,12 +21,11 @@ const LoginPage = () => {
 
                     <LoginForm />
 
+                    <Link to={'/signup'} className='nav-link'>Not logged! Sign up here!</Link>
+
                 </Col>
 
-
             </Row>
-
-            <Link to={'/signup'} className='nav-link'>Not logged! Sign up here!</Link>
 
         </Container>
     )
