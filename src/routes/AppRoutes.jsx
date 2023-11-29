@@ -10,6 +10,7 @@ import ProfilePage from '../pages/Profile/Profile'
 import HomePage from '../pages/HomePage/HomePage'
 import PrivateRoute from './PrivateRoute'
 import MenuEdit from "../components/MenuEdit/MenuEdit"
+import YourFridge from '../pages/YourFridge/YourFridge'
 
 const AppRoutes = () => {
 
@@ -25,6 +26,7 @@ const AppRoutes = () => {
                 <Route path={'/profile'} element={<ProfilePage />} />
             </Route>
 
+            <Route path={'/fridge'} element={<YourFridge />} />
 
             <Route path={'/search/results'} element={<FiltersPage />} />
 

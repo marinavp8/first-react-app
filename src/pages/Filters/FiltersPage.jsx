@@ -2,7 +2,7 @@ import FilteredBreakfast from "../../components/FilteredRecipe/FilteredBreakfast
 import FilteredDinner from "../../components/FilteredRecipe/FilteredDinner"
 import FilteredLunch from "../../components/FilteredRecipe/FilteredLunch"
 import FilteredMeal from "../../components/FilteredRecipe/FilteredMeal"
-import RecipieFilteredIng from "../../components/RecipieFilteredIng/RecipieFilteredIng"
+import RecipieFilteredIng from "../../components/FilteredRecipe/RecipieFilteredIng"
 
 const FiltersPage = () => {
 
