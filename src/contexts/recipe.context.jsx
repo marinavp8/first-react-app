@@ -4,7 +4,7 @@ const RecipeContext = createContext()
 
 const RecipeProvider = ({ children }) => {
 
-    const [selectedRecipeId, setSelectedRecipeId] = useState('')
+    const [selectedRecipeId, setSelectedRecipeId] = useState(null)
 
     const setRecipeId = (id) => {
         setSelectedRecipeId(id)

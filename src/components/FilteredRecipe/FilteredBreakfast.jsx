@@ -1,7 +1,11 @@
 import { useState } from "react"
 import edamamService from "../../services/edamam.services"
+import RecipeContext from "../../contexts/recipe.context"
+
 
 const FilteredBreakfast = () => {
+
+    const { setRecipeId } = useContext(RecipeContext)
 
     const [recipes, setRecipes] = useState([])
 
@@ -13,7 +17,6 @@ const FilteredBreakfast = () => {
             .getBreakfastRecipe(ingredient)
             .then(response => setRecipes(response.data.hits))
             .catch(err => console.log(err))
-
     }
 
     const pressChange = e => {
@@ -26,8 +29,10 @@ const FilteredBreakfast = () => {
     const pressImput = e => {
         e.preventDefault()
         getRecipe(ingredient)
+        setRecipeId(obtenidoRecipeId)
 
     }
+
 
     return (
         <div>

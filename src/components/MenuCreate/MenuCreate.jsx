@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Form, Button, Row, Col } from "react-bootstrap"
+import { Form, Button } from "react-bootstrap"
 import menuService from "../../services/menu.services"
 import { AuthContext } from "../../contexts/auth.contexts"
 import { useContext } from "react"
@@ -9,6 +9,9 @@ import FilteredDinner from "../FilteredRecipe/FilteredDinner"
 
 const newMenuForm = () => {
     const { loggedUser } = useContext(AuthContext)
+
+    const { selectedRecipeId } = useContext(RecipeContext)
+
 
     const [menuData, setMenuData] = useState({
 
@@ -37,16 +40,34 @@ const newMenuForm = () => {
     const handleDayChange = (index, field, value) => {
         const updatedDays = menuData.days.map((day, i) => {
             if (i === index) {
-                return { ...day, [field]: value };
+                return { ...day, [field]: value }
             }
             return day;
-        });
+        })
+
+
+        // const handleDayChange = (index, fieldName, value) => {
+        //     const { selectedRecipeId } = useContext(RecipeContext);
+
+        //     setMenuData(prevState => {
+        //         const updatedDays = prevState.days.map((day, idx) => {
+        //             if (idx === index) {
+        //                 return {
+        //                     ...day,
+        //                     [fieldName]: fieldName === 'recipeBreakfastId' ? selectedRecipeId : value,
+        //                 };
+        //             }
+        //             return day;
+        //         });
+
+        //         return { ...prevState, days: updatedDays };
+        //     });
 
         setMenuData({
             ...menuData,
             days: updatedDays,
-        });
-    };
+        })
+    }
 
     const handleMenuSubmit = e => {
 
