@@ -7,6 +7,7 @@ import uploadServices from "../../services/upload.services"
 
 const SignupForm = () => {
 
+
     const [signupData, setSignupData] = useState({
         username: '',
         email: '',
@@ -29,7 +30,7 @@ const SignupForm = () => {
 
         authService
             .signup(signupData)
-            .then(() => navigate(('/')))
+            .then(() => navigate('/createmenu'))
             .catch(err => console.log(err))
 
     }

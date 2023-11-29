@@ -7,6 +7,8 @@ import { AuthContext } from "../../contexts/auth.contexts"
 
 const LoginForm = () => {
 
+
+
     const [loginData, setLoginData] = useState({
         email: '',
         password: ''
@@ -30,6 +32,7 @@ const LoginForm = () => {
             .then(({ data }) => {
                 localStorage.setItem('authToken', data.authToken)
                 authenticateUser()
+                navigate('/createmenu')
             })
             .catch(err => console.log(err))
     }
