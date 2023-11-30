@@ -22,8 +22,6 @@ const AppRoutes = () => {
 
             <Route path={'/signup'} element={<SignupPage />} />
             <Route path={'/login'} element={<LoginPage />} />
-
-
             <Route element={<PrivateRoute />} >
                 <Route path={'/profile'} element={<ProfilePage />} />
             </Route>
@@ -33,22 +31,16 @@ const AppRoutes = () => {
             <Route path={'/edit/:_id'} element={<MenuEdit />} />
             <Route path={'/fridge'} element={<YourFridge />} />
 
-
             <Route path={'/search/results'} element={<FiltersPage />} />
             <Route path={'/recipes/:id'} element={<RecipeDetails />} />
 
             <Route path={'/createmenu'} element={< MenuCreate />} />
-
             <Route path={'/menulist'} element={< MenuList />} />
             <Route path={':_id'} element={<MenuDetails />} />
             <Route path={'/edit/:_id'} element={<MenuEdit />} />
-            {/* <Route element={<RecipeProvider />}> */}
+
             <Route path={'/createmenu/:menu?/:day?/meal?/:realId?'} element={< MenuCreate />} />
             <Route path={'/breakfastprueba/:menuId/:day'} element={< FilteredBreakfast2 />} />
-            {/* </Route> */}
-
-
-
 
         </Routes>
     )

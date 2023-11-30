@@ -2,13 +2,11 @@ import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.contexts'
 
-import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap'
-
+import { Container, Navbar, Nav, NavDropdown, NavbarText } from 'react-bootstrap'
 
 const Navigation = () => {
 
     const { loggedUser, logout } = useContext(AuthContext)
-
 
     return (
         <>
@@ -30,19 +28,13 @@ const Navigation = () => {
 
                             <Link to={'/search/results'} className='nav-link'> Filtros </Link>
 
-                            <Link to={'/login'} className='nav-link'> Log in</Link>
-
                         </Nav>
 
                         {
                             loggedUser
                                 ?
                                 <>
-                                    {/* <Link to={'/menulist'} className='nav-link'>Menu list</Link>
-
-                                        <span className='nav-link' onClick={logout}>Cerrar sesión</span>
-
-                                        <Link to={'/profile'} className='nav-link'>Perfil</Link> */}
+                                    {/* <Link to={'/menulist'} className='nav-link'>Menu list</Link> */}
 
                                     <Navbar.Text className="justify-content-end">
                                         <NavDropdown
@@ -59,9 +51,13 @@ const Navigation = () => {
                                 </>
                                 :
                                 <>
-                                    {/* <Link to={'/signup'} className='nav-link'>Registro</Link> */}
+                                    <Navbar.Text className="justify-content-end">
 
-                                    <Link to={'/login'} className='nav-link'>Log in</Link>
+                                        {/* <Link to={'/signup'} className='nav-link'>Registro</Link> */}
+
+                                        <Link to={'/login'} className='nav-link'>Log in</Link>
+
+                                    </Navbar.Text>
                                 </>
                         }
 

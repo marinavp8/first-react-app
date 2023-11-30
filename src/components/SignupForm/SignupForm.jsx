@@ -47,7 +47,8 @@ const SignupForm = () => {
         uploadServices
             .uploadimage(formData)
             .then((res) => {
-                setSignupData({ ...signupData, avatar: res.cloudinary_url })
+                console.log(res)
+                setSignupData({ ...signupData, avatar: res.data.cloudinary_url })
                 setLoagingImage(false)
             })
             .catch(err => {
