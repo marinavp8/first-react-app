@@ -12,6 +12,7 @@ import PrivateRoute from './PrivateRoute'
 import MenuEdit from "../components/MenuEdit/MenuEdit"
 import YourFridge from '../pages/YourFridge/YourFridge'
 import RecipeDetails from '../pages/RecipeDetailsPage/RecipeDetails'
+import FilteredBreakfast2 from "../components/Prueba/FilteredBreakfast2"
 
 const AppRoutes = () => {
 
@@ -22,21 +23,31 @@ const AppRoutes = () => {
             <Route path={'/signup'} element={<SignupPage />} />
             <Route path={'/login'} element={<LoginPage />} />
 
-            <Route path={'/search/results'} element={<FiltersPage />} />
+
             <Route element={<PrivateRoute />} >
                 <Route path={'/profile'} element={<ProfilePage />} />
             </Route>
 
-            <Route path={'/fridge'} element={<YourFridge />} />
-
-            <Route path={'/search/results'} element={<FiltersPage />} />
-            <Route path={'/recipes/:id'} element={<RecipeDetails />} />
-            {/* <Route element={<RecipeProvider />}> */}
-            <Route path={'/createmenu'} element={< MenuCreate />} />
-            {/* </Route> */}
             <Route path={'/menulist'} element={< MenuList />} />
             <Route path={':_id'} element={<MenuDetails />} />
             <Route path={'/edit/:_id'} element={<MenuEdit />} />
+            <Route path={'/fridge'} element={<YourFridge />} />
+
+
+            <Route path={'/search/results'} element={<FiltersPage />} />
+            <Route path={'/recipes/:id'} element={<RecipeDetails />} />
+
+            <Route path={'/createmenu'} element={< MenuCreate />} />
+
+            <Route path={'/menulist'} element={< MenuList />} />
+            <Route path={':_id'} element={<MenuDetails />} />
+            <Route path={'/edit/:_id'} element={<MenuEdit />} />
+            {/* <Route element={<RecipeProvider />}> */}
+            <Route path={'/createmenu/:menu?/:day?/meal?/:realId?'} element={< MenuCreate />} />
+            <Route path={'/breakfastprueba/:menuId/:day'} element={< FilteredBreakfast2 />} />
+            {/* </Route> */}
+
+
 
 
         </Routes>

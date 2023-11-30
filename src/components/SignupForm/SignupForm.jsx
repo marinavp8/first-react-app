@@ -15,6 +15,8 @@ const SignupForm = () => {
         avatar: ''
     })
 
+    const [loadingIamge, setLoagingImage] = useState(false)
+
     const handleInputChange = e => {
 
         const { value, name } = e.target
@@ -37,15 +39,21 @@ const SignupForm = () => {
 
     const handleFileUpload = e => {
 
+        setLoagingImage(true)
+
         const formData = new FormData()
         formData.append('imageData', e.target.files[0])
 
         uploadServices
             .uploadimage(formData)
-            .then(({ data }) => {
-                setSignupData({ ...signupData, avatar: data.cloudinary_url })
+            .then((res) => {
+                setSignupData({ ...signupData, avatar: res.cloudinary_url })
+                setLoagingImage(false)
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                console.log(err)
+                setLoagingImage(false)
+            })
     }
 
     return (
@@ -67,8 +75,13 @@ const SignupForm = () => {
                 <Form.Control type="password" value={signupData.password} onChange={handleInputChange} name="password" />
             </Form.Group>
 
+            <Form.Group className="mb-3" controlId="avatar">
+                <Form.Label>Imagen del perfil</Form.Label>
+                <Form.Control type="file" onChange={handleFileUpload} />
+            </Form.Group>
+
             <div className="d-grid">
-                <Button variant="dark" type="submit">Registrarme</Button>
+                <Button variant="dark" type="submit" disabled={loadingIamge}>{loadingIamge ? 'Cargando imagen ...' : 'Registrarme'}</Button>
             </div>
 
         </Form>
