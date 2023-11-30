@@ -11,7 +11,6 @@ import HomePage from '../pages/HomePage/HomePage'
 import PrivateRoute from './PrivateRoute'
 import MenuEdit from "../components/MenuEdit/MenuEdit"
 import YourFridge from '../pages/YourFridge/YourFridge'
-import RecipeProvider from "../contexts/recipe.context"
 import RecipeDetails from '../pages/RecipeDetailsPage/RecipeDetails'
 
 const AppRoutes = () => {

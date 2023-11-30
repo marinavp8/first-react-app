@@ -3,6 +3,7 @@ import edamamService from "../../services/edamam.services"
 
 import { Form, Button, Card, Container, Row, Col, CardGroup } from "react-bootstrap"
 import { Link } from "react-router-dom"
+import RecipeDetails from "../../pages/RecipeDetailsPage/RecipeDetails"
 
 const RecipieFilteredIng = () => {
 
@@ -33,13 +34,16 @@ const RecipieFilteredIng = () => {
 
     }
 
-    const id = recipes.map(recipe => {
+    // const id = recipes.map(recipe => {
 
-        const urlUri = recipe.recipe.uri
-        let startPos = urlUri.length - 32;
-        let part = urlUri.slice(startPos)
-        return part
-    })
+    //     const urlUri = recipe.recipe.uri
+    //     let startPos = urlUri.length - 32;
+    //     let part = urlUri.slice(startPos)
+    //     return part
+    // })
+
+
+
 
     return (
         <div>
@@ -61,6 +65,10 @@ const RecipieFilteredIng = () => {
                     <Row xs={2} md={3} className="g-4">
                         {
                             recipes.map((recipe) => {
+                                const urlUri = recipe.recipe.uri
+                                let startPos = urlUri.length - 32;
+                                let id = urlUri.slice(startPos)
+
                                 return (
 
                                     <Col>
@@ -71,9 +79,11 @@ const RecipieFilteredIng = () => {
                                                 <Card.Title> <h4>{recipe.recipe.label}</h4> </Card.Title>
                                                 <Card.Text>
                                                     <p>Type :{recipe.recipe.cuisineType} </p>
-                                                    <p>Perfect for {recipe.recipe.mealType} !</p>
+                                                    <p>Perfect for {recipe.recipe.mealType}! </p>
+                                                    <p>esto es el id {id}</p>
+
                                                 </Card.Text>
-                                                <Link to={`/recipes/detail`} className="btn btn-dark btn-sm">ver detalles</Link>
+                                                <Link to={`/recipes/${id}`} className="btn btn-dark btn-sm">ver detalles</Link>
                                             </Card.Body>
                                         </Card>
                                     </Col>
@@ -90,9 +100,6 @@ const RecipieFilteredIng = () => {
 
 
     )
-
-
-
 
 
 }
