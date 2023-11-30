@@ -4,10 +4,12 @@ import edamamService from "../../services/edamam.services"
 // import { useContext } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { Button } from "react-bootstrap"
+import menuService from "../../services/menu.services"
 
 const FilteredBreakfast2 = () => {
 
     const params = useParams()
+    console.log(params)
     // const { setRecipeId } = useContext(RecipeContext)
 
     const navigate = useNavigate()
@@ -16,11 +18,13 @@ const FilteredBreakfast2 = () => {
 
     const [ingredient, setIngredient] = useState('')
 
+    const [addRecipe, setaddRecipe] = useState(null)
+
     const getRecipe = (ingredient) => {
 
         edamamService
             .getBreakfastRecipe(ingredient)
-            .then(response => setRecipes(response.data.hits))
+            .then(response => { setRecipes(response.data.hits); console.log(console.log(params)) })
             .catch(err => console.log(err))
     }
 
@@ -40,7 +44,13 @@ const FilteredBreakfast2 = () => {
 
     const handleComeBack = (id) => {
         const realId = (id.slice(-32))
-        navigate(`/createmenu/${params.menuId}/${params.day}/breakfast/${realId}`)
+        console.log(realId)
+
+        menuService
+            .editMondayMenu(realId, params)
+            .then(response => { console.log(response.data); navigate(`/createmenu/${params.menuId}/${params.day}/breakfast/${realId}`) })
+            // .then(response => setaddRecipe(response.data.hits))
+            .catch(err => console.log(err))
     }
 
     // const id = recipes.map(recipe => {

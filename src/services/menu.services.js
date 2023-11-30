@@ -31,6 +31,14 @@ class menuServices {
         return this.api.delete(`/deleteMenu/${_id}`)
     }
 
+    editMondayMenu(realId, params) {
+        console.log("del que haces clock", realId)
+        console.log("------params", params)
+        const { menuId, day } = params
+
+        return this.api.put(`/updateMenu/${menuId}/${day}/`, { realId })
+    }
+
 
 }
 
