@@ -1,21 +1,23 @@
 
-import { Container } from "react-bootstrap"
 import RecipieFilteredIng from "../../components/FilteredRecipe/RecipieFilteredIng"
+import "./HomePage.css"
+
 
 const HomePage = () => {
+
+
 
     return (
 
 
-        <>
-            <Container>
+        <div className="background">
 
-                <h1>whats on your fridge?</h1>
-                <RecipieFilteredIng />
+            <h1>whats in your fridge?</h1>
 
-            </Container>
+            <RecipieFilteredIng />
 
-        </>
+
+        </div>
 
     )
 }
