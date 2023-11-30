@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.contexts'
 
-import { Container, Navbar, Nav } from 'react-bootstrap'
+import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap'
 
 
 const Navigation = () => {
@@ -13,11 +13,15 @@ const Navigation = () => {
     return (
         <>
             <Navbar bg="dark" data-bs-theme="dark" className='mb-5' expand="lg">
+
                 <Container>
+
                     <Link to={'/'} className='nav-link'><Navbar.Brand href="#home">recipes-for-all App</Navbar.Brand></Link>
 
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
                     <Navbar.Collapse id="basic-navbar-nav">
+
                         <Nav className="me-auto">
 
                             <Link to={'/fridge'} className='nav-link'>What's on your fridge?</Link>
@@ -26,38 +30,51 @@ const Navigation = () => {
 
                             <Link to={'/search/results'} className='nav-link'> Filtros </Link>
 
+                            <Link to={'/login'} className='nav-link'> Log in</Link>
 
-                            {
-                                loggedUser
-                                    ?
-                                    <>
-                                        <Link to={'/menulist'} className='nav-link'>Menu list</Link>
+                        </Nav>
+
+                        {
+                            loggedUser
+                                ?
+                                <>
+                                    {/* <Link to={'/menulist'} className='nav-link'>Menu list</Link>
 
                                         <span className='nav-link' onClick={logout}>Cerrar sesión</span>
 
-                                        <Link to={'/profile'} className='nav-link'>Perfil</Link>
+                                        <Link to={'/profile'} className='nav-link'>Perfil</Link> */}
 
+                                    <Navbar.Text className="justify-content-end">
+                                        <NavDropdown
 
-                                    </>
-                                    :
-                                    <>
-                                        {/* <Link to={'/signup'} className='nav-link'>Registro</Link> */}
+                                            title={loggedUser && <Navbar.Text>¡Hello, {loggedUser.username}!</Navbar.Text>}
+                                            id={`offcanvasNavbarDropdown-expand`}
+                                        >
+                                            <NavDropdown.Item href={'/profile'}>Profile</NavDropdown.Item>
+                                            <NavDropdown.Item onClick={logout}>Log out </NavDropdown.Item>
 
-                                        <Link to={'/login'} className='nav-link'>Inicio de sesión</Link>
-                                    </>
-                            }
+                                        </NavDropdown>
+                                    </Navbar.Text>
 
+                                </>
+                                :
+                                <>
+                                    {/* <Link to={'/signup'} className='nav-link'>Registro</Link> */}
 
+                                    <Link to={'/login'} className='nav-link'>Log in</Link>
+                                </>
+                        }
 
-                        </Nav>
                     </Navbar.Collapse>
-                </Container>
-            </Navbar>
 
+                </Container>
+
+            </Navbar>
 
         </>
 
     )
+
 }
 
 export default Navigation
