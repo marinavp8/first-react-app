@@ -100,7 +100,9 @@ const RecipieFilteredIng = () => {
                                                 <p>Perfect for {recipe.recipe.mealType}!</p>
                                                 <p>Time :{recipe.recipe.totalTime} mins</p>
                                             </Carousel.Caption>
+
                                         </Carousel.Item>
+
                                     )
                                 })}
                         </Carousel>
