@@ -24,7 +24,7 @@ const MenuDetails = () => {
 
     useEffect(() => {
         loadMenuDetails()
-        recipedetails()
+        // recipedetails()
     }, [])
 
     const loadMenuDetails = () => {
@@ -55,6 +55,8 @@ const MenuDetails = () => {
             .then(() => navigate("/menulist"))
             .catch(err => console.log(err))
     }
+
+
 
     return (
 
