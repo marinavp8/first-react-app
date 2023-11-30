@@ -8,6 +8,8 @@ import FilteredLunch from "../FilteredRecipe/FilteredLunch"
 import FilteredDinner from "../FilteredRecipe/FilteredDinner"
 import { useNavigate, useParams } from "react-router-dom"
 import Loader from "../Loader/Loader"
+import { Container } from "react-bootstrap"
+import { Dropdown } from "react-bootstrap"
 const menuBase = {
 
     name: "Change me",
@@ -141,34 +143,61 @@ const newMenuForm = () => {
             <Loader />
             :
             <div className="newMenuForm">
-                <Form onSubmit={handleMenuSubmit}>
-                    <Form.Group className="mb-3" controlId="name">
-                        <Form.Label>{menuData._id}Menu name</Form.Label>
-                        <Form.Control type="text" value={menuData.name} name="name" onChange={handleInputChange} />
-                    </Form.Group>
-                    {menuData.days.map((day, index) => (
-                        <div key={index}>
-                            <h5>{day.day}</h5>
-                            <Form.Group className="mb-3">
-                                <Form.Label>Breakfast Recipe ID</Form.Label>
-                                <Button variant="dark" type="button" onClick={() => handleSearch(menuData._id, day.day)}>Buscar</Button>
-                                <Form.Control type="text" value={day.recipeBreakfastId} onChange={(e) => handleDayChange(index, 'recipeBreakfastId', e.target.value)} />
-                            </Form.Group>
-                            <Form.Group className="mb-3">
-                                <Form.Label>Lunch Recipe ID</Form.Label>
-                                <Form.Control type="text" value={day.recipeLunchId} onChange={(e) => handleDayChange(index, 'recipeLunchId', e.target.value)} />
-                            </Form.Group>
-                            <Form.Group className="mb-3">
-                                <Form.Label>Dinner Recipe ID</Form.Label>
-                                <Form.Control type="text" value={day.recipeDinnerId} onChange={(e) => handleDayChange(index, 'recipeDinnerId', e.target.value)} />
-                            </Form.Group>
+                <Container>
 
+
+                    <Dropdown className="d-inline mx-2" autoClose="inside">
+                        <Dropdown.Toggle id="dropdown-autoclose-inside">
+                            Clickable Outside
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+
+                            {menuData.days.map((day, index) => (
+                                <Dropdown.Item href="#">{day.day} </Dropdown.Item>
+
+                            ))}
+                        </Dropdown.Menu>
+                    </Dropdown>
+
+
+
+                    <Form onSubmit={handleMenuSubmit}>
+                        <Form.Group className="mb-3" controlId="name">
+                            <Form.Label>Menu name:</Form.Label>
+                            <Form.Control type="text" value={menuData.name} name="name" onChange={handleInputChange} />
+                        </Form.Group>
+                        {menuData.days.map((day, index) => (
+                            <div key={index}>
+                                <h5>{day.day}</h5>
+                                <Form.Group className="mb-3">
+                                    <Form.Label>Breakfast:</Form.Label>
+                                    <br /><br />
+                                    <Button variant="dark" type="button" onClick={() => handleSearch(menuData._id, day.day)}>Buscar desayunos</Button>
+                                    {/* <Form.Control type="text" value={day.recipeBreakfastId} onChange={(e) => handleDayChange(index, 'recipeBreakfastId', e.target.value)} /> */}
+                                </Form.Group>
+                                <Form.Group className="mb-3">
+                                    <Form.Label>Lunch:</Form.Label>
+                                    <br /><br />
+                                    <Button variant="dark" type="button" onClick={() => handleSearch(menuData._id, day.day)}>Buscar</Button>
+
+                                    {/* <Form.Control type="text" value={day.recipeLunchId} onChange={(e) => handleDayChange(index, 'recipeLunchId', e.target.value)} /> */}
+                                </Form.Group>
+                                <Form.Group className="mb-3">
+                                    <Form.Label>Dinner:</Form.Label>
+                                    <br /><br />
+                                    <Button variant="dark" type="button" onClick={() => handleSearch(menuData._id, day.day)}>Buscar</Button>
+
+                                    {/* <Form.Control type="text" value={day.recipeDinnerId} onChange={(e) => handleDayChange(index, 'recipeDinnerId', e.target.value)} /> */}
+                                </Form.Group>
+
+                            </div>
+                        ))}
+                        <div className="d-grid">
+                            <Button variant="dark" type="submit">Crear menú</Button>
                         </div>
-                    ))}
-                    <div className="d-grid">
-                        <Button variant="dark" type="submit">Crear menú</Button>
-                    </div>
-                </Form>
+                    </Form>
+                </Container>
             </div>
     )
 
