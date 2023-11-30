@@ -32,6 +32,10 @@ class EdamamService {
     getLunchRecipe(ingredient) {
         return this.api.get(`/search/lunch?ingredient=${ingredient}`)
     }
+
+    getOneRecipe2(id) {
+        return this.api.get(`/${id}`)
+    }
 }
 
 const edamamService = new EdamamService()
