@@ -23,6 +23,7 @@ const AppRoutes = () => {
 
     return (
         <Routes>
+            {/* TODO: RENDERIZAR PÁGINAS EN RUTAS */}
             <Route path={'/'} element={<HomePage />} />
 
             <Route path={'/aboutUs'} element={<AboutUs />} />
@@ -52,8 +53,6 @@ const AppRoutes = () => {
             <Route path={'/breakfastprueba/:menuId/:day'} element={< FilteredBreakfast2 />} />
             <Route path={'/addLunch/:menuId/:day'} element={< FilteredLunch />} />
             <Route path={'/addDinner/:menuId/:day'} element={< FilteredDinner />} />
-
-
 
         </Routes>
     )

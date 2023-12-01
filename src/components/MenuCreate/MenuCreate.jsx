@@ -9,8 +9,9 @@ import Loader from "../Loader/Loader"
 import { Container, Accordion, Row, Col } from "react-bootstrap"
 import RecipeMenu from "../RecipeMenu/RecipeMenu"
 
-const menuBase = {
+// TODO: DESACOPLAR
 
+const menuBase = {
     name: "Change me",
     days: [{
         "day": "Monday",
@@ -53,10 +54,9 @@ const menuBase = {
         "recipeBreakfastId": "",
         "recipeLunchId": "",
         "recipeDinnerId": ""
-    }
-    ]
-
+    }]
 }
+
 const newMenuForm = () => {
     const { loggedUser } = useContext(AuthContext)
     const params = useParams()
@@ -65,29 +65,18 @@ const newMenuForm = () => {
     const [menuName, setMenuName] = useState(null)
     const [recipes, setRecipes] = useState({})
 
-
-    // useEffect(() => {
-    //     if (!params.menuId && menuData === null) {
-    //         menuService
-    //             .createMenu(menuBase)
-    //             .then((response) => { setMenuData(response.data); console.log(response.data) })
-    //             .catch(err => console.log(err))
-    //     }
-    // }, [])
-
     useEffect(() => {
         if (params.menuId) {
             menuService
                 .detailsMenu(params.menuId)
-                .then((response) => { setMenuData(response.data); console.log("tengo menu!!", response.data) })
+                .then((response) => { setMenuData(response.data); })
                 .catch(err => console.log(err))
         } else {
             menuService
                 .createMenu(menuBase)
-                .then((response) => { setMenuData(response.data); console.log("no tengo menu!!", response.data) })
+                .then((response) => { setMenuData(response.data); })
                 .catch(err => console.log(err))
         }
-
     }, [])
 
     useEffect(() => {
@@ -101,7 +90,6 @@ const newMenuForm = () => {
                     .getOneRecipe(e.recipeBreakfastId)
                     .then(({ data }) => {
                         setRecipes({ ...recipes, [e.recipeBreakfastId]: data.recipe });
-                        console.log("tu recipe", data.recipe)
                     })
                     .catch(err => console.log(err))
             }
@@ -110,7 +98,6 @@ const newMenuForm = () => {
                     .getOneRecipe(e.recipeLunchId)
                     .then(({ data }) => {
                         setRecipes({ ...recipes, [e.recipeLunchId]: data.recipe });
-                        console.log("tu recipe lunch", data.recipe)
                     })
                     .catch(err => console.log(err))
             }
@@ -119,13 +106,10 @@ const newMenuForm = () => {
                     .getOneRecipe(e.recipeDinnerId)
                     .then(({ data }) => {
                         setRecipes({ ...recipes, [e.recipeDinnerId]: data.recipe });
-                        console.log("tu recipe dinner", data.recipe)
                     })
                     .catch(err => console.log(err))
             }
-
-        }
-        )
+        })
     }, [menuData])
 
 
@@ -133,39 +117,6 @@ const newMenuForm = () => {
     const handleInputChange = e => {
         const { value, name } = e.currentTarget
         setMenuData({ ...menuData, [name]: value })
-    }
-
-    const handleDayChange = (index, field, value) => {
-        const updatedDays = menuData.days.map((day, i) => {
-            if (i === index) {
-                return { ...day, [field]: value }
-            }
-            return day;
-        })
-
-
-
-        // const handleDayChange = (index, fieldName, value) => {
-        //     const { selectedRecipeId } = useContext(RecipeContext);
-
-        //     setMenuData(prevState => {
-        //         const updatedDays = prevState.days.map((day, idx) => {
-        //             if (idx === index) {
-        //                 return {
-        //                     ...day,
-        //                     [fieldName]: fieldName === 'recipeBreakfastId' ? selectedRecipeId : value,
-        //                 };
-        //             }
-        //             return day;
-        //         });
-
-        //         return { ...prevState, days: updatedDays };
-        //     });
-
-        setMenuData({
-            ...menuData,
-            days: updatedDays,
-        })
     }
 
     const handleMenuSubmit = e => {
@@ -181,102 +132,87 @@ const newMenuForm = () => {
     }
 
     const handleSearch = (menuId, day) => {
-
         navigate(`/breakfastprueba/${menuId}/${day}`)
     }
     const handleSearchLunch = (menuId, day) => {
-
         navigate(`/addLunch/${menuId}/${day}`)
     }
     const handleSearchDinner = (menuId, day) => {
-
         navigate(`/addDinner/${menuId}/${day}`)
     }
-
-
-
-    useEffect(() => {
-        if (!loggedUser) {
-            navigate("/login")
-        }
-    }, [])
-
 
     return (
         !menuData
             ?
             <Loader />
             :
-
             <Container>
                 <Form onSubmit={handleMenuSubmit}>
                     <Form.Label>Menu name:</Form.Label>
                     <Form.Control type="text" value={menuData.name} name="name" onChange={handleInputChange} />
                 </Form>
                 <br /><br />
-                {menuData.days.map((day, index) => (
-                    // <div key={index}>
-                    <Accordion >
-                        <Row>
-                            <Accordion.Item eventKey="0">
-                                <Col>
-                                    <Accordion.Header>{day.day}</Accordion.Header>
-                                    <Accordion.Body>
-                                        Breakfast
-                                    </Accordion.Body>
-                                    <Accordion.Body>
-                                        <Button variant="dark" type="button" onClick={() => handleSearch(menuData._id, day.day)}>Add</Button>
-                                    </Accordion.Body>
-                                    <Accordion.Body>
-                                        {
-                                            day.recipeBreakfastId && recipes[day.recipeBreakfastId] ?
-                                                <RecipeMenu recipe={recipes[day.recipeBreakfastId]} />
-                                                :
+                {
+                    menuData.days.map((day, index) => (
+                        <Accordion >
+                            <Row>
+                                <Accordion.Item eventKey="0">
+                                    <Col>
+                                        <Accordion.Header>{day.day}</Accordion.Header>
+                                        <Accordion.Body>
+                                            Breakfast
+                                        </Accordion.Body>
+                                        <Accordion.Body>
+                                            <Button variant="dark" type="button" onClick={() => handleSearch(menuData._id, day.day)}>Add</Button>
+                                        </Accordion.Body>
+                                        <Accordion.Body>
+                                            {
+                                                day.recipeBreakfastId && recipes[day.recipeBreakfastId] ?
+                                                    <RecipeMenu recipe={recipes[day.recipeBreakfastId]} />
+                                                    :
+                                                    <p>no estoy</p>
+                                            }
+                                        </Accordion.Body>
+                                    </Col>
+                                    <Col>
+                                        <Accordion.Body>
+                                            Lunch
+                                        </Accordion.Body>
+                                        <Accordion.Body>
+                                            <Button variant="dark" type="button" onClick={() => handleSearchLunch(menuData._id, day.day)}>Add</Button>
+                                        </Accordion.Body>
+                                        <Accordion.Body>
+                                            {
+                                                day.recipeLunchId && recipes[day.recipeLunchId] ?
+                                                    <RecipeMenu recipe={recipes[day.recipeLunchId]} />
+                                                    :
+                                                    <p>no estoy</p>
+                                            }
+                                        </Accordion.Body>
+                                    </Col>
+                                    <Col>
+                                        <Accordion.Body>
+                                            Dinner
+                                        </Accordion.Body>
+                                        <Accordion.Body>
+                                            <Button variant="dark" type="button" onClick={() => handleSearchDinner(menuData._id, day.day)}>Add</Button>
+                                        </Accordion.Body>
+                                        <Accordion.Body>
+                                            {
+                                                day.recipeDinnerId && recipes[day.recipeDinnerId] ?
 
-                                                <p>no estoy</p>
-                                        }
+                                                    <RecipeMenu recipe={recipes[day.recipeDinnerId]} />
+                                                    :
 
-                                    </Accordion.Body>
-                                </Col>
-                                <Col>
-                                    <Accordion.Body>
-                                        Lunch
-                                    </Accordion.Body>
-                                    <Accordion.Body>
-                                        <Button variant="dark" type="button" onClick={() => handleSearchLunch(menuData._id, day.day)}>Add</Button>
-                                    </Accordion.Body>
-                                    <Accordion.Body>
-                                        {
-                                            day.recipeLunchId && recipes[day.recipeLunchId] ?
-                                                <RecipeMenu recipe={recipes[day.recipeLunchId]} />
-                                                :
-                                                <p>no estoy</p>
-                                        }
-                                    </Accordion.Body>
-                                </Col>
-                                <Col>
-                                    <Accordion.Body>
-                                        Dinner
-                                    </Accordion.Body>
-                                    <Accordion.Body>
-                                        <Button variant="dark" type="button" onClick={() => handleSearchDinner(menuData._id, day.day)}>Add</Button>
-                                    </Accordion.Body>
-                                    <Accordion.Body>
-                                        {
-                                            day.recipeDinnerId && recipes[day.recipeDinnerId] ?
+                                                    <p>no estoy</p>
+                                            }
+                                        </Accordion.Body>
+                                    </Col>
+                                </Accordion.Item>
+                            </Row>
 
-                                                <RecipeMenu recipe={recipes[day.recipeDinnerId]} />
-                                                :
-
-                                                <p>no estoy</p>
-                                        }
-                                    </Accordion.Body>
-                                </Col>
-                            </Accordion.Item>
-                        </Row>
-
-                    </Accordion>
-                ))}
+                        </Accordion>
+                    ))}
                 <Button variant="dark" type="submit">Create menu</Button>
                 <br /><br /> <br /><br /> <br /><br /> <br /><br /> <br /><br />
 

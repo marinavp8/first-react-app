@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 const MenuCard = ({ name, _id }) => {
     return (
         <Col lg={{ span: 3 }} md={{ span: 6 }}>
-            <article className='CoasterCard mb-3'>
+            <article className='mb-3'>
                 <Card>
                     <Card.Body>
                         <Card.Title>{name}</Card.Title>

@@ -8,7 +8,7 @@ const YourFridge = () => {
         <>
             <Container className="background">
                 <div className="centrar">
-                    <h2>whats on your fridge? </h2>
+                    <h2>whats on your fridge?</h2>
                     <RecipieFilteredIng />
 
                 </div>
