@@ -48,12 +48,10 @@ const EditProfile = () => {
         uploadServices
             .uploadimage(formData)
             .then((res) => {
-                console.log(res)
                 setNewSignupData({ ...newSignupData, avatar: res.data.cloudinary_url })
                 setLoagingImage(false)
             })
             .catch(err => {
-                console.log(err)
                 setLoagingImage(false)
             })
     }

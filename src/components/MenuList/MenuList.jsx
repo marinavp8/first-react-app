@@ -30,13 +30,11 @@ const MenuList = () => {
             ?
             <h1>cargando</h1>
             :
-            <>
-                <Row>
-                    {
-                        menus.map(e => <MenuCard {...e} key={e._id} />)
-                    }
-                </Row>
-            </>
+            <Row>
+                {
+                    menus.map(e => <MenuCard {...e} key={e._id} />)
+                }
+            </Row>
     )
 
 }

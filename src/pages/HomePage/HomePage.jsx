@@ -11,7 +11,7 @@ const HomePage = () => {
             <div className="centrarHome">
                 <h1>Whats in your fridge?</h1>
 
-                {/* <CarouselFunc /> */}
+                <CarouselFunc />
             </div>
 
         </div>

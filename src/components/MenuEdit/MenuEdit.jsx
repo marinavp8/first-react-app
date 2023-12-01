@@ -15,21 +15,17 @@ const EditMenuForm = ({ existingMenuData, handleUpdateMenu }) => {
     const handleChange = (event) => {
         const { name, value } = event.target
         setFormData({ ...formData, [name]: value })
-        console.log("name:", name)
-        console.log("value:", name)
-        console.log("formData:", formData)
     }
 
     handleUpdateMenu = e => {
-        console.log("Holaaaaaaaaa", formData._id)
         e.preventDefault()
         const { _id: menuId } = formData
+
         menuService
             .editMenu(menuId, formData)
             .then(({ data }) => {
                 setFormData(data)
                 navigate('/menulist')
-
             })
             .catch(err => console.log(err))
     }
