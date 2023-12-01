@@ -7,10 +7,9 @@ import commentService from "../../services/comment.services"
 import { useNavigate } from "react-router-dom"
 
 
-const Comment = () => {
+const CreateComment = () => {
 
     const [data, setData] = useState({ comment: '' })
-
 
     const handleInputChange = e => {
 
@@ -27,7 +26,7 @@ const Comment = () => {
 
         commentService
             .postComment(data)
-            .then(() => navigate('/profile'))
+            .then(() => navigate('/fridge'))
             .catch(err => console.log(err))
 
     }
@@ -41,7 +40,7 @@ const Comment = () => {
                 <Form.Control type="text" value={data.comment} onChange={handleInputChange} name="comment" />
             </Form.Group>
             <div className="d-grid">
-                <Button variant="dark" type="submit">Send</Button>
+                <Button variant="dark" type="submit" >Send</Button>
             </div>
 
         </Form>
@@ -49,4 +48,4 @@ const Comment = () => {
     )
 }
 
-export default Comment
+export default CreateComment

@@ -3,10 +3,11 @@ import { useParams } from "react-router-dom"
 import edamamService from "../../../services/edamam.services"
 import Loader from "../../../components/Loader/Loader"
 
+import CreateComment from '../../../components/Comments/CreateComment'
+
 const DetailsRecipe = () => {
     const { id } = useParams()
     const [recipe, setRecipe] = useState()
-
 
 
     const getDetailRecipe = (id) => {
@@ -34,14 +35,15 @@ const DetailsRecipe = () => {
             <Loader />
             :
             <>
-                <h1>Explore your Recipe!</h1>
+
+                <h1>Explore your Recipe!!!!!</h1>
                 <img src={recipe.images.SMALL.url} />
                 <hr />
-                <p>{recipe.mealType}</p>
+                <h1>mealtype:{recipe.mealType[0]}</h1>
                 <hr />
-                <p>{recipe.dishType}</p>
+                <h1>{recipe.dishType}</h1>
                 <hr />
-                <h3>Ingredients:</h3>
+                <h1>Ingredients:</h1>
                 <ul>
                     {
                         recipe.ingredientLines.map((ingredient, _id) => {
@@ -68,6 +70,9 @@ const DetailsRecipe = () => {
                     }
                 </ol>
 
+                <CreateComment />
+                <hr></hr>
+                <hr></hr>
 
 
 

@@ -10,6 +10,7 @@ const YourFridge = () => {
                 <div className="centrar">
                     <h2>whats on your fridge? Let's search a recipe! </h2>
                     <RecipieFilteredIng />
+
                 </div>
             </Container>
         </>

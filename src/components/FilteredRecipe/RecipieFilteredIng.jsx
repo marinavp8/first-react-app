@@ -1,11 +1,10 @@
 import { useState } from "react"
 import edamamService from "../../services/edamam.services"
 
+
 import { Form, Button, Container, Row, Col, Card } from "react-bootstrap"
 
 import { Link } from "react-router-dom";
-
-
 
 
 
@@ -64,7 +63,7 @@ const RecipieFilteredIng = () => {
                             let startPos = urlUri.length - 32;
                             let id = urlUri.slice(startPos)
                             return (
-           
+
 
                                 <Col>
                                     <Card style={{ width: '18rem' }}>
@@ -74,9 +73,9 @@ const RecipieFilteredIng = () => {
                                             <Card.Text>
                                                 <p>Type :{recipe.recipe.cuisineType} </p>
                                                 <p>Perfect for {recipe.recipe.mealType}! </p>
-                                                <p>esto es el id {id}</p>
+
                                             </Card.Text>
-                                            <Link to={`/recipes/${id}`} className="btn btn-dark btn-sm">ver detalles</Link>
+                                            <Link to={`/recipes/${id}`} className="btn btn-dark btn-sm mt-4">ver detalles</Link>
                                         </Card.Body>
                                     </Card>
                                 </Col>

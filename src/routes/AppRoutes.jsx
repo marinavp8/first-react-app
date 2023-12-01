@@ -11,12 +11,11 @@ import HomePage from '../pages/HomePage/HomePage'
 import PrivateRoute from './PrivateRoute'
 import MenuEdit from "../components/MenuEdit/MenuEdit"
 import YourFridge from '../pages/YourFridge/YourFridge'
-import RecipeDetails from '../pages/RecipeDetailsPage/RecipeDetails'
 import FilteredBreakfast2 from "../components/Prueba/FilteredBreakfast2"
 import EditProfile from '../components/EditProfile/EditProfile'
 import FilteredDinner from '../components/Prueba/FilteredDinner2'
 import FilteredLunch from '../components/Prueba/FilteredLunch2'
-import Comment from '../components/Comments/Comments'
+import DetailsRecipe from '../components/FilteredRecipe/DetailsRecipe/DetailsRecipe'
 
 
 const AppRoutes = () => {
@@ -39,7 +38,7 @@ const AppRoutes = () => {
             <Route path={'/fridge'} element={<YourFridge />} />
 
             <Route path={'/search/results'} element={<FiltersPage />} />
-            <Route path={'/recipes/:id'} element={<RecipeDetails />} />
+            <Route path={'/recipes/:id'} element={<DetailsRecipe />} />
 
             <Route path={'/createmenu'} element={< MenuCreate />} />
             <Route path={'/menulist'} element={< MenuList />} />
@@ -52,7 +51,6 @@ const AppRoutes = () => {
             <Route path={'/addDinner/:menuId/:day'} element={< FilteredDinner />} />
 
 
-            <Route path={'/comments'} element={<Comment />} />
 
         </Routes>
     )
