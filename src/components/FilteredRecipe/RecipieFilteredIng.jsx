@@ -64,6 +64,7 @@ const RecipieFilteredIng = () => {
                             let startPos = urlUri.length - 32;
                             let id = urlUri.slice(startPos)
                             return (
+           
 
                                 <Col>
                                     <Card style={{ width: '18rem' }}>

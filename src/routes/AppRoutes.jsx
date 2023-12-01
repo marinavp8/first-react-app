@@ -13,6 +13,13 @@ import MenuEdit from "../components/MenuEdit/MenuEdit"
 import YourFridge from '../pages/YourFridge/YourFridge'
 import RecipeDetails from '../pages/RecipeDetailsPage/RecipeDetails'
 import FilteredBreakfast2 from "../components/Prueba/FilteredBreakfast2"
+<<<<<<< HEAD
+import EditProfile from '../components/EditProfile/EditProfile'
+=======
+import FilteredDinner from '../components/Prueba/FilteredDinner2'
+import FilteredLunch from '../components/Prueba/FilteredLunch2'
+
+>>>>>>> af788239938da2c7785bb7edba874c4a7a3fe30a
 
 const AppRoutes = () => {
 
@@ -22,8 +29,10 @@ const AppRoutes = () => {
 
             <Route path={'/signup'} element={<SignupPage />} />
             <Route path={'/login'} element={<LoginPage />} />
+
             <Route element={<PrivateRoute />} >
                 <Route path={'/profile'} element={<ProfilePage />} />
+                <Route path={'/edit'} element={<EditProfile />} />
             </Route>
 
             <Route path={'/menulist'} element={< MenuList />} />
@@ -39,8 +48,10 @@ const AppRoutes = () => {
             <Route path={':_id'} element={<MenuDetails />} />
             <Route path={'/edit/:_id'} element={<MenuEdit />} />
 
-            <Route path={'/createmenu/:menu?/:day?/meal?/:realId?'} element={< MenuCreate />} />
+            <Route path={'/createmenu/:menuId?'} element={< MenuCreate />} />
             <Route path={'/breakfastprueba/:menuId/:day'} element={< FilteredBreakfast2 />} />
+            <Route path={'/addLunch/:menuId/:day'} element={< FilteredLunch />} />
+            <Route path={'/addDinner/:menuId/:day'} element={< FilteredDinner />} />
 
         </Routes>
     )
