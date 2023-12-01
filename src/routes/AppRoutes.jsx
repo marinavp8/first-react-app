@@ -13,13 +13,10 @@ import MenuEdit from "../components/MenuEdit/MenuEdit"
 import YourFridge from '../pages/YourFridge/YourFridge'
 import RecipeDetails from '../pages/RecipeDetailsPage/RecipeDetails'
 import FilteredBreakfast2 from "../components/Prueba/FilteredBreakfast2"
-<<<<<<< HEAD
 import EditProfile from '../components/EditProfile/EditProfile'
-=======
 import FilteredDinner from '../components/Prueba/FilteredDinner2'
 import FilteredLunch from '../components/Prueba/FilteredLunch2'
 
->>>>>>> af788239938da2c7785bb7edba874c4a7a3fe30a
 
 const AppRoutes = () => {
 
