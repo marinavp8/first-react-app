@@ -33,7 +33,7 @@ const FilteredVegetarian = () => {
         <div>
 
             <form onSubmit={pressImput} className="mb-3 text-center">
-                <label> Receta vegetariana buscar por ingrediente:
+                <label> Are you vegeterian?
                 </label>
 
                 <input type="text" value={ingredient} onChange={pressChange} />

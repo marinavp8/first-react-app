@@ -15,7 +15,7 @@ import FilteredBreakfast2 from "../components/Prueba/FilteredBreakfast2"
 import EditProfile from '../components/EditProfile/EditProfile'
 import FilteredDinner from '../components/Prueba/FilteredDinner2'
 import FilteredLunch from '../components/Prueba/FilteredLunch2'
-import DetailsRecipe from '../components/FilteredRecipe/DetailsRecipe/DetailsRecipe'
+import AboutUs from '../components/AboutUs/AboutUs'
 
 
 const AppRoutes = () => {
@@ -23,6 +23,8 @@ const AppRoutes = () => {
     return (
         <Routes>
             <Route path={'/'} element={<HomePage />} />
+
+            <Route path={'/aboutUs'} element={<AboutUs />} />
 
             <Route path={'/signup'} element={<SignupPage />} />
             <Route path={'/login'} element={<LoginPage />} />

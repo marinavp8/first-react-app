@@ -6,8 +6,7 @@ import { AuthContext } from "../../contexts/auth.contexts"
 import { useContext } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import Loader from "../Loader/Loader"
-import { Container } from "react-bootstrap"
-import { Dropdown } from "react-bootstrap"
+import { Container, Accordion, Row, Col } from "react-bootstrap"
 import RecipeMenu from "../RecipeMenu/RecipeMenu"
 
 const menuBase = {
@@ -63,6 +62,7 @@ const newMenuForm = () => {
     const params = useParams()
     const navigate = useNavigate()
     const [menuData, setMenuData] = useState(null)
+    const [menuName, setMenuName] = useState(null)
     const [recipes, setRecipes] = useState({})
 
 
@@ -144,6 +144,7 @@ const newMenuForm = () => {
         })
 
 
+
         // const handleDayChange = (index, fieldName, value) => {
         //     const { selectedRecipeId } = useContext(RecipeContext);
 
@@ -194,11 +195,11 @@ const newMenuForm = () => {
 
 
 
-    // useEffect(() => {
-    //     if (!loggedUser) {
-    //         navigate("/login")
-    //     }
-    // }, [])
+    useEffect(() => {
+        if (!loggedUser) {
+            navigate("/login")
+        }
+    }, [])
 
 
     return (
@@ -208,33 +209,81 @@ const newMenuForm = () => {
             :
 
             <Container>
+                <Form onSubmit={handleMenuSubmit}>
+                    <Form.Label>Menu name:</Form.Label>
+                    <Form.Control type="text" value={menuData.name} name="name" onChange={handleInputChange} />
+                </Form>
+                <br /><br />
+                {menuData.days.map((day, index) => (
+                    // <div key={index}>
+                    <Accordion >
+                        <Row>
+                            <Accordion.Item eventKey="0">
+                                <Col>
+                                    <Accordion.Header>{day.day}</Accordion.Header>
+                                    <Accordion.Body>
+                                        Breakfast
+                                    </Accordion.Body>
+                                    <Accordion.Body>
+                                        <Button variant="dark" type="button" onClick={() => handleSearch(menuData._id, day.day)}>Add</Button>
+                                    </Accordion.Body>
+                                    <Accordion.Body>
+                                        {
+                                            day.recipeBreakfastId && recipes[day.recipeBreakfastId] ?
+                                                <RecipeMenu recipe={recipes[day.recipeBreakfastId]} />
+                                                :
 
+                                                <p>no estoy</p>
+                                        }
 
-                <Dropdown className="d-inline mx-2" autoClose="inside">
-                    <Dropdown.Toggle id="dropdown-autoclose-inside">
-                        Clickable Outside
-                    </Dropdown.Toggle>
+                                    </Accordion.Body>
+                                </Col>
+                                <Col>
+                                    <Accordion.Body>
+                                        Lunch
+                                    </Accordion.Body>
+                                    <Accordion.Body>
+                                        <Button variant="dark" type="button" onClick={() => handleSearchLunch(menuData._id, day.day)}>Add</Button>
+                                    </Accordion.Body>
+                                    <Accordion.Body>
+                                        {
+                                            day.recipeLunchId && recipes[day.recipeLunchId] ?
+                                                <RecipeMenu recipe={recipes[day.recipeLunchId]} />
+                                                :
+                                                <p>no estoy</p>
+                                        }
+                                    </Accordion.Body>
+                                </Col>
+                                <Col>
+                                    <Accordion.Body>
+                                        Dinner
+                                    </Accordion.Body>
+                                    <Accordion.Body>
+                                        <Button variant="dark" type="button" onClick={() => handleSearchDinner(menuData._id, day.day)}>Add</Button>
+                                    </Accordion.Body>
+                                    <Accordion.Body>
+                                        {
+                                            day.recipeDinnerId && recipes[day.recipeDinnerId] ?
 
-                    <Dropdown.Menu>
+                                                <RecipeMenu recipe={recipes[day.recipeDinnerId]} />
+                                                :
 
-                        {menuData.days.map((day, index) => (
-                            <Dropdown.Item href="#">{day.day} </Dropdown.Item>
+                                                <p>no estoy</p>
+                                        }
+                                    </Accordion.Body>
+                                </Col>
+                            </Accordion.Item>
+                        </Row>
 
-                        ))}
-                    </Dropdown.Menu>
-                </Dropdown>
-
-
-
-
-
-
-
+                    </Accordion>
+                ))}
+                <Button variant="dark" type="submit">Create menu</Button>
+                <br /><br /> <br /><br /> <br /><br /> <br /><br /> <br /><br />
 
                 <div className="newMenuForm">
                     <Form onSubmit={handleMenuSubmit}>
                         <Form.Group className="mb-3" controlId="name">
-                            <Form.Label>{menuData._id}Menu name</Form.Label>
+                            <Form.Label>Menu name:</Form.Label>
                             <Form.Control type="text" value={menuData.name} name="name" onChange={handleInputChange} />
                         </Form.Group>
                         {menuData.days.map((day, index) => (
@@ -250,7 +299,7 @@ const newMenuForm = () => {
                                             <p>no estoy</p>
                                     }
                                     <br /><br />
-                                    <Button variant="dark" type="button" onClick={() => handleSearch(menuData._id, day.day)}>Buscar</Button>
+                                    <Button variant="dark" type="button" onClick={() => handleSearch(menuData._id, day.day)}>Search</Button>
                                     {/* <Form.Control type="text" value={day.recipeBreakfastId} onChange={(e) => handleDayChange(index, 'recipeBreakfastId', e.target.value)} /> */}
                                 </Form.Group>
                                 <Form.Group className="mb-3">

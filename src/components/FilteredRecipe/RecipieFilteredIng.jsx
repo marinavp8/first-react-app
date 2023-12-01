@@ -37,8 +37,6 @@ const RecipieFilteredIng = () => {
 
     }
 
-
-
     return (
         <div>
             <Container className="text-center mt-4">

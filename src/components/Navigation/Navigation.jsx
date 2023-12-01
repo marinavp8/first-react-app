@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.contexts'
-
+import "./Navigation.css"
 import { Container, Navbar, Nav, NavDropdown, NavbarText } from 'react-bootstrap'
 
 const Navigation = () => {
@@ -10,11 +10,15 @@ const Navigation = () => {
 
     return (
         <>
-            <Navbar bg="dark" data-bs-theme="dark" className='mb-5' expand="lg">
+            <Navbar bg="white" data-bs-theme="light" className='mb-5' expand="lg">
 
                 <Container>
 
-                    <Link to={'/'} className='nav-link'><Navbar.Brand href="#home">recipes-for-all App</Navbar.Brand></Link>
+<<<<<<< HEAD
+                    <Link to={'/'} className='nav-link'><Navbar.Brand>recipes-for-all App</Navbar.Brand></Link>
+=======
+                    <Link to={'/'} className='nav-link'><Navbar.Brand href="#home"><img src="../src/assets/dishdashlogo.png" alt="logo" className='imglogo' /></Navbar.Brand></Link>
+>>>>>>> d12593b1ac3e32630ea9937fa44c03c4e3bd9d25
 
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
@@ -22,11 +26,13 @@ const Navigation = () => {
 
                         <Nav className="me-auto">
 
-                            <Link to={'/fridge'} className='nav-link'>What's on your fridge?</Link>
+                            {/* <Link to={'/fridge'} className='nav-link'>What's on your fridge?</Link> */}
 
-                            <Link to={'/createmenu'} className='nav-link'>Create menu</Link>
+                            <Link to={'/createmenu'} className='nav-link'>Weekly menu</Link>
 
-                            <Link to={'/search/results'} className='nav-link'> Filtros </Link>
+                            <Link to={'/search/results'} className='nav-link'> Advanced filters </Link>
+
+                            <Link to={'/aboutUs'} className='nav-link'> About Us</Link>
 
                         </Nav>
 

@@ -3,7 +3,7 @@ import edamamService from "../../services/edamam.services"
 // import RecipeContext from "../../contexts/recipe.context"
 // import { useContext } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import { Button } from "react-bootstrap"
+import { Button, Form } from "react-bootstrap"
 import menuService from "../../services/menu.services"
 
 const FilteredBreakfast2 = () => {
@@ -65,13 +65,26 @@ const FilteredBreakfast2 = () => {
         <div>
 
             <form onSubmit={pressImput}>
-                <label> DESAYUNO buscar por ingrediente:
+
+
+
+
+                {/* <Form.Label htmlFor="inputPassword5">Tell me an ingredient and let yourself go:</Form.Label>
+                <Form.Control
+                    type="text"
+                    id="inputPassword5"
+                    aria-describedby="passwordHelpBlock"
+                    value={ingredient} onChange={pressChange}
+                /> */}
+
+
+                <label> Tell me an ingredient and let yourself go:
                 </label>
 
                 <input type="text" value={ingredient} onChange={pressChange} />
 
 
-                <button type='submit'> Enviar </button>
+                <button type='submit'> Search </button>
                 <div>
                     {
                         recipes.map((recipe) => {

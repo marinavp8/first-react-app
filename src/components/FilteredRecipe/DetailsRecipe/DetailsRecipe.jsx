@@ -6,6 +6,7 @@ import Loader from "../../../components/Loader/Loader"
 import CreateComment from '../../../components/Comments/CreateComment'
 
 const DetailsRecipe = () => {
+
     const { id } = useParams()
     const [recipe, setRecipe] = useState()
 
@@ -25,9 +26,6 @@ const DetailsRecipe = () => {
         getDetailRecipe(id)
 
     }, [])
-
-
-
 
     return (
         !recipe
@@ -62,8 +60,6 @@ const DetailsRecipe = () => {
                             return (
                                 <li>
                                     <p>  Prepare :{step.text}</p>
-
-
                                 </li>
                             )
                         })
@@ -74,11 +70,10 @@ const DetailsRecipe = () => {
                 <hr></hr>
                 <hr></hr>
 
-
-
             </>
 
     )
+
 }
 
 export default DetailsRecipe

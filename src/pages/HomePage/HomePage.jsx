@@ -9,16 +9,15 @@ const HomePage = () => {
 
     return (
 
-
         <div className="backgroundHome">
             <div className="centrarHome">
                 <h1>Whats in your fridge?</h1>
 
-                <CarouselFunc />
+                {/* <CarouselFunc /> */}
             </div>
 
-
         </div>
+
 
     )
 }
