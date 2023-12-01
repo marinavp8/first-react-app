@@ -38,6 +38,29 @@ class menuServices {
 
         return this.api.put(`/updateMenu/${menuId}/${day}/`, { realId })
     }
+    editLunchMenu(realId, params) {
+        console.log("del que haces clock", realId)
+        console.log("------params", params)
+        const { menuId, day } = params
+
+        return this.api.put(`/updateMenuLunch/${menuId}/${day}/`, { realId })
+    }
+    editDinnerMenu(realId, params) {
+        console.log("del que haces clock", realId)
+        console.log("------params", params)
+        const { menuId, day } = params
+
+        return this.api.put(`/updateMenuDinner/${menuId}/${day}/`, { realId })
+    }
+
+    // editMondayMenu(realId, params) {
+    //     console.log("del que haces clock", realId)
+    //     console.log("------params", params)
+    //     const { menuId, day } = params
+
+    //     return this.api.put(`/updateMenu/${menuId}/${day}/`, { realId })
+    // }
+
 
 
 }

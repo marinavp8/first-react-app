@@ -13,6 +13,9 @@ import MenuEdit from "../components/MenuEdit/MenuEdit"
 import YourFridge from '../pages/YourFridge/YourFridge'
 import RecipeDetails from '../pages/RecipeDetailsPage/RecipeDetails'
 import FilteredBreakfast2 from "../components/Prueba/FilteredBreakfast2"
+import FilteredDinner from '../components/Prueba/FilteredDinner2'
+import FilteredLunch from '../components/Prueba/FilteredLunch2'
+
 
 const AppRoutes = () => {
 
@@ -39,8 +42,10 @@ const AppRoutes = () => {
             <Route path={':_id'} element={<MenuDetails />} />
             <Route path={'/edit/:_id'} element={<MenuEdit />} />
 
-            <Route path={'/createmenu/:menu?/:day?/meal?/:realId?'} element={< MenuCreate />} />
+            <Route path={'/createmenu/:menuId?'} element={< MenuCreate />} />
             <Route path={'/breakfastprueba/:menuId/:day'} element={< FilteredBreakfast2 />} />
+            <Route path={'/addLunch/:menuId/:day'} element={< FilteredLunch />} />
+            <Route path={'/addDinner/:menuId/:day'} element={< FilteredDinner />} />
 
         </Routes>
     )
