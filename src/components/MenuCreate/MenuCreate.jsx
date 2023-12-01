@@ -6,8 +6,7 @@ import { AuthContext } from "../../contexts/auth.contexts"
 import { useContext } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import Loader from "../Loader/Loader"
-import { Container } from "react-bootstrap"
-import { Dropdown } from "react-bootstrap"
+import { Container, Accordion } from "react-bootstrap"
 import RecipeMenu from "../RecipeMenu/RecipeMenu"
 
 const menuBase = {
@@ -208,6 +207,33 @@ const newMenuForm = () => {
             :
 
             <Container>
+
+                {menuData.days.map((day, index) => (
+                    // <div key={index}>
+                    <Accordion defaultActiveKey="0" flush>
+                        <Accordion.Item eventKey="0">
+                            <Accordion.Header>{day.day}</Accordion.Header>
+                            <Accordion.Body>
+                                {
+                                    day.recipeBreakfastId && recipes[day.recipeBreakfastId] ?
+                                        <RecipeMenu recipe={recipes[day.recipeBreakfastId]} />
+                                        :
+
+                                        <p>no estoy</p>
+                                }
+                            </Accordion.Body>
+                            <Accordion.Body>
+
+                            </Accordion.Body>
+                            <Accordion.Body>
+                                <Button variant="dark" type="button" onClick={() => handleSearch(menuData._id, day.day)}>Search</Button>
+
+                            </Accordion.Body>
+                        </Accordion.Item>
+
+                    </Accordion>
+                ))}
+
                 <div className="newMenuForm">
                     <Form onSubmit={handleMenuSubmit}>
                         <Form.Group className="mb-3" controlId="name">
