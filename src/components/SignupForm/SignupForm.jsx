@@ -32,7 +32,7 @@ const SignupForm = () => {
 
         authService
             .signup(signupData)
-            .then(() => navigate('/createmenu'))
+            .then(() => navigate('/'))
             .catch(err => console.log(err))
 
     }
@@ -82,7 +82,7 @@ const SignupForm = () => {
             </Form.Group>
 
             <div className="d-grid">
-                <Button variant="dark" type="submit" disabled={loadingIamge}>{loadingIamge ? 'Cargando imagen ...' : 'Registrarme'}</Button>
+                <Button variant="dark" type="submit" disabled={loadingIamge}>{loadingIamge ? 'Loading ...' : 'Sign Up'}</Button>
             </div>
 
         </Form>

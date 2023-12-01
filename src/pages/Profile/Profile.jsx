@@ -33,14 +33,12 @@ const ProfilePage = () => {
                     </Button>
 
                     <Offcanvas show={show} onHide={handleClose} >
+
                         <Offcanvas.Header closeButton>
                             <Offcanvas.Title>{loggedUser.username}</Offcanvas.Title>
                         </Offcanvas.Header>
-                        <Offcanvas.Body>
-                            {/* <Image src={loggedUser.avatar} style={{ width: '100px' }} roundedCircle />
 
-                            <p>{loggedUser.username}</p>
-                            <p>{loggedUser.email}</p> */}
+                        <Offcanvas.Body>
                             <EditProfile />
                         </Offcanvas.Body>
 

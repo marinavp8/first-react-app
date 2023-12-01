@@ -13,6 +13,7 @@ import MenuEdit from "../components/MenuEdit/MenuEdit"
 import YourFridge from '../pages/YourFridge/YourFridge'
 import RecipeDetails from '../pages/RecipeDetailsPage/RecipeDetails'
 import FilteredBreakfast2 from "../components/Prueba/FilteredBreakfast2"
+import EditProfile from '../components/EditProfile/EditProfile'
 
 const AppRoutes = () => {
 
@@ -22,8 +23,10 @@ const AppRoutes = () => {
 
             <Route path={'/signup'} element={<SignupPage />} />
             <Route path={'/login'} element={<LoginPage />} />
+
             <Route element={<PrivateRoute />} >
                 <Route path={'/profile'} element={<ProfilePage />} />
+                <Route path={'/edit'} element={<EditProfile />} />
             </Route>
 
             <Route path={'/menulist'} element={< MenuList />} />

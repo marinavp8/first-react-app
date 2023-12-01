@@ -1,13 +1,8 @@
 import { useState } from "react"
 import edamamService from "../../services/edamam.services"
 
-import { Form, Button, Card, Container, Row, Col, CardGroup } from "react-bootstrap"
-// import { Link } from "react-router-dom"
-
-
-import Carousel from 'react-bootstrap/Carousel';
-
-
+import { Form, Button, Card, Container, Row, Col, Carousel } from "react-bootstrap"
+import { Link } from "react-router-dom"
 
 const RecipieFilteredIng = () => {
 
@@ -38,7 +33,6 @@ const RecipieFilteredIng = () => {
 
     }
 
-
     return (
         <div>
             <Container className="text-center mt-4">
@@ -53,41 +47,37 @@ const RecipieFilteredIng = () => {
                 </Form>
             </Container>
 
-            <div>
+            <Container >
+                <Row xs={4} md={1} className="g-4">
+                    <Carousel data-bs-theme="dark">
+                        {
+                            recipes.map((recipe) => {
 
-                <Container >
-                    <Row xs={4} md={1} className="g-4">
-                        <Carousel data-bs-theme="dark">
-                            {
-                                recipes.map((recipe) => {
+                                const urlUri = recipe.recipe.uri
+                                let startPos = urlUri.length - 32;
+                                let id = urlUri.slice(startPos)
 
-                                    const urlUri = recipe.recipe.uri
-                                    let startPos = urlUri.length - 32;
-                                    let id = urlUri.slice(startPos)
+                                return (
+                                    <>
 
-                                    return (
+                                        <Col>
 
-                                        // <Col>
+                                            <Card style={{ width: '18rem' }}>
+                                                <Card.Img variant="top" src={recipe.recipe.images.SMALL.url} />
+                                                <Card.Body>
+                                                    <Card.Title> <h4>{recipe.recipe.label}</h4> </Card.Title>
+                                                    <Card.Text>
+                                                        <p>Type :{recipe.recipe.cuisineType} </p>
+                                                        <p>Perfect for {recipe.recipe.mealType}! </p>
+                                                        <p>Time :{recipe.recipe.totalTime} mins</p>
 
-                                        //     <Card style={{ width: '18rem' }}>
-                                        //         <Card.Img variant="top" src={recipe.recipe.images.SMALL.url} />
-                                        //         <Card.Body>
-                                        //             <Card.Title> <h4>{recipe.recipe.label}</h4> </Card.Title>
-                                        //             <Card.Text>
-                                        //                 <p>Type :{recipe.recipe.cuisineType} </p>
-                                        //                 <p>Perfect for {recipe.recipe.mealType}! </p>
-                                        //                 <p>Time :{recipe.recipe.totalTime} mins</p>
+                                                    </Card.Text>
+                                                    <Link to={`/recipes/${id}`} className="btn btn-dark btn-sm">ver detalles</Link>
+                                                </Card.Body>
+                                            </Card>
+                                        </Col>
 
-
-                                        //             </Card.Text>
-                                        //             <Link to={`/recipes/${id}`} className="btn btn-dark btn-sm">ver detalles</Link>
-                                        //         </Card.Body>
-                                        //     </Card>
-                                        // </Col>
-
-
-
-                                        <Carousel.Item >
+                                        {/* <Carousel.Item >
                                             <img
                                                 style={{ maxHeight: "300px", objectFit: "cover" }}
                                                 className="d-block w-80 mx-auto mb-5"
@@ -101,24 +91,22 @@ const RecipieFilteredIng = () => {
                                                 <p>Time :{recipe.recipe.totalTime} mins</p>
                                             </Carousel.Caption>
 
-                                        </Carousel.Item>
+                                        </Carousel.Item> */}
+                                    </>
+                                )
+                            })}
+                    </Carousel>
+                </Row>
+            </Container>
+        </div>
 
-                                    )
-                                })}
-                        </Carousel>
-                    </Row>
-                </Container>
-            </div>
 
-        </div >
 
 
     )
 
 
 }
-
-
 
 export default RecipieFilteredIng
 
