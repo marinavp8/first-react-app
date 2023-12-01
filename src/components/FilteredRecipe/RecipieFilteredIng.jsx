@@ -1,11 +1,11 @@
 import { useState } from "react"
 import edamamService from "../../services/edamam.services"
 
-import { Form, Button, Card, Container, Row, Col, CardGroup } from "react-bootstrap"
-// import { Link } from "react-router-dom"
+import { Form, Button, Container, Row, Col, Card } from "react-bootstrap"
+
+import { Link } from "react-router-dom";
 
 
-import Carousel from 'react-bootstrap/Carousel';
 
 
 
@@ -39,6 +39,7 @@ const RecipieFilteredIng = () => {
     }
 
 
+
     return (
         <div>
             <Container className="text-center mt-4">
@@ -53,71 +54,39 @@ const RecipieFilteredIng = () => {
                 </Form>
             </Container>
 
-            <div>
+            <Container>
 
-                <Container >
-                    <Row xs={4} md={1} className="g-4">
-                        <Carousel data-bs-theme="dark">
-                            {
-                                recipes.map((recipe) => {
+                <Row xs={2} md={3} className="g-4">
 
-                                    const urlUri = recipe.recipe.uri
-                                    let startPos = urlUri.length - 32;
-                                    let id = urlUri.slice(startPos)
+                    {
+                        recipes.map((recipe) => {
+                            const urlUri = recipe.recipe.uri
+                            let startPos = urlUri.length - 32;
+                            let id = urlUri.slice(startPos)
+                            return (
 
-                                    return (
+                                <Col>
+                                    <Card style={{ width: '18rem' }}>
+                                        <Card.Img variant="top" src={recipe.recipe.images.SMALL.url} />
+                                        <Card.Body>
+                                            <Card.Title> <h4>{recipe.recipe.label}</h4> </Card.Title>
+                                            <Card.Text>
+                                                <p>Type :{recipe.recipe.cuisineType} </p>
+                                                <p>Perfect for {recipe.recipe.mealType}! </p>
+                                                <p>esto es el id {id}</p>
+                                            </Card.Text>
+                                            <Link to={`/recipes/${id}`} className="btn btn-dark btn-sm">ver detalles</Link>
+                                        </Card.Body>
+                                    </Card>
+                                </Col>
+                            )
+                        })}
+                </Row>
+            </Container>
 
-                                        // <Col>
-
-                                        //     <Card style={{ width: '18rem' }}>
-                                        //         <Card.Img variant="top" src={recipe.recipe.images.SMALL.url} />
-                                        //         <Card.Body>
-                                        //             <Card.Title> <h4>{recipe.recipe.label}</h4> </Card.Title>
-                                        //             <Card.Text>
-                                        //                 <p>Type :{recipe.recipe.cuisineType} </p>
-                                        //                 <p>Perfect for {recipe.recipe.mealType}! </p>
-                                        //                 <p>Time :{recipe.recipe.totalTime} mins</p>
-
-
-                                        //             </Card.Text>
-                                        //             <Link to={`/recipes/${id}`} className="btn btn-dark btn-sm">ver detalles</Link>
-                                        //         </Card.Body>
-                                        //     </Card>
-                                        // </Col>
-
-
-
-                                        <Carousel.Item >
-                                            <img
-                                                style={{ maxHeight: "300px", objectFit: "cover" }}
-                                                className="d-block w-80 mx-auto mb-5"
-                                                src={recipe.recipe.images.REGULAR.url}
-                                                alt='img'
-                                            />
-
-                                            <Carousel.Caption>
-                                                <h5 className="mt-5">Type :{recipe.recipe.cuisineType} </h5>
-                                                <p>Perfect for {recipe.recipe.mealType}!</p>
-                                                <p>Time :{recipe.recipe.totalTime} mins</p>
-                                            </Carousel.Caption>
-
-                                        </Carousel.Item>
-
-                                    )
-                                })}
-                        </Carousel>
-                    </Row>
-                </Container>
-            </div>
-
-        </div >
-
-
+        </div>
     )
-
-
 }
-
 
 
 export default RecipieFilteredIng

@@ -38,7 +38,7 @@ const FilteredBreakfast = () => {
     return (
         <div>
 
-            <form onSubmit={pressImput}>
+            <form onSubmit={pressImput} className="mb-3 text-center">
                 <label> DESAYUNO buscar por ingrediente:
                 </label>
 

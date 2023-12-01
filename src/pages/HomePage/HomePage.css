@@ -1,17 +1,33 @@
-.background {
-    background-image: url(../../assets/fondo3.jpg);
+.backgroundHome {
+    background-image: url(../../assets/vegetales-varios-sobre-mesa-negra-espacio-mensaje.jpg);
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
-    margin-top: -50px;
+    margin-top: -48px;
+    color: white;
 
 
 }
 
-.background h1 {
-    color: rgb(168, 112, 28);
+.backgroundHome h1 {
+    color: rgb(58, 125, 19);
     font-family: sans-serif;
     text-align: center;
 
+}
+
+.background h5,
+p {
+    opacity: 0;
+}
+
+
+.centrarHome {
+    padding-top: 13%;
+}
+
+.form {
+
+    border-radius: 100px;
 }

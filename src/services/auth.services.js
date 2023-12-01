@@ -6,7 +6,7 @@ class AuthService {
         this.api = axios.create({
             baseURL: `${import.meta.env.VITE_API_URL}/api/auth`
         })
-
+        
     }
 
     signup(userData) {

@@ -1,5 +1,5 @@
 
-import RecipieFilteredIng from "../../components/FilteredRecipe/RecipieFilteredIng"
+import CarouselFunc from "../../components/FilteredRecipe/Carrousel"
 import "./HomePage.css"
 
 
@@ -10,11 +10,12 @@ const HomePage = () => {
     return (
 
 
-        <div className="background">
+        <div className="backgroundHome">
+            <div className="centrarHome">
+                <h1>Whats in your fridge?</h1>
 
-            <h1>whats in your fridge?</h1>
-
-            <RecipieFilteredIng />
+                <CarouselFunc />
+            </div>
 
 
         </div>

@@ -32,7 +32,7 @@ const FilteredDinner = () => {
     return (
         <div>
 
-            <form onSubmit={pressImput}>
+            <form onSubmit={pressImput} className="mb-3 text-center">
                 <label> CENA buscar por ingrediente:
                 </label>
 

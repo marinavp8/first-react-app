@@ -1,0 +1,19 @@
+.background {
+    background-image: url(../../assets/concepto-crisis-alimentaria-nevera-vacia.jpg);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    margin-top: -48px;
+    color: white;
+
+
+}
+
+.centrar {
+    padding-top: 13%;
+}
+
+.centrar h2 {
+    text-align: center;
+}

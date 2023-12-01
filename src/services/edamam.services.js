@@ -32,9 +32,11 @@ class EdamamService {
     getLunchRecipe(ingredient) {
         return this.api.get(`/search/lunch?ingredient=${ingredient}`)
     }
-
-    getOneRecipe2(id) {
-        return this.api.get(`/${id}`)
+    getVegetarianRecipe(ingredient) {
+        return this.api.get(`/search/vegetarian?ingredient=${ingredient}`)
+    }
+    getFilteredByPlace(place){
+        return this.api.get(`/search/place?place=${place}`)
     }
 }
 
