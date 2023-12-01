@@ -10,9 +10,7 @@ const DetailsRecipe = () => {
     const { id } = useParams()
     const [recipe, setRecipe] = useState()
 
-
     const getDetailRecipe = (id) => {
-
         edamamService
             .getOneRecipe(id)
             .then(({ data }) => {
@@ -22,9 +20,7 @@ const DetailsRecipe = () => {
     }
 
     useEffect(() => {
-
         getDetailRecipe(id)
-
     }, [])
 
     return (
@@ -48,7 +44,6 @@ const DetailsRecipe = () => {
                             return (
                                 <li>
                                     <p>{ingredient}</p>
-
                                 </li>
                             )
                         })

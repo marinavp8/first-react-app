@@ -1,11 +1,7 @@
 import { useState } from "react"
 import edamamService from "../../services/edamam.services"
-
-
 import { Form, Button, Container, Row, Col, Card } from "react-bootstrap"
-
 import { Link } from "react-router-dom";
-
 
 
 const RecipieFilteredIng = () => {
@@ -14,27 +10,21 @@ const RecipieFilteredIng = () => {
 
     const [recipes, setRecipes] = useState([])
 
-
     const getRecipe = (ingredient) => {
-
         edamamService
             .getRecipes(ingredient)
             .then(response => setRecipes(response.data.hits))
             .catch(err => console.log(err))
-
     }
 
     const pressChange = e => {
-
         const { value } = e.currentTarget
-
         setIngredient(value)
     }
 
     const pressImput = e => {
         e.preventDefault()
         getRecipe(ingredient)
-
     }
 
     return (
@@ -57,12 +47,10 @@ const RecipieFilteredIng = () => {
 
                     {
                         recipes.map((recipe) => {
-                            const urlUri = recipe.recipe.uri
+                            const { uri: urlUri } = recipe.recipe
                             let startPos = urlUri.length - 32;
                             let id = urlUri.slice(startPos)
                             return (
-
-
                                 <Col>
                                     <Card style={{ width: '18rem' }}>
                                         <Card.Img variant="top" src={recipe.recipe.images.SMALL.url} />
@@ -71,7 +59,6 @@ const RecipieFilteredIng = () => {
                                             <Card.Text>
                                                 <p>Type :{recipe.recipe.cuisineType} </p>
                                                 <p>Perfect for {recipe.recipe.mealType}! </p>
-
                                             </Card.Text>
                                             <Link to={`/recipes/${id}`} className="btn btn-dark btn-sm mt-4">ver detalles</Link>
                                         </Card.Body>
@@ -88,8 +75,3 @@ const RecipieFilteredIng = () => {
 
 
 export default RecipieFilteredIng
-
-
-
-
-

@@ -16,12 +16,13 @@ import EditProfile from '../components/EditProfile/EditProfile'
 import FilteredDinner from '../components/Prueba/FilteredDinner2'
 import FilteredLunch from '../components/Prueba/FilteredLunch2'
 import AboutUs from '../components/AboutUs/AboutUs'
-
+import DetailsRecipe from "../components/FilteredRecipe/DetailsRecipe/DetailsRecipe"
 
 const AppRoutes = () => {
 
     return (
         <Routes>
+            {/* TODO: RENDERIZAR PÁGINAS EN RUTAS */}
             <Route path={'/'} element={<HomePage />} />
 
             <Route path={'/aboutUs'} element={<AboutUs />} />

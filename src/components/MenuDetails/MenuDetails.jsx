@@ -93,11 +93,6 @@ const MenuDetails = () => {
                     </div>
             )}
         </div>
-
-
-
-
-
     )
 }
 
