@@ -5,10 +5,6 @@ import { Form, Button, Container, Row, Col, Card } from "react-bootstrap"
 
 import { Link } from "react-router-dom";
 
-
-
-
-
 const RecipieFilteredIng = () => {
 
     const [ingredient, setIngredient] = useState('')
@@ -38,8 +34,6 @@ const RecipieFilteredIng = () => {
 
     }
 
-
-
     return (
         <div>
             <Container className="text-center mt-4">
@@ -64,7 +58,7 @@ const RecipieFilteredIng = () => {
                             let startPos = urlUri.length - 32;
                             let id = urlUri.slice(startPos)
                             return (
-           
+
 
                                 <Col>
                                     <Card style={{ width: '18rem' }}>

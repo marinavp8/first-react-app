@@ -4,10 +4,9 @@ import edamamService from "../../../services/edamam.services"
 import Loader from "../../../components/Loader/Loader"
 
 const DetailsRecipe = () => {
+
     const { id } = useParams()
     const [recipe, setRecipe] = useState()
-
-
 
     const getDetailRecipe = (id) => {
 
@@ -24,9 +23,6 @@ const DetailsRecipe = () => {
         getDetailRecipe(id)
 
     }, [])
-
-
-
 
     return (
         !recipe
@@ -60,20 +56,16 @@ const DetailsRecipe = () => {
                             return (
                                 <li>
                                     <p>  Prepare :{step.text}</p>
-
-
                                 </li>
                             )
                         })
                     }
                 </ol>
 
-
-
-
             </>
 
     )
+
 }
 
 export default DetailsRecipe

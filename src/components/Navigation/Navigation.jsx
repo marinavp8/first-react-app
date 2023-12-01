@@ -14,7 +14,7 @@ const Navigation = () => {
 
                 <Container>
 
-                    <Link to={'/'} className='nav-link'><Navbar.Brand href="#home">recipes-for-all App</Navbar.Brand></Link>
+                    <Link to={'/'} className='nav-link'><Navbar.Brand>recipes-for-all App</Navbar.Brand></Link>
 
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
@@ -27,6 +27,8 @@ const Navigation = () => {
                             <Link to={'/createmenu'} className='nav-link'>Create menu</Link>
 
                             <Link to={'/search/results'} className='nav-link'> Filtros </Link>
+
+                            <Link to={'/aboutUs'} className='nav-link'> About Us</Link>
 
                         </Nav>
 

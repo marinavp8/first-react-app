@@ -7,7 +7,6 @@
     margin-top: -48px;
     color: white;
 
-
 }
 
 .backgroundHome h1 {
@@ -16,12 +15,6 @@
     text-align: center;
 
 }
-
-.background h5,
-p {
-    opacity: 0;
-}
-
 
 .centrarHome {
     padding-top: 13%;
