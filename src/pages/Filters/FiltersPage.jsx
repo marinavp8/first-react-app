@@ -12,8 +12,8 @@ const FiltersPage = () => {
 
     return (
         <>
-            <h1 className="title">Los filtros</h1>
-            <RecipieFilteredIng />
+            <h1 className="title">Advanced filtering:</h1>
+            {/* <RecipieFilteredIng />
             <hr />
             <FilteredMeal />
             <hr />
@@ -22,7 +22,7 @@ const FiltersPage = () => {
             <FilteredBreakfast />
             <hr />
             <FilteredLunch />
-            <hr />
+            <hr /> */}
             <FilteredVegetarian />
             <hr />
             <FilteredByPlace />

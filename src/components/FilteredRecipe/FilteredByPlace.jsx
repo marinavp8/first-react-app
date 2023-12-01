@@ -36,7 +36,7 @@ const FilteredByPlace = () => {
         <div className="mb-3 text-center">
 
             <form onSubmit={pressImput} >
-                <label className="form-label"> Donde comemos hoy?
+                <label className="form-label"> Global Delights
                 </label >
                 <select
                     name="opciones"
