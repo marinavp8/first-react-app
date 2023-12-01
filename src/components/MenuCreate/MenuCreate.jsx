@@ -63,6 +63,7 @@ const newMenuForm = () => {
     const params = useParams()
     const navigate = useNavigate()
     const [menuData, setMenuData] = useState(null)
+    const [menuName, setMenuName] = useState(null)
     const [recipes, setRecipes] = useState({})
 
 
@@ -143,7 +144,6 @@ const newMenuForm = () => {
             return day;
         })
 
-
         // const handleDayChange = (index, fieldName, value) => {
         //     const { selectedRecipeId } = useContext(RecipeContext);
 
@@ -194,11 +194,11 @@ const newMenuForm = () => {
 
 
 
-    // useEffect(() => {
-    //     if (!loggedUser) {
-    //         navigate("/login")
-    //     }
-    // }, [])
+    useEffect(() => {
+        if (!loggedUser) {
+            navigate("/login")
+        }
+    }, [])
 
 
     return (
@@ -208,33 +208,10 @@ const newMenuForm = () => {
             :
 
             <Container>
-
-
-                <Dropdown className="d-inline mx-2" autoClose="inside">
-                    <Dropdown.Toggle id="dropdown-autoclose-inside">
-                        Clickable Outside
-                    </Dropdown.Toggle>
-
-                    <Dropdown.Menu>
-
-                        {menuData.days.map((day, index) => (
-                            <Dropdown.Item href="#">{day.day} </Dropdown.Item>
-
-                        ))}
-                    </Dropdown.Menu>
-                </Dropdown>
-
-
-
-
-
-
-
-
                 <div className="newMenuForm">
                     <Form onSubmit={handleMenuSubmit}>
                         <Form.Group className="mb-3" controlId="name">
-                            <Form.Label>{menuData._id}Menu name</Form.Label>
+                            <Form.Label>Menu name:</Form.Label>
                             <Form.Control type="text" value={menuData.name} name="name" onChange={handleInputChange} />
                         </Form.Group>
                         {menuData.days.map((day, index) => (
@@ -250,7 +227,7 @@ const newMenuForm = () => {
                                             <p>no estoy</p>
                                     }
                                     <br /><br />
-                                    <Button variant="dark" type="button" onClick={() => handleSearch(menuData._id, day.day)}>Buscar</Button>
+                                    <Button variant="dark" type="button" onClick={() => handleSearch(menuData._id, day.day)}>Search</Button>
                                     {/* <Form.Control type="text" value={day.recipeBreakfastId} onChange={(e) => handleDayChange(index, 'recipeBreakfastId', e.target.value)} /> */}
                                 </Form.Group>
                                 <Form.Group className="mb-3">

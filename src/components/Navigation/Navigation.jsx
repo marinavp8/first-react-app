@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.contexts'
-
+import "./Navigation.css"
 import { Container, Navbar, Nav, NavDropdown, NavbarText } from 'react-bootstrap'
 
 const Navigation = () => {
@@ -10,11 +10,11 @@ const Navigation = () => {
 
     return (
         <>
-            <Navbar bg="dark" data-bs-theme="dark" className='mb-5' expand="lg">
+            <Navbar bg="white" data-bs-theme="light" className='mb-5' expand="lg">
 
                 <Container>
 
-                    <Link to={'/'} className='nav-link'><Navbar.Brand href="#home">recipes-for-all App</Navbar.Brand></Link>
+                    <Link to={'/'} className='nav-link'><Navbar.Brand href="#home"><img src="../src/assets/dishdashlogo.png" alt="logo" className='imglogo' /></Navbar.Brand></Link>
 
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
