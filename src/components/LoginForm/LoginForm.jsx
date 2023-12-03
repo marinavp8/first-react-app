@@ -12,6 +12,9 @@ const LoginForm = () => {
         password: ''
     })
 
+    const [errors, setErrors] = useState([])
+
+
     const navigate = useNavigate()
 
     const { authenticateUser } = useContext(AuthContext)
@@ -30,9 +33,9 @@ const LoginForm = () => {
             .then(({ data }) => {
                 localStorage.setItem('authToken', data.authToken)
                 authenticateUser()
-                navigate('/createmenu')
+                navigate('/')
             })
-            .catch(err => console.log(err))
+            .catch(err => setErrors(err.data.errorMessages))
     }
 
     return (
@@ -52,6 +55,8 @@ const LoginForm = () => {
             <div className="d-grid">
                 <Button variant="dark" type="submit">Acceder</Button>
             </div>
+            {errors.length > 0 && <FormError>{errors.map(elm => <p>{elm}</p>)}</FormError>}
+
 
         </Form>
     )

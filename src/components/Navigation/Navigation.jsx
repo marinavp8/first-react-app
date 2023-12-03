@@ -22,13 +22,15 @@ const Navigation = () => {
 
                         <Nav className="me-auto">
 
-                            {/* <Link to={'/fridge'} className='nav-link'>What's on your fridge?</Link> */}
 
                             <Link to={'/createmenu'} className='nav-link'>Weekly menu</Link>
 
                             <Link to={'/search/results'} className='nav-link'> Advanced filters </Link>
 
                             <Link to={'/aboutUs'} className='nav-link'> About Us</Link>
+
+                            <Link to={'/fridge'} className='nav-link'>What's on your fridge?</Link>
+
 
                         </Nav>
 

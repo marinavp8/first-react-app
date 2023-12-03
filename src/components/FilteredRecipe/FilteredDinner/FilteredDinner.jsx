@@ -1,12 +1,7 @@
 import { useState } from "react"
-import edamamService from "../../services/edamam.services"
-// import RecipeContext from "../../contexts/recipe.context"
-// import { useContext } from "react"
+import edamamService from "../../../services/edamam.services"
 
-
-const FilteredBreakfast = () => {
-
-    // const { setRecipeId } = useContext(RecipeContext)
+const FilteredDinner = () => {
 
     const [recipes, setRecipes] = useState([])
 
@@ -15,9 +10,10 @@ const FilteredBreakfast = () => {
     const getRecipe = (ingredient) => {
 
         edamamService
-            .getBreakfastRecipe(ingredient)
+            .getDinnerRecipe(ingredient)
             .then(response => setRecipes(response.data.hits))
             .catch(err => console.log(err))
+
     }
 
     const pressChange = e => {
@@ -30,16 +26,14 @@ const FilteredBreakfast = () => {
     const pressImput = e => {
         e.preventDefault()
         getRecipe(ingredient)
-        // setRecipeId(obtenidoRecipeId)
 
     }
-
 
     return (
         <div>
 
             <form onSubmit={pressImput} className="mb-3 text-center">
-                <label> DESAYUNO buscar por ingrediente:
+                <label> CENA buscar por ingrediente:
                 </label>
 
                 <input type="text" value={ingredient} onChange={pressChange} />
@@ -58,4 +52,4 @@ const FilteredBreakfast = () => {
     )
 }
 
-export default FilteredBreakfast
+export default FilteredDinner
