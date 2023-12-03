@@ -78,9 +78,9 @@ const MenuDetails = () => {
                                             menu.days.map((e, index) => <Card.Title key={index}>{e.day}</Card.Title>)
                                         }
 
-                                        {/* {
-                                        JSON.stringify(menu)
-                                    } */}
+                                        {
+                                            JSON.stringify(menu)
+                                        }
 
                                         <div className="d-grid">
                                         </div>

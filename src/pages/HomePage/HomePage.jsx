@@ -11,7 +11,7 @@ const HomePage = () => {
 
         <div className="backgroundHome">
             <div className="centrarHome">
-                <h1>Whats in your fridge?</h1>
+                <h1>Whats on your fridge?</h1>
 
                 <CarouselFunc />
             </div>
