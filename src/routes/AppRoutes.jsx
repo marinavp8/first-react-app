@@ -16,7 +16,8 @@ import EditProfile from '../components/EditProfile/EditProfile'
 import FilteredDinner from '../components/Prueba/FilteredDinner2'
 import FilteredLunch from '../components/Prueba/FilteredLunch2'
 import AboutUs from '../components/AboutUs/AboutUs'
-import DetailsRecipe from "../components/FilteredRecipe/DetailsRecipe/DetailsRecipe"
+import DetailsRecipe from '../components/FilteredRecipe/DetailsRecipe/DetailsRecipe'
+
 
 const AppRoutes = () => {
 
@@ -52,8 +53,6 @@ const AppRoutes = () => {
             <Route path={'/breakfastprueba/:menuId/:day'} element={< FilteredBreakfast2 />} />
             <Route path={'/addLunch/:menuId/:day'} element={< FilteredLunch />} />
             <Route path={'/addDinner/:menuId/:day'} element={< FilteredDinner />} />
-
-
 
         </Routes>
     )

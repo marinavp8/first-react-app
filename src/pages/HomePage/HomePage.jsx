@@ -5,8 +5,6 @@ import "./HomePage.css"
 
 const HomePage = () => {
 
-
-
     return (
 
         <div className="backgroundHome">
@@ -17,8 +15,6 @@ const HomePage = () => {
             </div>
 
         </div>
-
-
     )
 }
 

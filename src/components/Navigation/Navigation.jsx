@@ -14,8 +14,8 @@ const Navigation = () => {
 
                 <Container>
 
-
                     <Link to={'/'} className='nav-link'><Navbar.Brand href="#home"><img src="../src/assets/dishdashlogo.png" alt="logo" className='imglogo' /></Navbar.Brand></Link>
+
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
                     <Navbar.Collapse id="basic-navbar-nav">
