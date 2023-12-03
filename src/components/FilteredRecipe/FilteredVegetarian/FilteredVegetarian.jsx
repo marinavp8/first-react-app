@@ -1,40 +1,42 @@
 import { useState } from "react"
-import edamamService from "../../services/edamam.services"
+import edamamService from "../../../services/edamam.services"
 
-const FilteredMeal = () => {
+const FilteredVegetarian = () => {
 
-    const [mealType, setMealType] = useState('')
     const [recipes, setRecipes] = useState([])
 
-    const getRecipe = (mealType) => {
+    const [health, setHealth] = useState('')
+
+    const getRecipe = (health) => {
 
         edamamService
-            .getRecipeByMeal(mealType)
+            .getHealthRecipe(health)
             .then(response => setRecipes(response.data.hits))
             .catch(err => console.log(err))
 
     }
 
     const pressChange = e => {
+
         const { value } = e.currentTarget
-        setMealType(value)
+
+        setHealth(value)
     }
 
     const pressImput = e => {
         e.preventDefault()
-        getRecipe(mealType)
+        getRecipe(health)
 
     }
-
 
     return (
         <div>
 
             <form onSubmit={pressImput} className="mb-3 text-center">
-                <label> Breakfast/Dinner/lunch/snack/teatime:
+                <label> Are you vegeterian/vegan/etc?
                 </label>
 
-                <input type="text" value={mealType} onChange={pressChange} />
+                <input type="text" value={health} onChange={pressChange} />
 
 
                 <button type='submit'> Enviar </button>
@@ -50,4 +52,4 @@ const FilteredMeal = () => {
     )
 }
 
-export default FilteredMeal
+export default FilteredVegetarian

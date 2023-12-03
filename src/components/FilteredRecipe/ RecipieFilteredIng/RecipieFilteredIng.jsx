@@ -1,5 +1,5 @@
 import { useState } from "react"
-import edamamService from "../../services/edamam.services"
+import edamamService from "../../../services/edamam.services"
 import { Form, Button, Container, Row, Col, Card } from "react-bootstrap"
 import { Link } from "react-router-dom";
 

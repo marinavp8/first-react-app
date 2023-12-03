@@ -16,11 +16,22 @@
 
 }
 
-.centrarHome {
+.centerHome {
     padding-top: 13%;
+    text-align: center;
+}
+
+.centerHome h1 {
+    font-size: 100px;
 }
 
 .form {
 
     border-radius: 100px;
+}
+
+.logo {
+    text-align: center;
+    margin: auto;
+
 }

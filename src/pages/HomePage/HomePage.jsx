@@ -1,6 +1,7 @@
-
-import CarouselFunc from "../../components/FilteredRecipe/Carrousel"
+import { Link } from "react-router-dom"
+import logo from '../../assets/dishdashlogo.png'
 import "./HomePage.css"
+import { Container } from "react-bootstrap"
 
 
 const HomePage = () => {
@@ -8,11 +9,12 @@ const HomePage = () => {
     return (
 
         <div className="backgroundHome">
-            <div className="centrarHome">
-                <h1>Whats in your fridge?</h1>
+            <Container className="centerHome">
 
-                <CarouselFunc />
-            </div>
+                <Link to={'/fridge'} className='nav-link'> <h1>Whats in your fridge?</h1> </Link>
+                <img className="logo" src={logo}></img>
+
+            </Container>
 
         </div>
     )

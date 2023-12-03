@@ -1,5 +1,5 @@
 import { useState } from "react"
-import edamamService from "../../services/edamam.services"
+import edamamService from "../../../services/edamam.services"
 
 const FilteredByPlace = () => {
 
@@ -28,16 +28,13 @@ const FilteredByPlace = () => {
         getRecipe(place)
     }
 
-
-
-
-
     return (
         <div className="mb-3 text-center">
 
             <form onSubmit={pressImput} >
                 <label className="form-label"> Global Delights
                 </label >
+                
                 <select
                     name="opciones"
                     onChange={pressChange}

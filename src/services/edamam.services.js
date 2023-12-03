@@ -32,12 +32,19 @@ class EdamamService {
     getLunchRecipe(ingredient) {
         return this.api.get(`/search/lunch?ingredient=${ingredient}`)
     }
-    getVegetarianRecipe(ingredient) {
-        return this.api.get(`/search/vegetarian?ingredient=${ingredient}`)
+    getHealthRecipe(health) {
+        return this.api.get(`/search/health?health=${health}`)
     }
-    getFilteredByPlace(place){
+    getFilteredByPlace(place) {
         return this.api.get(`/search/place?place=${place}`)
     }
+    getMultiple(ingredient) {
+        return this.api.get(`/multiple?ingredient=${ingredient}`)
+    }
+    getRecipeByTime(time) {
+        return this.api.get(`/recipes/total-time?time=${time}`)
+    }
+
 }
 
 const edamamService = new EdamamService()

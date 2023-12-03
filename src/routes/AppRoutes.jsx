@@ -10,7 +10,7 @@ import ProfilePage from '../pages/Profile/Profile'
 import HomePage from '../pages/HomePage/HomePage'
 import PrivateRoute from './PrivateRoute'
 import MenuEdit from "../components/MenuEdit/MenuEdit"
-import YourFridge from '../pages/YourFridge/YourFridge'
+import YourFridge from '../pages/YourFridgePage/YourFridge'
 import FilteredBreakfast2 from "../components/Prueba/FilteredBreakfast2"
 import EditProfile from '../components/EditProfile/EditProfile'
 import FilteredDinner from '../components/Prueba/FilteredDinner2'
@@ -22,6 +22,7 @@ import DetailsRecipe from '../components/FilteredRecipe/DetailsRecipe/DetailsRec
 const AppRoutes = () => {
 
     return (
+
         <Routes>
             {/* TODO: RENDERIZAR PÁGINAS EN RUTAS */}
             <Route path={'/'} element={<HomePage />} />
@@ -33,14 +34,13 @@ const AppRoutes = () => {
 
             <Route element={<PrivateRoute />} >
                 <Route path={'/profile'} element={<ProfilePage />} />
-                <Route path={'/edit'} element={<EditProfile />} />
             </Route>
 
             <Route path={'/menulist'} element={< MenuList />} />
             <Route path={':_id'} element={<MenuDetails />} />
             <Route path={'/edit/:_id'} element={<MenuEdit />} />
-            <Route path={'/fridge'} element={<YourFridge />} />
 
+            <Route path={'/fridge'} element={<YourFridge />} />
             <Route path={'/search/results'} element={<FiltersPage />} />
             <Route path={'/recipes/:id'} element={<DetailsRecipe />} />
 

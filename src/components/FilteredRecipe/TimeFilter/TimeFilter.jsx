@@ -1,16 +1,16 @@
 import { useState } from "react"
-import edamamService from "../../services/edamam.services"
+import edamamService from "../../../services/edamam.services"
 
-const FilteredVegetarian = () => {
+const TimeFilter = () => {
 
     const [recipes, setRecipes] = useState([])
 
-    const [ingredient, setIngredient] = useState('')
+    const [time, setTime] = useState('')
 
-    const getRecipe = (ingredient) => {
+    const getRecipe = (time) => {
 
         edamamService
-            .getLunchRecipe(ingredient)
+            .getRecipeByTime(time)
             .then(response => setRecipes(response.data.hits))
             .catch(err => console.log(err))
 
@@ -20,12 +20,12 @@ const FilteredVegetarian = () => {
 
         const { value } = e.currentTarget
 
-        setIngredient(value)
+        setTime(value)
     }
 
     const pressImput = e => {
         e.preventDefault()
-        getRecipe(ingredient)
+        getRecipe(time)
 
     }
 
@@ -33,10 +33,10 @@ const FilteredVegetarian = () => {
         <div>
 
             <form onSubmit={pressImput} className="mb-3 text-center">
-                <label> Are you vegeterian?
+                <label> How long it takes?
                 </label>
 
-                <input type="text" value={ingredient} onChange={pressChange} />
+                <input type="text" value={time} onChange={pressChange} />
 
 
                 <button type='submit'> Enviar </button>
@@ -52,4 +52,4 @@ const FilteredVegetarian = () => {
     )
 }
 
-export default FilteredVegetarian
+export default TimeFilter
