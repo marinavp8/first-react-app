@@ -61,6 +61,7 @@ const RecipieFilteredIng = () => {
                                                 <p>Perfect for {recipe.recipe.mealType}! </p>
                                             </Card.Text>
                                             <Link to={`/recipes/${id}`} className="btn btn-dark btn-sm mt-4">ver detalles</Link>
+
                                         </Card.Body>
                                     </Card>
                                 </Col>

@@ -1,14 +1,18 @@
 import { useState } from "react"
 import edamamService from "../../services/edamam.services"
 
+
 import { Form, Button, Container, Row } from "react-bootstrap"
 
 
-import Carousel from 'react-bootstrap/Carousel';
+// import { Carousel } from 'react-bootstrap/Carousel'
+import { Carousel, Card } from 'react-bootstrap'
 
 
 
 const CarouselFunc = () => {
+
+
 
     const [ingredient, setIngredient] = useState('')
 
@@ -56,36 +60,59 @@ const CarouselFunc = () => {
 
                 <Container >
                     <Row xs={4} md={1} className="g-4">
-                        <Carousel data-bs-theme="dark">
-                            {
-                                recipes.map((recipe) => {
+                        {/* <Carousel data-bs-theme="dark"> */}
+                        {
+                            recipes.map((recipe) => {
 
-                                    const urlUri = recipe.recipe.uri
-                                    let startPos = urlUri.length - 32;
-                                    let id = urlUri.slice(startPos)
+                                const urlUri = recipe.recipe.uri
+                                let startPos = urlUri.length - 32;
+                                let id = urlUri.slice(startPos)
 
-                                    return (
+                                return (
+                                    <div>
+                                        <Carousel >
+                                            <Carousel.Item style={{ maxHeight: "450px", maxWidth: "300px" }}>
+                                                <Card>
+                                                    <Card.Img variant="top" src={recipe.recipe.images.REGULAR.url} style={{ maxHeight: "200px", maxWidth: "300px", objectFit: "cover" }} className="d-block w-80 mx-auto mb-5" />
+                                                    <Card.Body>
+                                                        <Card.Title>{recipe.recipe.label}</Card.Title>
+                                                        <Card.Text>
+                                                            {recipe.recipe.cuisineType} cuisine
+                                                            {recipe.recipe.totalTime} mins
+                                                            <br /><br />
+                                                            <figure className="d-flex justify-content-center">
+
+                                                                <Button variant="dark">See recipe</Button>
+                                                            </figure>
+
+                                                        </Card.Text>
+                                                    </Card.Body>
+                                                </Card>
+                                            </Carousel.Item>
+                                        </Carousel>
+                                    </div>
 
 
-                                        <Carousel.Item >
-                                            <img
-                                                style={{ maxHeight: "300px", objectFit: "cover" }}
-                                                className="d-block w-80 mx-auto mb-5"
-                                                src={recipe.recipe.images.REGULAR.url}
-                                                alt='img'
-                                            />
+                                    // <Carousel.Item >
 
-                                            <Carousel.Caption>
-                                                <h5 className="mt-5">Type :{recipe.recipe.cuisineType} </h5>
-                                                <p>Perfect for {recipe.recipe.mealType}!</p>
-                                                <p>Time :{recipe.recipe.totalTime} mins</p>
-                                            </Carousel.Caption>
+                                    //     <img
+                                    //         style={{ maxHeight: "300px", objectFit: "cover" }}
+                                    //         className="d-block w-80 mx-auto mb-5"
+                                    //         src={recipe.recipe.images.REGULAR.url}
+                                    //         alt='img'
+                                    //     />
 
-                                        </Carousel.Item>
+                                    //     <Carousel.Caption>
+                                    //         <h5 className="mt-5">Type :{recipe.recipe.cuisineType} </h5>
+                                    //         <p>Perfect for {recipe.recipe.mealType}!</p>
+                                    //         <p>Time :{recipe.recipe.totalTime} mins</p>
+                                    //     </Carousel.Caption>
 
-                                    )
-                                })}
-                        </Carousel>
+                                    // </Carousel.Item>
+
+                                )
+                            })}
+                        {/* </Carousel> */}
                     </Row>
                 </Container>
             </div>

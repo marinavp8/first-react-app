@@ -58,7 +58,7 @@ const menuBase = {
 }
 
 const newMenuForm = () => {
-    const { loggedUser } = useContext(AuthContext)
+    // const { loggedUser } = useContext(AuthContext)
     const params = useParams()
     const navigate = useNavigate()
     const [menuData, setMenuData] = useState(null)
@@ -123,10 +123,10 @@ const newMenuForm = () => {
 
         e.preventDefault()
 
-        menuData.owner = loggedUser._id
+        // menuData.owner = loggedUser._id
 
         menuService
-            .createMenu(menuData)
+            .editMenu(menuData)
             .then((response) => console.log(response))
             .catch(err => console.log(err))
     }
@@ -155,10 +155,10 @@ const newMenuForm = () => {
                 {
                     menuData.days.map((day, index) => (
                         <Accordion >
-                            <Row>
-                                <Accordion.Item eventKey="0">
+                            <Accordion.Item eventKey="0">
+                                <Row>
+                                    <Accordion.Header>{day.day}</Accordion.Header>
                                     <Col>
-                                        <Accordion.Header>{day.day}</Accordion.Header>
                                         <Accordion.Body>
                                             Breakfast
                                         </Accordion.Body>
@@ -170,7 +170,7 @@ const newMenuForm = () => {
                                                 day.recipeBreakfastId && recipes[day.recipeBreakfastId] ?
                                                     <RecipeMenu recipe={recipes[day.recipeBreakfastId]} />
                                                     :
-                                                    <p>no estoy</p>
+                                                    <p>No recipe added yet</p>
                                             }
                                         </Accordion.Body>
                                     </Col>
@@ -186,7 +186,7 @@ const newMenuForm = () => {
                                                 day.recipeLunchId && recipes[day.recipeLunchId] ?
                                                     <RecipeMenu recipe={recipes[day.recipeLunchId]} />
                                                     :
-                                                    <p>no estoy</p>
+                                                    <p>No recipe added yet</p>
                                             }
                                         </Accordion.Body>
                                     </Col>
@@ -204,79 +204,25 @@ const newMenuForm = () => {
                                                     <RecipeMenu recipe={recipes[day.recipeDinnerId]} />
                                                     :
 
-                                                    <p>no estoy</p>
+                                                    <p>No recipe added yet</p>
                                             }
                                         </Accordion.Body>
                                     </Col>
-                                </Accordion.Item>
-                            </Row>
+                                </Row>
+                            </Accordion.Item>
 
                         </Accordion>
                     ))}
-                <Button variant="dark" type="submit">Create menu</Button>
+
+                <br /><br />
+                <Container className="d-flex justify-content-center">
+
+                    <Button variant="dark" type="submit">Create menu</Button>
+                </Container>
                 <br /><br /> <br /><br /> <br /><br /> <br /><br /> <br /><br />
-
-                <div className="newMenuForm">
-                    <Form onSubmit={handleMenuSubmit}>
-                        <Form.Group className="mb-3" controlId="name">
-                            <Form.Label>Menu name:</Form.Label>
-                            <Form.Control type="text" value={menuData.name} name="name" onChange={handleInputChange} />
-                        </Form.Group>
-                        {menuData.days.map((day, index) => (
-                            <div key={index}>
-                                <h5>{day.day}</h5>
-                                <Form.Group className="mb-3">
-                                    <Form.Label>Breakfast</Form.Label>
-                                    {
-                                        day.recipeBreakfastId && recipes[day.recipeBreakfastId] ?
-                                            <RecipeMenu recipe={recipes[day.recipeBreakfastId]} />
-                                            :
-
-                                            <p>no estoy</p>
-                                    }
-                                    <br /><br />
-                                    <Button variant="dark" type="button" onClick={() => handleSearch(menuData._id, day.day)}>Search</Button>
-                                    {/* <Form.Control type="text" value={day.recipeBreakfastId} onChange={(e) => handleDayChange(index, 'recipeBreakfastId', e.target.value)} /> */}
-                                </Form.Group>
-                                <Form.Group className="mb-3">
-                                    <Form.Label>Lunch </Form.Label>
-
-                                    {
-                                        day.recipeLunchId && recipes[day.recipeLunchId] ?
-                                            <RecipeMenu recipe={recipes[day.recipeLunchId]} />
-                                            :
-                                            <p>no estoy</p>
-                                    }
-                                    <br /><br />
-                                    <Button variant="dark" type="button" onClick={() => handleSearchLunch(menuData._id, day.day)}>Buscar</Button>
-                                    {/* <Form.Control type="text" value={day.recipeLunchId} onChange={(e) => handleDayChange(index, 'recipeLunchId', e.target.value)} /> */}
-                                </Form.Group>
-                                <Form.Group className="mb-3">
-                                    <Form.Label>Dinner </Form.Label>
-                                    <br /><br />
-                                    {
-                                        day.recipeDinnerId && recipes[day.recipeDinnerId] ?
-
-                                            <RecipeMenu recipe={recipes[day.recipeDinnerId]} />
-                                            :
-
-                                            <p>no estoy</p>
-                                    }
-                                    <Button variant="dark" type="button" onClick={() => handleSearchDinner(menuData._id, day.day)}>Buscar</Button>
-
-                                    {/* <Form.Control type="text" value={day.recipeDinnerId} onChange={(e) => handleDayChange(index, 'recipeDinnerId', e.target.value)} /> */}
-                                </Form.Group>
-
-                            </div>
-                        ))}
-                        <div className="d-grid">
-                            <Button variant="dark" type="submit">Crear menú</Button>
-                        </div>
-                    </Form>
-                </div>
-
-
-                <pre>{JSON.stringify(recipes, null, 4)}</pre>
+                {
+                    JSON.stringify(recipes, null, 2)
+                }
 
             </Container>
     )

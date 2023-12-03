@@ -10,6 +10,8 @@ const HomePage = () => {
 
         <div className="backgroundHome">
             <Container className="centerHome">
+            
+                <h1>Whats on your fridge?</h1>
 
                 <Link to={'/fridge'} className='nav-link'> <h1>Whats in your fridge?</h1> </Link>
                 <img className="logo" src={logo}></img>

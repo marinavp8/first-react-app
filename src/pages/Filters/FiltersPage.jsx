@@ -7,6 +7,8 @@ import FilteredVegetarian from "../../components/FilteredRecipe/FilteredVegetari
 import RecipieFilteredIng from "../../components/FilteredRecipe/ RecipieFilteredIng/RecipieFilteredIng"
 import TimeFilter from "../../components/FilteredRecipe/TimeFilter/TimeFilter"
 
+import Carousel2 from "../../components/Carousel/Carousel2"
+
 import './FiltersPage.css'
 import MultipleIng from "../../components/FilteredRecipe/MultipleIng/MultipleIng"
 
@@ -32,6 +34,7 @@ const FiltersPage = () => {
             <MultipleIng />
             <hr/>
             <TimeFilter/>
+            <Carousel2 />
         </>
 
 

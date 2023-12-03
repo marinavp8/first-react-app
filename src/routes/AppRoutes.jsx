@@ -12,7 +12,6 @@ import PrivateRoute from './PrivateRoute'
 import MenuEdit from "../components/MenuEdit/MenuEdit"
 import YourFridge from '../pages/YourFridgePage/YourFridge'
 import FilteredBreakfast2 from "../components/Prueba/FilteredBreakfast2"
-import EditProfile from '../components/EditProfile/EditProfile'
 import FilteredDinner from '../components/Prueba/FilteredDinner2'
 import FilteredLunch from '../components/Prueba/FilteredLunch2'
 import AboutUs from '../components/AboutUs/AboutUs'
