@@ -5,6 +5,11 @@ import { Container, Card, Button } from "react-bootstrap";
 
 const Carousel2 = () => {
 
+
+
+
+
+
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
@@ -21,6 +26,9 @@ const Carousel2 = () => {
             items: 1,
             slidesToSlide: 1 // optional, default to 1.
         }
+
+
+
     };
 
 
