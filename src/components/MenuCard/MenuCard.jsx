@@ -4,15 +4,17 @@ import { Link } from "react-router-dom"
 
 const MenuCard = ({ name, _id }) => {
     return (
-        <Col lg={{ span: 3 }} md={{ span: 6 }}>
+        <Col lg={{ span: 6 }} md={{ span: 6 }}>
             <article className='mb-3'>
                 <Card>
                     <Card.Body>
-                        <Card.Title>{name}</Card.Title>
+                        <Card.Title className="text-center">{name}</Card.Title>
                         <div className="d-grid">
                         </div>
                     </Card.Body>
-                    <Link to={`/createmenu/${_id}`} className="btn btn-dark btn-sm">Menu details</Link>
+                    <div className="text-center">
+                        <Link to={`/createmenu/${_id}`} className="btn btn-success btn-sm" >Details</Link>
+                    </div>
                 </Card>
             </article>
         </Col>

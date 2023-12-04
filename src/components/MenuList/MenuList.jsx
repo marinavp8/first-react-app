@@ -4,6 +4,8 @@ import menuService from '../../services/menu.services'
 import { useEffect, useState } from 'react'
 import { AuthContext } from "../../contexts/auth.contexts"
 import { useContext } from "react"
+import Loader from "../Loader/Loader"
+import { Container, Col } from 'react-bootstrap'
 
 
 
@@ -28,13 +30,17 @@ const MenuList = () => {
     return (
         !menus
             ?
-            <h1>cargando</h1>
+            <Loader />
             :
-            <Row>
-                {
-                    menus.map(e => <MenuCard {...e} key={e._id} />)
-                }
-            </Row>
+            <Container>
+                <Row>
+
+                    {
+                        menus.map(e => <MenuCard {...e} key={e._id} />)
+                    }
+
+                </Row>
+            </Container>
     )
 
 }

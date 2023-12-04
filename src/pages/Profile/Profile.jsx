@@ -17,23 +17,24 @@ const ProfilePage = () => {
 
     return (
 
-        <Container>
+        <Container className="mt-5">
 
             <Row>
 
-                <Col >
+                <Col className="mb-5">
                     <Image src={loggedUser.avatar} roundedCircle style={{ width: 200 }} />
                 </Col>
 
                 <Col>
-                    <Row><h1 className="mb-3">{loggedUser.username}</h1></Row>
+                    <Row><h3 className="mb-3">Hi, {loggedUser.username}</h3></Row>
 
                     <Row>
-                        <h2 className="pm-4" >Email:</h2>
-                        <h3 className="pm-4" >{loggedUser.email}</h3>
+                        <p className="pm-4" >{loggedUser.email}</p>
                     </Row>
 
-                    <Button variant="success" onClick={handleShow} className="me-4">Edit</Button>
+                    {/* <EggButton /> */}
+
+                    <Button variant="success" onClick={handleShow} className="me-4">Edit Profile</Button>
 
                     <Offcanvas show={show} onHide={handleClose} >
 
@@ -64,6 +65,9 @@ const ProfilePage = () => {
                     </Accordion>
 
 
+                </Col >
+                <Col>
+
                     <Accordion defaultActiveKey="1" className="mb-4">
                         <Accordion.Item eventKey="0">
                             <Accordion.Header>My Favourite recipes</Accordion.Header>
@@ -72,12 +76,10 @@ const ProfilePage = () => {
                             </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>
-
-                </Col >
+                </Col>
 
             </Row >
 
-            <hr />
 
         </Container>
     )
