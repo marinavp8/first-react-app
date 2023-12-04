@@ -53,6 +53,36 @@ const FilteredByPlace = () => {
     return (
 
         <div className="mb-3 text-center">
+
+            <Container >
+                <h2 className="d-flex justify-content-center align-items-center" style={{ color: "rgb(58, 125, 19)" }}>Around the world</h2>
+                <Row>
+                    {places.map((place, index) => (
+                        <Col md={3}>
+                            <Card
+                                key={index}
+                                onClick={() => getRecipe(place.value)}
+                                style={{ width: '18rem', cursor: 'pointer', margin: '10px' }}
+                            >   <Card.Img variant="top" src={foto} />
+
+                                <Card.Body className="d-flex justify-content-center align-items-center">
+                                    <Button variant="succes">{place.label}</Button>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    ))}
+
+                </Row>
+
+
+
+
+            </Container>
+
+
+
+            {/* 
+
             <Card style={{ width: "18rem", margin: "auto" }}>
                 <Card.Img variant="top" src={foto} alt="Foto de ejemplo" />
                 <Card.Body>
@@ -101,11 +131,11 @@ const FilteredByPlace = () => {
                             </Row>
                         </Container>
                     )
-                })}
-            </Container>
+                })} */}
+            {/* </Container> */}
 
 
-        </div>
+        </div >
 
 
     )
