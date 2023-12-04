@@ -4,7 +4,7 @@ import commentService from "../../services/comment.services"
 import { useNavigate } from "react-router-dom"
 import { useParams } from "react-router-dom"
 
-const CreateComment = (getDetailRecipe) => {
+const CreateComment = ({ getDetailRecipe }) => {
 
 
     const [data, setData] = useState({ comment: '' })

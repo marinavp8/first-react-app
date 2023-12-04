@@ -6,9 +6,7 @@ import Loader from "../../../components/Loader/Loader"
 import CreateComment from '../../../components/Comments/CreateComment'
 import PostedComments from "../../Comments/PostedComents"
 import { Col, Container, Row, Table, Button } from "react-bootstrap"
-import EggButton from '../../EggButton/EggButton'
 import commentService from "../../../services/comment.services"
-import { LinkContainer } from 'react-router-bootstrap'
 
 import '../DetailsRecipe/DetailsRecipe.css'
 
@@ -17,7 +15,6 @@ const DetailsRecipe = () => {
     const { id } = useParams()
     const [recipe, setRecipe] = useState()
 
-    const [comments, setComments] = useState()
 
     const getDetailRecipe = (id) => {
         edamamService

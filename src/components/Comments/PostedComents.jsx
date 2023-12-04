@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
 import commentService from "../../services/comment.services"
-import Loader from "../Loader/Loader"
+
+
 
 const PostedComments = ({ recipeId }) => {
+
 
     const [comments, setComments] = useState()
 
@@ -10,11 +12,13 @@ const PostedComments = ({ recipeId }) => {
         loadComments()
     }, [])
 
+
     const loadComments = () => {
 
         commentService
             .getComments(recipeId)
             .then(({ data }) => {
+                console.log("este es el comment----", data)
                 setComments(data)
             })
             .catch(err => console.log(err))
@@ -23,17 +27,22 @@ const PostedComments = ({ recipeId }) => {
 
 
 
-
     return (
         !comments
             ?
-            <Loader />
+            <p>Not comented yet</p>
             :
             <div>
                 <h2>Comments:</h2>
                 <ul>
                     {comments.map(comment => (
-                        <li key={comment._id}>{comment.comment}</li>
+                        <div key={comment._id}>
+                            <img src={comment.owner.avatar} style={{ width: '5%' }} alt="" />
+                            <h5>{comment.owner.username}</h5>
+                            <p>posted : {comment.comment}</p>
+
+                        </div>
+
                     ))}
                 </ul>
             </div>
