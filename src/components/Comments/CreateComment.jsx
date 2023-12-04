@@ -47,13 +47,16 @@ const CreateComment = (getDetailRecipe) => {
         <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="comment">
                 <Form.Label>Comment:</Form.Label>
-                <Form.Control type="text" value={data.comment} onChange={handleInputChange} name="comment" />
+                <div style={{ display: 'flex', alignItems: 'center', paddingLeft: 50 }}>
+                    <Form.Control style={{ width: 1000 }} type="text" value={data.comment} onChange={handleInputChange} name="comment" />
+                    <Button variant="success" type="submit" >Send</Button>
+                </div>
             </Form.Group>
             <div className="d-grid">
                 <Button variant="dark" type="submit">Send</Button>
             </div>
 
-        </Form>
+        </Form >
 
     )
 }

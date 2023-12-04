@@ -8,7 +8,8 @@ import { useNavigate, useParams } from "react-router-dom"
 import Loader from "../Loader/Loader"
 import { Container, Accordion, Row, Col } from "react-bootstrap"
 import RecipeMenu from "../RecipeMenu/RecipeMenu"
-
+import "./MenuCreate.css"
+import MenuEdit from "../MenuEdit/MenuEdit"
 // TODO: DESACOPLAR
 
 const menuBase = {
@@ -145,6 +146,11 @@ const newMenuForm = () => {
         navigate(`/addDinner/${menuId}/${day}`)
     }
 
+    const handleUpdateMenu = (updatedMenuData) => {
+        console.log(updatedMenuData);
+        setIsEditing(false)
+    }
+
     return (
         !menuData
             ?
@@ -158,61 +164,69 @@ const newMenuForm = () => {
                 <br /><br />
                 {
                     menuData.days.map((day, index) => (
-                        <Accordion >
+                        < Accordion defaultActiveKey="0" >
                             <Accordion.Item eventKey="0">
                                 <Row>
-                                    <Accordion.Header>{day.day}</Accordion.Header>
+                                    <Accordion.Header className="prueba">{day.day}</Accordion.Header>
                                     <Col>
-                                        <Accordion.Body>
-                                            Breakfast
-                                        </Accordion.Body>
-                                        <Accordion.Body>
-                                            <Button variant="dark" type="button" onClick={() => handleSearch(menuData._id, day.day)}>Add</Button>
-                                        </Accordion.Body>
-                                        <Accordion.Body>
-                                            {
-                                                day.recipeBreakfastId && recipes[day.recipeBreakfastId] ?
-                                                    <RecipeMenu recipe={recipes[day.recipeBreakfastId]} />
-                                                    :
-                                                    <p>No recipe added yet</p>
-                                            }
-                                        </Accordion.Body>
+                                        <div className="text-center">
+                                            <Accordion.Body>
+                                                Breakfast
+                                            </Accordion.Body>
+                                            <Accordion.Body>
+                                                <Button variant="success" type="button" onClick={() => handleSearch(menuData._id, day.day)}>Add</Button>
+                                            </Accordion.Body>
+                                            <Accordion.Body>
+                                                {
+                                                    day.recipeBreakfastId && recipes[day.recipeBreakfastId] ?
+                                                        <RecipeMenu recipe={recipes[day.recipeBreakfastId]} />
+                                                        :
+                                                        <p>No recipe added yet</p>
+                                                }
+                                            </Accordion.Body>
+                                        </div>
                                     </Col>
                                     <Col>
-                                        <Accordion.Body>
-                                            Lunch
-                                        </Accordion.Body>
-                                        <Accordion.Body>
-                                            <Button variant="dark" type="button" onClick={() => handleSearchLunch(menuData._id, day.day)}>Add</Button>
-                                        </Accordion.Body>
-                                        <Accordion.Body>
-                                            {
-                                                day.recipeLunchId && recipes[day.recipeLunchId] ?
-                                                    <div>
-                                                        <RecipeMenu recipe={recipes[day.recipeLunchId]} />
-                                                    </div>
-                                                    :
-                                                    <p>No recipe added yet</p>
-                                            }
-                                        </Accordion.Body>
+                                        <div className="text-center">
+                                            <Accordion.Body>
+                                                Lunch
+                                            </Accordion.Body>
+                                            <Accordion.Body>
+                                                <Button variant="success" type="button" onClick={() => handleSearchLunch(menuData._id, day.day)}>Add</Button>
+                                            </Accordion.Body>
+                                            <Accordion.Body>
+                                                {
+                                                    day.recipeLunchId && recipes[day.recipeLunchId] ?
+                                                        <div>
+                                                            <RecipeMenu recipe={recipes[day.recipeLunchId]} />
+                                                        </div>
+                                                        :
+                                                        <p>No recipe added yet</p>
+                                                }
+                                            </Accordion.Body>
+                                        </div>
                                     </Col>
                                     <Col>
-                                        <Accordion.Body>
-                                            Dinner
-                                        </Accordion.Body>
-                                        <Accordion.Body>
-                                            <Button variant="dark" type="button" onClick={() => handleSearchDinner(menuData._id, day.day)}>Add</Button>
-                                        </Accordion.Body>
-                                        <Accordion.Body>
-                                            {
-                                                day.recipeDinnerId && recipes[day.recipeDinnerId] ?
+                                        <div className="text-center">
 
-                                                    <RecipeMenu recipe={recipes[day.recipeDinnerId]} />
-                                                    :
+                                            <Accordion.Body>
+                                                Dinner
+                                            </Accordion.Body>
+                                            <Accordion.Body>
+                                                <Button variant="success" type="button" onClick={() => handleSearchDinner(menuData._id, day.day)}>Add</Button>
+                                            </Accordion.Body>
+                                            <Accordion.Body>
+                                                {
+                                                    day.recipeDinnerId && recipes[day.recipeDinnerId] ?
 
-                                                    <p>No recipe added yet</p>
-                                            }
-                                        </Accordion.Body>
+                                                        <RecipeMenu recipe={recipes[day.recipeDinnerId]} />
+                                                        :
+
+                                                        <p>No recipe added yet</p>
+                                                }
+                                            </Accordion.Body>
+                                        </div>
+
                                     </Col>
                                 </Row>
                             </Accordion.Item>
@@ -221,9 +235,12 @@ const newMenuForm = () => {
                     ))}
 
                 <br /><br />
+
+                <MenuEdit existingMenuData={menuData} onUpdateMenu={handleUpdateMenu} />
+
                 <Container className="d-flex justify-content-center">
 
-                    <Button variant="success" type="submit">Create menu</Button>
+                    <Button variant="success" type="submit">Submit</Button>
                 </Container>
                 <br /><br /> <br /><br /> <br /><br /> <br /><br /> <br /><br />
                 {

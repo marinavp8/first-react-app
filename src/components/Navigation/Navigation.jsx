@@ -25,11 +25,11 @@ const Navigation = () => {
 
                             {/* <Link to={'/fridge'} className='nav-link'>What's on your fridge?</Link> */}
 
-                            <Link to={'/createmenu'} className='nav-link' style={{ color: 'rgb(58, 125, 19)', fontWeight: "200px" }}>Weekly menu</Link>
+                            <Link to={'/createmenu'} className='nav-link size' style={{ color: 'rgb(58, 125, 19)', fontWeight: "200px" }}>Weekly menu</Link>
 
-                            <Link to={'/search/results'} className='nav-link'> Advanced filters </Link>
+                            <Link to={'/search/results'} className='nav-link size'> Advanced filters </Link>
 
-                            <Link to={'/aboutUs'} className='nav-link'> About Us</Link>
+                            <Link to={'/aboutUs'} className='nav-link' style={{ color: 'rgb(58, 125, 19)', fontWeight: "200px" }}> About Us</Link>
 
 
 
@@ -49,7 +49,7 @@ const Navigation = () => {
                                         >
                                             <NavDropdown.Item href={'/profile'}>Profile</NavDropdown.Item>
 
-                                            <NavDropdown.Item href={'/admin'}>Users</NavDropdown.Item>
+                                            <NavDropdown.Item href={'/users'}>Users</NavDropdown.Item>
 
                                             <NavDropdown.Item onClick={logout}>Log out </NavDropdown.Item>
 
@@ -63,7 +63,7 @@ const Navigation = () => {
 
                                         {/* <Link to={'/signup'} className='nav-link'>Registro</Link> */}
 
-                                        <Link to={'/login'} className='nav-link'>Log in</Link>
+                                        <Link to={'/login'} className='nav-link' style={{ color: 'rgb(58, 125, 19)', fontWeight: "200px" }}>Log in</Link>
 
                                     </Navbar.Text>
                                 </>

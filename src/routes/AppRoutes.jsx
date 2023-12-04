@@ -41,9 +41,8 @@ const AppRoutes = () => {
             </Route>
 
             <Route element={<PrivateRoute role={'ADMIN'} />} >
-                <Route path={'/admin'} element={<AdminProfilePage />} />
+                <Route path={'/users'} element={<AdminProfilePage />} />
             </Route>
-
 
             <Route path={'/menulist'} element={< MenuList />} />
             <Route path={':_id'} element={<MenuDetails />} />

@@ -3,3 +3,8 @@
     /* Ancho de 100px */
     height: auto;
 }
+
+
+Link .size {
+    font-size: 80px;
+}
