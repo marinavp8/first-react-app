@@ -4,6 +4,8 @@ import authService from "../../services/auth.services"
 import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../../contexts/auth.contexts"
 
+import FormError from "../FormError/FormError"
+
 
 const LoginForm = () => {
 
@@ -35,8 +37,9 @@ const LoginForm = () => {
                 authenticateUser()
                 navigate('/')
             })
-            .catch(err => setErrors(err.data.errorMessages))
+            .catch(err => setErrors([err.response.data.errorMessages]))
     }
+
 
     return (
 
@@ -48,15 +51,18 @@ const LoginForm = () => {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="password">
-                <Form.Label>Contraseña</Form.Label>
+                <Form.Label>Password</Form.Label>
                 <Form.Control type="password" value={loginData.password} onChange={handleInputChange} name="password" />
             </Form.Group>
 
             <div className="d-grid">
-                <Button variant="dark" type="submit">Acceder</Button>
+                <Button variant="dark" type="submit">Log in</Button>
             </div>
-            {errors.length > 0 && <FormError>{errors.map(elm => <p>{elm}</p>)}</FormError>}
 
+
+            {errors.length > 0 &&
+                <FormError>{errors.map(elm => <p>{elm}</p>)}</FormError>
+            }
 
         </Form>
     )

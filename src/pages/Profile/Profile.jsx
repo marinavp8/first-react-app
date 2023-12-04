@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
 import MenuList from "../../components/MenuList/MenuList"
 
-import { Container, Row, Col, Image, Button, Offcanvas } from "react-bootstrap"
+import { Container, Row, Col, Image, Button, Offcanvas, Accordion } from "react-bootstrap"
 import { AuthContext } from "../../contexts/auth.contexts"
 import EditProfile from "../../components/EditProfile/EditProfile"
 

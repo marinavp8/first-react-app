@@ -1,11 +1,8 @@
 import { Col, Container, Row } from "react-bootstrap"
 import LoginForm from "../../components/LoginForm/LoginForm"
 import { Link } from "react-router-dom"
-import { useNavigate } from 'react-router-dom'
 
 const LoginPage = () => {
-
-    let navigate = useNavigate()
 
     return (
 
@@ -15,9 +12,7 @@ const LoginPage = () => {
 
                 <Col md={{ span: 6, offset: 3 }}>
 
-                    <h1> Acceso</h1>
-
-                    <hr />
+                    <h1> Log in</h1>
 
                     <LoginForm />
 
@@ -30,6 +25,5 @@ const LoginPage = () => {
         </Container>
     )
 }
-
 
 export default LoginPage

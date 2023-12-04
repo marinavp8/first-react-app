@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.contexts'
 import "./Navigation.css"
-import { Container, Navbar, Nav, NavDropdown, NavbarText } from 'react-bootstrap'
+import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap'
 
 const Navigation = () => {
 
@@ -47,6 +47,9 @@ const Navigation = () => {
                                             id={`offcanvasNavbarDropdown-expand`}
                                         >
                                             <NavDropdown.Item href={'/profile'}>Profile</NavDropdown.Item>
+
+                                            <NavDropdown.Item href={'/admin'}>Users</NavDropdown.Item>
+
                                             <NavDropdown.Item onClick={logout}>Log out </NavDropdown.Item>
 
                                         </NavDropdown>
@@ -64,6 +67,8 @@ const Navigation = () => {
                                     </Navbar.Text>
                                 </>
                         }
+
+
 
                     </Navbar.Collapse>
 
