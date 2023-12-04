@@ -6,7 +6,6 @@ import { AuthContext } from "../../contexts/auth.contexts"
 
 import FormError from "../FormError/FormError"
 
-
 const LoginForm = () => {
 
     const [loginData, setLoginData] = useState({
@@ -15,7 +14,6 @@ const LoginForm = () => {
     })
 
     const [errors, setErrors] = useState([])
-
 
     const navigate = useNavigate()
 
@@ -39,7 +37,6 @@ const LoginForm = () => {
             })
             .catch(err => setErrors([err.response.data.errorMessages]))
     }
-
 
     return (
 

@@ -1,12 +1,8 @@
 import { useContext, useState } from "react"
 import MenuList from "../../components/MenuList/MenuList"
-
 import { Container, Row, Col, Image, Button, Offcanvas, Accordion } from "react-bootstrap"
 import { AuthContext } from "../../contexts/auth.contexts"
 import EditProfile from "../../components/EditProfile/EditProfile"
-
-import EggButton from "../../components/EggButton/EggButton"
-
 import '../Profile/Profile.css'
 
 
@@ -37,9 +33,7 @@ const ProfilePage = () => {
                         <h3 className="pm-4" >{loggedUser.email}</h3>
                     </Row>
 
-                    <EggButton />
-
-                    <Button variant="dark" onClick={handleShow} className="me-4">Edit</Button>
+                    <Button variant="success" onClick={handleShow} className="me-4">Edit</Button>
 
                     <Offcanvas show={show} onHide={handleClose} >
 

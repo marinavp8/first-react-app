@@ -40,10 +40,10 @@ const DetailsRecipe = () => {
                         <img src={recipe.images.REGULAR.url} />
                     </Col>
 
-                <CreateComment recipeId={id}/>
-                <PostedComments recipeId={id}/>
-                <hr></hr>
-                <hr></hr>
+                    <CreateComment recipeId={id} />
+                    <PostedComments recipeId={id} />
+                    <hr></hr>
+                    <hr></hr>
                     <Col className="p-5">
                         <h1 style={{ fontWeight: 'bold' }}>{recipe.label}</h1>
 
