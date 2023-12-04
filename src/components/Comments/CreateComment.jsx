@@ -6,11 +6,8 @@ import { useParams } from "react-router-dom"
 
 const CreateComment = () => {
 
-
     const [data, setData] = useState({ comment: '' })
     const { id } = useParams()
-
-
 
     const handleInputChange = e => {
 
