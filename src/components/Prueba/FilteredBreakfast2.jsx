@@ -88,15 +88,15 @@ const FilteredBreakfast2 = () => {
                         <button type='submit'> Search </button> */}
 
                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Tell me an ingredient and let yourself go:</Form.Label>
-                            <Form.Control type="text" placeholder="eggs" value={ingredient} onChange={pressChange} />
+                            <Form.Label>Serch by ingredients:</Form.Label>
+                            <Form.Control type="text" placeholder="eggs" className="mb-3" value={ingredient} onChange={pressChange} />
+                            <figure className="d-flex justify-content-center">
+                                <Button variant="success" type="submit" >
+                                    Search
+                                </Button>
+                            </figure>
                         </Form.Group>
 
-                        <figure className="d-flex justify-content-center">
-                            <Button variant="dark" type="submit" >
-                                Search
-                            </Button>
-                        </figure>
                     </div>
                 </Container>
 
@@ -110,19 +110,22 @@ const FilteredBreakfast2 = () => {
                                 recipes.map((recipe) => {
                                     return (
                                         <Col>
-                                            <Card style={{ width: '18rem' }}>
-                                                <Card.Img variant="top" src={recipe.recipe.images.SMALL.url} />
-                                                <Card.Body>
-                                                    <Card.Title>{recipe.recipe.label} </Card.Title>
-                                                    <Card.Text>
-                                                        Some quick example text to build on the card title and make up the
-                                                        bulk of the card's content.
-                                                    </Card.Text>
-                                                    <div className="d-flex justify-content-center">
-                                                        <Button variant="dark" type="button" onClick={() => handleComeBack(recipe.recipe.uri)}>Add</Button>
-                                                    </div>
-                                                </Card.Body>
-                                            </Card>
+                                            <div className=" text-center mb-5">
+
+                                                <Card style={{ width: '18rem' }}>
+                                                    <Card.Img variant="top" src={recipe.recipe.images.SMALL.url} />
+                                                    <Card.Body>
+                                                        <Card.Title>{recipe.recipe.label} </Card.Title>
+                                                        <Card.Text>
+                                                            {Math.round(recipe.recipe.calories)}kcal | {recipe.recipe.totalTime} min
+                                                        </Card.Text>
+                                                        <div className="d-flex justify-content-center">
+                                                            <Button variant="outline-success" type="button" onClick={() => handleComeBack(recipe.recipe.uri)}>Add</Button>
+                                                        </div>
+                                                    </Card.Body>
+                                                </Card>
+                                            </div>
+
                                         </Col>
                                     )
 
@@ -130,6 +133,7 @@ const FilteredBreakfast2 = () => {
                             }
 
                         </Row>
+
                     </div>
                 </Container>
             </form>

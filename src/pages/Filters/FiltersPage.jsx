@@ -9,6 +9,7 @@ import TimeFilter from "../../components/FilteredRecipe/TimeFilter/TimeFilter"
 import MultipleIng from "../../components/FilteredRecipe/MultipleIng/MultipleIng"
 import CaloriesFilter from "../../components/FilteredRecipe/CaloriesFilter/CaloriesFilter"
 import ExcludeIngredient from "../../components/FilteredRecipe/FilterExcluding/FilterExcluding"
+import Carousel2 from "../../components/Carousel/Carousel2"
 
 import { Container, Row, Col } from "react-bootstrap"
 
@@ -69,6 +70,7 @@ const FiltersPage = () => {
                 <Col>
                     <TimeFilter />
                 </Col>
+                <Carousel2 />
             </Row>
         </Container>
     );

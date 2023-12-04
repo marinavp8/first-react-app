@@ -25,11 +25,11 @@ const Navigation = () => {
 
                             {/* <Link to={'/fridge'} className='nav-link'>What's on your fridge?</Link> */}
 
-                            <Link to={'/createmenu'} className='nav-link' style={{ color: 'rgb(58, 125, 19)', fontWeight: "200px" }}>Weekly menu</Link>
+                            <Link to={'/createmenu'} className='nav-link size' style={{ color: 'rgb(58, 125, 19)', fontWeight: "200px" }}>Weekly menu</Link>
 
-                            <Link to={'/search/results'} className='nav-link'> Advanced filters </Link>
+                            <Link to={'/search/results'} className='nav-link size'> Advanced filters </Link>
 
-                            <Link to={'/aboutUs'} className='nav-link'> About Us</Link>
+                            <Link to={'/aboutUs'} className='nav-link size'> About Us</Link>
 
 
 
