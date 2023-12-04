@@ -29,7 +29,7 @@ const Navigation = () => {
 
                             <Link to={'/search/results'} className='nav-link size'> Advanced filters </Link>
 
-                            <Link to={'/aboutUs'} className='nav-link' style={{ color: 'rgb(58, 125, 19)', fontWeight: "200px" }}> About Us</Link>
+                            <Link to={'/aboutUs'} className='nav-link' > About Us</Link>
 
 
 
@@ -63,7 +63,7 @@ const Navigation = () => {
 
                                         {/* <Link to={'/signup'} className='nav-link'>Registro</Link> */}
 
-                                        <Link to={'/login'} className='nav-link' style={{ color: 'rgb(58, 125, 19)', fontWeight: "200px" }}>Log in</Link>
+                                        <Link to={'/login'} className='nav-link' >Log in</Link>
 
                                     </Navbar.Text>
                                 </>

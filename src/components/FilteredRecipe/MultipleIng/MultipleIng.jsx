@@ -3,6 +3,7 @@ import edamamService from "../../../services/edamam.services"
 import { Form, Button, Container, Row, Col, Card } from "react-bootstrap"
 import foto from '../../../assets/heropage2.png'
 import CardResults from "../CardResults/CardResults"
+import Carousel2 from "../../Carousel/Carousel2"
 
 const MultipleIng = () => {
 
@@ -30,8 +31,26 @@ const MultipleIng = () => {
 
     }
 
+
+
     return (
         <div>
+
+
+
+            <Form onSubmit={pressImput} style={{ maxWidth: "800px", margin: "auto" }} >
+                <Form.Group className="mb-3" >
+                    <Form.Control type="text" value={ingredient} onChange={pressChange} placeholder="eggs" />
+                    <div className=" d-flex justify-content-center mt-3">
+                        <Button variant="success" type="submit">Search</Button>
+                    </div>
+
+                </Form.Group>
+            </Form>
+
+
+
+            {/* 
             <Card style={{ width: "18rem", margin: "auto" }}>
                 <Card.Img variant="top" src={foto} alt="Foto de ejemplo" />
                 <Card.Body>
@@ -49,7 +68,7 @@ const MultipleIng = () => {
                         </Form.Group>
                     </Form>
                 </Card.Body>
-            </Card>
+            </Card> */}
 
             <Container >
                 {recipes.map((recipe) => {
@@ -58,16 +77,22 @@ const MultipleIng = () => {
                     let id = urlUri.slice(startPos);
 
                     return (
+
+
+
+
+
+
                         <Container>
-                            <Row>
-                                <CardResults recipes={recipes} />
-                            </Row>
+                            <CardResults recipes={recipes} />
+                            <Carousel2 />
+
                         </Container>
                     )
                 })}
             </Container>
 
-        </div>
+        </div >
     )
 }
 

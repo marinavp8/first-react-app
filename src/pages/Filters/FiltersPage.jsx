@@ -11,7 +11,7 @@ import CaloriesFilter from "../../components/FilteredRecipe/CaloriesFilter/Calor
 import ExcludeIngredient from "../../components/FilteredRecipe/FilterExcluding/FilterExcluding"
 import Carousel2 from "../../components/Carousel/Carousel2"
 
-import { Container} from "react-bootstrap"
+import { Container } from "react-bootstrap"
 
 
 import './FiltersPage.css'
@@ -25,28 +25,28 @@ const FiltersPage = () => {
         <Container>
             <h1 className="title text-center mb-4">Advanced filtering:</h1>
 
-         
-                    <RecipieFilteredIng />
 
-                    <FilteredMeal />
+            <RecipieFilteredIng />
 
-                    <FilteredDinner />
+            {/* <FilteredMeal /> */}
 
-                    <FilteredBreakfast />
+            <FilteredDinner />
 
-                    <FilteredLunch />
+            <FilteredBreakfast />
 
-                    <FilteredVegetarian />
+            <FilteredLunch />
 
-                    <FilteredByPlace />
+            <FilteredVegetarian />
 
-                    <MultipleIng />
+            <FilteredByPlace />
 
-                    <CaloriesFilter />
+            <MultipleIng />
 
-                    <ExcludeIngredient />
+            <CaloriesFilter />
 
-                    <TimeFilter />
+            <ExcludeIngredient />
+
+            <TimeFilter />
         </Container>
     );
 };

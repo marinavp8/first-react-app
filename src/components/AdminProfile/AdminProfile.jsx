@@ -12,20 +12,32 @@ const AdminProfile = () => {
 
     })
 
-    console.log(usersData)
+    const handleInputChange = e => {
 
-    // const getAllUsers = () => {
+        const { value, name } = e.target
 
-    //     usersServices
-    //         .getAllUsers(usersData)
-    //         .then(response => console.log(response))
-    //         .catch(err => console.log(err))
+        setUsersData({ ...data, [name]: value })
+    }
 
-    // }
+
+    const getAllUsers = () => {
+
+        usersServices
+            .getAllUsers()
+            .then(response => console.log(response))
+            .catch(err => console.log(err))
+
+    }
 
 
     return (
-        <h1>FUNCIONOOO</h1>
+        <>
+
+            <h1>FUNCIONOOO</h1>
+
+
+
+        </>
     )
 
 }
