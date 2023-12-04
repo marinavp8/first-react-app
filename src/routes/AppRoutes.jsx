@@ -16,6 +16,7 @@ import FilteredDinner from '../components/Prueba/FilteredDinner2'
 import FilteredLunch from '../components/Prueba/FilteredLunch2'
 import AboutUs from '../components/AboutUs/AboutUs'
 import DetailsRecipe from '../components/FilteredRecipe/DetailsRecipe/DetailsRecipe'
+import CreateMenuPage from '../pages/CreateMenu/CreateMenuPage'
 
 
 const AppRoutes = () => {
@@ -33,6 +34,7 @@ const AppRoutes = () => {
 
             <Route element={<PrivateRoute />} >
                 <Route path={'/profile'} element={<ProfilePage />} />
+                <Route path={'/createmenu'} element={< MenuCreate />} />
             </Route>
 
             <Route path={'/menulist'} element={< MenuList />} />
@@ -43,7 +45,7 @@ const AppRoutes = () => {
             <Route path={'/search/results'} element={<FiltersPage />} />
             <Route path={'/recipes/:id'} element={<DetailsRecipe />} />
 
-            <Route path={'/createmenu'} element={< MenuCreate />} />
+            {/* <Route path={'/createmenu'} element={< CreateMenuPage />} /> */}
             <Route path={'/menulist'} element={< MenuList />} />
             <Route path={':_id'} element={<MenuDetails />} />
             <Route path={'/edit/:_id'} element={<MenuEdit />} />

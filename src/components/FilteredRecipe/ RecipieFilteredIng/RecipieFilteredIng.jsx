@@ -2,6 +2,7 @@ import { useState } from "react"
 import edamamService from "../../../services/edamam.services"
 import { Form, Button, Container, Row, Col, Card } from "react-bootstrap"
 import { Link } from "react-router-dom";
+import Carousel2 from "../../Carousel/Carousel2";
 
 
 const RecipieFilteredIng = () => {
@@ -30,12 +31,11 @@ const RecipieFilteredIng = () => {
     return (
         <div>
             <Container className="text-center mt-4">
-                <Form onSubmit={pressImput} style={{ maxWidth: "800px", margin: "auto" }}>
+                <Form onSubmit={pressImput} style={{ maxWidth: "800px", margin: "auto" }} >
                     <Form.Group className="mb-3" >
-                        <Form.Label>Ingredientes</Form.Label>
-                        <Form.Control type="text" value={ingredient} onChange={pressChange} />
-                        <div className="d-grid mt-3">
-                            <Button variant="dark" type="submit">enviar</Button>
+                        <Form.Control type="text" value={ingredient} onChange={pressChange} placeholder="eggs" />
+                        <div className=" mt-3">
+                            <Button variant="success" type="submit">Search</Button>
                         </div>
                     </Form.Group>
                 </Form>
