@@ -83,32 +83,36 @@ const newMenuForm = () => {
         if (!menuData) {
             return
         }
+        let promises = []
         menuData.days.map(e => {
-
             if (e.recipeBreakfastId) {
-                edamamService
-                    .getOneRecipe(e.recipeBreakfastId)
-                    .then(({ data }) => {
-                        setRecipes({ ...recipes, [e.recipeBreakfastId]: data.recipe });
-                    })
-                    .catch(err => console.log(err))
+                promises.push(
+                    edamamService
+                        .getOneRecipe(e.recipeBreakfastId)
+                )
             }
             if (e.recipeLunchId) {
-                edamamService
-                    .getOneRecipe(e.recipeLunchId)
-                    .then(({ data }) => {
-                        setRecipes({ ...recipes, [e.recipeLunchId]: data.recipe });
-                    })
-                    .catch(err => console.log(err))
+                promises.push(
+                    edamamService
+                        .getOneRecipe(e.recipeLunchId)
+                )
             }
             if (e.recipeDinnerId) {
-                edamamService
-                    .getOneRecipe(e.recipeDinnerId)
-                    .then(({ data }) => {
-                        setRecipes({ ...recipes, [e.recipeDinnerId]: data.recipe });
-                    })
-                    .catch(err => console.log(err))
+                promises.push(
+                    edamamService
+                        .getOneRecipe(e.recipeDinnerId)
+                )
             }
+        })
+        Promise.all(promises).then(data => {
+            const recipesArray = data.map(e => {
+                return e.data.recipe
+            })
+            let recipesObject = {}
+            for (let i of recipesArray) {
+                recipesObject[i.uri.slice(-32)] = i
+            }
+            setRecipes(recipesObject)
         })
     }, [menuData])
 
@@ -184,7 +188,9 @@ const newMenuForm = () => {
                                         <Accordion.Body>
                                             {
                                                 day.recipeLunchId && recipes[day.recipeLunchId] ?
-                                                    <RecipeMenu recipe={recipes[day.recipeLunchId]} />
+                                                    <div>
+                                                        <RecipeMenu recipe={recipes[day.recipeLunchId]} />
+                                                    </div>
                                                     :
                                                     <p>No recipe added yet</p>
                                             }
@@ -217,11 +223,13 @@ const newMenuForm = () => {
                 <br /><br />
                 <Container className="d-flex justify-content-center">
 
-                    <Button variant="dark" type="submit">Create menu</Button>
+                    <Button variant="success" type="submit">Create menu</Button>
                 </Container>
                 <br /><br /> <br /><br /> <br /><br /> <br /><br /> <br /><br />
                 {
-                    JSON.stringify(recipes, null, 2)
+                    <pre>
+                        {JSON.stringify(recipes, null, 2)}
+                    </pre>
                 }
 
             </Container>

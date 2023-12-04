@@ -32,9 +32,8 @@ const FiltersPage = () => {
             <FilteredByPlace />
             <hr />
             <MultipleIng />
-            <hr/>
-            <TimeFilter/>
-            <Carousel2 />
+            <hr />
+            <TimeFilter />
         </>
 
 

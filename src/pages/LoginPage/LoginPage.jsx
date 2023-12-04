@@ -14,9 +14,12 @@ const LoginPage = () => {
 
                     <h1> Log in</h1>
 
-                    <LoginForm />
+                    <hr />
 
-                    <Link to={'/signup'} className='nav-link'>Not logged! Sign up here!</Link>
+                    <LoginForm />
+                    <br />
+
+                    <Link to={'/signup'} className='nav-link'>Not logged? Sign up here!</Link>
 
                 </Col>
 

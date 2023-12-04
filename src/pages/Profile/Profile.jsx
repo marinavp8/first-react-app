@@ -26,7 +26,7 @@ const ProfilePage = () => {
             <Row>
 
                 <Col >
-                    <Image src={loggedUser.avatar} roundedCircle />
+                    <Image src={loggedUser.avatar} roundedCircle style={{ width: 200 }} />
                 </Col>
 
                 <Col>

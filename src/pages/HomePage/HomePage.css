@@ -1,37 +1,35 @@
-.backgroundHome {
-    background-image: url(../../assets/vegetales-varios-sobre-mesa-negra-espacio-mensaje.jpg);
-    height: 100vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: bottom;
-    margin-top: -48px;
-    color: white;
-
-}
-
-.backgroundHome h1 {
+.backgroundHome p {
     color: rgb(58, 125, 19);
+    font-size: 70px;
     font-family: sans-serif;
-    text-align: center;
-
+    font-weight: 400;
 }
 
 .centerHome {
-    padding-top: 13%;
-    text-align: center;
+    padding-top: 60px;
+    max-width: 300px;
 }
 
-.centerHome h1 {
+/* .centerHome h3 {
     font-size: 100px;
+    text-align: start;
+
+} */
+
+.centerHome h5 {
+    line-height: 40px;
+    font-weight: 100;
 }
 
-.form {
 
-    border-radius: 100px;
-}
+/* img {
+    max-width: 500px;
+    max-height: 500px;
 
-.logo {
-    text-align: center;
-    margin: auto;
+} */
+
+img.img-fluid {
+    max-width: 100%;
+    height: auto;
 
 }

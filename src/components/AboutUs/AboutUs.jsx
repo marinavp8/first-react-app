@@ -1,4 +1,8 @@
-import { Col, Container, Image } from "react-bootstrap"
+import { Col, Container, Image, Row } from "react-bootstrap"
+import lu from '../../assets/lu.jpg'
+import valen from '../../assets/valen.jpg'
+import marina from '../../assets/marina.jpg'
+
 
 import Img from "./../../assets/fondo.jpeg"
 
@@ -6,35 +10,44 @@ const AboutUs = () => {
     return (
 
         <Container>
+            <Row>
 
-            <h1>ABOUT USSSS !!!</h1>
 
 
-            <p>hbckuehbcubevcgubhdw</p>
+                <h1 style={{ color: 'rgb(58, 125, 19)' }}>About us</h1>
 
-            <Col>
 
-                <Image src={Img} style={{ width: '100px' }} />
+                <p>IronHack</p>
 
-                <p>Person 1</p>
+                <Col md={4}>
 
-            </Col>
+                    <Image src={lu} style={{ width: '250px' }} />
+                    <div className="d-flex justify-content-center align-items-center">
+                        <p>Lucía</p>
+                    </div>
 
-            <Col>
+                </Col>
 
-                <Image src={Img} style={{ width: '100px' }} />
+                <Col md={4}>
 
-                <p>Person 2</p>
+                    <Image src={valen} style={{ width: '250px' }} />
+                    <div className="d-flex justify-content-center align-items-center">
+                        <p>Valentina</p>
+                    </div>
 
-            </Col>
+                </Col>
 
-            <Col>
+                <Col md={4}>
 
-                <Image src={Img} style={{ width: '100px' }} />
+                    <Image src={marina} style={{ width: '250px' }} />
+                    <div className="d-flex justify-content-center ">
+                        <p>Marina</p>
+                    </div>
 
-                <p>Person 3</p>
 
-            </Col>
+                </Col>
+            </Row>
+
 
         </Container>
     )
