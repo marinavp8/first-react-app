@@ -1,38 +1,38 @@
 import { useEffect, useState } from "react"
 import commentService from "../../services/comment.services"
+import Loader from "../Loader/Loader"
 
-const PostedComments = ({ id }) => {
+const PostedComments = ({ recipeId }) => {
 
-    const [comment, setComment] = useState([])
+    const [comments, setComments] = useState()
 
-    const getComment = () => {
-        const recipeCommented = id
+    useEffect(() => {
+        loadComments()
+    }, [])
+
+    const loadComments = () => {
+
         commentService
-            .getComments(recipeCommented)
-            .then(response => {
-
-                setComment(response.data)
-                console.log('comentarioooooooooooooooooooooo', response.data)
+            .getComments(recipeId)
+            .then(({ data }) => {
+                setComments(data)
             })
             .catch(err => console.log(err))
     }
 
-    useEffect(() => {
 
-        getComment(id)
-    }, [])
 
 
 
     return (
-        !comment
+        !comments
             ?
             <Loader />
             :
             <div>
                 <h2>Comments:</h2>
                 <ul>
-                    {comment.map(comment => (
+                    {comments.map(comment => (
                         <li key={comment._id}>{comment.comment}</li>
                     ))}
                 </ul>

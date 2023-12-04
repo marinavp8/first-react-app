@@ -1,12 +1,13 @@
-import { useState, useContext } from "react"
+import { useState, useEffect } from "react"
 import { Form, Button } from "react-bootstrap"
 import commentService from "../../services/comment.services"
 import { useNavigate } from "react-router-dom"
 import { useParams } from "react-router-dom"
 
-const CreateComment = () => {
+const CreateComment = (getDetailRecipe) => {
 
     const [data, setData] = useState({ comment: '' })
+
     const { id } = useParams()
 
     const handleInputChange = e => {
@@ -18,16 +19,24 @@ const CreateComment = () => {
 
     const navigate = useNavigate()
 
-    const handleSubmit = e => {
+
+    const handleSubmit = (e) => {
 
         e.preventDefault()
 
         commentService
             .postComment({ ...data, recipeCommented: id })
-            .then(() => navigate('/fridge'))
+            .then(() => {
+                if (getDetailRecipe) {
+                    getDetailRecipe(id)
+                }
+                navigate(`/recipes/${id}`)
+            })
             .catch(err => console.log(err))
 
     }
+
+
 
     return (
 
@@ -40,6 +49,9 @@ const CreateComment = () => {
                     <Button variant="success" type="submit" >Send</Button>
                 </div>
             </Form.Group>
+            <div className="d-grid">
+                <Button variant="dark" type="submit">Send</Button>
+            </div>
 
         </Form >
 

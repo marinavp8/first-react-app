@@ -52,8 +52,8 @@ const LoginForm = () => {
                 <Form.Control type="password" value={loginData.password} onChange={handleInputChange} name="password" />
             </Form.Group>
 
-            <div className="d-grid">
-                <Button variant="dark" type="submit">Log in</Button>
+            <div className="d-flex justify-content-center">
+                <Button variant="success" type="submit" style={{ width: 100 }} >Log in</Button>
             </div>
 
 

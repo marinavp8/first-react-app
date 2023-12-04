@@ -19,13 +19,13 @@ const LoginPage = () => {
                     <LoginForm />
                     <br />
 
-                    <Link to={'/signup'} className='nav-link'>Not logged? Sign up here!</Link>
+                    <Link to={'/signup'} className='nav-link'>Not logged?<span style={{ color: 'rgb(58, 125, 19)' }}> Sign up here!</span> </Link>
 
                 </Col>
 
             </Row>
 
-        </Container>
+        </Container >
     )
 }
 

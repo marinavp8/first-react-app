@@ -7,6 +7,7 @@ import CreateComment from '../../../components/Comments/CreateComment'
 import PostedComments from "../../Comments/PostedComents"
 import { Col, Container, Row, Table, Button } from "react-bootstrap"
 import EggButton from '../../EggButton/EggButton'
+import commentService from "../../../services/comment.services"
 import { LinkContainer } from 'react-router-bootstrap'
 
 import '../DetailsRecipe/DetailsRecipe.css'
@@ -15,6 +16,8 @@ const DetailsRecipe = () => {
 
     const { id } = useParams()
     const [recipe, setRecipe] = useState()
+
+    const [comments, setComments] = useState()
 
     const getDetailRecipe = (id) => {
         edamamService
@@ -25,9 +28,25 @@ const DetailsRecipe = () => {
             .catch(err => console.log(err))
     }
 
+
+
+    const refreshComments = () => {
+        commentService
+            .getComments(id)
+            .then(({ data }) => {
+                setComments(data)
+            })
+            .catch(err => console.log(err))
+    }
+
     useEffect(() => {
         getDetailRecipe(id)
+        refreshComments()
     }, [])
+
+
+
+
 
     return (
         !recipe
@@ -40,14 +59,6 @@ const DetailsRecipe = () => {
                     <Col xs={6} md={4} style={{ width: 630 }}>
                         <img src={recipe.images.REGULAR.url} />
                     </Col>
-                    {/* 
-                    <CreateComment recipeId={id} />
-                    <PostedComments recipeId={id} /> */}
-
-                    <CreateComment recipeId={id} />
-                    <PostedComments recipeId={id} />
-                    <hr></hr>
-                    <hr></hr>
 
                     <Col className="p-5">
                         <h2 style={{ fontWeight: 'bold' }}>{recipe.label}</h2>
@@ -117,18 +128,19 @@ const DetailsRecipe = () => {
                                 </Table>
                             </div>
                         </Container>
-
                     </Col>
 
-                </Row>
 
+                </Row>
                 <Row>
                     <div className="mt-3 text-center mb-5" >
                         <h4 className="mb-3" style={{ fontWeight: 'bold' }}> Have You Tried This Recipe? We'd Love to Hear Your Thoughts!
 
                             :</h4>
-                        <CreateComment />
+                        <CreateComment getDetailRecipe={getDetailRecipe} />
+                        <PostedComments recipeId={id} />
                     </div>
+
 
                 </Row>
 

@@ -11,9 +11,8 @@ import CaloriesFilter from "../../components/FilteredRecipe/CaloriesFilter/Calor
 import ExcludeIngredient from "../../components/FilteredRecipe/FilterExcluding/FilterExcluding"
 import Carousel2 from "../../components/Carousel/Carousel2"
 
-import { Container, Row, Col } from "react-bootstrap"
+import { Container } from "react-bootstrap"
 
-//import Carousel2 from "../../components/Carousel/Carousel2"
 
 import './FiltersPage.css'
 
@@ -26,52 +25,28 @@ const FiltersPage = () => {
         <Container>
             <h1 className="title text-center mb-4">Advanced filtering:</h1>
 
-            <Row className="g-4" >
-                <Col>
-                    <RecipieFilteredIng />
-                </Col>
 
-                <Col>
-                    <FilteredMeal />
-                </Col>
+            <RecipieFilteredIng />
 
-                <Col>
-                    <FilteredDinner />
-                </Col>
+            {/* <FilteredMeal /> */}
 
-                <Col>
-                    <FilteredBreakfast />
-                </Col>
+            <FilteredDinner />
 
-                <Col>
-                    <FilteredLunch />
-                </Col>
+            <FilteredBreakfast />
 
-                <Col>
-                    <FilteredVegetarian />
-                </Col>
+            <FilteredLunch />
 
-                <Col>
-                    <FilteredByPlace />
-                </Col>
+            <FilteredVegetarian />
 
-                <Col>
-                    <MultipleIng />
-                </Col>
+            <FilteredByPlace />
 
-                <Col>
-                    <CaloriesFilter />
-                </Col>
+            <MultipleIng />
 
-                <Col>
-                    <ExcludeIngredient />
-                </Col>
+            <CaloriesFilter />
 
-                <Col>
-                    <TimeFilter />
-                </Col>
-                <Carousel2 />
-            </Row>
+            <ExcludeIngredient />
+
+            <TimeFilter />
         </Container>
     );
 };

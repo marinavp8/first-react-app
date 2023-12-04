@@ -61,10 +61,10 @@ const SignupForm = () => {
 
     return (
 
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} className="mb-5">
 
             <Form.Group className="mb-3" controlId="username">
-                <Form.Label>Nombre de usuario</Form.Label>
+                <Form.Label>Username</Form.Label>
                 <Form.Control type="text" value={signupData.username} onChange={handleInputChange} name="username" />
             </Form.Group>
 
@@ -74,17 +74,17 @@ const SignupForm = () => {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="password">
-                <Form.Label>Contraseña</Form.Label>
+                <Form.Label>Password</Form.Label>
                 <Form.Control type="password" value={signupData.password} onChange={handleInputChange} name="password" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="avatar">
-                <Form.Label>Imagen del perfil</Form.Label>
+                <Form.Label>Profile image</Form.Label>
                 <Form.Control type="file" onChange={handleFileUpload} />
             </Form.Group>
 
-            <div className="d-grid">
-                <Button variant="dark" type="submit" disabled={loadingIamge}>{loadingIamge ? 'Loading ...' : 'Sign Up'}</Button>
+            <div className="d-flex justify-content-center mt-5">
+                <Button variant="success" type="submit" disabled={loadingIamge}>{loadingIamge ? 'Loading ...' : 'Sign Up'}</Button>
             </div>
 
             {errors.length > 0 && <FormError>{errors.map(elm => <p>{elm}</p>)}</FormError>}

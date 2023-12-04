@@ -1,11 +1,10 @@
 import { useState } from "react"
 import edamamService from "../../../services/edamam.services"
 import { Form, Button, Container, Row, Col, Card } from "react-bootstrap"
-import { Link } from "react-router-dom"
 
-import foto from '../../../assets/plato.png'
+import foto from '../../../assets/heropage2.png'
 
-
+import CardResults from "../CardResults/CardResults"
 
 
 const FilteredByPlace = () => {
@@ -54,15 +53,44 @@ const FilteredByPlace = () => {
     return (
 
         <div className="mb-3 text-center">
+
+            <Container >
+                <h2 className="d-flex justify-content-center align-items-center" style={{ color: "rgb(58, 125, 19)" }}>Around the world</h2>
+                <Row>
+                    {places.map((place, index) => (
+                        <Col md={3}>
+                            <Card
+                                key={index}
+                                onClick={() => getRecipe(place.value)}
+                                style={{ width: '18rem', cursor: 'pointer', margin: '10px' }}
+                            >   <Card.Img variant="top" src={foto} />
+
+                                <Card.Body className="d-flex justify-content-center align-items-center">
+                                    <Button variant="succes">{place.label}</Button>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    ))}
+
+                </Row>
+
+
+
+
+            </Container>
+
+
+
+            {/* 
+
             <Card style={{ width: "18rem", margin: "auto" }}>
                 <Card.Img variant="top" src={foto} alt="Foto de ejemplo" />
                 <Card.Body>
                     <Card.Title>
-                        <h4>Time for dinner! ingredient?</h4>
+                        <h4> Global Delights </h4>
                     </Card.Title>
                     <Form onSubmit={pressImput} className="mb-3">
                         <Form.Group>
-                            <Form.Label className="form-label"> Global Delights </Form.Label>
                             <Form.Select
                                 name="opciones"
                                 onChange={pressChange}
@@ -90,36 +118,24 @@ const FilteredByPlace = () => {
                     </Form>
                 </Card.Body>
             </Card>
-            <Container>
+            <Container >
+                {recipes.map((recipe) => {
+                    const { uri: urlUri } = recipe.recipe;
+                    let startPos = urlUri.length - 32;
+                    let id = urlUri.slice(startPos);
 
-                <Row xs={2} md={3} className="g-4">
+                    return (
+                        <Container>
+                            <Row>
+                                <CardResults recipes={recipes} />
+                            </Row>
+                        </Container>
+                    )
+                })} */}
+            {/* </Container> */}
 
-                    {
-                        recipes.map((recipe) => {
-                            const { uri: urlUri } = recipe.recipe
-                            let startPos = urlUri.length - 32;
-                            let id = urlUri.slice(startPos)
-                            return (
-                                <Col>
-                                    <Card style={{ width: '18rem' }}>
-                                        <Card.Img variant="top" src={recipe.recipe.images.SMALL.url} />
-                                        <Card.Body>
-                                            <Card.Title> <h4>{recipe.recipe.label}</h4> </Card.Title>
-                                            <Card.Text>
-                                                <p>Type :{recipe.recipe.cuisineType} </p>
-                                                <p>Perfect for {recipe.recipe.mealType}! </p>
-                                            </Card.Text>
-                                            <Link to={`/recipes/${id}`} className="btn btn-dark btn-sm mt-4">ver detalles</Link>
 
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-                            )
-                        })}
-                </Row>
-            </Container>
-
-        </div>
+        </div >
 
 
     )
