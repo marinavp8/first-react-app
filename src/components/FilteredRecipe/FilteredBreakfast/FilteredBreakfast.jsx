@@ -1,12 +1,13 @@
 import { useState } from "react"
 import edamamService from "../../../services/edamam.services"
-// import RecipeContext from "../../contexts/recipe.context"
-// import { useContext } from "react"
+import { Form, Button, Container, Row, Col, Card } from "react-bootstrap"
+import { Link } from "react-router-dom"
+import foto from '../../../assets/plato.png'
+
 
 
 const FilteredBreakfast = () => {
 
-    // const { setRecipeId } = useContext(RecipeContext)
 
     const [recipes, setRecipes] = useState([])
 
@@ -37,25 +38,58 @@ const FilteredBreakfast = () => {
 
     return (
         <div>
+              <Card style={{ width: "18rem", margin: "auto" }}>
+                <Card.Img variant="top" src={foto} alt="Foto de ejemplo" />
+                <Card.Body>
+                    <Card.Title>
+                        <h4>Time for breackfast! ingredient?</h4>
+                    </Card.Title>
+                    <Form onSubmit={pressImput} style={{ maxWidth: "800px", margin: "auto" }}>
+                        <Form.Group className="mb-3">
+                            
+                            <Form.Control type="text" value={ingredient} onChange={pressChange} />
+                            <div className="d-grid mt-3">
+                                <Button variant="dark" type="submit">
+                                    Enviar
+                                </Button>
+                            </div>
+                        </Form.Group>
+                    </Form>
+                </Card.Body>
+            </Card>
 
-            <form onSubmit={pressImput} className="mb-3 text-center">
-                <label> DESAYUNO buscar por ingrediente:
-                </label>
+            <Container>
 
-                <input type="text" value={ingredient} onChange={pressChange} />
+                <Row xs={2} md={3} className="g-4">
 
-
-                <button type='submit'> Enviar </button>
-                <div>
                     {
                         recipes.map((recipe) => {
-                            return <img src={recipe.recipe.images.SMALL.url} alt="img" />
-                        })
-                    }
-                </div>
-            </form>
+                            const { uri: urlUri } = recipe.recipe
+                            let startPos = urlUri.length - 32;
+                            let id = urlUri.slice(startPos)
+                            return (
+                                <Col>
+                                    <Card style={{ width: '18rem' }}>
+                                        <Card.Img variant="top" src={recipe.recipe.images.SMALL.url} />
+                                        <Card.Body>
+                                            <Card.Title> <h4>{recipe.recipe.label}</h4> </Card.Title>
+                                            <Card.Text>
+                                                <p>Type :{recipe.recipe.cuisineType} </p>
+                                                <p>Perfect for {recipe.recipe.mealType}! </p>
+                                            </Card.Text>
+                                            <Link to={`/recipes/${id}`} className="btn btn-dark btn-sm mt-4">ver detalles</Link>
+
+                                        </Card.Body>
+                                    </Card>
+                                </Col>
+                            )
+                        })}
+                </Row>
+            </Container>
+
         </div>
     )
+
 }
 
 export default FilteredBreakfast

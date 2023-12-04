@@ -4,6 +4,7 @@ import edamamService from "../../../services/edamam.services"
 import Loader from "../../../components/Loader/Loader"
 
 import CreateComment from '../../../components/Comments/CreateComment'
+import PostedComments from "../../Comments/PostedComents"
 
 const DetailsRecipe = () => {
 
@@ -61,7 +62,8 @@ const DetailsRecipe = () => {
                     }
                 </ol>
 
-                <CreateComment />
+                <CreateComment recipeId={id}/>
+                <PostedComments recipeId={id}/>
                 <hr></hr>
                 <hr></hr>
 

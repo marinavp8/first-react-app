@@ -2,11 +2,15 @@ import { useState } from "react"
 import { Form, Button } from "react-bootstrap"
 import commentService from "../../services/comment.services"
 import { useNavigate } from "react-router-dom"
+import { useParams } from "react-router-dom"
 
 
 const CreateComment = () => {
 
     const [data, setData] = useState({ comment: '' })
+    const { id } = useParams()
+
+
 
     const handleInputChange = e => {
 
@@ -22,7 +26,7 @@ const CreateComment = () => {
         e.preventDefault()
 
         commentService
-            .postComment(data)
+            .postComment({ ...data, recipeCommented: id })
             .then(() => navigate('/fridge'))
             .catch(err => console.log(err))
 

@@ -44,6 +44,13 @@ class EdamamService {
     getRecipeByTime(time) {
         return this.api.get(`/recipes/total-time?time=${time}`)
     }
+    getRecipeByCalories(calories) {
+        return this.api.get(`/calories?calories=${calories}`)
+    }
+    getRecipeExluding(excluded) {
+        return this.api.get(`/excluding?excluded=${excluded}`)
+    }
+
 
 }
 

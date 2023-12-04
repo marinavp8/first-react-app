@@ -5,16 +5,16 @@ import { Link } from "react-router-dom"
 import foto from '../../../assets/plato.png'
 
 
-const TimeFilter = () => {
+const CaloriesFilter = () => {
 
     const [recipes, setRecipes] = useState([])
 
-    const [time, setTime] = useState('')
+    const [calories, setCalories] = useState('')
 
-    const getRecipe = (time) => {
+    const getRecipe = (calories) => {
 
         edamamService
-            .getRecipeByTime(time)
+            .getRecipeByCalories(calories)
             .then(response => setRecipes(response.data.hits))
             .catch(err => console.log(err))
 
@@ -24,26 +24,26 @@ const TimeFilter = () => {
 
         const { value } = e.currentTarget
 
-        setTime(value)
+        setCalories(value)
     }
 
     const pressImput = e => {
         e.preventDefault()
-        getRecipe(time)
+        getRecipe(calories)
 
     }
 
     return (
         <div>
-          <Card style={{ width: "18rem", margin: "auto" }}>
+         <Card style={{ width: "18rem", margin: "auto" }}>
                 <Card.Img variant="top" src={foto} alt="Foto de ejemplo" />
                 <Card.Body>
                     <Card.Title>
-                        <h4>Hoy much time do you have?</h4>
+                        <h4>How many calories?</h4>
                     </Card.Title>
                     <Form onSubmit={pressImput} style={{ maxWidth: "800px", margin: "auto" }}>
                         <Form.Group className="mb-3">
-                            <Form.Control type="text" value={time} onChange={pressChange} />
+                            <Form.Control type="text" value={calories} onChange={pressChange} />
                             <div className="d-grid mt-3">
                                 <Button variant="dark" type="submit">
                                     Let's search
@@ -87,4 +87,5 @@ const TimeFilter = () => {
     )
 }
 
-export default TimeFilter
+
+export default CaloriesFilter

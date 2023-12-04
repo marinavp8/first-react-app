@@ -1,7 +1,8 @@
 import { useState } from "react"
 import edamamService from "../../../services/edamam.services"
 import { Form, Button, Container, Row, Col, Card } from "react-bootstrap"
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
+import foto from '../../../assets/plato.png'
 
 
 const RecipieFilteredIng = () => {
@@ -26,24 +27,36 @@ const RecipieFilteredIng = () => {
         e.preventDefault()
         getRecipe(ingredient)
     }
+   
 
     return (
+
+
         <div>
-            <Container className="text-center mt-4">
-                <Form onSubmit={pressImput} style={{ maxWidth: "800px", margin: "auto" }}>
-                    <Form.Group className="mb-3" >
-                        <Form.Label>Ingredientes</Form.Label>
-                        <Form.Control type="text" value={ingredient} onChange={pressChange} />
-                        <div className="d-grid mt-3">
-                            <Button variant="dark" type="submit">enviar</Button>
-                        </div>
-                    </Form.Group>
-                </Form>
-            </Container>
+            <Card style={{ width: "18rem", margin: "auto" }}>
+                <Card.Img variant="top" src={foto} alt="Foto de ejemplo" />
+                <Card.Body>
+                    <Card.Title>
+                        <h4>Filter by ingredient:</h4>
+                    </Card.Title>
+                    <Form onSubmit={pressImput} style={{ maxWidth: "800px", margin: "auto" }}>
+                        <Form.Group className="mb-3">
+                            <Form.Label>Ingredientes</Form.Label>
+                            <Form.Control type="text" value={ingredient} onChange={pressChange} />
+                            <div className="d-grid mt-3">
+                                <Button variant="dark" type="submit">
+                                    Enviar
+                                </Button>
+                            </div>
+                        </Form.Group>
+                    </Form>
+                </Card.Body>
+            </Card>
 
-            <Container>
 
-                <Row xs={2} md={3} className="g-4">
+            <Container >
+
+                <Row xs={1} md={3} className="g-4">
 
                     {
                         recipes.map((recipe) => {
@@ -70,7 +83,7 @@ const RecipieFilteredIng = () => {
                 </Row>
             </Container>
 
-        </div>
+        </div >
     )
 }
 
