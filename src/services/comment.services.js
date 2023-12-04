@@ -9,21 +9,21 @@ class CommentService {
         this.api.interceptors.request.use((config) => {
 
             const storedToken = localStorage.getItem("authToken");
-        
+
             if (storedToken) {
                 config.headers = { Authorization: `Bearer ${storedToken}` }
             }
-        
+
             return config
         })
-        
+
     }
 
     postComment(comment) {
         return this.api.post('/', comment)
     }
     getComments(recipeCommented) {
-        console.log('--------------------servicio cliente' , recipeCommented)
+        console.log('--------------------servicio cliente', recipeCommented)
         return this.api.get('/', { params: { recipeCommented } })
     }
 }

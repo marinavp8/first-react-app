@@ -1,8 +1,9 @@
 .title {
     text-align: center;
     color: rgb(237, 244, 237);
+    background-color: rgb(58, 125, 19);
 
-    background-image: url(../../assets/fondo4.jpeg);
+    /* background-image: url(../../assets/fondo4.jpeg); */
     height: 200px;
     background-size: contain;
     padding-top: 90px;

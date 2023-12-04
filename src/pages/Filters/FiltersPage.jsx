@@ -19,13 +19,13 @@ import './FiltersPage.css'
 
 const FiltersPage = () => {
 
-  
+
     return (
 
         <Container>
             <h1 className="title text-center mb-4">Advanced filtering:</h1>
 
-            <Row  className="g-4" >
+            <Row className="g-4" >
                 <Col>
                     <RecipieFilteredIng />
                 </Col>

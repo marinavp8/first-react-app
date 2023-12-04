@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.contexts'
 import "./Navigation.css"
-import { Container, Navbar, Nav, NavDropdown, NavbarText } from 'react-bootstrap'
+import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap'
 
 const Navigation = () => {
 
@@ -23,13 +23,14 @@ const Navigation = () => {
                         <Nav className="me-auto">
 
 
-                            <Link to={'/createmenu'} className='nav-link'>Weekly menu</Link>
+                            {/* <Link to={'/fridge'} className='nav-link'>What's on your fridge?</Link> */}
+
+                            <Link to={'/createmenu'} className='nav-link' style={{ color: 'rgb(58, 125, 19)', fontWeight: "200px" }}>Weekly menu</Link>
 
                             <Link to={'/search/results'} className='nav-link'> Advanced filters </Link>
 
                             <Link to={'/aboutUs'} className='nav-link'> About Us</Link>
 
-                            <Link to={'/fridge'} className='nav-link'>What's on your fridge?</Link>
 
 
                         </Nav>
@@ -47,6 +48,9 @@ const Navigation = () => {
                                             id={`offcanvasNavbarDropdown-expand`}
                                         >
                                             <NavDropdown.Item href={'/profile'}>Profile</NavDropdown.Item>
+
+                                            <NavDropdown.Item href={'/admin'}>Users</NavDropdown.Item>
+
                                             <NavDropdown.Item onClick={logout}>Log out </NavDropdown.Item>
 
                                         </NavDropdown>
@@ -64,6 +68,8 @@ const Navigation = () => {
                                     </Navbar.Text>
                                 </>
                         }
+
+
 
                     </Navbar.Collapse>
 

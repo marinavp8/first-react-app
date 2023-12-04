@@ -12,7 +12,7 @@ const MenuCard = ({ name, _id }) => {
                         <div className="d-grid">
                         </div>
                     </Card.Body>
-                    <Link to={`/${_id}`} className="btn btn-dark btn-sm">See details</Link>
+                    <Link to={`/createmenu/${_id}`} className="btn btn-dark btn-sm">Menu details</Link>
                 </Card>
             </article>
         </Col>

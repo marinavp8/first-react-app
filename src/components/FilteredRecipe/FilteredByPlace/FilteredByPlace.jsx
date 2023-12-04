@@ -35,6 +35,22 @@ const FilteredByPlace = () => {
         getRecipe(place)
     }
 
+    const places = [
+        { label: 'American', value: 'American' },
+        { label: 'British', value: 'British' },
+        { label: 'Central Europe', value: 'Central Europe' },
+        { label: 'Caribbean', value: 'Caribbean' },
+        { label: 'Chinese', value: 'Chinese' },
+        { label: 'French', value: 'French' },
+        { label: 'Indian', value: 'Indian' },
+        { label: 'Italian', value: 'Italian' },
+        { label: 'Japanese', value: 'Japanese' },
+        { label: 'Mediterranean', value: 'Mediterranean' },
+        { label: 'Mexican', value: 'Mexican' },
+        { label: 'South American', value: 'South American' },
+
+    ]
+
     return (
 
         <div className="mb-3 text-center">

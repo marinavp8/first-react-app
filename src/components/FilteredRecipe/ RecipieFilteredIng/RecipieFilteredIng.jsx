@@ -27,7 +27,7 @@ const RecipieFilteredIng = () => {
         e.preventDefault()
         getRecipe(ingredient)
     }
-   
+
 
     return (
 

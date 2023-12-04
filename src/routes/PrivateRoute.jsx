@@ -4,6 +4,7 @@ import { AuthContext } from "../contexts/auth.contexts"
 import Loader from "../components/Loader/Loader"
 
 import { Outlet, Navigate } from "react-router-dom"
+import AdminProfile from "../components/AdminProfile/AdminProfile"
 
 
 const PrivateRoute = () => {
@@ -19,7 +20,6 @@ const PrivateRoute = () => {
     }
 
     return <Outlet />
-
 
 }
 

@@ -5,6 +5,10 @@ import Loader from "../../../components/Loader/Loader"
 
 import CreateComment from '../../../components/Comments/CreateComment'
 import PostedComments from "../../Comments/PostedComents"
+import { Col, Container, Row, Table } from "react-bootstrap"
+import EggButton from '../../EggButton/EggButton'
+
+import '../DetailsRecipe/DetailsRecipe.css'
 
 const DetailsRecipe = () => {
 
@@ -29,48 +33,117 @@ const DetailsRecipe = () => {
             ?
             <Loader />
             :
-            <>
+            <Container>
 
-                <h1>Explore your Recipe!!!!!</h1>
-                <img src={recipe.images.SMALL.url} />
-                <hr />
-                <h1>mealtype:{recipe.mealType[0]}</h1>
-                <hr />
-                <h1>{recipe.dishType}</h1>
-                <hr />
-                <h1>Ingredients:</h1>
-                <ul>
-                    {
-                        recipe.ingredientLines.map((ingredient, _id) => {
-                            return (
-                                <li>
-                                    <p>{ingredient}</p>
-                                </li>
-                            )
-                        })
-                    }
-                </ul>
-                <ol>
-                    {
-                        recipe.ingredients.map((step, _id) => {
-                            return (
-                                <li>
-                                    <p>  Prepare :{step.text}</p>
-                                </li>
-                            )
-                        })
-                    }
-                </ol>
+                <Row>
+                    <Col xs={6} md={4}>
+                        <img src={recipe.images.REGULAR.url} />
+                    </Col>
 
                 <CreateComment recipeId={id}/>
                 <PostedComments recipeId={id}/>
                 <hr></hr>
                 <hr></hr>
+                    <Col className="p-5">
+                        <h1 style={{ fontWeight: 'bold' }}>{recipe.label}</h1>
 
-            </>
+                        <EggButton />
+
+                        <p className="p-3">{recipe.calories} calories | {recipe.totalTime} minutes</p>
+                    </Col>
+
+                </Row>
+
+                <Row>
+                    <Col className="p-4">
+                        <h2 style={{ fontWeight: 'bold' }}>Ingredients:</h2>
+                        <ul>
+                            {
+                                recipe.ingredientLines.map((ingredient, _id) => {
+                                    return (
+                                        <li>{ingredient}</li>
+                                    )
+                                })
+                            }
+                        </ul>
+                    </Col>
+
+                    <Col>
+                        <h2 style={{ fontWeight: 'bold' }}>Preparation :</h2>
+
+                        <ul>
+                            {
+                                recipe.ingredients.map((step, _id) => {
+                                    return (
+                                        <li>{step.text}</li>
+                                    )
+                                })
+                            }
+                        </ul>
+                    </Col>
+
+                </Row>
+
+                <Row>
+                    <Col>
+                        <Container style={{ maxWidth: '800px', marginTop: '20px' }} >
+                            <div style={{ overflowX: 'auto' }}>
+                                <Table striped bordered hover>
+                                    <thead>
+                                        <tr>
+                                            <th>Label</th>
+                                            <th>Daily</th>
+                                            <th>Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {recipe.digest.map((step, _id) => (
+                                            <tr key={_id}>
+                                                <td>{step.label}</td>
+                                                <td>{step.daily}</td>
+                                                <td>{step.total}{step.unit}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </Table>
+                            </div>
+                        </Container>
+
+                    </Col>
+
+                    <Col>
+                        <CreateComment />
+                    </Col>
+
+
+                </Row>
+
+
+            </Container>
 
     )
 
 }
 
 export default DetailsRecipe
+
+
+
+
+//     < Col >
+//     <h1>Diet: </h1>
+// {
+//     recipe.healthLabels.map((step, _id) => {
+//         return (
+//             <div key={_id}>
+//                 <p className="paragrah">{step}</p>
+//             </div>
+//         )
+//     })
+// }
+//                     </Col >
+
+
+
+
+
