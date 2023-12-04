@@ -22,9 +22,8 @@ class CommentService {
     postComment(comment) {
         return this.api.post('/', comment)
     }
-    getComments(recipeCommented) {
-        console.log('--------------------servicio cliente', recipeCommented)
-        return this.api.get('/', { params: { recipeCommented } })
+    getComments(recipeId) {
+        return this.api.get('/', { params: { recipeId } })
     }
 }
 

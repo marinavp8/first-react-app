@@ -1,8 +1,9 @@
 import { useState } from "react"
 import edamamService from "../../../services/edamam.services"
 import { Form, Button, Container, Row, Col, Card } from "react-bootstrap"
-import { Link } from "react-router-dom"
-import foto from '../../../assets/plato.png'
+// import { Link } from "react-router-dom"
+import foto from '../../../assets/heropage2.png'
+import CardResults from "../CardResults/CardResults"
 
 
 const RecipieFilteredIng = () => {
@@ -31,7 +32,6 @@ const RecipieFilteredIng = () => {
 
     return (
 
-
         <div>
             <Card style={{ width: "18rem", margin: "auto" }}>
                 <Card.Img variant="top" src={foto} alt="Foto de ejemplo" />
@@ -53,39 +53,25 @@ const RecipieFilteredIng = () => {
                 </Card.Body>
             </Card>
 
-
             <Container >
+                {recipes.map((recipe) => {
+                    const { uri: urlUri } = recipe.recipe;
+                    let startPos = urlUri.length - 32;
+                    let id = urlUri.slice(startPos);
 
-                <Row xs={1} md={3} className="g-4">
-
-                    {
-                        recipes.map((recipe) => {
-                            const { uri: urlUri } = recipe.recipe
-                            let startPos = urlUri.length - 32;
-                            let id = urlUri.slice(startPos)
-                            return (
-                                <Col>
-                                    <Card style={{ width: '18rem' }}>
-                                        <Card.Img variant="top" src={recipe.recipe.images.SMALL.url} />
-                                        <Card.Body>
-                                            <Card.Title> <h4>{recipe.recipe.label}</h4> </Card.Title>
-                                            <Card.Text>
-                                                <p>Type :{recipe.recipe.cuisineType} </p>
-                                                <p>Perfect for {recipe.recipe.mealType}! </p>
-                                            </Card.Text>
-                                            <Link to={`/recipes/${id}`} className="btn btn-dark btn-sm mt-4">ver detalles</Link>
-
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-                            )
-                        })}
-                </Row>
+                    return (
+                        <Container>
+                            <Row>
+                                <CardResults recipes={recipes}/>
+                            </Row>
+                        </Container>
+                    )
+                })}
             </Container>
-
-        </div >
+        </div>
     )
 }
+
 
 
 export default RecipieFilteredIng

@@ -7,6 +7,7 @@ import CreateComment from '../../../components/Comments/CreateComment'
 import PostedComments from "../../Comments/PostedComents"
 import { Col, Container, Row, Table } from "react-bootstrap"
 import EggButton from '../../EggButton/EggButton'
+import commentService from "../../../services/comment.services"
 
 import '../DetailsRecipe/DetailsRecipe.css'
 
@@ -14,6 +15,8 @@ const DetailsRecipe = () => {
 
     const { id } = useParams()
     const [recipe, setRecipe] = useState()
+
+    const [comments, setComments] = useState()
 
     const getDetailRecipe = (id) => {
         edamamService
@@ -24,9 +27,25 @@ const DetailsRecipe = () => {
             .catch(err => console.log(err))
     }
 
+
+
+    const refreshComments = () => {
+        commentService
+            .getComments(id)
+            .then(({ data }) => {
+                setComments(data)
+            })
+            .catch(err => console.log(err))
+    }
+
     useEffect(() => {
         getDetailRecipe(id)
+        refreshComments()
     }, [])
+
+
+
+
 
     return (
         !recipe
@@ -40,10 +59,10 @@ const DetailsRecipe = () => {
                         <img src={recipe.images.REGULAR.url} />
                     </Col>
 
-                <CreateComment recipeId={id}/>
-                <PostedComments recipeId={id}/>
-                <hr></hr>
-                <hr></hr>
+                    <CreateComment recipeId={id} />
+                    <PostedComments recipeId={id} />
+                    <hr></hr>
+                    <hr></hr>
                     <Col className="p-5">
                         <h1 style={{ fontWeight: 'bold' }}>{recipe.label}</h1>
 
@@ -112,8 +131,10 @@ const DetailsRecipe = () => {
                     </Col>
 
                     <Col>
-                        <CreateComment />
+                        <CreateComment getDetailRecipe={getDetailRecipe} />
+                        <PostedComments recipeId={id} />
                     </Col>
+
 
 
                 </Row>
