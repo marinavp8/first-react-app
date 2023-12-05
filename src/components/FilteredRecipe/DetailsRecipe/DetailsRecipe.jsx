@@ -14,7 +14,7 @@ const DetailsRecipe = () => {
 
     const { id } = useParams()
     const [recipe, setRecipe] = useState()
-
+    const [comments, setComments] = useState()
 
     const getDetailRecipe = (id) => {
         edamamService
@@ -35,6 +35,9 @@ const DetailsRecipe = () => {
             })
             .catch(err => console.log(err))
     }
+
+
+
 
     useEffect(() => {
         getDetailRecipe(id)
@@ -134,8 +137,8 @@ const DetailsRecipe = () => {
                         <h4 className="mb-3" style={{ fontWeight: 'bold' }}> Have You Tried This Recipe? We'd Love to Hear Your Thoughts!
 
                             :</h4>
-                        <CreateComment getDetailRecipe={getDetailRecipe} />
-                        <PostedComments recipeId={id} />
+                        <CreateComment getDetailRecipe={getDetailRecipe} refreshComments={refreshComments} />
+                        <PostedComments recipeId={id} refreshComments={refreshComments}  comments={comments}/>
                     </div>
 
 
@@ -151,20 +154,6 @@ const DetailsRecipe = () => {
 export default DetailsRecipe
 
 
-
-
-//     < Col >
-//     <h1>Diet: </h1>
-// {
-//     recipe.healthLabels.map((step, _id) => {
-//         return (
-//             <div key={_id}>
-//                 <p className="paragrah">{step}</p>
-//             </div>
-//         )
-//     })
-// }
-//                     </Col >
 
 
 

@@ -4,7 +4,7 @@ import commentService from "../../services/comment.services"
 import { useNavigate } from "react-router-dom"
 import { useParams } from "react-router-dom"
 
-const CreateComment = ({ getDetailRecipe }) => {
+const CreateComment = ({ getDetailRecipe, refreshComments }) => {
 
     const [data, setData] = useState({ comment: '' })
 
@@ -30,6 +30,8 @@ const CreateComment = ({ getDetailRecipe }) => {
                 if (getDetailRecipe) {
                     getDetailRecipe(id)
                 }
+               
+                refreshComments()
                 navigate(`/recipes/${id}`)
             })
             .catch(err => console.log(err))
@@ -41,17 +43,19 @@ const CreateComment = ({ getDetailRecipe }) => {
     return (
 
 
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} className="comment-form">
             <Form.Group className="mb-3" controlId="comment">
                 <Form.Label>Comment:</Form.Label>
                 <div style={{ display: 'flex', alignItems: 'center', paddingLeft: 50 }}>
-                    <Form.Control style={{ width: 1000 }} type="text" value={data.comment} onChange={handleInputChange} name="comment" />
-                    <Button variant="success" type="submit" >Send</Button>
+                    <Form.Control
+                        style={{ width: 1000 }}
+                        type="text" value={data.comment}
+                        onChange={handleInputChange}
+                        name="comment"
+                        className="comment-text-input" />
+                    <Button className="comment-btn" variant="success" type="submit" >Send</Button>
                 </div>
             </Form.Group>
-            <div className="d-grid">
-                <Button variant="dark" type="submit">Send</Button>
-            </div>
 
         </Form >
 

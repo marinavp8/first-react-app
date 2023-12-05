@@ -25,6 +25,10 @@ class CommentService {
     getComments(recipeId) {
         return this.api.get('/', { params: { recipeId } })
     }
+    deleteComment(commentId) {
+        return this.api.delete(`/delete/${commentId}`)
+
+    }
 }
 
 const commentService = new CommentService()
