@@ -10,17 +10,10 @@ import menuService from "../../services/menu.services"
 const FilteredBreakfast2 = () => {
 
     const params = useParams()
-    console.log(params)
-    // const { setRecipeId } = useContext(RecipeContext)
-
     const navigate = useNavigate()
-
     const [recipes, setRecipes] = useState([])
-
     const [ingredient, setIngredient] = useState('')
-
     const [addRecipe, setaddRecipe] = useState(null)
-
     const getRecipe = (ingredient) => {
 
         edamamService
@@ -39,7 +32,6 @@ const FilteredBreakfast2 = () => {
     const pressImput = e => {
         e.preventDefault()
         getRecipe(ingredient)
-        // setRecipeId(obtenidoRecipeId)
 
     }
 
@@ -54,39 +46,14 @@ const FilteredBreakfast2 = () => {
             .catch(err => console.log(err))
     }
 
-    // const id = recipes.map(recipe => {
 
-    //     const urlUri = recipe.recipe.uri
-    //     let startPos = urlUri.length - 32;
-    //     let part = urlUri.slice(startPos)
-    //     return part
-    // })
 
     return (
         <div>
 
             <form onSubmit={pressImput}>
-
-
-
-
-                {/* <Form.Label htmlFor="inputPassword5">Tell me an ingredient and let yourself go:</Form.Label>
-                <Form.Control
-                    type="text"
-                    id="inputPassword5"
-                    aria-describedby="passwordHelpBlock"
-                    value={ingredient} onChange={pressChange}
-                /> */}
-
-
                 <Container>
                     <div className="d-flex justify-content-center">
-                        {/* <label> Tell me an ingredient and let yourself go:
-                        </label>
-
-                        <input type="text" value={ingredient} onChange={pressChange} />
-                        <button type='submit'> Search </button> */}
-
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Serch by ingredients:</Form.Label>
                             <Form.Control type="text" placeholder="eggs" className="mb-3" value={ingredient} onChange={pressChange} />
@@ -96,12 +63,10 @@ const FilteredBreakfast2 = () => {
                                 </Button>
                             </figure>
                         </Form.Group>
-
                     </div>
                 </Container>
 
                 <br /><br /><br />
-
 
                 <Container>
                     <div>
@@ -128,12 +93,9 @@ const FilteredBreakfast2 = () => {
 
                                         </Col>
                                     )
-
                                 })
                             }
-
                         </Row>
-
                     </div>
                 </Container>
             </form>

@@ -19,8 +19,8 @@ import AboutUsPage from '../pages/AboutUsPage/AboutUsPage'
 import AdminProfilePage from '../pages/AdminProfilePage/AdminProfilePage'
 import CreateMenuPage from '../pages/CreateMenu/CreateMenuPage'
 
-
 const AppRoutes = () => {
+
 
     return (
 
@@ -40,7 +40,7 @@ const AppRoutes = () => {
                 <Route path={'/createmenu'} element={< MenuCreate />} />
             </Route>
 
-            <Route element={<PrivateRoute role={'ADMIN'} />} >
+            <Route element={<PrivateRoute />} >
                 <Route path={'/users'} element={<AdminProfilePage />} />
             </Route>
 

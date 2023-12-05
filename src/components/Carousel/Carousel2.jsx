@@ -5,7 +5,7 @@ import heroPage from '../../assets/heropage2.png'
 
 
 
-const Carousel2 = () => {
+const Carousel2 = ({ recipes }) => {
 
     const responsive = {
         desktop: {
@@ -30,91 +30,46 @@ const Carousel2 = () => {
 
 
     return (
-        <Container className={{ maxHeight: "450px", maxWidth: "200px" }}>
-            <Carousel
-                swipeable={false}
-                draggable={false}
-                showDots={true}
-                responsive={responsive}
-                ssr={true} // means to render carousel on server-side.
-                infinite={true}
-                // autoPlay={this.props.deviceType !== "mobile" ? true : false}
-                autoPlaySpeed={1000}
-                keyBoardControl={true}
-                customTransition="all .5"
-                transitionDuration={500}
-                containerClass="carousel-container"
-                removeArrowOnDeviceType={["tablet", "mobile"]}
-                // deviceType={this.props.deviceType}
-                dotListClass="custom-dot-list-style"
-                itemClass="carousel-item-padding-40-px"
+        <Carousel
+            swipeable={false}
+            draggable={false}
+            showDots={true}
+            responsive={responsive}
+            ssr={true}
+            infinite={true}
+            autoPlaySpeed={1000}
+            keyBoardControl={true}
+            customTransition="all .5"
+            transitionDuration={500}
+            containerClass="carousel-container"
+            removeArrowOnDeviceType={["tablet", "mobile"]}
+            dotListClass="custom-dot-list-style"
+            itemClass="carousel-item-padding-40-px"
+        >
+            {recipes.map((recipe) => {
+                const { uri: urlUri } = recipe.recipe;
+                let startPos = urlUri.length - 32;
+                let id = urlUri.slice(startPos);
+                return (
+                    <div key={id} className=" text-center mb-5"> {/* Asegúrate de dar una clave única a cada elemento del carrusel */}
+                        <Card style={{ width: '18rem' }} className="ml-5">
+                            <Card.Img variant="top" src={recipe.recipe.images.SMALL.url} />
+                            <Card.Body>
+                                <Card.Title>{recipe.recipe.label}</Card.Title>
+                                <Card.Text>
+                                    {Math.round(recipe.recipe.calories)}kcal | {recipe.recipe.totalTime} min
+                                </Card.Text>
+                                <div className="d-flex justify-content-center align-items-center">
+                                    <Button variant="success">Details</Button>
+                                </div>
+                            </Card.Body>
+                        </Card>
+                    </div>
+                )
+            })}
+        </Carousel>
 
-            >
-                <div> <Card style={{ width: '18rem' }} className="ml-5">
-                    <Card.Img variant="top" src={heroPage} />
-                    <Card.Body>
-                        <Card.Title>Card Title</Card.Title>
-                        <Card.Text>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
-                        </Card.Text>
-                        <div className="d-flex justify-content-center align-items-center">
-
-                            <Button variant="success">Go somewhere</Button>
-                        </div>
-                    </Card.Body>
-                </Card></div>
-                <div><Card.Img variant="top" src={heroPage} />
-                    <Card.Body>
-                        <Card.Title>Card Title</Card.Title>
-                        <Card.Text>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
-                        </Card.Text>
-                        <Button variant="success">Go somewhere</Button>
-                    </Card.Body></div>
-                <div><Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={heroPage} />
-                    <Card.Body>
-                        <Card.Title>Card Title</Card.Title>
-                        <Card.Text>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
-                        </Card.Text>
-                        <Button variant="success">Go somewhere</Button>
-                    </Card.Body>
-                </Card></div>
-                <div><Card.Img variant="top" src={heroPage} />
-                    <Card.Body>
-                        <Card.Title>Card Title</Card.Title>
-                        <Card.Text>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
-                        </Card.Text>
-                        <Button variant="success">Go somewhere</Button>
-                    </Card.Body></div>
-                <div><Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={heroPage} />
-                    <Card.Body>
-                        <Card.Title>Card Title</Card.Title>
-                        <Card.Text>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
-                        </Card.Text>
-                        <Button variant="success">Go somewhere</Button>
-                    </Card.Body>
-                </Card></div>
-                <div><Card.Img variant="top" src={heroPage} />
-                    <Card.Body>
-                        <Card.Title>Card Title</Card.Title>
-                        <Card.Text>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
-                        </Card.Text>
-                        <Button variant="success">Go somewhere</Button>
-                    </Card.Body></div>
-            </Carousel>
-        </Container>
+        // </Container>
     )
 }
 
