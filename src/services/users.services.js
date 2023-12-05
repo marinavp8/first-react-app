@@ -29,9 +29,6 @@ class UsersServices {
         return this.api.delete(`/deleteUser/${_id}`)
     }
 
-
-
-
 }
 
 const usersServices = new UsersServices()

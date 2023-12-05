@@ -2,18 +2,18 @@ import { useEffect, useState } from "react"
 import commentService from "../../services/comment.services"
 import { Image, Col, Row, Button } from "react-bootstrap"
 
+import { Button } from "react-bootstrap"
 
-const PostedComments = ({  refreshComments, comments }) => {
+const PostedComments = ({ refreshComments, comments }) => {
 
 
+    const [comments, setComments] = useState()
 
     useEffect(() => {
         refreshComments()
     }, [])
 
-
-
-    const deleteComment = (commentId) => {
+    const loadComments = () => {
 
         commentService
             .deleteComment(commentId)
@@ -35,17 +35,19 @@ const PostedComments = ({  refreshComments, comments }) => {
                         <Col key={comment._id}>
 
                             <div key={comment._id}>
-
-                                <Image src={comment.owner.avatar} roundedCircle style={{ width: '5%' }} alt="" />
-                                <h5>{comment.owner.username} posted : </h5>
-                                <p>{comment.comment}</p>
                                 <Button onClick={() => deleteComment(comment._id)} variant="success" >Delete comment </Button>
 
                             </div>
+
+                            <Image src={comment.owner.avatar} roundedCircle style={{ width: '5%' }} alt="" />
+                            <h5>{comment.owner.username} posted : </h5>
+                            <p>{comment.comment}</p>
+                            <Button onClick={() => deleteComment(comment._id)} variant="success" >Delete comment </Button>
+
                         </Col>
                     ))}
                 </Row>
-            </div>
+            </div >
     )
 }
 

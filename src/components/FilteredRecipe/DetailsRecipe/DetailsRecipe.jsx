@@ -25,8 +25,6 @@ const DetailsRecipe = () => {
             .catch(err => console.log(err))
     }
 
-
-
     const refreshComments = () => {
         commentService
             .getComments(id)
@@ -43,10 +41,6 @@ const DetailsRecipe = () => {
         getDetailRecipe(id)
         refreshComments()
     }, [])
-
-
-
-
 
     return (
         !recipe
