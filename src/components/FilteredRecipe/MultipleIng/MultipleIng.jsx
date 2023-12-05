@@ -8,6 +8,7 @@ import Carousel2 from "../../Carousel/Carousel2"
 const MultipleIng = () => {
 
     const [ingredient, setIngredient] = useState()
+
     const [recipes, setRecipes] = useState([])
 
     const getMultiple = (ingredient) => {
@@ -48,49 +49,9 @@ const MultipleIng = () => {
                 </Form.Group>
             </Form>
 
+            <Carousel2 recipes={recipes} />
 
 
-            {/* 
-            <Card style={{ width: "18rem", margin: "auto" }}>
-                <Card.Img variant="top" src={foto} alt="Foto de ejemplo" />
-                <Card.Body>
-                    <Card.Title>
-                        <h4>What do you have in your fridge?</h4>
-                    </Card.Title>
-                    <Form onSubmit={pressImput} style={{ maxWidth: "800px", margin: "auto" }}>
-                        <Form.Group className="mb-3">
-                            <Form.Control type="text" value={ingredient} onChange={pressChange} />
-                            <div className="d-grid mt-3">
-                                <Button variant="dark" type="submit">
-                                    Let's search
-                                </Button>
-                            </div>
-                        </Form.Group>
-                    </Form>
-                </Card.Body>
-            </Card> */}
-
-            <Container >
-                {recipes.map((recipe) => {
-                    const { uri: urlUri } = recipe.recipe;
-                    let startPos = urlUri.length - 32;
-                    let id = urlUri.slice(startPos);
-
-                    return (
-
-
-
-
-
-
-                        <Container>
-                            <CardResults recipes={recipes} />
-                            <Carousel2 />
-
-                        </Container>
-                    )
-                })}
-            </Container>
 
         </div >
     )
