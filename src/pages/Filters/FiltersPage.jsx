@@ -15,6 +15,7 @@ import { Container } from "react-bootstrap"
 
 
 import './FiltersPage.css'
+import HealthyMeals from "../../components/HealthyMeals/HealthyMeals"
 
 
 const FiltersPage = () => {
@@ -40,13 +41,15 @@ const FiltersPage = () => {
 
             <FilteredByPlace />
 
-            <MultipleIng />
+            {/* <MultipleIng /> */}
 
             <CaloriesFilter />
 
             <ExcludeIngredient />
 
             <TimeFilter />
+
+            <HealthyMeals />
         </Container>
     );
 };

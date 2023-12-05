@@ -12,7 +12,6 @@ const YourFridge = () => {
                 <div className="centrar">
                     <h2>Search through 1.7+ million recipes</h2>
                     <MultipleIng />
-
                 </div>
             </Container>
             <HealthyMeals />

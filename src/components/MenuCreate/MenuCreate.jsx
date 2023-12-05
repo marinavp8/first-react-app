@@ -10,6 +10,9 @@ import { Container, Accordion, Row, Col } from "react-bootstrap"
 import RecipeMenu from "../RecipeMenu/RecipeMenu"
 import "./MenuCreate.css"
 import MenuEdit from "../MenuEdit/MenuEdit"
+import AccordionBody from 'react-bootstrap/AccordionBody'
+
+
 // TODO: DESACOPLAR
 
 const menuBase = {
@@ -157,17 +160,17 @@ const newMenuForm = () => {
             <Loader />
             :
             <Container>
-                <Form onSubmit={handleMenuSubmit}>
+                {/* <Form onSubmit={handleMenuSubmit}>
                     <Form.Label>Menu name:</Form.Label>
                     <Form.Control type="text" value={menuData.name} name="name" onChange={handleInputChange} />
-                </Form>
+                </Form> */}
                 <br /><br />
                 {
                     menuData.days.map((day, index) => (
-                        < Accordion defaultActiveKey="0" >
+                        < Accordion defaultActiveKey="0" bsPrefix="my-accordion" >
                             <Accordion.Item eventKey="0">
                                 <Row>
-                                    <Accordion.Header className="prueba">{day.day}</Accordion.Header>
+                                    <Accordion.Header className="mt-5 mb-5">{day.day}</Accordion.Header>
                                     <Col>
                                         <div className="text-center">
                                             <Accordion.Body>
@@ -238,16 +241,16 @@ const newMenuForm = () => {
 
                 <MenuEdit existingMenuData={menuData} onUpdateMenu={handleUpdateMenu} />
 
-                <Container className="d-flex justify-content-center">
+                {/* <Container className="d-flex justify-content-center">
 
                     <Button variant="success" type="submit">Submit</Button>
-                </Container>
-                <br /><br /> <br /><br /> <br /><br /> <br /><br /> <br /><br />
+                </Container> */}
+                {/* <br /><br /> <br /><br /> <br /><br /> <br /><br /> <br /><br />
                 {
                     <pre>
                         {JSON.stringify(recipes, null, 2)}
                     </pre>
-                }
+                } */}
 
             </Container>
     )
