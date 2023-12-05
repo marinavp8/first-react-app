@@ -1,7 +1,5 @@
 import { useContext, useEffect, useState } from "react"
-
 import usersServices from "../../services/users.services"
-import { AuthContext } from "../../contexts/auth.contexts"
 import Loader from "../Loader/Loader"
 import { Container, Button } from "react-bootstrap"
 
@@ -25,32 +23,38 @@ const AdminProfile = () => {
 
     }
 
+    const deleteUser = (_id) => {
+
+        usersServices
+            .deleteUser(_id)
+            .then(() => console.log(_id))
+            .catch(err => console.log(err))
+    }
+
     return (
 
         <Container>
 
             {
-
                 !usersData
                     ?
                     <Loader />
-
                     :
                     usersData.map((elm, i) => {
                         return (
-                            <>
-                                <p>{elm.username}</p>
-                                <Button onClick={() => deleteComment(comment._id)} variant="success" >Delete comment </Button>
 
-                            </>
+                            <div key={i}>
+                                <p>{elm.username}</p>
+
+                                <Button onClick={() => deleteUser(elm._id)} variant="success" >Delete User </Button>
+
+                            </div>
+
                         )
                     })
-
             }
 
-
         </Container>
-
 
     )
 

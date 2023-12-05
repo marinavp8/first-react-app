@@ -36,8 +36,9 @@ const Navigation = () => {
                                             id={`offcanvasNavbarDropdown-expand`}
                                         >
                                             <NavDropdown.Item href={'/profile'} style={{ fontSize: "18px" }}>Profile</NavDropdown.Item>
-                                            <NavDropdown.Item href={'/users'} style={{ fontSize: "18px" }}>Users</NavDropdown.Item>
                                             <NavDropdown.Item onClick={logout} style={{ fontSize: "18px" }}>Log out </NavDropdown.Item>
+                                            <NavDropdown.Item href={'/users'} style={{ fontSize: "18px" }}>Users</NavDropdown.Item>
+
 
                                         </NavDropdown>
                                     </Navbar.Text>
@@ -50,8 +51,6 @@ const Navigation = () => {
                                     </Navbar.Text>
                                 </>
                         }
-
-
 
                     </Navbar.Collapse>
 

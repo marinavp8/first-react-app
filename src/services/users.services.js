@@ -26,7 +26,7 @@ class UsersServices {
     }
 
     deleteUser(_id) {
-        return this.api.delete(`/deleteUser/${_id}`)
+        return this.api.delete(`/delete/${_id}`)
     }
 
 }
