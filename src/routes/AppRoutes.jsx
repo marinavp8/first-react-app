@@ -43,6 +43,7 @@ const AppRoutes = () => {
                 <Route path={'/users'} element={<AdminProfilePage />} />
             </Route>
 
+
             <Route path={'/menulist'} element={< MenuList />} />
             <Route path={':_id'} element={<MenuDetails />} />
             <Route path={'/edit/:_id'} element={<MenuEdit />} />

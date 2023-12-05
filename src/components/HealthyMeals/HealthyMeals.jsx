@@ -1,86 +1,67 @@
 import { Card, Button, Container, Row, Col } from "react-bootstrap"
 import edamamService from "../../services/edamam.services"
 import { useState } from "react"
+import Carousel2 from "../Carousel/Carousel2"
+import vegan from "../../assets/vegan.png"
+import vege from "../../assets/vege.png"
+import glu from "../../assets/glu-free.png"
+import fod from "../../assets/fodmap-free.png"
 const HealthyMeals = () => {
-    const [veganMeals, setVeganMeals] = useState([])
 
-    const HealthyMeals = () => {
+    const [recipes, setRecipes] = useState([])
+
+    const getHealthyMeals = (selectedHealthy) => {
         edamamService
-            .getHealthRecipe(vegan)
-            .then(response => { setVeganMeals(response); console.log(setVeganMeals) })
+            .getHealthRecipe(selectedHealthy)
+            .then(response => { setRecipes(response.data.hits); console.log(response.data.hits) })
             .catch(err => console.log(err))
 
     }
 
-    return (
+    const healthyParams = [
+        { label: 'vegan', value: 'vegan', img: vegan },
+        { label: 'vegetarian', value: 'vegetarian', img: vege },
+        { label: 'gluten-free', value: 'gluten-free', img: glu },
+        { label: 'fodmap-free', value: 'fodmap-free', img: fod },
+    ]
 
-        // HealthyMeals.map(e => {
-        //     {
-        //         JSON.stringify(e)
-        //     }
-        // })
-        <p>lalal</p>
+    return (
+        <Container>
+            <Row className="mb-5">
+
+                {healthyParams.map((health, index) => (
+                    <Col md={3} key={index}>
+                        <Card style={{ width: '18rem', cursor: 'pointer', margin: '10px' }}>
+                            <Card.Img variant="top" src={health.img} />
+                            <Card.Body className="d-flex justify-content-center align-items-center">
+                                <Button
+                                    variant="outline-success"
+                                    type="submit"
+                                    onClick={() => {
+                                        getHealthyMeals(health.value)
+                                    }}>
+                                    {health.label}
+                                </Button>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+
+                ))}
+            </Row>
+            <Row>
+                {/* <CardResults recipes={healthyMeals} /> */}
+                <Carousel2 recipes={recipes} />
+            </Row>
+
+
+        </Container>
+
+
 
     )
 
 
 
-
-
-    // <Container>
-    //     <Row className="mt-5">
-
-
-    //         <Col md={3}>
-    //             <Card style={{ width: '18rem' }}>
-    //                 <Card.Img variant="top" src="holder.js/100px180" />
-    //                 <Card.Body>
-    //                     <div className="d-flex justify-content-center align-items-center">
-
-    //                         <Button variant="success">Vegan</Button>
-    //                     </div>
-    //                 </Card.Body>
-    //             </Card>
-    //         </Col>
-
-    //         <Col md={3}>
-    //             <Card style={{ width: '18rem' }}>
-    //                 <Card.Img variant="top" src="holder.js/100px180" />
-    //                 <Card.Body>
-    //                     <div className="d-flex justify-content-center align-items-center">
-
-    //                         <Button variant="success">Vegan</Button>
-    //                     </div>
-    //                 </Card.Body>
-    //             </Card>
-    //         </Col>
-
-    //         <Col md={3}>
-    //             <Card style={{ width: '18rem' }}>
-    //                 <Card.Img variant="top" src="holder.js/100px180" />
-    //                 <Card.Body>
-    //                     <div className="d-flex justify-content-center align-items-center">
-
-    //                         <Button variant="success">Vegan</Button>
-    //                     </div>
-    //                 </Card.Body>
-    //             </Card>
-    //         </Col>
-
-    //         <Col md={3}>
-    //             <Card style={{ width: '18rem' }}>
-    //                 <Card.Img variant="top" src="holder.js/100px180" />
-    //                 <Card.Body>
-    //                     <div className="d-flex justify-content-center align-items-center">
-
-    //                         <Button variant="success">Vegan</Button>
-    //                     </div>
-    //                 </Card.Body>
-    //             </Card>
-    //         </Col>
-
-    //     </Row>
-    // </Container >
 
 }
 

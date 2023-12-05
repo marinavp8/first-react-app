@@ -30,19 +30,23 @@ const PostedComments = ({ refreshComments, comments }) => {
                         <Col key={comment._id}>
 
                             <div key={comment._id}>
-                                <Button onClick={() => deleteComment(comment._id)} variant="success" >Delete comment </Button>
+                                <Button onClick={() => deleteComment(comment._id)} variant="success" >Delete </Button>
 
                             </div>
 
                             <Image src={comment.owner.avatar} roundedCircle style={{ width: '5%' }} alt="" />
-                            <h5>{comment.owner.username} posted : </h5>
+                            <h5>{comment.owner.username}: </h5>
                             <p>{comment.comment}</p>
 
                         </Col>
+
                     ))}
                 </Row>
             </div >
+
+
     )
 }
+
 
 export default PostedComments

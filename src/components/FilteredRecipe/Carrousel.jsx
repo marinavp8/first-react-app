@@ -82,7 +82,7 @@ const CarouselFunc = () => {
                                                             <br /><br />
                                                             <figure className="d-flex justify-content-center">
 
-                                                                <Button variant="dark">See recipe</Button>
+                                                                <Button variant="success">See recipe</Button>
                                                             </figure>
 
                                                         </Card.Text>

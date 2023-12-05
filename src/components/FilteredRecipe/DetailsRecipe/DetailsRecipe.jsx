@@ -133,7 +133,7 @@ const DetailsRecipe = () => {
 
                             :</h4>
                         <CreateComment getDetailRecipe={getDetailRecipe} refreshComments={refreshComments} />
-                        <PostedComments recipeId={id} refreshComments={refreshComments}  comments={comments}/>
+                        <PostedComments recipeId={id} refreshComments={refreshComments} comments={comments} />
                     </div>
 
 

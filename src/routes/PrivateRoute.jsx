@@ -1,10 +1,7 @@
 import { useContext } from "react"
 import { AuthContext } from "../contexts/auth.contexts"
-
 import Loader from "../components/Loader/Loader"
-
 import { Outlet, Navigate } from "react-router-dom"
-import AdminProfile from "../components/AdminProfile/AdminProfile"
 
 
 const PrivateRoute = () => {
@@ -12,6 +9,9 @@ const PrivateRoute = () => {
     const { loggedUser, isLoading } = useContext(AuthContext)
 
     if (isLoading) {
+        return <Loader />
+    }
+    if (loggedUser.role === 'ADMIN') {
         return <Loader />
     }
 
