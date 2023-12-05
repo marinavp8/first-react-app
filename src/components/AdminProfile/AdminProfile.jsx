@@ -1,43 +1,53 @@
-import { useState } from "react"
+import { useContext, useEffect, useState } from "react"
 
 import usersServices from "../../services/users.services"
+import { AuthContext } from "../../contexts/auth.contexts"
+import Loader from "../Loader/Loader"
+import { Container } from "react-bootstrap"
 
 const AdminProfile = () => {
 
-    const [usersData, setUsersData] = useState({
-        username: '',
-        email: '',
-        role: '',
-        avatar: ''
+    const [usersData, setUsersData] = useState()
 
-    })
+    useEffect(() => {
+        getAllUsers()
 
-    const handleInputChange = e => {
-
-        const { value, name } = e.target
-
-        setUsersData({ ...data, [name]: value })
-    }
-
+    }, [])
 
     const getAllUsers = () => {
 
         usersServices
             .getAllUsers()
-            .then(response => console.log(response))
+            .then(({ data }) => {
+                setUsersData(data)
+            })
             .catch(err => console.log(err))
 
     }
 
-
     return (
-        <>
 
-            <h1>FUNCIONOOO</h1>
+        <Container>
+
+            {
+
+                !usersData
+                    ?
+                    <Loader />
+
+                    :
+                    usersData.map((elm, i) => {
+                        return (
+                            <p>{elm.username}</p>
+                        )
+                    })
+
+            }
 
 
+        </Container>
 
-        </>
+
     )
 
 }
