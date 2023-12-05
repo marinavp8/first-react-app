@@ -50,9 +50,9 @@ class EdamamService {
     getRecipeExluding(excluded) {
         return this.api.get(`/excluding?excluded=${excluded}`)
     }
-    // getMultipleFiltering() {
-    //     return this.api.get(`/`)
-    // }
+    getMultipleFiltering({ ingredient, health, mealtype, calories, time }) {
+        return this.api.get(`/explore?ingredient=${ingredient}&health=${health}&mealtype=${mealtype}&calories=${calories}&time=${time}`)
+    }
 
 
 }

@@ -7,6 +7,7 @@ import CreateComment from '../../../components/Comments/CreateComment'
 import PostedComments from "../../Comments/PostedComents"
 import { Col, Container, Row, Table, Button } from "react-bootstrap"
 import commentService from "../../../services/comment.services"
+import EggButton from '../../EggButton/EggButton'
 
 import '../DetailsRecipe/DetailsRecipe.css'
 
@@ -62,7 +63,7 @@ const DetailsRecipe = () => {
                             return <span> {e} |</span>
                         })}
 
-                        {/* <EggButton /> */}
+                         <EggButton recipeId={id}/> 
 
                     </Col>
 
