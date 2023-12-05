@@ -2,6 +2,8 @@ import Carousel from "react-multi-carousel"
 import "react-multi-carousel/lib/styles.css"
 import { Container, Card, Button } from "react-bootstrap";
 import heroPage from '../../assets/heropage2.png'
+import { Link } from "react-router-dom"
+import "./Carousel2.css"
 
 
 
@@ -30,7 +32,9 @@ const Carousel2 = ({ recipes }) => {
 
 
     return (
+
         <Carousel
+            className="text-center mt-5"
             swipeable={false}
             draggable={false}
             showDots={true}
@@ -60,7 +64,7 @@ const Carousel2 = ({ recipes }) => {
                                     {Math.round(recipe.recipe.calories)}kcal | {recipe.recipe.totalTime} min
                                 </Card.Text>
                                 <div className="d-flex justify-content-center align-items-center">
-                                    <Button variant="success">Details</Button>
+                                    <Button variant="success"> <Link to={`/recipes/${id}`} className="no-link-style" >Details</Link></Button>
                                 </div>
                             </Card.Body>
                         </Card>
@@ -69,7 +73,6 @@ const Carousel2 = ({ recipes }) => {
             })}
         </Carousel>
 
-        // </Container>
     )
 }
 

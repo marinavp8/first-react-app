@@ -1,6 +1,17 @@
 import { useState } from "react"
 import edamamService from "../../../services/edamam.services"
 import { Form, Button, Container, Row, Col, Card } from "react-bootstrap"
+import european from "../../../assets/european.png"
+import france from "../../../assets/france.png"
+import greek from "../../../assets/greek.png"
+import indian from "../../../assets/indian.png"
+import italian from "../../../assets/italian.png"
+import japanese from "../../../assets/japanese.png"
+import southamerican from "../../../assets/southamerican.png"
+import british from "../../../assets/british.png"
+import american from "../../../assets/american.png"
+import caribean from "../../../assets/caribean.png"
+import chinase from "../../../assets/chinase.png"
 
 import foto from '../../../assets/heropage2.png'
 
@@ -11,131 +22,65 @@ const FilteredByPlace = () => {
 
     const [recipes, setRecipes] = useState([])
 
-    const [place, setPlace] = useState('')
-
-    const getRecipe = (place) => {
-
+    const getRecipe2 = (selectedPlace) => {
         edamamService
-            .getFilteredByPlace(place)
-            .then(response => setRecipes(response.data.hits))
+            .getFilteredByPlace(selectedPlace)
+            .then(response => { setRecipes(response.data.hits); console.log("Estoy seleccionado y estos son mis datos", response.data.hits) })
             .catch(err => console.log(err))
-
     }
 
-    const pressChange = e => {
-
-        const { value } = e.currentTarget
-
-        setPlace(value)
-    }
-
-    const pressImput = e => {
-        e.preventDefault()
-        getRecipe(place)
-    }
 
     const places = [
-        { label: 'American', value: 'American' },
-        { label: 'British', value: 'British' },
-        { label: 'Central Europe', value: 'Central Europe' },
-        { label: 'Caribbean', value: 'Caribbean' },
-        { label: 'Chinese', value: 'Chinese' },
-        { label: 'French', value: 'French' },
-        { label: 'Indian', value: 'Indian' },
-        { label: 'Italian', value: 'Italian' },
-        { label: 'Japanese', value: 'Japanese' },
-        { label: 'Mediterranean', value: 'Mediterranean' },
-        { label: 'Mexican', value: 'Mexican' },
-        { label: 'South American', value: 'South American' },
+        { label: 'American', value: 'American', img: american },
+        { label: 'British', value: 'British', img: british },
+        { label: 'Central Europe', value: 'Central Europe', img: european },
+        { label: 'Caribbean', value: 'Caribbean', img: caribean },
+        { label: 'Chinese', value: 'Chinese', img: chinase },
+        { label: 'French', value: 'French', img: france },
+        { label: 'Indian', value: 'Indian', img: indian },
+        { label: 'Italian', value: 'Italian', img: italian },
+        { label: 'Japanese', value: 'Japanese', img: japanese },
+        { label: 'Mediterranean', value: 'Mediterranean', img: greek },
+        { label: 'Mexican', value: 'Mexican', img: southamerican },
 
     ]
 
     return (
 
-        <div className="mb-3 text-center">
+        <Container>
+            <Row>
 
-            <Container >
-                <h2 className="d-flex justify-content-center align-items-center" style={{ color: "rgb(58, 125, 19)" }}>Around the world</h2>
-                <Row>
-                    {places.map((place, index) => (
-                        <Col md={3}>
-                            <Card
-                                key={index}
-                                onClick={() => getRecipe(place.value)}
-                                style={{ width: '18rem', cursor: 'pointer', margin: '10px' }}
-                            >   <Card.Img variant="top" src={foto} />
+                {places.map((place, index) => (
+                    <Col md={3} key={index}>
+                        <Card style={{ width: '18rem', cursor: 'pointer', margin: '10px' }}>
+                            <Card.Img variant="top" src={place.img} />
+                            <Card.Body className="d-flex justify-content-center align-items-center">
+                                <Button
+                                    type="submit"
+                                    variant="outline-success"
+                                    onClick={() => {
+                                        getRecipe2(place.value)
+                                    }}>
+                                    {place.label}
+                                </Button>
+                            </Card.Body>
+                        </Card>
+                    </Col>
 
-                                <Card.Body className="d-flex justify-content-center align-items-center">
-                                    <Button variant="succes">{place.label}</Button>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                    ))}
-
-                </Row>
-
-
-
-
-            </Container>
-
-
-
-            {/* 
-
-            <Card style={{ width: "18rem", margin: "auto" }}>
-                <Card.Img variant="top" src={foto} alt="Foto de ejemplo" />
-                <Card.Body>
-                    <Card.Title>
-                        <h4> Global Delights </h4>
-                    </Card.Title>
-                    <Form onSubmit={pressImput} className="mb-3">
-                        <Form.Group>
-                            <Form.Select
-                                name="opciones"
-                                onChange={pressChange}
-                                className="form-select"
-                                style={{ width: '200px', margin: '0 auto' }}
-                            >
-                                <option value='American'>American</option>
-                                <option value='Asian'>Asian</option>
-                                <option value='British'>British</option>
-                                <option value='Caribbean'>Caribbean</option>
-                                <option value='Central Europe'>Central Europe</option>
-                                <option value='Chinese'>Chinese</option>
-                                <option value='French'>French</option>
-                                <option value='Indian'>Indian</option>
-                                <option value='Italian'>Italian</option>
-                                <option value='Japanese'>Japanese</option>
-                                <option value='Mediterranean'>Mediterranean</option>
-                                <option value='Mexican'>Mexican</option>
-                                <option value='South American'>South American</option>
-                            </Form.Select>
-                        </Form.Group>
-                        <div className="d-grid mt-3">
-                            <Button type='submit' variant="dark">Enviar</Button>
-                        </div>
-                    </Form>
-                </Card.Body>
-            </Card>
-            <Container >
-                {recipes.map((recipe) => {
-                    const { uri: urlUri } = recipe.recipe;
-                    let startPos = urlUri.length - 32;
-                    let id = urlUri.slice(startPos);
-
-                    return (
-                        <Container>
-                            <Row>
-                                <CardResults recipes={recipes} />
-                            </Row>
-                        </Container>
-                    )
-                })} */}
-            {/* </Container> */}
+                ))}
+            </Row>
+            <Row>
+                <CardResults recipes={recipes} />
+                {/* <Carousel2 recipes={recipes} /> */}
+            </Row>
 
 
-        </div >
+        </Container>
+
+
+
+
+
 
 
     )

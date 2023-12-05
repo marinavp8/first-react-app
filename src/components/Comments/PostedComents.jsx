@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import commentService from "../../services/comment.services"
-import { Image, Col, Row, Button } from "react-bootstrap"
+import { Card, Row, Col, Image, Button } from 'react-bootstrap';
 
 const PostedComments = ({ refreshComments, comments }) => {
 
@@ -9,7 +9,6 @@ const PostedComments = ({ refreshComments, comments }) => {
     }, [])
 
     const deleteComment = (commentId) => {
-
         commentService
             .deleteComment(commentId)
             .then(() => console.log(commentId))
@@ -28,19 +27,23 @@ const PostedComments = ({ refreshComments, comments }) => {
                         <Col key={comment._id}>
 
                             <div key={comment._id}>
-                                <Button onClick={() => deleteComment(comment._id)} variant="success" >Delete comment </Button>
+                                <Button onClick={() => deleteComment(comment._id)} variant="success" >Delete </Button>
 
                             </div>
 
                             <Image src={comment.owner.avatar} roundedCircle style={{ width: '5%' }} alt="" />
-                            <h5>{comment.owner.username} posted : </h5>
+                            <h5>{comment.owner.username}: </h5>
                             <p>{comment.comment}</p>
 
                         </Col>
+
                     ))}
                 </Row>
             </div >
+
+
     )
 }
+
 
 export default PostedComments

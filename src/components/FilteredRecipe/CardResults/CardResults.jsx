@@ -21,13 +21,11 @@ const CardResults = ({ recipes }) => {
                             <Col>
                                 <Card style={{ width: '18rem' }} className="mt-5">
                                     <Card.Img variant="top" src={recipe.recipe.images.SMALL.url} />
-                                    <Card.Body>
+                                    <Card.Body className="text-center">
                                         <Card.Title> <h4>{recipe.recipe.label}</h4> </Card.Title>
                                         <Card.Text>
-                                            <p>Type :{recipe.recipe.cuisineType} </p>
-                                            <p>Perfect for {recipe.recipe.mealType}! </p>
-                                        </Card.Text>
-                                        <Link to={`/recipes/${id}`} className="btn btn-dark btn-sm mt-4">ver detalles</Link>
+                                            {Math.round(recipe.recipe.calories)}kcal | {recipe.recipe.totalTime} min                                        </Card.Text>
+                                        <Link to={`/recipes/${id}`} className="btn btn-success btn-sm mt-4">Details</Link>
                                     </Card.Body>
                                 </Card>
                             </Col>

@@ -1,5 +1,6 @@
 import menuService from "../../services/menu.services"
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
+import { Button } from "react-bootstrap"
 
 
 const MenuDelete = (_id) => {
@@ -14,7 +15,8 @@ const MenuDelete = (_id) => {
     }
     return (
 
-        <button onClick={handleDelete}>Delete</button>
+        <Button variant="outline-danger" onClick={handleDelete} className="mb-3">Delete</Button>
+
 
     )
 }
