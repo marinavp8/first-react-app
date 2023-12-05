@@ -2,3 +2,31 @@
     background-color: rgb(58, 125, 19);
 
 } */
+
+
+/* Cambia el color de fondo del cuerpo del acordeón */
+.accordion-body {
+    background-color: white;
+    /* Un color claro, por ejemplo */
+}
+
+/* Cambia el color de fondo del encabezado del acordeón cuando no está expandido */
+.accordion-header {
+    background-color: white;
+    /* Un color azul, por ejemplo */
+    color: black;
+    /* Cambia el color del texto a blanco */
+}
+
+/* Cambia el color de fondo del encabezado del acordeón cuando está expandido */
+.accordion-button:not(.collapsed) {
+    background-color: rgb(58, 125, 19);
+    /* Un azul más oscuro, por ejemplo */
+    color: black;
+}
+
+/* Cambia el color del borde del acordeón */
+.accordion-item {
+    border-color: rgb(58, 125, 19);
+    /* Un gris claro, por ejemplo */
+}

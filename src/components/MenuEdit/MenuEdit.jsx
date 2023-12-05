@@ -31,15 +31,32 @@ const EditMenuForm = ({ existingMenuData, handleUpdateMenu }) => {
     }
 
     return (
-        <form onSubmit={handleUpdateMenu}>
-            <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-            />
-            <button type="submit">Actualizar Menú</button>
-        </form>
+
+
+        <Form onSubmit={handleUpdateMenu}>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Menu name</Form.Label>
+                <Form.Control type="text" placeholder="February week 3" onChange={handleChange} />
+            </Form.Group>
+
+            <div className=" d-flex justify-content-center mt-3 mb-5">
+
+                <Button variant="success" type="submit">
+                    Submit
+                </Button>
+            </div>
+        </Form>
+
+
+        // <form onSubmit={handleUpdateMenu}>
+        //     <input
+        //         type="text"
+        //         name="name"
+        //         value={formData.name}
+        //         onChange={handleChange}
+        //     />
+        //     <button type="submit">Actualizar Menú</button>
+        // </form>
     )
 }
 

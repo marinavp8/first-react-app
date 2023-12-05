@@ -1,5 +1,6 @@
 import { Card, Col } from "react-bootstrap"
 import { Link } from "react-router-dom"
+import MenuDelete from "../MenuDelete/MenuDelete"
 
 
 const MenuCard = ({ name, _id }) => {
@@ -15,6 +16,7 @@ const MenuCard = ({ name, _id }) => {
                     <div className="text-center">
                         <Link to={`/createmenu/${_id}`} className="btn btn-success btn-sm" >Details</Link>
                     </div>
+                    <MenuDelete />
                 </Card>
             </article>
         </Col>

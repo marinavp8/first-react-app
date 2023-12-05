@@ -21,37 +21,23 @@ const Navigation = () => {
                     <Navbar.Collapse id="basic-navbar-nav">
 
                         <Nav className="me-auto">
-
-
-                            {/* <Link to={'/fridge'} className='nav-link'>What's on your fridge?</Link> */}
-
-                            <Link to={'/createmenu'} className='nav-link size' style={{ color: 'rgb(58, 125, 19)', fontWeight: "200px" }}>Weekly menu</Link>
-
-                            <Link to={'/search/results'} className='nav-link size'> Advanced filters </Link>
-
-                            <Link to={'/aboutUs'} className='nav-link' > About Us</Link>
-
-
-
+                            <Link to={'/createmenu'} className='nav-link size' style={{ color: 'rgb(58, 125, 19)', fontWeight: "200px", fontSize: "18px" }}>Weekly menu</Link>
+                            <Link to={'/search/results'} className='nav-link size' style={{ fontSize: "18px" }}> Advanced filters </Link>
+                            <Link to={'/aboutUs'} className='nav-link' style={{ fontSize: "18px" }}> About Us</Link>
                         </Nav>
 
                         {
                             loggedUser
                                 ?
                                 <>
-                                    {/* <Link to={'/menulist'} className='nav-link'>Menu list</Link> */}
-
                                     <Navbar.Text className="justify-content-end">
                                         <NavDropdown
-
                                             title={loggedUser && <Navbar.Text>¡Hello, {loggedUser.username}!</Navbar.Text>}
                                             id={`offcanvasNavbarDropdown-expand`}
                                         >
-                                            <NavDropdown.Item href={'/profile'}>Profile</NavDropdown.Item>
-
-                                            <NavDropdown.Item href={'/users'}>Users</NavDropdown.Item>
-
-                                            <NavDropdown.Item onClick={logout}>Log out </NavDropdown.Item>
+                                            <NavDropdown.Item href={'/profile'} style={{ fontSize: "18px" }}>Profile</NavDropdown.Item>
+                                            <NavDropdown.Item href={'/users'} style={{ fontSize: "18px" }}>Users</NavDropdown.Item>
+                                            <NavDropdown.Item onClick={logout} style={{ fontSize: "18px" }}>Log out </NavDropdown.Item>
 
                                         </NavDropdown>
                                     </Navbar.Text>
@@ -60,11 +46,7 @@ const Navigation = () => {
                                 :
                                 <>
                                     <Navbar.Text className="justify-content-end">
-
-                                        {/* <Link to={'/signup'} className='nav-link'>Registro</Link> */}
-
-                                        <Link to={'/login'} className='nav-link' >Log in</Link>
-
+                                        <Link to={'/login'} className='nav-link' style={{ fontSize: "18px" }}>Log in</Link>
                                     </Navbar.Text>
                                 </>
                         }
