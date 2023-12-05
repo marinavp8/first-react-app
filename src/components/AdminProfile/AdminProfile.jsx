@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react"
 import usersServices from "../../services/users.services"
 import { AuthContext } from "../../contexts/auth.contexts"
 import Loader from "../Loader/Loader"
-import { Container } from "react-bootstrap"
+import { Container, Button } from "react-bootstrap"
 
 const AdminProfile = () => {
 
@@ -38,7 +38,11 @@ const AdminProfile = () => {
                     :
                     usersData.map((elm, i) => {
                         return (
-                            <p>{elm.username}</p>
+                            <>
+                                <p>{elm.username}</p>
+                                <Button onClick={() => deleteComment(comment._id)} variant="success" >Delete comment </Button>
+
+                            </>
                         )
                     })
 

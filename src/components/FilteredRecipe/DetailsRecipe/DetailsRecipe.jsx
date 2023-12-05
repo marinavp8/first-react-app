@@ -15,7 +15,6 @@ const DetailsRecipe = () => {
     const { id } = useParams()
     const [recipe, setRecipe] = useState()
 
-
     const getDetailRecipe = (id) => {
         edamamService
             .getOneRecipe(id)
@@ -24,8 +23,6 @@ const DetailsRecipe = () => {
             })
             .catch(err => console.log(err))
     }
-
-
 
     const refreshComments = () => {
         commentService
@@ -40,10 +37,6 @@ const DetailsRecipe = () => {
         getDetailRecipe(id)
         refreshComments()
     }, [])
-
-
-
-
 
     return (
         !recipe

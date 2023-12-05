@@ -21,7 +21,6 @@ import CreateMenuPage from '../pages/CreateMenu/CreateMenuPage'
 
 const AppRoutes = () => {
 
-
     return (
 
         <Routes>
