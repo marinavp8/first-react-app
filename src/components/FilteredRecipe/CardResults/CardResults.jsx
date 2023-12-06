@@ -3,12 +3,10 @@ import "react-multi-carousel/lib/styles.css"
 import { Link } from "react-router-dom"
 import Carousel from "react-multi-carousel"
 
-
-
 const CardResults = ({ recipes }) => {
 
-
     return (
+
         <Container className={{ maxHeight: "450px", maxWidth: "200px" }} >
 
             <Row xs={1} md={3} className="g-4">
@@ -32,6 +30,7 @@ const CardResults = ({ recipes }) => {
                         )
                     })}
             </Row>
+
         </Container >
     )
 }

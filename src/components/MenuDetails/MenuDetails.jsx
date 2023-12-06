@@ -10,8 +10,6 @@ import Loader from "../Loader/Loader"
 import { AuthContext } from "../../contexts/auth.contexts"
 import { useContext } from "react"
 
-
-
 const MenuDetails = () => {
 
     const { loggedUser } = useContext(AuthContext)
@@ -56,10 +54,7 @@ const MenuDetails = () => {
             .catch(err => console.log(err))
     }
 
-
-
     return (
-
 
         <div>
             {isEditing ? (

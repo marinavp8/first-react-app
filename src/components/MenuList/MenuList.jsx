@@ -7,8 +7,6 @@ import { useContext } from "react"
 import Loader from "../Loader/Loader"
 import { Container, Col } from 'react-bootstrap'
 
-
-
 const MenuList = () => {
 
     const { loggedUser } = useContext(AuthContext)
@@ -16,6 +14,7 @@ const MenuList = () => {
     const [menus, setMenus] = useState()
 
     useEffect(() => {
+
         getMenus()
     }, [])
 
@@ -36,7 +35,7 @@ const MenuList = () => {
                 <Row>
 
                     {
-                        menus.map(e => <MenuCard {...e} key={e._id} />)
+                        menus.map(e => <MenuCard {...e} key={e._id} f={getMenus} />)
                     }
 
                 </Row>

@@ -33,8 +33,6 @@ const ProfilePage = () => {
                         <p className="pm-4" >{loggedUser.email}</p>
                     </Row>
 
-                    {/* <EggButton /> */}
-
                     <Button variant="success" onClick={handleShow} className="me-4">Edit Profile</Button>
 
                     <Offcanvas show={show} onHide={handleClose} >

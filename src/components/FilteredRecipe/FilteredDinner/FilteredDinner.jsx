@@ -16,7 +16,6 @@ const FilteredDinner = () => {
             .getDinnerRecipe(ingredient)
             .then(response => setRecipes(response.data.hits))
             .catch(err => console.log(err))
-
     }
 
     const pressChange = e => {
@@ -68,6 +67,7 @@ const FilteredDinner = () => {
                         </Container>
                     )
                 })}
+
             </Container>
 
         </div>

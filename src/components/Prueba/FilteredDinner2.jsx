@@ -3,6 +3,7 @@ import edamamService from "../../services/edamam.services"
 import { useNavigate, useParams } from "react-router-dom"
 import { Button, Form, Card, Row, Col, Container } from "react-bootstrap"
 import menuService from "../../services/menu.services"
+
 const FilteredDinner = () => {
     const navigate = useNavigate()
     const params = useParams()
@@ -16,37 +17,33 @@ const FilteredDinner = () => {
             .catch(err => console.log(err))
 
     }
+
     const pressChange = e => {
 
         const { value } = e.currentTarget
 
         setIngredient(value)
     }
+
     const pressImput = e => {
         e.preventDefault()
         getRecipe(ingredient)
 
     }
+
     const handleComeBack = (id) => {
         const realId = (id.slice(-32))
-        console.log(realId)
 
         menuService
             .editDinnerMenu(realId, params)
-            .then(response => { console.log(response.data); navigate(`/createmenu/${params.menuId}`) })
-            // .then(response => setaddRecipe(response.data.hits))
+            .then((response) => navigate(`/createmenu/${params.menuId}`))
             .catch(err => console.log(err))
     }
-
 
     return (
         <div>
 
-
             <form onSubmit={pressImput}>
-
-
-
 
                 {/* <Form.Label htmlFor="inputPassword5">Tell me an ingredient and let yourself go:</Form.Label>
                 <Form.Control
@@ -56,15 +53,8 @@ const FilteredDinner = () => {
                     value={ingredient} onChange={pressChange}
                 /> */}
 
-
                 <Container>
                     <div className="d-flex justify-content-center">
-                        {/* <label> Tell me an ingredient and let yourself go:
-                        </label>
-
-                        <input type="text" value={ingredient} onChange={pressChange} />
-                        <button type='submit'> Search </button> */}
-
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Serch by ingredients:</Form.Label>
                             <Form.Control type="text" className="mb-3" placeholder="eggs" value={ingredient} onChange={pressChange} />
@@ -77,10 +67,7 @@ const FilteredDinner = () => {
 
                     </div>
                 </Container>
-
                 <br /><br /><br />
-
-
                 <Container>
                     <div>
                         <Row>

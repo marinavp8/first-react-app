@@ -54,7 +54,6 @@ class EdamamService {
         return this.api.get(`/explore?ingredient=${ingredient}&health=${health}&mealtype=${mealtype}&calories=${calories}&time=${time}`)
     }
 
-
 }
 
 const edamamService = new EdamamService()

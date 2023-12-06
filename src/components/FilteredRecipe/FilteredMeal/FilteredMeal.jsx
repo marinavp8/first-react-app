@@ -15,7 +15,6 @@ const FilteredMeal = () => {
             .getRecipeByMeal(mealType)
             .then(response => setRecipes(response.data.hits))
             .catch(err => console.log(err))
-
     }
 
     const pressChange = e => {
@@ -29,13 +28,13 @@ const FilteredMeal = () => {
 
     }
 
-
     return (
+
         <div>
             <Card style={{ width: "18rem", margin: "auto" }}>
                 <Card.Img variant="top" src={foto} alt="Foto de ejemplo" />
                 <Card.Body>
-                <Card.Title>
+                    <Card.Title>
                         <h4>Looking for dinner, lunch, or breackfast?</h4>
                     </Card.Title>
                     <Form onSubmit={pressImput} style={{ maxWidth: "800px", margin: "auto" }}>
@@ -60,7 +59,7 @@ const FilteredMeal = () => {
                     return (
                         <Container>
                             <Row>
-                                <CardResults recipes={recipes}/>
+                                <CardResults recipes={recipes} />
                             </Row>
                         </Container>
                     )

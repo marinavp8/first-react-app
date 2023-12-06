@@ -56,7 +56,6 @@ const LoginForm = () => {
                 <Button variant="success" type="submit" style={{ width: 100 }} >Log in</Button>
             </div>
 
-
             {errors.length > 0 &&
                 <FormError>{errors.map(elm => <p>{elm}</p>)}</FormError>
             }

@@ -1,11 +1,12 @@
-import { useEffect } from "react"
+import { useContext, useEffect } from "react"
 import { Image, Col, Row, Button } from "react-bootstrap"
-
 import commentService from '../../services/comment.services'
+import { AuthContext } from '../../contexts/auth.contexts'
 
 const PostedComments = ({ refreshComments, comments, id }) => {
 
 
+    const { loggedUser } = useContext(AuthContext)
 
     useEffect(() => {
         refreshComments(id)
@@ -17,7 +18,6 @@ const PostedComments = ({ refreshComments, comments, id }) => {
             .then(() => refreshComments())
             .catch(err => console.log(comments))
     }
-
     return (
 
         !comments
@@ -38,19 +38,36 @@ const PostedComments = ({ refreshComments, comments, id }) => {
                                     </>
                                 )}
                                 <p>posted : {comment.comment}</p>
-                                <Button onClick={() => deleteComment(comment._id)} variant="success" >Delete comment </Button>
+                                {
+                                    (loggedUser.role === 'ADMIN') &&
+
+                                    <>
+                                        <Button onClick={() => deleteComment(comment._id)} variant="success" >Delete comment </Button>
+                                    </>
+
+                                }
 
                             </div>
-
                         ))}
-
                     </Row>
                 </ul>
             </div >
-
-
     )
 }
 
-
 export default PostedComments
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

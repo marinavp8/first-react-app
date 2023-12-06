@@ -3,12 +3,12 @@ import { Toast } from 'react-bootstrap'
 
 import triangle from '../../assets/exclamation-triangle-fill.svg'
 
-
 const FormError = ({ children }) => {
 
     const [show, setShow] = useState(true)
 
     if (show) {
+
         return (
             < Toast onClose={() => setShow(false)} dismissible>
                 <Toast.Header className="bg-danger text-dark">

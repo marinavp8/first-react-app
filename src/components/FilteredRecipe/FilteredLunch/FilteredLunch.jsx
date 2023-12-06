@@ -4,8 +4,6 @@ import { Form, Button, Container, Row, Col, Card } from "react-bootstrap"
 import foto from '../../../assets/heropage2.png'
 import CardResults from "../CardResults/CardResults"
 
-
-
 const FilteredLunch = () => {
 
     const [recipes, setRecipes] = useState([])
@@ -18,7 +16,6 @@ const FilteredLunch = () => {
             .getLunchRecipe(ingredient)
             .then(response => setRecipes(response.data.hits))
             .catch(err => console.log(err))
-
     }
 
     const pressChange = e => {
@@ -35,6 +32,7 @@ const FilteredLunch = () => {
     }
 
     return (
+
         <div>
             <Card style={{ width: "18rem", margin: "auto" }}>
                 <Card.Img variant="top" src={foto} alt="Foto de ejemplo" />
@@ -71,7 +69,6 @@ const FilteredLunch = () => {
                     )
                 })}
             </Container>
-
 
         </div>
     )

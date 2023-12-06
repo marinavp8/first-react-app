@@ -6,21 +6,16 @@ import { useParams } from "react-router-dom"
 const CreateComment = ({ getDetailRecipe, refreshComments }) => {
 
     const [data, setData] = useState({ comment: '' })
-
     const { id } = useParams()
 
     const handleInputChange = e => {
-
         const { value, name } = e.target
-
         setData({ ...data, [name]: value })
     }
 
 
     const handleSubmit = (e) => {
-
         e.preventDefault()
-
         commentService
             .postComment({ ...data, recipeCommented: id })
             .then(() => {
@@ -30,7 +25,6 @@ const CreateComment = ({ getDetailRecipe, refreshComments }) => {
                 refreshComments()
             })
             .catch(err => console.log(err))
-
     }
     useEffect(() => {
         getDetailRecipe()
@@ -38,8 +32,6 @@ const CreateComment = ({ getDetailRecipe, refreshComments }) => {
 
 
     return (
-
-
         <Form onSubmit={handleSubmit} className="comment-form">
             <Form.Group className="mb-3" controlId="comment">
                 <Form.Label>Comment:</Form.Label>
@@ -53,10 +45,7 @@ const CreateComment = ({ getDetailRecipe, refreshComments }) => {
                     <Button className="comment-btn" variant="success" type="submit" >Send</Button>
                 </div>
             </Form.Group>
-
         </Form >
-
     )
 }
-
 export default CreateComment

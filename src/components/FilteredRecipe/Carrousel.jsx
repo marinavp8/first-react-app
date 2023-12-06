@@ -1,23 +1,13 @@
 import { useState } from "react"
 import edamamService from "../../services/edamam.services"
-
-
 import { Form, Button, Container, Row } from "react-bootstrap"
-
-
-// import { Carousel } from 'react-bootstrap/Carousel'
 import { Carousel, Card } from 'react-bootstrap'
 
-
-
 const CarouselFunc = () => {
-
-
 
     const [ingredient, setIngredient] = useState('')
 
     const [recipes, setRecipes] = useState([])
-
 
     const getRecipe = (ingredient) => {
 
@@ -25,7 +15,6 @@ const CarouselFunc = () => {
             .getRecipes(ingredient)
             .then(response => setRecipes(response.data.hits))
             .catch(err => console.log(err))
-
     }
 
     const pressChange = e => {
@@ -40,7 +29,6 @@ const CarouselFunc = () => {
         getRecipe(ingredient)
 
     }
-
 
     return (
         <div>
@@ -119,13 +107,9 @@ const CarouselFunc = () => {
 
         </div >
 
-
     )
 
-
 }
-
-
 
 export default CarouselFunc
 

@@ -1,19 +1,14 @@
 import { useState, useEffect } from "react"
-import { Form, Button } from "react-bootstrap"
 import menuService from "../../services/menu.services"
 import edamamService from "../../services/edamam.services"
 import { AuthContext } from "../../contexts/auth.contexts"
 import { useContext } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import Loader from "../Loader/Loader"
-import { Container, Accordion, Row, Col } from "react-bootstrap"
+import { Container, Accordion, Row, Col, Button } from "react-bootstrap"
 import RecipeMenu from "../RecipeMenu/RecipeMenu"
 import "./MenuCreate.css"
 import MenuEdit from "../MenuEdit/MenuEdit"
-import AccordionBody from 'react-bootstrap/AccordionBody'
-
-
-// TODO: DESACOPLAR
 
 const menuBase = {
     name: "Change me",
@@ -61,12 +56,12 @@ const menuBase = {
     }]
 }
 
-const newMenuForm = () => {
-    // const { loggedUser } = useContext(AuthContext)
+const NewMenuForm = () => {
+    const { loggedUser } = useContext(AuthContext)
     const params = useParams()
     const navigate = useNavigate()
     const [menuData, setMenuData] = useState(null)
-    const [menuName, setMenuName] = useState(null)
+    // const [menuName, setMenuName] = useState(null)
     const [recipes, setRecipes] = useState({})
 
     useEffect(() => {
@@ -131,7 +126,7 @@ const newMenuForm = () => {
 
         e.preventDefault()
 
-        // menuData.owner = loggedUser._id
+        menuData.owner = loggedUser._id
 
         menuService
             .editMenu(menuData)
@@ -150,7 +145,6 @@ const newMenuForm = () => {
     }
 
     const handleUpdateMenu = (updatedMenuData) => {
-        console.log(updatedMenuData);
         setIsEditing(false)
     }
 
@@ -160,11 +154,6 @@ const newMenuForm = () => {
             <Loader />
             :
             <Container>
-                {/* <Form onSubmit={handleMenuSubmit}>
-                    <Form.Label>Menu name:</Form.Label>
-                    <Form.Control type="text" value={menuData.name} name="name" onChange={handleInputChange} />
-                </Form> */}
-                <br /><br />
                 {
                     menuData.days.map((day, index) => (
                         < Accordion defaultActiveKey="0" bsPrefix="my-accordion" >
@@ -241,23 +230,12 @@ const newMenuForm = () => {
 
                 <MenuEdit existingMenuData={menuData} onUpdateMenu={handleUpdateMenu} />
 
-                {/* <Container className="d-flex justify-content-center">
-
-                    <Button variant="success" type="submit">Submit</Button>
-                </Container> */}
-                {/* <br /><br /> <br /><br /> <br /><br /> <br /><br /> <br /><br />
-                {
-                    <pre>
-                        {JSON.stringify(recipes, null, 2)}
-                    </pre>
-                } */}
-
             </Container>
     )
 
 }
 
-export default newMenuForm
+export default NewMenuForm
 
 
 

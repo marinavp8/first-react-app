@@ -4,10 +4,7 @@ import { Form, Button, Container, Row, Col, Card } from "react-bootstrap"
 import foto from '../../../assets/heropage2.png'
 import CardResults from "../CardResults/CardResults"
 
-
-
 const FilteredBreakfast = () => {
-
 
     const [recipes, setRecipes] = useState([])
 
@@ -32,11 +29,10 @@ const FilteredBreakfast = () => {
         e.preventDefault()
         getRecipe(ingredient)
 
-
     }
 
-
     return (
+
         <div>
             <Card style={{ width: "18rem", margin: "auto" }}>
                 <Card.Img variant="top" src={foto} alt="Foto de ejemplo" />
@@ -72,6 +68,7 @@ const FilteredBreakfast = () => {
                         </Container>
                     )
                 })}
+
             </Container>
 
         </div>
