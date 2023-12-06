@@ -19,9 +19,7 @@ const CreateComment = ({ getDetailRecipe, refreshComments }) => {
         commentService
             .postComment({ ...data, recipeCommented: id })
             .then(() => {
-                if (getDetailRecipe) {
-                    getDetailRecipe(id)
-                }
+                getDetailRecipe && getDetailRecipe(id)
                 refreshComments()
             })
             .catch(err => console.log(err))

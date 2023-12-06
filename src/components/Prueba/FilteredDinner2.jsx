@@ -75,6 +75,7 @@ const FilteredDinner = () => {
                                 recipes.map((recipe) => {
                                     return (
                                         <Col>
+                                            {/* TODO: DESACOPLAR RECIPECARD */}
                                             <Card style={{ width: '18rem' }}>
                                                 <Card.Img variant="top" src={recipe.recipe.images.SMALL.url} />
                                                 <Card.Body >
