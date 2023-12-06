@@ -69,7 +69,6 @@ const CarouselFunc = () => {
                                                             {recipe.recipe.totalTime} mins
                                                             <br /><br />
                                                             <figure className="d-flex justify-content-center">
-
                                                                 <Button variant="success">See recipe</Button>
                                                             </figure>
 

@@ -9,59 +9,15 @@ import { Container, Accordion, Row, Col, Button } from "react-bootstrap"
 import RecipeMenu from "../RecipeMenu/RecipeMenu"
 import "./MenuCreate.css"
 import MenuEdit from "../MenuEdit/MenuEdit"
+import { IoIosAddCircleOutline } from "react-icons/io"
+import { menuBase } from "../../consts/menu-consts"
 
-const menuBase = {
-    name: "Change me",
-    days: [{
-        "day": "Monday",
-        "recipeBreakfastId": "",
-        "recipeLunchId": "",
-        "recipeDinnerId": ""
-    },
-    {
-        "day": "Tuesday",
-        "recipeBreakfastId": "",
-        "recipeLunchId": "",
-        "recipeDinnerId": ""
-    },
-    {
-        "day": "Wednesday",
-        "recipeBreakfastId": "",
-        "recipeLunchId": "",
-        "recipeDinnerId": ""
-    },
-    {
-        "day": "Thursday",
-        "recipeBreakfastId": "",
-        "recipeLunchId": "",
-        "recipeDinnerId": ""
-    },
-    {
-        "day": "Friday",
-        "recipeBreakfastId": "",
-        "recipeLunchId": "",
-        "recipeDinnerId": ""
-    },
-    {
-        "day": "Saturday",
-        "recipeBreakfastId": "",
-        "recipeLunchId": "",
-        "recipeDinnerId": ""
-    },
-    {
-        "day": "Sunday",
-        "recipeBreakfastId": "",
-        "recipeLunchId": "",
-        "recipeDinnerId": ""
-    }]
-}
 
 const NewMenuForm = () => {
     const { loggedUser } = useContext(AuthContext)
     const params = useParams()
     const navigate = useNavigate()
     const [menuData, setMenuData] = useState(null)
-    // const [menuName, setMenuName] = useState(null)
     const [recipes, setRecipes] = useState({})
 
     useEffect(() => {
@@ -85,28 +41,17 @@ const NewMenuForm = () => {
         let promises = []
         menuData.days.map(e => {
             if (e.recipeBreakfastId) {
-                promises.push(
-                    edamamService
-                        .getOneRecipe(e.recipeBreakfastId)
-                )
+                promises.push(edamamService.getOneRecipe(e.recipeBreakfastId))
             }
             if (e.recipeLunchId) {
-                promises.push(
-                    edamamService
-                        .getOneRecipe(e.recipeLunchId)
-                )
+                promises.push(edamamService.getOneRecipe(e.recipeLunchId))
             }
             if (e.recipeDinnerId) {
-                promises.push(
-                    edamamService
-                        .getOneRecipe(e.recipeDinnerId)
-                )
+                promises.push(edamamService.getOneRecipe(e.recipeDinnerId))
             }
         })
         Promise.all(promises).then(data => {
-            const recipesArray = data.map(e => {
-                return e.data.recipe
-            })
+            const recipesArray = data.map(e => e.data.recipe)
             let recipesObject = {}
             for (let i of recipesArray) {
                 recipesObject[i.uri.slice(-32)] = i
@@ -126,10 +71,8 @@ const NewMenuForm = () => {
 
         e.preventDefault()
 
-        menuData.owner = loggedUser._id
-
         menuService
-            .editMenu(menuData)
+            .editMenu({ ...menuData, owner: loggedUser._id })
             .then((response) => console.log(response))
             .catch(err => console.log(err))
     }
@@ -159,21 +102,24 @@ const NewMenuForm = () => {
                         < Accordion defaultActiveKey="0" bsPrefix="my-accordion" >
                             <Accordion.Item eventKey="0">
                                 <Row>
-                                    <Accordion.Header className="mt-5 mb-5">{day.day}</Accordion.Header>
+                                    <Accordion.Header className="mt-5 mb-5 bigger"><p className="bigger">{day.day}</p></Accordion.Header>
                                     <Col>
                                         <div className="text-center">
                                             <Accordion.Body>
-                                                Breakfast
+                                                <div className="mb-3 bigger" >
+
+                                                    BREAKFAST
+                                                </div>
                                             </Accordion.Body>
                                             <Accordion.Body>
-                                                <Button variant="success" type="button" onClick={() => handleSearch(menuData._id, day.day)}>Add</Button>
+                                                <Button variant="outline-success" type="button" onClick={() => handleSearch(menuData._id, day.day)}><IoIosAddCircleOutline style={{ width: "30px", height: '30px' }} /></Button>
                                             </Accordion.Body>
                                             <Accordion.Body>
                                                 {
                                                     day.recipeBreakfastId && recipes[day.recipeBreakfastId] ?
                                                         <RecipeMenu recipe={recipes[day.recipeBreakfastId]} />
                                                         :
-                                                        <p>No recipe added yet</p>
+                                                        <p className="mt-5 bigger">No recipe added yet</p>
                                                 }
                                             </Accordion.Body>
                                         </div>
@@ -181,10 +127,12 @@ const NewMenuForm = () => {
                                     <Col>
                                         <div className="text-center">
                                             <Accordion.Body>
-                                                Lunch
+                                                <div className="mb-3 bigger">
+                                                    LUNCH
+                                                </div>
                                             </Accordion.Body>
                                             <Accordion.Body>
-                                                <Button variant="success" type="button" onClick={() => handleSearchLunch(menuData._id, day.day)}>Add</Button>
+                                                <Button variant="outline-success" type="button" onClick={() => handleSearchLunch(menuData._id, day.day)}><IoIosAddCircleOutline style={{ width: "30px", height: '30px' }} /></Button>
                                             </Accordion.Body>
                                             <Accordion.Body>
                                                 {
@@ -193,7 +141,7 @@ const NewMenuForm = () => {
                                                             <RecipeMenu recipe={recipes[day.recipeLunchId]} />
                                                         </div>
                                                         :
-                                                        <p>No recipe added yet</p>
+                                                        <p className="mt-5 bigger">No recipe added yet</p>
                                                 }
                                             </Accordion.Body>
                                         </div>
@@ -202,10 +150,12 @@ const NewMenuForm = () => {
                                         <div className="text-center">
 
                                             <Accordion.Body>
-                                                Dinner
+                                                <div className="mb-3 bigger">
+                                                    DINNER
+                                                </div>
                                             </Accordion.Body>
                                             <Accordion.Body>
-                                                <Button variant="success" type="button" onClick={() => handleSearchDinner(menuData._id, day.day)}>Add</Button>
+                                                <Button variant="outline-success" type="button" onClick={() => handleSearchDinner(menuData._id, day.day)}><IoIosAddCircleOutline style={{ width: "30px", height: '30px' }} /></Button>
                                             </Accordion.Body>
                                             <Accordion.Body>
                                                 {
@@ -214,7 +164,7 @@ const NewMenuForm = () => {
                                                         <RecipeMenu recipe={recipes[day.recipeDinnerId]} />
                                                         :
 
-                                                        <p>No recipe added yet</p>
+                                                        <p className="mt-5 bigger">No recipe added yet</p>
                                                 }
                                             </Accordion.Body>
                                         </div>

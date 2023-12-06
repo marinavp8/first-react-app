@@ -3,6 +3,7 @@ import lu from '../../assets/lu.jpg'
 import valen from '../../assets/valen.jpg'
 import marina from '../../assets/marina.jpg'
 
+// TODO: ELIMIANR
 const AboutUs = () => {
 
     return (
@@ -11,7 +12,7 @@ const AboutUs = () => {
 
             <Row>
 
-                <h1 style={{ color: 'rgb(58, 125, 19)' }}>About us</h1>
+                <h1 style={{ color: 'rgb(58, 125, 19)' }}>About DishDash</h1>
 
                 <p>IronHack</p>
 

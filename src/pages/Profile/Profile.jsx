@@ -19,6 +19,8 @@ const ProfilePage = () => {
 
     return (
 
+        // TODO: REVISAR LAYOUTS DE BOOTSTRAP
+
         <Container className="mt-5">
 
             <Row>
@@ -28,11 +30,10 @@ const ProfilePage = () => {
                 </Col>
 
                 <Col>
-                    <Row><h3 className="mb-3">Hi, {loggedUser.username}</h3></Row>
+                    <h3 className="mb-5">Hi, {loggedUser.username}</h3>
 
-                    <Row>
-                        <p className="pm-4" >{loggedUser.email}</p>
-                    </Row>
+                    <p className="pm-4 mt-5" >{loggedUser.email}</p>
+
 
                     <Button variant="success" onClick={handleShow} className="me-4">Edit Profile</Button>
 
@@ -60,12 +61,11 @@ const ProfilePage = () => {
 
                 </Col>
 
-            </Row>
+            </Row >
             <Row>
 
                 <Col>
-
-                    <Accordion defaultActiveKey="1" className="mb-4">
+                    <Accordion defaultActiveKey="1" className="mb-4 mt-5">
                         <Accordion.Item eventKey="0">
                             <Accordion.Header>My Menus</Accordion.Header>
                             <Accordion.Body>
@@ -73,16 +73,13 @@ const ProfilePage = () => {
                             </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>
-
-
                 </Col >
                 <Col>
 
-                    <Accordion defaultActiveKey="1" className="mb-4">
+                    <Accordion defaultActiveKey="1" className="mb-4 mt-5">
                         <Accordion.Item eventKey="0">
                             <Accordion.Header>My Favourite recipes</Accordion.Header>
                             <Accordion.Body>
-
                                 <FavouriteRecipes />
                             </Accordion.Body>
                         </Accordion.Item>
@@ -92,7 +89,7 @@ const ProfilePage = () => {
             </Row >
 
 
-        </Container>
+        </Container >
     )
 }
 

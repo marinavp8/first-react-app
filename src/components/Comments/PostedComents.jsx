@@ -29,6 +29,7 @@ const PostedComments = ({ refreshComments, comments, id }) => {
                 <ul>
                     <Row xs={1} md={3} className="g-4">
                         {comments.map(comment => (
+                            // TODO: DESACOPLAR A COMMENTCARD
                             <div key={comment._id}>
 
                                 {comment.owner && (

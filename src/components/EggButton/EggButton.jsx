@@ -9,19 +9,16 @@ const EggButton = (id) => {
 
     const [like, setLike] = useState(false)
 
-
     const verifyFavourite = () => {
 
         eggServices
             .addFav(id)
             .then(() => console.log(id))
             .catch(err => console.log(err))
-
     }
 
 
     const handleLike = () => {
-
         setLike(!like)
         verifyFavourite()
     }
