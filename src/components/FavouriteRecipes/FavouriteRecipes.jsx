@@ -1,36 +1,88 @@
 import { useState, useContext, useEffect } from "react"
 import { AuthContext } from '../../contexts/auth.contexts'
 import usersServices from "../../services/users.services"
+import edamamService from "../../services/edamam.services"
 
 const FavouriteRecipes = () => {
 
-    // const [favoriteRcp, setFavoriteRcp] = useState([])
-    // const { user } = useContext(AuthContext)
+    const { loggedUser } = useContext(AuthContext)
+    const [favRecips, setFavRecipes] = useState([])  // en fav recipes hay un array con los ids de las recetas q tengo como  fav
+    const [objectReipe, setObjectRecipe] = useState()
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     getMyFavs()
+        getMyFavsByRecipe()
 
-    // }, [])
+    }, [])
 
-    // const getMyFavs = () => {
+    const getMyFavsByRecipe = () => {
 
-    //     usersServices
-    //         .getOneUser(user?._id)
-    //         .then(({ data }) => {
+        usersServices
+            .getOneUser(loggedUser._id)
+            .then(({ data }) => data.favouriteRecipies)
+            .then(response => response.map(recipeId => {
 
-    //             const { favoriteRcp } = data
+                return edamamService.getOneRecipe(recipeId)
+            }))
 
-    //             setFavoriteRcp(favoriteRcp)
+            .then(response => {
+                console.log(response)
+                const recipe = data.recipe
+                // forEach(recipe => {
+                //     return recipe
+                // }
+            })
 
+            .catch(err => console.log(err))
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // const getRecipe = () => {
+    //     console.log(favRecips)
+    //     Promise
+    //         .all(
+    //             favRecips?.map(recipeid => {
+    //                 return edamamService.getOneRecipe(recipeid)
+    //             })
+    //         )
+    //         .then(recipesData => {
+    //             recipesData.forEach(({ data }) => {
+
+    //                 setObjectRecipe(data.recipe)
+    //                 console.log('----------------------------------------------', data.recipe.label)
+    //                 console.log('----------------------------object------------------', objectReipe)
+
+
+    //             })
     //         })
     //         .catch(err => console.log(err))
-
     // }
 
 
     return (
-        <p>tus recetas favs si dios quiere</p>
+        !objectReipe
+            ?
+            <p>loading</p>
+            :
+            <p>mis favs</p>
     )
 }
 

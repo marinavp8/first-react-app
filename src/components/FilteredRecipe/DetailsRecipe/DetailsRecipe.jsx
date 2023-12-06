@@ -36,11 +36,8 @@ const DetailsRecipe = () => {
     }
 
 
-
-
     useEffect(() => {
         getDetailRecipe(id)
-        refreshComments()
     }, [])
 
     return (
@@ -63,7 +60,7 @@ const DetailsRecipe = () => {
                             return <span> {e} |</span>
                         })}
 
-                         <EggButton recipeId={id}/> 
+                        <EggButton recipeId={id} />
 
                     </Col>
 
@@ -131,9 +128,16 @@ const DetailsRecipe = () => {
                     <div className="mt-3 text-center mb-5" >
                         <h4 className="mb-3" style={{ fontWeight: 'bold' }}> Have You Tried This Recipe? We'd Love to Hear Your Thoughts!
 
-                            :</h4>
+                        </h4>
                         <CreateComment getDetailRecipe={getDetailRecipe} refreshComments={refreshComments} />
-                        <PostedComments recipeId={id} refreshComments={refreshComments} comments={comments} />
+                        {comments === null
+
+                            ?
+                            <Loader />
+                            :
+
+                            <PostedComments recipeId={id} refreshComments={refreshComments} comments={comments} />
+                        }
                     </div>
 
 

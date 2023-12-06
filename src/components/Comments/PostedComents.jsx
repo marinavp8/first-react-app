@@ -3,45 +3,49 @@ import { Image, Col, Row, Button } from "react-bootstrap"
 
 import commentService from '../../services/comment.services'
 
-const PostedComments = ({ refreshComments, comments }) => {
+const PostedComments = ({ refreshComments, comments, id }) => {
 
 
 
     useEffect(() => {
-        refreshComments()
+        refreshComments(id)
     }, [])
 
     const deleteComment = (commentId) => {
         commentService
             .deleteComment(commentId)
             .then(() => refreshComments())
-            .catch(err => console.log(err))
+            .catch(err => console.log(comments))
     }
 
     return (
+
         !comments
             ?
             <p>Not comented yet</p>
             :
             <div>
-                <h3 className="mt-5 mb-5">Comments:</h3>
-                <Row xs={1} md={3} className="g-4">
-                    {comments.map(comment => (
-                        <Col key={comment._id}>
-
+                <h2>Comments:</h2>
+                <ul>
+                    <Row xs={1} md={3} className="g-4">
+                        {comments.map(comment => (
                             <div key={comment._id}>
-                                <Button onClick={() => deleteComment(comment._id)} variant="success" >Delete </Button>
+
+                                {comment.owner && (
+                                    <>
+                                        <img src={comment.owner.avatar} style={{ width: '5%' }} alt="" />
+                                        <h5>{comment.owner.username}</h5>
+                                    </>
+                                )}
+                                <p>posted : {comment.comment}</p>
+                                <Button onClick={() => deleteComment(comment._id)} variant="success" >Delete comment </Button>
 
                             </div>
 
-                            <Image src={comment.owner.avatar} roundedCircle style={{ width: '5%' }} alt="" />
-                            <h5>{comment.owner.username}: </h5>
-                            <p>{comment.comment}</p>
+                        ))}
 
-                        </Col>
-
-                    ))}
-                </Row>
+                    </Row>
+                </ul>
             </div >
 
 

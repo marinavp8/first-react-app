@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
 import { Form, Button } from "react-bootstrap"
 import commentService from "../../services/comment.services"
-import { useNavigate } from "react-router-dom"
 import { useParams } from "react-router-dom"
 
 const CreateComment = ({ getDetailRecipe, refreshComments }) => {
@@ -17,8 +16,6 @@ const CreateComment = ({ getDetailRecipe, refreshComments }) => {
         setData({ ...data, [name]: value })
     }
 
-    const navigate = useNavigate()
-
 
     const handleSubmit = (e) => {
 
@@ -30,14 +27,14 @@ const CreateComment = ({ getDetailRecipe, refreshComments }) => {
                 if (getDetailRecipe) {
                     getDetailRecipe(id)
                 }
-               
                 refreshComments()
-                navigate(`/recipes/${id}`)
             })
             .catch(err => console.log(err))
 
     }
-
+    useEffect(() => {
+        getDetailRecipe()
+    }, [])
 
 
     return (
