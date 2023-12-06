@@ -5,6 +5,7 @@ import { AuthContext } from "../../contexts/auth.contexts"
 import EditProfile from "../../components/EditProfile/EditProfile"
 import '../Profile/Profile.css'
 import FavouriteRecipes from "../../components/FavouriteRecipes/FavouriteRecipes"
+import { Link } from "react-router-dom"
 
 
 const ProfilePage = () => {
@@ -34,6 +35,16 @@ const ProfilePage = () => {
                     </Row>
 
                     <Button variant="success" onClick={handleShow} className="me-4">Edit Profile</Button>
+
+                    {
+                        (loggedUser.role === 'ADMIN') &&
+
+                        <>
+                            <Link to={`/users`} className="btn btn-outline-success btn-sm pb-2" >Ver usuarios</Link>
+
+                        </>
+
+                    }
 
                     <Offcanvas show={show} onHide={handleClose} >
 

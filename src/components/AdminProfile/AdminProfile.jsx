@@ -59,6 +59,7 @@ const AdminProfile = () => {
                                                 </>
 
                                             }
+
                                         </Card.Body>
                                     </Card>
                                 </Col>
