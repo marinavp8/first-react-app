@@ -2,8 +2,6 @@ import { Routes, Route } from 'react-router-dom'
 
 import SignupPage from "../pages/SignupPage/SignupPage"
 import LoginPage from "../pages/LoginPage/LoginPage"
-import MenuCreate from "../components/MenuCreate/MenuCreate"
-import MenuList from "../components/MenuList/MenuList"
 import MenuDetails from "../components/MenuDetails/MenuDetails"
 import FiltersPage from '../pages/Filters/FiltersPage'
 import ProfilePage from '../pages/Profile/Profile'
@@ -17,15 +15,14 @@ import FilteredLunch from '../components/Prueba/FilteredLunch2'
 import DetailsRecipe from '../components/FilteredRecipe/DetailsRecipe/DetailsRecipe'
 import AboutUsPage from '../pages/AboutUsPage/AboutUsPage'
 import AdminProfilePage from '../pages/AdminProfilePage/AdminProfilePage'
-import CreateMenuPage from '../pages/CreateMenu/CreateMenuPage'
+import MenuCreate from '../pages/MenuPages/MenuCreate'
+import MenuListPage from '../pages/MenuPages/MenuList'
 
 const AppRoutes = () => {
 
     return (
 
         <Routes>
-            {/* TODO: RENDERIZAR PÁGINAS EN RUTAS */}
-
             <Route path={'/'} element={<HomePage />} />
 
             <Route path={'/aboutUs'} element={<AboutUsPage />} />
@@ -42,19 +39,15 @@ const AppRoutes = () => {
             </Route>
 
 
-            <Route path={'/menulist'} element={< MenuList />} />
             <Route path={':_id'} element={<MenuDetails />} />
             <Route path={'/edit/:_id'} element={<MenuEdit />} />
 
             <Route path={'/fridge'} element={<YourFridgePage />} />
             <Route path={'/search/results'} element={<FiltersPage />} />
             <Route path={'/recipes/:id'} element={<DetailsRecipe />} />
-
-            {/* <Route path={'/createmenu'} element={< CreateMenuPage />} /> */}
-            <Route path={'/menulist'} element={< MenuList />} />
+            <Route path={'/menulist'} element={< MenuListPage />} />
             <Route path={':_id'} element={<MenuDetails />} />
             <Route path={'/edit/:_id'} element={<MenuEdit />} />
-
             <Route path={'/createmenu/:menuId?'} element={< MenuCreate />} />
             <Route path={'/breakfastprueba/:menuId/:day'} element={< FilteredBreakfast2 />} />
             <Route path={'/addLunch/:menuId/:day'} element={< FilteredLunch />} />

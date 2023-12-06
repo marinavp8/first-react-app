@@ -15,6 +15,7 @@ import { Container } from "react-bootstrap"
 
 import './FiltersPage.css'
 import HealthyMeals from "../../components/HealthyMeals/HealthyMeals"
+import MultipleFilter from "../../components/FilteredRecipe/MultipleFilter/MultipleFilter"
 
 
 const FiltersPage = () => {
@@ -26,29 +27,31 @@ const FiltersPage = () => {
             <h1 className="title text-center mb-4">Advanced filtering:</h1>
 
 
-            <RecipieFilteredIng />
+            {/* <RecipieFilteredIng />
 
             {/* <FilteredMeal /> */}
 
-            <FilteredDinner />
+            {/* <FilteredDinner /> */}
 
-            <FilteredBreakfast />
+            {/* <FilteredBreakfast /> */}
 
-            <FilteredLunch />
+            {/* <FilteredLunch /> */}
 
-            <FilteredVegetarian />
+            {/* <FilteredVegetarian /> */}
 
-            <FilteredByPlace />
+            {/* <FilteredByPlace /> */}
 
             {/* <MultipleIng /> */}
 
-            <CaloriesFilter />
+            {/* <CaloriesFilter /> */}
 
-            <ExcludeIngredient />
+            {/* <ExcludeIngredient /> */}
 
-            <TimeFilter />
+            {/* <TimeFilter /> */}
 
-            <HealthyMeals />
+            {/* <HealthyMeals />   */}
+
+            < MultipleFilter />
         </Container>
     )
 }

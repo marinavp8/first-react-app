@@ -4,6 +4,7 @@ import { Container, Row, Col, Image, Button, Offcanvas, Accordion } from "react-
 import { AuthContext } from "../../contexts/auth.contexts"
 import EditProfile from "../../components/EditProfile/EditProfile"
 import '../Profile/Profile.css'
+import FavouriteRecipes from "../../components/FavouriteRecipes/FavouriteRecipes"
 
 
 const ProfilePage = () => {
@@ -70,7 +71,8 @@ const ProfilePage = () => {
                         <Accordion.Item eventKey="0">
                             <Accordion.Header>My Favourite recipes</Accordion.Header>
                             <Accordion.Body>
-                                RECETAS
+
+                                <FavouriteRecipes />
                             </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>

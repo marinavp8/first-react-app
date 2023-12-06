@@ -55,7 +55,9 @@ const DetailsRecipe = () => {
                         {recipe.healthLabels.slice(0, 4).map(e => {
                             return <span> {e} |</span>
                         })}
+
                         <EggButton recipeId={id} />
+
                     </Col>
                 </Row>
                 <Row>

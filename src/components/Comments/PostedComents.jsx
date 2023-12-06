@@ -51,6 +51,7 @@ const PostedComments = ({ refreshComments, comments, id }) => {
             </div >
     )
 }
+
 export default PostedComments
 
 
