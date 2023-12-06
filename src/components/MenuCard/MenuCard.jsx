@@ -4,7 +4,7 @@ import MenuDelete from "../MenuDelete/MenuDelete"
 
 
 
-const MenuCard = ({ name, _id }) => {
+const MenuCard = ({ name, _id, f }) => {
     return (
         <Col lg={{ span: 6 }} md={{ span: 6 }}>
             <article className='mb-3'>
@@ -18,10 +18,7 @@ const MenuCard = ({ name, _id }) => {
                         <Container>
                             <Row>
                                 <Col >
-
-
-
-                                    <MenuDelete />
+                                    <MenuDelete f={f} _id={_id} />
                                 </Col>
                                 <Col>
                                     <Link to={`/createmenu/${_id}`} className="btn btn-outline-success btn-sm pb-2" >Details</Link>

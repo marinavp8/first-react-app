@@ -7,7 +7,6 @@ import CardResults from "../CardResults/CardResults"
 const MultipleFilter = () => {
 
     const [recipes, setRecipes] = useState([])
-    console.log("recipes que te devuelve la api en tu estado", recipes)
     const [queryData, setQueryData] = useState({
         ingredient: '',
         health: '',

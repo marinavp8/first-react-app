@@ -13,7 +13,7 @@ const HealthyMeals = () => {
     const getHealthyMeals = (selectedHealthy) => {
         edamamService
             .getHealthRecipe(selectedHealthy)
-            .then(response => { setRecipes(response.data.hits); console.log(response.data.hits) })
+            .then((response) => setRecipes(response.data.hits))
             .catch(err => console.log(err))
 
     }

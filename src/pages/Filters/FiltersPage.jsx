@@ -28,31 +28,31 @@ const FiltersPage = () => {
             <h1 className="title text-center mb-4">Advanced filtering:</h1>
 
 
-            <RecipieFilteredIng />
+            {/* <RecipieFilteredIng />
 
             {/* <FilteredMeal /> */}
 
-            <FilteredDinner />
+            {/* <FilteredDinner /> */}
 
-            <FilteredBreakfast />
+            {/* <FilteredBreakfast /> */}
 
-            <FilteredLunch />
+            {/* <FilteredLunch /> */}
 
-            <FilteredVegetarian />
+            {/* <FilteredVegetarian /> */}
 
-            <FilteredByPlace />
+            {/* <FilteredByPlace /> */}
 
             {/* <MultipleIng /> */}
 
-            <CaloriesFilter />
+            {/* <CaloriesFilter /> */}
 
-            <ExcludeIngredient />
+            {/* <ExcludeIngredient /> */}
 
-            <TimeFilter />
+            {/* <TimeFilter /> */}
 
-            <HealthyMeals />
+            {/* <HealthyMeals />   */}
 
-            <MultipleFilter />
+            < MultipleFilter />
         </Container>
     );
 };

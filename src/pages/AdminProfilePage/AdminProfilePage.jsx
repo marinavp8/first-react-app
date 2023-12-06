@@ -5,9 +5,7 @@ import AdminProfile from "../../components/AdminProfile/AdminProfile"
 const AdminProfilePage = () => {
     return (
         <Container>
-
             <AdminProfile />
-
         </Container>
     )
 

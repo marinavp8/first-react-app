@@ -63,7 +63,7 @@ const DetailsRecipe = () => {
                             return <span> {e} |</span>
                         })}
 
-                         <EggButton recipeId={id}/> 
+                        <EggButton recipeId={id} />
 
                     </Col>
 

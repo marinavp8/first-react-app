@@ -7,8 +7,6 @@ import menuService from "../../services/menu.services"
 const FilteredLunch = () => {
 
     const navigate = useNavigate()
-
-
     const [recipes, setRecipes] = useState([])
     const [ingredient, setIngredient] = useState('')
     const getRecipe = (ingredient) => {
@@ -31,16 +29,13 @@ const FilteredLunch = () => {
 
     }
     const params = useParams()
-    const [addRecipe, setaddRecipe] = useState(null)
-
+    // const [addRecipe, setaddRecipe] = useState(null)
     const handleComeBack = (id) => {
         const realId = (id.slice(-32))
-        console.log(realId)
 
         menuService
             .editLunchMenu(realId, params)
-            .then(response => { console.log(response.data); navigate(`/createmenu/${params.menuId}`) })
-            // .then(response => setaddRecipe(response.data.hits))
+            .then(() => navigate(`/createmenu/${params.menuId}`))
             .catch(err => console.log(err))
     }
 
@@ -48,27 +43,8 @@ const FilteredLunch = () => {
         <div>
 
             <form onSubmit={pressImput}>
-
-
-
-
-                {/* <Form.Label htmlFor="inputPassword5">Tell me an ingredient and let yourself go:</Form.Label>
-                <Form.Control
-                    type="text"
-                    id="inputPassword5"
-                    aria-describedby="passwordHelpBlock"
-                    value={ingredient} onChange={pressChange}
-                /> */}
-
-
                 <Container>
                     <div className="d-flex justify-content-center">
-                        {/* <label> Tell me an ingredient and let yourself go:
-                        </label>
-
-                        <input type="text" value={ingredient} onChange={pressChange} />
-                        <button type='submit'> Search </button> */}
-
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label><h2>Search by ingredients:</h2></Form.Label>
                             <Form.Control type="text" className="mb-3" placeholder="eggs" value={ingredient} onChange={pressChange} />
@@ -80,10 +56,7 @@ const FilteredLunch = () => {
                         </Form.Group>
                     </div>
                 </Container>
-
                 <br /><br /><br />
-
-
                 <Container>
                     <div>
                         <Row>

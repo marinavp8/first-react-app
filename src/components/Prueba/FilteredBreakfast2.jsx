@@ -1,7 +1,5 @@
 import { useState } from "react"
 import edamamService from "../../services/edamam.services"
-// import RecipeContext from "../../contexts/recipe.context"
-// import { useContext } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { Button, Form, Card, Row, Col, Container } from "react-bootstrap"
 import menuService from "../../services/menu.services"
@@ -18,7 +16,7 @@ const FilteredBreakfast2 = () => {
 
         edamamService
             .getBreakfastRecipe(ingredient)
-            .then(response => { setRecipes(response.data.hits); console.log(console.log(params)) })
+            .then(response => setRecipes(response.data.hits))
             .catch(err => console.log(err))
     }
 
@@ -37,12 +35,10 @@ const FilteredBreakfast2 = () => {
 
     const handleComeBack = (id) => {
         const realId = (id.slice(-32))
-        console.log(realId)
 
         menuService
             .editMondayMenu(realId, params)
-            .then(response => { console.log(response.data); navigate(`/createmenu/${params.menuId}`) })
-            // .then(response => setaddRecipe(response.data.hits))
+            .then(() => navigate(`/createmenu/${params.menuId}`))
             .catch(err => console.log(err))
     }
 

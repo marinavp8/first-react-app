@@ -16,6 +16,7 @@ const MenuList = () => {
     const [menus, setMenus] = useState()
 
     useEffect(() => {
+
         getMenus()
     }, [])
 
@@ -36,7 +37,7 @@ const MenuList = () => {
                 <Row>
 
                     {
-                        menus.map(e => <MenuCard {...e} key={e._id} />)
+                        menus.map(e => <MenuCard {...e} key={e._id} f={getMenus} />)
                     }
 
                 </Row>
