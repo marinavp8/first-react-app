@@ -2,17 +2,17 @@ import { useState, useContext, useEffect } from "react"
 import { AuthContext } from '../../contexts/auth.contexts'
 import usersServices from "../../services/users.services"
 import edamamService from "../../services/edamam.services"
+import { Col, Card } from "react-bootstrap"
+import { Link } from "react-router-dom"
 
 const FavouriteRecipes = () => {
 
     const { loggedUser } = useContext(AuthContext)
-    const [favRecips, setFavRecipes] = useState([])  // en fav recipes hay un array con los ids de las recetas q tengo como  fav
-    const [objectReipe, setObjectRecipe] = useState()
+    const [objectRecipe, setObjectRecipe] = useState(null)
+
 
     useEffect(() => {
-
         getMyFavsByRecipe()
-
     }, [])
 
     const getMyFavsByRecipe = () => {
@@ -20,69 +20,37 @@ const FavouriteRecipes = () => {
         usersServices
             .getOneUser(loggedUser._id)
             .then(({ data }) => data.favouriteRecipies)
-            .then(response => response.map(recipeId => {
-
-                return edamamService.getOneRecipe(recipeId)
-            }))
-
-            .then(response => {
-                console.log(response)
-                const recipe = data.recipe
-                // forEach(recipe => {
-                //     return recipe
-                // }
+            .then(favouriteRecipies => {
+                const promises = favouriteRecipies.map(recipeId => edamamService.getOneRecipe(recipeId))
+                return Promise.all(promises)
             })
-
+            .then(recipesData => {
+                const recipesInfo = recipesData.map(elm => elm.data.recipe)
+                console.log('---------------------------------', recipesInfo)
+                setObjectRecipe(recipesInfo)
+            })
             .catch(err => console.log(err))
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // const getRecipe = () => {
-    //     console.log(favRecips)
-    //     Promise
-    //         .all(
-    //             favRecips?.map(recipeid => {
-    //                 return edamamService.getOneRecipe(recipeid)
-    //             })
-    //         )
-    //         .then(recipesData => {
-    //             recipesData.forEach(({ data }) => {
-
-    //                 setObjectRecipe(data.recipe)
-    //                 console.log('----------------------------------------------', data.recipe.label)
-    //                 console.log('----------------------------object------------------', objectReipe)
-
-
-    //             })
-    //         })
-    //         .catch(err => console.log(err))
-    // }
-
-
     return (
-        !objectReipe
+
+        !objectRecipe
             ?
-            <p>loading</p>
+            <p>cargando...</p>
             :
-            <p>mis favs</p>
+            objectRecipe.map((recipe) => {
+                const { uri: urlUri } = recipe
+                let startPos = urlUri.length - 32;
+                let id = urlUri.slice(startPos)
+                return (
+                    <>
+                        <Col>
+                            <Card.Title> <h4>{recipe.label}</h4> </Card.Title>
+                            <Link to={`/recipes/${id}`} className="btn btn-success btn-sm mt-4">Details</Link>
+                        </Col>
+                    </>
+                )
+            })
     )
 }
 
