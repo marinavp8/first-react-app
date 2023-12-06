@@ -10,7 +10,7 @@ const FilteredBreakfast2 = () => {
     const navigate = useNavigate()
     const [recipes, setRecipes] = useState([])
     const [ingredient, setIngredient] = useState('')
-    const [addRecipe, setaddRecipe] = useState(null)
+
     const getRecipe = (ingredient) => {
 
         edamamService
@@ -20,19 +20,17 @@ const FilteredBreakfast2 = () => {
     }
 
     const pressChange = e => {
-
         const { value } = e.currentTarget
-
         setIngredient(value)
     }
 
     const pressImput = e => {
         e.preventDefault()
         getRecipe(ingredient)
-
     }
 
     const handleComeBack = (id) => {
+
         const realId = (id.slice(-32))
 
         menuService
@@ -68,6 +66,7 @@ const FilteredBreakfast2 = () => {
                                 recipes.map((recipe) => {
                                     return (
                                         <Col>
+                                            {/* TODO: DESACOPLAR RECIPECARD */}
                                             <div className=" text-center mb-5">
 
                                                 <Card style={{ width: '18rem' }}>

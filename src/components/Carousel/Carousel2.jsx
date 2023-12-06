@@ -51,9 +51,9 @@ const Carousel2 = ({ recipes }) => {
             itemClass="carousel-item-padding-40-px"
         >
             {recipes.map((recipe) => {
-                const { uri: urlUri } = recipe.recipe;
-                let startPos = urlUri.length - 32;
-                let id = urlUri.slice(startPos);
+                const { uri: urlUri } = recipe.recipe
+                let startPos = urlUri.length - 32
+                let id = urlUri.slice(startPos)
                 return (
                     <div key={id} className=" text-center mb-5"> {/* Asegúrate de dar una clave única a cada elemento del carrusel */}
                         <Card style={{ width: '18rem' }} className="ml-5">

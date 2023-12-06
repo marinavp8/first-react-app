@@ -21,7 +21,6 @@ const EditProfile = () => {
     const handleInputChange = e => {
 
         const { value, name } = e.target
-
         setLoagingImage({ ...newSignupData, [name]: value })
     }
 

@@ -26,16 +26,13 @@ const MultipleFilter = () => {
     }
 
     const pressChange = e => {
-
         const { value, name } = e.currentTarget
         setQueryData({ ...queryData, [name]: value })
-
     }
 
     const pressImput = e => {
         e.preventDefault()
         getRecipe(queryData)
-
     }
 
     return (
@@ -50,8 +47,33 @@ const MultipleFilter = () => {
                         <Form.Group className="mb-3">
 
                             <Form.Control type="text" name='ingredient' value={queryData.ingredient} onChange={pressChange} placeholder="ingredient" />
-                            <Form.Control type="text" name='health' value={queryData.health} onChange={pressChange} placeholder="health" />
-                            <Form.Control type="text" name='mealtype' value={queryData.mealtype} onChange={pressChange} placeholder="mealtype" />
+                            {/* <Form.Control type="text" name='health' value={queryData.health} onChange={pressChange} placeholder="health" /> */}
+
+                            <Form.Select aria-label="Default select example">
+                                <option>Health</option>
+                                <option value={queryData.health.vegan}>Vegan</option>
+                                <option value={queryData.health.vegetarian}>Vegetarian</option>
+                                {/* <option value={queryData.health.sugar-conscious}>sugar-conscious</option> */}
+                                {/* <option value={queryData.health.low-sugar}>low-sugar</option> */}
+                                {/* <option value={queryData.health.gluten-free}>gluten-free</option> */}
+                                {/* <option value={queryData.health.keto-friendly}>keto-friendly</option> */}
+                                {/* <option value={queryData.health.pork-free}>pork-free</option> */}
+                                <option value={queryData.health.pescatarian}>pescatarian</option>
+                                <option value={queryData.health.paleo}>paleo</option>
+                            </Form.Select>
+
+
+                            <Form.Select aria-label="Default select example">
+                                <option>Meal Type</option>
+                                <option value={queryData.mealtype.breakfast}>Breakfast</option>
+                                <option value={queryData.mealtype.lunch}>Lunch</option>
+                                <option value={queryData.mealtype.dinner}>Dinner</option>
+                                <option value={queryData.mealtype.snack}>Snack</option>
+                                <option value={queryData.mealtype.teatime}>Teatime</option>
+                            </Form.Select>
+
+
+                            {/* <Form.Control type="text" name='mealtype' value={queryData.mealtype} onChange={pressChange} placeholder="mealtype" /> */}
                             <Form.Control type="text" name='calories' value={queryData.calories} onChange={pressChange} placeholder="calories" />
                             <Form.Control type="text" name='time' value={queryData.time} onChange={pressChange} placeholder="time" />
 
@@ -65,19 +87,12 @@ const MultipleFilter = () => {
             </Card>
 
             <Container >
-                {recipes.map((recipe) => {
-                    const { uri: urlUri } = recipe.recipe;
-                    let startPos = urlUri.length - 32;
-                    let id = urlUri.slice(startPos);
 
-                    return (
-                        <Container>
-                            <Row>
-                                <CardResults recipes={recipes} />
-                            </Row>
-                        </Container>
-                    )
-                })}
+                <Container>
+                    <Row>
+                        <CardResults recipes={recipes} />
+                    </Row>
+                </Container>
             </Container>
 
         </div>

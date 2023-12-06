@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import { Button } from "react-bootstrap"
 import { useContext } from "react"
 import { AuthContext } from "../../contexts/auth.contexts"
+import { MdDelete } from "react-icons/md";
+
 
 
 const MenuDelete = ({ _id, f }) => {
@@ -26,7 +28,7 @@ const MenuDelete = ({ _id, f }) => {
     }
     return (
 
-        <Button variant="outline-danger" onClick={handleDelete} className="mb-3">Delete</Button>
+        <Button variant="outline-danger" onClick={handleDelete} className="mb-3"><MdDelete /></Button>
 
     )
 }

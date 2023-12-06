@@ -16,7 +16,7 @@ const DetailsRecipe = () => {
     const [recipe, setRecipe] = useState()
     const [comments, setComments] = useState()
 
-    const getDetailRecipe = (id) => {
+    const getDetailRecipe = () => {
         edamamService
             .getOneRecipe(id)
             .then(({ data }) => {
@@ -36,7 +36,7 @@ const DetailsRecipe = () => {
 
 
     useEffect(() => {
-        getDetailRecipe(id)
+        getDetailRecipe()
     }, [])
 
     return (

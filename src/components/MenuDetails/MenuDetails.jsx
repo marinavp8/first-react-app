@@ -1,51 +1,35 @@
 import { Card, Col } from "react-bootstrap"
 import menuService from "../../services/menu.services"
-import EdamamService from "../../services/edamam.services"
 import { useParams } from "react-router-dom"
 import { useState } from "react"
 import { useEffect } from "react"
 import EditMenuForm from "../MenuEdit/MenuEdit"
 import { useNavigate } from 'react-router-dom';
 import Loader from "../Loader/Loader"
-import { AuthContext } from "../../contexts/auth.contexts"
-import { useContext } from "react"
 
 const MenuDetails = () => {
-
-    const { loggedUser } = useContext(AuthContext)
 
     const { _id } = useParams()
 
     const [menu, setMenu] = useState(null)
-    const [recipe, setecipe] = useState(null)
     const [isEditing, setIsEditing] = useState(false)
 
     useEffect(() => {
         loadMenuDetails()
-        // recipedetails()
     }, [])
 
     const loadMenuDetails = () => {
         menuService
             .detailsMenu(_id)
-            .then(({ data }) => { setMenu(data); console.log("hdhdhdhhd", loggedUser._id) })
-            // .then(({ data }) => setMenu(data))
-            .catch(err => console.log(err))
-    }
-    const recipedetails = () => {
-        EdamamService
-            .getOneRecipe(menu.days[0].recipeBreakfastId)
-            .then(({ data }) => { console.log("hdhdhdhhd", data) })
-            // .then(({ data }) => setMenu(data))
+            .then(({ data }) => { setMenu(data) })
             .catch(err => console.log(err))
     }
 
-    const handleUpdateMenu = (updatedMenuData) => {
-        console.log(updatedMenuData);
+    const handleUpdateMenu = () => {
         setIsEditing(false)
     }
-    const navigate = useNavigate();
 
+    const navigate = useNavigate();
 
     const handleDelete = () => {
         menuService
