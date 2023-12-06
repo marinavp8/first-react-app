@@ -3,19 +3,15 @@ import lu from '../../assets/lu.jpg'
 import valen from '../../assets/valen.jpg'
 import marina from '../../assets/marina.jpg'
 
-
-import Img from "./../../assets/fondo.jpeg"
-
 const AboutUs = () => {
+
     return (
 
         <Container>
+
             <Row>
 
-
-
                 <h1 style={{ color: 'rgb(58, 125, 19)' }}>About us</h1>
-
 
                 <p>IronHack</p>
 
@@ -44,14 +40,11 @@ const AboutUs = () => {
                         <p>Marina</p>
                     </div>
 
-
                 </Col>
             </Row>
 
-
         </Container>
     )
-
 
 }
 

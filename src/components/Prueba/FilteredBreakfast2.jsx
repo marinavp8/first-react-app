@@ -1,11 +1,8 @@
 import { useState } from "react"
 import edamamService from "../../services/edamam.services"
-// import RecipeContext from "../../contexts/recipe.context"
-// import { useContext } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { Button, Form, Card, Row, Col, Container } from "react-bootstrap"
 import menuService from "../../services/menu.services"
-
 
 const FilteredBreakfast2 = () => {
 
@@ -45,8 +42,6 @@ const FilteredBreakfast2 = () => {
             // .then(response => setaddRecipe(response.data.hits))
             .catch(err => console.log(err))
     }
-
-
 
     return (
         <div>

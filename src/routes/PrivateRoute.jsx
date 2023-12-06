@@ -3,15 +3,11 @@ import { AuthContext } from "../contexts/auth.contexts"
 import Loader from "../components/Loader/Loader"
 import { Outlet, Navigate } from "react-router-dom"
 
-
 const PrivateRoute = () => {
 
     const { loggedUser, isLoading } = useContext(AuthContext)
 
     if (isLoading) {
-        return <Loader />
-    }
-    if (loggedUser.role === 'ADMIN') {
         return <Loader />
     }
 

@@ -5,9 +5,7 @@ import { Form, Button } from "react-bootstrap"
 import uploadServices from "../../services/upload.services"
 import FormError from "../FormError/FormError"
 
-
 const SignupForm = () => {
-
 
     const [signupData, setSignupData] = useState({
         username: '',
@@ -88,7 +86,6 @@ const SignupForm = () => {
             </div>
 
             {errors.length > 0 && <FormError>{errors.map(elm => <p>{elm}</p>)}</FormError>}
-
 
         </Form>
 

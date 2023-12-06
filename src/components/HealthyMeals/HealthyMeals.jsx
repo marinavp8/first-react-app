@@ -56,12 +56,7 @@ const HealthyMeals = () => {
 
         </Container>
 
-
-
     )
-
-
-
 
 }
 

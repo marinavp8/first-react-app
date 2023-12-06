@@ -7,8 +7,6 @@ import { useContext } from "react"
 import Loader from "../Loader/Loader"
 import { Container, Col } from 'react-bootstrap'
 
-
-
 const MenuList = () => {
 
     const { loggedUser } = useContext(AuthContext)

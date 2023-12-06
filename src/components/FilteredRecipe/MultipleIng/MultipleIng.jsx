@@ -32,12 +32,8 @@ const MultipleIng = () => {
 
     }
 
-
-
     return (
         <div>
-
-
 
             <Form onSubmit={pressImput} style={{ maxWidth: "800px", margin: "auto" }} >
                 <Form.Group className="mb-3" >
@@ -50,8 +46,6 @@ const MultipleIng = () => {
             </Form>
 
             <Carousel2 recipes={recipes} />
-
-
 
         </div >
     )

@@ -10,7 +10,7 @@ import ProfilePage from '../pages/Profile/Profile'
 import HomePage from '../pages/HomePage/HomePage'
 import PrivateRoute from './PrivateRoute'
 import MenuEdit from "../components/MenuEdit/MenuEdit"
-import YourFridge from '../pages/YourFridgePage/YourFridge'
+import YourFridgePage from '../pages/YourFridgePage/YourFridgePage'
 import FilteredBreakfast2 from "../components/Prueba/FilteredBreakfast2"
 import FilteredDinner from '../components/Prueba/FilteredDinner2'
 import FilteredLunch from '../components/Prueba/FilteredLunch2'
@@ -37,10 +37,8 @@ const AppRoutes = () => {
             <Route element={<PrivateRoute />} >
                 <Route path={'/profile'} element={<ProfilePage />} />
                 <Route path={'/createmenu'} element={< MenuCreate />} />
-            </Route>
-
-            <Route element={<PrivateRoute />} >
                 <Route path={'/users'} element={<AdminProfilePage />} />
+
             </Route>
 
 
@@ -48,7 +46,7 @@ const AppRoutes = () => {
             <Route path={':_id'} element={<MenuDetails />} />
             <Route path={'/edit/:_id'} element={<MenuEdit />} />
 
-            <Route path={'/fridge'} element={<YourFridge />} />
+            <Route path={'/fridge'} element={<YourFridgePage />} />
             <Route path={'/search/results'} element={<FiltersPage />} />
             <Route path={'/recipes/:id'} element={<DetailsRecipe />} />
 
@@ -61,6 +59,8 @@ const AppRoutes = () => {
             <Route path={'/breakfastprueba/:menuId/:day'} element={< FilteredBreakfast2 />} />
             <Route path={'/addLunch/:menuId/:day'} element={< FilteredLunch />} />
             <Route path={'/addDinner/:menuId/:day'} element={< FilteredDinner />} />
+
+            {/* <Route path={'*'} element={<p>NON FOUND</p>} /> */}
 
         </Routes>
     )

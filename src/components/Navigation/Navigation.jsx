@@ -1,12 +1,22 @@
 import { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.contexts'
 import "./Navigation.css"
 import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap'
 
+
 const Navigation = () => {
 
     const { loggedUser, logout } = useContext(AuthContext)
+
+    const navigate = useNavigate()
+
+
+    const handleLogout = () => {
+        logout()
+        navigate('/')
+    }
+
 
     return (
         <>
@@ -36,7 +46,7 @@ const Navigation = () => {
                                             id={`offcanvasNavbarDropdown-expand`}
                                         >
                                             <NavDropdown.Item href={'/profile'} style={{ fontSize: "18px" }}>Profile</NavDropdown.Item>
-                                            <NavDropdown.Item onClick={logout} style={{ fontSize: "18px" }}>Log out </NavDropdown.Item>
+                                            <NavDropdown.Item onClick={handleLogout} style={{ fontSize: "18px" }}>Log out </NavDropdown.Item>
                                             <NavDropdown.Item href={'/users'} style={{ fontSize: "18px" }}>Users</NavDropdown.Item>
 
 

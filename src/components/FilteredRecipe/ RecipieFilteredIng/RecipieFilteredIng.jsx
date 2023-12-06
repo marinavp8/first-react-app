@@ -1,10 +1,8 @@
 import { useState } from "react"
 import edamamService from "../../../services/edamam.services"
 import { Form, Button, Container, Row, Col, Card } from "react-bootstrap"
-// import { Link } from "react-router-dom"
 import foto from '../../../assets/heropage2.png'
 import CardResults from "../CardResults/CardResults"
-
 
 const RecipieFilteredIng = () => {
 
@@ -29,10 +27,10 @@ const RecipieFilteredIng = () => {
         getRecipe(ingredient)
     }
 
-
     return (
 
         <div>
+
             <Card style={{ width: "18rem", margin: "auto" }}>
                 <Card.Img variant="top" src={foto} alt="Foto de ejemplo" />
                 <Card.Body>
@@ -62,11 +60,12 @@ const RecipieFilteredIng = () => {
                     return (
                         <Container>
                             <Row>
-                                <CardResults recipes={recipes}/>
+                                <CardResults recipes={recipes} />
                             </Row>
                         </Container>
                     )
                 })}
+
             </Container>
         </div>
     )

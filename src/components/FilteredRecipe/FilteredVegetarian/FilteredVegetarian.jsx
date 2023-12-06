@@ -3,7 +3,6 @@ import edamamService from "../../../services/edamam.services"
 import { Form, Button, Container, Row, Col, Card } from "react-bootstrap"
 import foto from '../../../assets/heropage2.png'
 
-
 const FilteredVegetarian = () => {
 
     const [recipes, setRecipes] = useState([])
@@ -18,11 +17,11 @@ const FilteredVegetarian = () => {
             .catch(err => console.log(err))
 
     }
+
     const placeOptions = [
         'vegan',
         'vegetarian'
-    ];
-
+    ]
 
     const pressChange = e => {
 

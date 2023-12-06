@@ -1,49 +1,69 @@
-import { useEffect, useState } from "react"
-import commentService from "../../services/comment.services"
-import { Card, Row, Col, Image, Button } from 'react-bootstrap';
+import { useContext, useEffect } from "react"
+import { Image, Col, Row, Button } from "react-bootstrap"
+import commentService from '../../services/comment.services'
+import { AuthContext } from '../../contexts/auth.contexts'
 
-const PostedComments = ({ refreshComments, comments }) => {
+const PostedComments = ({ refreshComments, comments, id }) => {
+
+    const { loggedUser } = useContext(AuthContext)
 
     useEffect(() => {
-        refreshComments()
+        refreshComments(id)
     }, [])
 
     const deleteComment = (commentId) => {
         commentService
             .deleteComment(commentId)
-            .then(() => console.log(commentId))
+            .then(() => refreshComments())
             .catch(err => console.log(err))
     }
-
     return (
         !comments
             ?
             <p>Not comented yet</p>
             :
             <div>
-                <h3 className="mt-5 mb-5">Comments:</h3>
-                <Row xs={1} md={3} className="g-4">
-                    {comments.map(comment => (
-                        <Col key={comment._id}>
-
+                <h2>Comments:</h2>
+                <ul>
+                    <Row xs={1} md={3} className="g-4">
+                        {comments.map(comment => (
                             <div key={comment._id}>
-                                <Button onClick={() => deleteComment(comment._id)} variant="success" >Delete </Button>
+                                {comment.owner && (
+                                    <>
+                                        <img src={comment.owner.avatar} style={{ width: '5%' }} alt="" />
+                                        <h5>{comment.owner.username}</h5>
+                                    </>
+                                )}
+                                <p>posted : {comment.comment}</p>
+                                {
+                                    (loggedUser.role === 'ADMIN') &&
+
+                                    <>
+                                        <Button onClick={() => deleteComment(comment._id)} variant="success" >Delete comment </Button>
+                                    </>
+
+                                }
 
                             </div>
-
-                            <Image src={comment.owner.avatar} roundedCircle style={{ width: '5%' }} alt="" />
-                            <h5>{comment.owner.username}: </h5>
-                            <p>{comment.comment}</p>
-
-                        </Col>
-
-                    ))}
-                </Row>
+                        ))}
+                    </Row>
+                </ul>
             </div >
-
-
     )
 }
-
-
 export default PostedComments
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

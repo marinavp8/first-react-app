@@ -67,8 +67,6 @@ class menuServices {
     //     return this.api.put(`/updateMenu/${menuId}/${day}/`, { realId })
     // }
 
-
-
 }
 
 const menuService = new menuServices()

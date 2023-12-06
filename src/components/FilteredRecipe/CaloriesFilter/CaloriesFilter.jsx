@@ -4,7 +4,6 @@ import { Form, Button, Container, Row, Col, Card } from "react-bootstrap"
 import foto from '../../../assets/heropage2.png'
 import CardResults from "../CardResults/CardResults"
 
-
 const CaloriesFilter = () => {
 
     const [recipes, setRecipes] = useState([])
@@ -17,7 +16,6 @@ const CaloriesFilter = () => {
             .getRecipeByCalories(calories)
             .then(response => setRecipes(response.data.hits))
             .catch(err => console.log(err))
-
     }
 
     const pressChange = e => {
@@ -34,6 +32,7 @@ const CaloriesFilter = () => {
     }
 
     return (
+
         <div>
             <Card style={{ width: "18rem", margin: "auto" }}>
                 <Card.Img variant="top" src={foto} alt="Foto de ejemplo" />

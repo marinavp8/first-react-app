@@ -17,7 +17,6 @@ import foto from '../../../assets/heropage2.png'
 
 import CardResults from "../CardResults/CardResults"
 
-
 const FilteredByPlace = () => {
 
     const [recipes, setRecipes] = useState([])
@@ -28,7 +27,6 @@ const FilteredByPlace = () => {
             .then(response => { setRecipes(response.data.hits); console.log("Estoy seleccionado y estos son mis datos", response.data.hits) })
             .catch(err => console.log(err))
     }
-
 
     const places = [
         { label: 'American', value: 'American', img: american },
@@ -74,14 +72,7 @@ const FilteredByPlace = () => {
                 {/* <Carousel2 recipes={recipes} /> */}
             </Row>
 
-
         </Container>
-
-
-
-
-
-
 
     )
 }

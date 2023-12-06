@@ -8,9 +8,9 @@ const FilteredLunch = () => {
 
     const navigate = useNavigate()
 
-
     const [recipes, setRecipes] = useState([])
     const [ingredient, setIngredient] = useState('')
+
     const getRecipe = (ingredient) => {
 
         edamamService
@@ -19,17 +19,20 @@ const FilteredLunch = () => {
             .catch(err => console.log(err))
 
     }
+
     const pressChange = e => {
 
         const { value } = e.currentTarget
 
         setIngredient(value)
     }
+
     const pressImput = e => {
         e.preventDefault()
         getRecipe(ingredient)
 
     }
+
     const params = useParams()
     const [addRecipe, setaddRecipe] = useState(null)
 
@@ -49,9 +52,6 @@ const FilteredLunch = () => {
 
             <form onSubmit={pressImput}>
 
-
-
-
                 {/* <Form.Label htmlFor="inputPassword5">Tell me an ingredient and let yourself go:</Form.Label>
                 <Form.Control
                     type="text"
@@ -59,7 +59,6 @@ const FilteredLunch = () => {
                     aria-describedby="passwordHelpBlock"
                     value={ingredient} onChange={pressChange}
                 /> */}
-
 
                 <Container>
                     <div className="d-flex justify-content-center">
@@ -82,7 +81,6 @@ const FilteredLunch = () => {
                 </Container>
 
                 <br /><br /><br />
-
 
                 <Container>
                     <div>

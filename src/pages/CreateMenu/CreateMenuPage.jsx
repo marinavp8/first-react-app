@@ -17,9 +17,7 @@ const CreateMenuPage = () => {
 
             </Container >
 
-
         </>
-
 
     )
 

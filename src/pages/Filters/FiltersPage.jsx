@@ -13,7 +13,6 @@ import Carousel2 from "../../components/Carousel/Carousel2"
 
 import { Container } from "react-bootstrap"
 
-
 import './FiltersPage.css'
 import HealthyMeals from "../../components/HealthyMeals/HealthyMeals"
 
@@ -51,8 +50,8 @@ const FiltersPage = () => {
 
             <HealthyMeals />
         </Container>
-    );
-};
+    )
+}
 
 
 export default FiltersPage

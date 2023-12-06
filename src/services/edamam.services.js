@@ -54,7 +54,6 @@ class EdamamService {
     //     return this.api.get(`/`)
     // }
 
-
 }
 
 const edamamService = new EdamamService()
