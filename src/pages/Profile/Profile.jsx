@@ -40,12 +40,12 @@ const ProfilePage = () => {
                 </Col>
 
                 <Col>
-                    <h3 className="mb-5">Hi, {loggedUser.username}</h3>
+                    <h3 className="mb-3">Hi,{loggedUser.username}</h3>
 
-                    <p className="pm-4 mt-5" >{loggedUser.email}</p>
+                    <p className="pm-4 mt-3" >{loggedUser.email}</p>
 
 
-                    <Button variant="success" onClick={handleEditShow} className="me-4">Edit Profile</Button>
+                    <Button style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none' }} onClick={handleEditShow} className="me-4">Edit Profile</Button>
 
                     {
                         (loggedUser.role === 'ADMIN') &&
@@ -69,7 +69,7 @@ const ProfilePage = () => {
 
                     </Offcanvas>
 
-                    <Button variant="success" onClick={handleIngrListShow} className="me-4">
+                    <Button style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none' }} onClick={handleIngrListShow} className="me-4">
                         <img src={Basket}></img>
                     </Button>
                     <Offcanvas show={ingrListShow} onHide={handleIngrListClose} placement={'end'}>

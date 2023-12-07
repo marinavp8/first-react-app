@@ -42,7 +42,7 @@ const List = () => {
 
   }
   const handleDeleteIngredient2 = (elm) => {
- 
+
     listServices
       .deleteIngredient(elm)
       .then(() => setNewIngredient())
@@ -68,21 +68,21 @@ const List = () => {
 
 
   return (
-  
+
     <>
       {
 
         dataList.map((elm, i) => {
           return (
             <>
-          <p>{elm}</p>
-          <Button variant="outline-secondary" id="button-addon1" onClick={() => handleDeleteIngredient2(elm)}>Borrar</Button>
-          </>
+              <p>{elm}</p>
+              <Button style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none' }} id="button-addon1" onClick={() => handleDeleteIngredient2(elm)}>Delete</Button>
+            </>
           )
         })
       }
       <InputGroup className="mb-3" type="text" value={newIngredient} onChange={handleInputChange} >
-        <Button variant="outline-secondary" id="button-addon1" onClick={handleAddIngredient}>
+        <Button style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none' }} id="button-addon1" onClick={handleAddIngredient}>
           Button
         </Button>
         <Form.Control
@@ -95,7 +95,7 @@ const List = () => {
           <>
             <Form.Check type="radio" aria-label="radio 1" key={i} > </Form.Check>
             {ingredient}
-            <Button variant="outline-secondary" id="button-addon1" onClick={() => handleDeleteIngredient(i)}>Borrar</Button>
+            <Button style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none' }} id="button-addon1" onClick={() => handleDeleteIngredient(i)}>Borrar</Button>
           </>
         ))}
       </ul>

@@ -82,7 +82,7 @@ const SignupForm = () => {
             </Form.Group>
 
             <div className="d-flex justify-content-center mt-5">
-                <Button variant="success" type="submit" disabled={loadingIamge}>{loadingIamge ? 'Loading ...' : 'Sign Up'}</Button>
+                <Button style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none' }} type="submit" disabled={loadingIamge}>{loadingIamge ? 'Loading ...' : 'Sign Up'}</Button>
             </div>
 
             {errors.length > 0 && <FormError>{errors.map(elm => <p>{elm}</p>)}</FormError>}

@@ -53,7 +53,7 @@ const LoginForm = () => {
             </Form.Group>
 
             <div className="d-flex justify-content-center">
-                <Button variant="success" type="submit" style={{ width: 100 }} >Log in</Button>
+                <Button style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none', width: '100px' }} type="submit">Log in</Button>
             </div>
 
             {errors.length > 0 &&

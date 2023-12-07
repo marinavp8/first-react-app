@@ -39,9 +39,8 @@ const MultipleIng = () => {
                 <Form.Group className="mb-3" >
                     <Form.Control type="text" value={ingredient} onChange={pressChange} placeholder="eggs" />
                     <div className=" d-flex justify-content-center mt-5 mb-5">
-                        <Button variant="success" type="submit">Search</Button>
+                        <Button style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none' }} type="submit">Search</Button>
                     </div>
-
                 </Form.Group>
             </Form>
 

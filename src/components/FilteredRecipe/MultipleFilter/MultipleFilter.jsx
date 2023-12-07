@@ -93,7 +93,7 @@ const MultipleFilter = () => {
                             <Form.Control type="text" name='time' value={queryData.time} onChange={pressChange} placeholder="time" />
                         </Col>
                         <Col md={2}>
-                            <Button variant="outline-success" type="submit"><GrLinkNext /></Button>
+                            <Button style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none' }} type="submit"><GrLinkNext /></Button>
                         </Col>
 
 

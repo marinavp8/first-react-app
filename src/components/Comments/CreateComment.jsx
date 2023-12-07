@@ -32,7 +32,6 @@ const CreateComment = ({ getDetailRecipe, refreshComments }) => {
     return (
         <Form onSubmit={handleSubmit} className="comment-form">
             <Form.Group className="mb-3" controlId="comment">
-                <Form.Label>Comment:</Form.Label>
                 <div style={{ display: 'flex', alignItems: 'center', paddingLeft: 50 }}>
                     <Form.Control
                         style={{ width: 1000 }}
@@ -40,7 +39,7 @@ const CreateComment = ({ getDetailRecipe, refreshComments }) => {
                         onChange={handleInputChange}
                         name="comment"
                         className="comment-text-input" />
-                    <Button className="comment-btn" variant="success" type="submit" >Send</Button>
+                    <Button type="submit" className="comment-btn" style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none' }}> Send</Button>
                 </div>
             </Form.Group>
         </Form >

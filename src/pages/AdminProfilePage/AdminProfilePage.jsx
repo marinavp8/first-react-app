@@ -54,7 +54,7 @@ const AdminProfilePage = () => {
                                                     (loggedUser.role === 'ADMIN') &&
 
                                                     <>
-                                                        <Button onClick={() => deleteUser(elm._id)} variant="success" >Delete User </Button>
+                                                        <Button onClick={() => deleteUser(elm._id)} variant="danger" >Delete User </Button>
                                                     </>
 
                                                 }

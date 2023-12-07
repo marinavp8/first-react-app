@@ -45,7 +45,7 @@ const FilteredDinner = () => {
                         <Form.Group className="mb-3">
                             <Form.Control type="text" value={ingredient} onChange={pressChange} />
                             <div className="d-grid mt-3">
-                                <Button variant="dark" type="submit">
+                                <Button style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none' }} type="submit">
                                     Let's search
                                 </Button>
                             </div>

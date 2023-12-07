@@ -1,7 +1,6 @@
 import { Container, Card, Row, Col } from "react-bootstrap"
 import "react-multi-carousel/lib/styles.css"
 import { Link } from "react-router-dom"
-import Carousel from "react-multi-carousel"
 
 const CardResults = ({ recipes }) => {
 
@@ -23,7 +22,7 @@ const CardResults = ({ recipes }) => {
                                         <Card.Title> <h4>{recipe.recipe.label}</h4> </Card.Title>
                                         <Card.Text>
                                             {Math.round(recipe.recipe.calories)}kcal | {recipe.recipe.totalTime} min                                        </Card.Text>
-                                        <Link to={`/recipes/${id}`} className="btn btn-success btn-sm mt-4">Details</Link>
+                                        <Link to={`/recipes/${id}`} style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none', color: 'white' }} className="btn btn-sm mt-4">Details</Link>
                                     </Card.Body>
                                 </Card>
                             </Col>

@@ -42,7 +42,7 @@ const RecipieFilteredIng = () => {
                             <Form.Label>Ingredientes</Form.Label>
                             <Form.Control type="text" value={ingredient} onChange={pressChange} />
                             <div className="d-grid mt-3">
-                                <Button variant="dark" type="submit">
+                                <Button style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none' }} type="submit">
                                     Enviar
                                 </Button>
                             </div>

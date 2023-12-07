@@ -17,7 +17,6 @@ const Navigation = () => {
         navigate('/')
     }
 
-
     return (
         <>
             <Navbar bg="white" data-bs-theme="light" className='mb-5 mt-2' expand="lg">
@@ -36,22 +35,22 @@ const Navigation = () => {
                         <Link to={'/aboutUs'} className='nav-link size ' style={{ fontSize: "18px" }}> About</Link>
                     </Nav>
 
-
-
                     {
                         loggedUser
                             ?
                             <>
                                 <Navbar.Text className="justify-content-end me-5">
-                                    <NavDropdown
-                                        title={loggedUser && <Navbar.Text className=" me-5"> <p style={{ fontSize: "18px" }}>Hi, {loggedUser.username} ! </p></Navbar.Text>}
-                                        id={`offcanvasNavbarDropdown-expand`}
 
+                                    <NavDropdown
+
+                                        title={loggedUser && <Navbar.Text style={{ fontSize: "18px" }}>Hi,{loggedUser.username}! </Navbar.Text>}
+                                        id={`offcanvasNavbarDropdown-expand`}
                                     >
                                         <NavDropdown.Item href={'/profile'} style={{ fontSize: "18px" }}>Profile</NavDropdown.Item>
                                         <NavDropdown.Item onClick={handleLogout} style={{ fontSize: "18px" }}>Log out </NavDropdown.Item>
 
                                     </NavDropdown>
+
                                 </Navbar.Text>
 
                             </>
@@ -63,8 +62,8 @@ const Navigation = () => {
                             </div>
                     }
 
-                </Navbar.Collapse>
 
+                </Navbar.Collapse>
 
             </Navbar >
 

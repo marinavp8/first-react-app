@@ -54,8 +54,8 @@ const FilteredByPlace = () => {
                             <Card.Img variant="top" src={place.img} />
                             <Card.Body className="d-flex justify-content-center align-items-center">
                                 <Button
-                                    type="submit"
                                     variant="outline-success"
+                                    type="submit"
                                     onClick={() => {
                                         getRecipe2(place.value)
                                     }}>

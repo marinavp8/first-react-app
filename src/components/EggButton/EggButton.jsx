@@ -24,7 +24,7 @@ const EggButton = (id) => {
     }
 
     return (
-        <Button className='eggButton' variant="dark" onClick={handleLike}>
+        <Button className='eggButton' style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none' }} onClick={handleLike}>
             <img src={like ? eggOff : eggOn} alt='eggs' />
 
         </Button>

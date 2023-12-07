@@ -57,6 +57,7 @@ const EditProfile = () => {
 
 
     return (
+
         <Container>
 
             <Col>
@@ -82,7 +83,7 @@ const EditProfile = () => {
                     </FloatingLabel>
 
                     <div className="d-grid">
-                        <Button variant="dark" type="submit" disabled={loadingIamge}>{loadingIamge ? 'Loading ...' : 'Update info'}</Button>
+                        <Button style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none' }} type="submit" disabled={loadingIamge}>{loadingIamge ? 'Loading ...' : 'Update info'}</Button>
                     </div>
 
                 </Form>

@@ -40,7 +40,7 @@ const EditMenuForm = ({ existingMenuData, handleUpdateMenu }) => {
                 <Form.Control type="text" placeholder="Ex: February week 3" onChange={handleChange} name="name" />
             </Form.Group>
             <div className=" d-flex justify-content-center mt-3 mb-5">
-                <Button variant="success" type="submit">
+                <Button style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none' }} type="submit">
                     <GrLinkNext style={{ width: "30px", height: '20px' }} />
 
                 </Button>
