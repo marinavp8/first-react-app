@@ -17,6 +17,7 @@ import AboutUsPage from '../pages/AboutUsPage/AboutUsPage'
 import AdminProfilePage from '../pages/AdminProfilePage/AdminProfilePage'
 import MenuCreate from '../pages/MenuPages/MenuCreate'
 import MenuListPage from '../pages/MenuPages/MenuList'
+import FiltersResultPage from '../pages/FiltersResult/FiltersResult'
 
 const AppRoutes = () => {
 

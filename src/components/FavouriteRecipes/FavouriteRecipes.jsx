@@ -33,23 +33,28 @@ const FavouriteRecipes = () => {
 
     return (
 
-        !objectRecipe
+        objectRecipe === null
             ?
-            <p>cargando...</p>
+            <p>Any favourite recipe yet</p>
             :
-            objectRecipe.map((recipe) => {
-                const { uri: urlUri } = recipe
-                let startPos = urlUri.length - 32;
-                let id = urlUri.slice(startPos)
-                return (
-                    <>
-                        <Col>
-                            <Card.Title> <h4>{recipe.label}</h4> </Card.Title>
-                            <Link to={`/recipes/${id}`} className="btn btn-success btn-sm mt-4">Details</Link>
-                        </Col>
-                    </>
-                )
-            })
+
+            !objectRecipe
+                ?
+                <p>Loading...</p>
+                :
+                objectRecipe.map((recipe) => {
+                    const { uri: urlUri } = recipe
+                    let startPos = urlUri.length - 32;
+                    let id = urlUri.slice(startPos)
+                    return (
+                        <>
+                            <Col>
+                                <Card.Title> <h4>{recipe.label}</h4> </Card.Title>
+                                <Link to={`/recipes/${id}`} className="btn btn-success btn-sm mt-4">Details</Link>
+                            </Col>
+                        </>
+                    )
+                })
     )
 }
 

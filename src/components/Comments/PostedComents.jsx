@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react"
-import { Image, Col, Row, Button, Container } from "react-bootstrap"
+import { Col, Row, Button, Container } from "react-bootstrap"
 import commentService from '../../services/comment.services'
 import { AuthContext } from '../../contexts/auth.contexts'
 
@@ -28,19 +28,20 @@ const PostedComments = ({ refreshComments, comments, id }) => {
                 <h2>Comments:</h2>
                 <ul>
                     <Container>
-
                         <Row className="g-4">
                             {comments.map(comment => (
 
-                                <div key={comment._id}>
+                                <Col key={comment._id}>
 
                                     {comment.owner && (
 
-
                                         <Col md={2}>
+
+
                                             <img src={comment.owner.avatar} style={{ width: '5%' }} alt="" />
 
                                             <h5>{comment.owner.username}</h5>
+
                                         </Col>
 
 
@@ -54,15 +55,22 @@ const PostedComments = ({ refreshComments, comments, id }) => {
                                         <Col md={2}>
                                             <Button onClick={() => deleteComment(comment._id)} variant="success" >Delete comment </Button>
                                         </Col>
-
                                     }
 
-                                </div>
+                                </Col>
                             ))}
                         </Row>
                     </Container>
-
                 </ul>
+
+
+
+
+
+
+
+
+
             </div >
     )
 }

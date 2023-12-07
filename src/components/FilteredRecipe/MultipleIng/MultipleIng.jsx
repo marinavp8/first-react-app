@@ -30,6 +30,9 @@ const MultipleIng = () => {
         e.preventDefault()
         getMultiple(ingredient)
 
+
+
+
     }
 
     return (
