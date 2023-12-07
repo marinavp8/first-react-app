@@ -10,6 +10,7 @@ import MultipleIng from "../../components/FilteredRecipe/MultipleIng/MultipleIng
 import CaloriesFilter from "../../components/FilteredRecipe/CaloriesFilter/CaloriesFilter"
 import ExcludeIngredient from "../../components/FilteredRecipe/FilterExcluding/FilterExcluding"
 import Carousel2 from "../../components/Carousel/Carousel2"
+import RangeForm from "../../components/RangeFilter/RangeFilter"
 
 import { Container } from "react-bootstrap"
 
@@ -22,37 +23,23 @@ const FiltersPage = () => {
 
 
     return (
+        <>
 
-        <Container>
-            <h1 className="title text-center mb-4">Advanced filtering:</h1>
+            <h1 className="title text-center mb-4 mt-5">Advanced filtering</h1>
+            <div className="mb-5">
+                < MultipleFilter />
+            </div>
+
+            <div className="mt-5 ms-5 mb-5 ">
+                <h3 className=" d-flex justify-content-center mb-5">Discover by culture:</h3>
+
+                < FilteredByPlace />
+            </div>
+
+        </>
 
 
-            {/* <RecipieFilteredIng />
 
-            {/* <FilteredMeal /> */}
-
-            {/* <FilteredDinner /> */}
-
-            {/* <FilteredBreakfast /> */}
-
-            {/* <FilteredLunch /> */}
-
-            {/* <FilteredVegetarian /> */}
-
-            {/* <FilteredByPlace /> */}
-
-            {/* <MultipleIng /> */}
-
-            {/* <CaloriesFilter /> */}
-
-            {/* <ExcludeIngredient /> */}
-
-            {/* <TimeFilter /> */}
-
-            {/* <HealthyMeals />   */}
-
-            < MultipleFilter />
-        </Container>
     )
 }
 

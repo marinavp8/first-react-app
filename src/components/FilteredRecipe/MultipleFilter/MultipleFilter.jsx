@@ -3,6 +3,10 @@ import edamamService from "../../../services/edamam.services"
 import { Form, Button, Container, Row, Col, Card } from "react-bootstrap"
 import foto from '../../../assets/heropage2.png'
 import CardResults from "../CardResults/CardResults"
+import ReactSlider from 'react-slider'
+import "./MultipleFilter.css"
+import { GrLinkNext } from "react-icons/gr";
+
 
 const MultipleFilter = () => {
 
@@ -20,7 +24,7 @@ const MultipleFilter = () => {
         edamamService
             .getMultipleFiltering(queryData)
             .then(response => {
-                setRecipes(response.data.hits)
+                setRecipes(response.data.hits);
             })
             .catch(err => console.log(err))
     }
@@ -31,24 +35,26 @@ const MultipleFilter = () => {
     }
 
     const pressImput = e => {
+        console.log(calories)
         e.preventDefault()
         getRecipe(queryData)
     }
 
+
     return (
-        <div>
-            <Card style={{ width: "18rem", margin: "auto" }}>
-                <Card.Img variant="top" src={foto} alt="Foto de ejemplo" />
-                <Card.Body>
-                    <Card.Title>
-                        <h4>filtro Mutiple</h4>
-                    </Card.Title>
-                    <Form onSubmit={pressImput} style={{ maxWidth: "800px", margin: "auto" }}>
-                        <Form.Group className="mb-3">
+        <div className="d-flex align-items-start ms-5">
+
+            <Form onSubmit={pressImput} style={{ maxWidth: "800px", margin: "auto" }}>
+                <Form.Group className="mb-3">
+                    <Row>
+                        <Col md={2}>
 
                             <Form.Control type="text" name='ingredient' value={queryData.ingredient} onChange={pressChange} placeholder="ingredient" />
-                            {/* <Form.Control type="text" name='health' value={queryData.health} onChange={pressChange} placeholder="health" /> */}
+                        </Col>
 
+
+
+                        <Col md={2} >
                             <Form.Select aria-label="Default select example">
                                 <option>Health</option>
                                 <option value={queryData.health.vegan}>Vegan</option>
@@ -61,8 +67,11 @@ const MultipleFilter = () => {
                                 <option value={queryData.health.pescatarian}>pescatarian</option>
                                 <option value={queryData.health.paleo}>paleo</option>
                             </Form.Select>
+                        </Col>
 
 
+
+                        <Col md={2}>
                             <Form.Select aria-label="Default select example">
                                 <option>Meal Type</option>
                                 <option value={queryData.mealtype.breakfast}>Breakfast</option>
@@ -71,28 +80,43 @@ const MultipleFilter = () => {
                                 <option value={queryData.mealtype.snack}>Snack</option>
                                 <option value={queryData.mealtype.teatime}>Teatime</option>
                             </Form.Select>
+                        </Col>
 
 
-                            {/* <Form.Control type="text" name='mealtype' value={queryData.mealtype} onChange={pressChange} placeholder="mealtype" /> */}
+
+                        <Col md={2}>
                             <Form.Control type="text" name='calories' value={queryData.calories} onChange={pressChange} placeholder="calories" />
+                        </Col>
+
+
+                        <Col md={2}>
                             <Form.Control type="text" name='time' value={queryData.time} onChange={pressChange} placeholder="time" />
+                        </Col>
+                        <Col md={2}>
+                            <Button variant="outline-success" type="submit"><GrLinkNext /></Button>
+                        </Col>
 
-                            <div className="d-grid mt-3">
-                                <Button variant="dark" type="submit">Enviar</Button>
-                            </div>
 
-                        </Form.Group>
-                    </Form>
-                </Card.Body>
-            </Card>
+                        {/* <Form.Control type="text" name='health' value={queryData.health} onChange={pressChange} placeholder="health" /> */}
 
-            <Container >
 
-                <Container>
-                    <Row>
-                        <CardResults recipes={recipes} />
+
+
+
+                        {/* <Form.Control type="text" name='mealtype' value={queryData.mealtype} onChange={pressChange} placeholder="mealtype" /> */}
+
+
                     </Row>
-                </Container>
+                </Form.Group>
+            </Form>
+
+
+
+
+            <Container>
+                <Row>
+                    <CardResults recipes={recipes} />
+                </Row>
             </Container>
 
         </div>

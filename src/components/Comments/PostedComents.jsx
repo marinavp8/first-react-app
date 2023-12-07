@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react"
-import { Image, Col, Row, Button } from "react-bootstrap"
+import { Image, Col, Row, Button, Container } from "react-bootstrap"
 import commentService from '../../services/comment.services'
 import { AuthContext } from '../../contexts/auth.contexts'
 
@@ -27,29 +27,41 @@ const PostedComments = ({ refreshComments, comments, id }) => {
             <div>
                 <h2>Comments:</h2>
                 <ul>
-                    <Row xs={1} md={3} className="g-4">
-                        {comments.map(comment => (
-                            <div key={comment._id}>
+                    <Container>
 
-                                {comment.owner && (
-                                    <>
-                                        <img src={comment.owner.avatar} style={{ width: '5%' }} alt="" />
-                                        <h5>{comment.owner.username}</h5>
-                                    </>
-                                )}
-                                <p>posted : {comment.comment}</p>
-                                {
-                                    (loggedUser.role === 'ADMIN') &&
+                        <Row className="g-4">
+                            {comments.map(comment => (
 
-                                    <>
-                                        <Button onClick={() => deleteComment(comment._id)} variant="success" >Delete comment </Button>
-                                    </>
+                                <div key={comment._id}>
 
-                                }
+                                    {comment.owner && (
 
-                            </div>
-                        ))}
-                    </Row>
+
+                                        <Col md={2}>
+                                            <img src={comment.owner.avatar} style={{ width: '5%' }} alt="" />
+
+                                            <h5>{comment.owner.username}</h5>
+                                        </Col>
+
+
+                                    )}
+                                    <Col md={2}>
+                                        <p>posted : {comment.comment}</p>
+                                    </Col>
+                                    {
+                                        (loggedUser.role === 'ADMIN') &&
+
+                                        <Col md={2}>
+                                            <Button onClick={() => deleteComment(comment._id)} variant="success" >Delete comment </Button>
+                                        </Col>
+
+                                    }
+
+                                </div>
+                            ))}
+                        </Row>
+                    </Container>
+
                 </ul>
             </div >
     )

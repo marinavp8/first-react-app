@@ -31,25 +31,22 @@ const Navigation = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
 
                     <Nav className="me-auto mt-3">
-                        <Link to={'/createmenu'} className='nav-link size' style={{ color: 'rgb(58, 125, 19)', fontWeight: "200px", fontSize: "20px" }}>Weekly menu</Link>
-                        <Link to={'/search/results'} className='nav-link size' style={{ fontSize: "20px" }}> Advanced filters </Link>
-                        <Link to={'/aboutUs'} className='nav-link size ' style={{ fontSize: "20px" }}> About</Link>
-                    </Nav>
-
-                    <Nav className="me-auto">
                         <Link to={'/createmenu'} className='nav-link size' style={{ color: 'rgb(58, 125, 19)', fontWeight: "200px", fontSize: "18px" }}>Weekly menu</Link>
                         <Link to={'/search/results'} className='nav-link size' style={{ fontSize: "18px" }}> Advanced filters </Link>
-                        <Link to={'/aboutUs'} className='nav-link' style={{ fontSize: "18px" }}> About Us</Link>
+                        <Link to={'/aboutUs'} className='nav-link size ' style={{ fontSize: "18px" }}> About</Link>
                     </Nav>
+
+
 
                     {
                         loggedUser
                             ?
                             <>
-                                <Navbar.Text className="justify-content-end">
+                                <Navbar.Text className="justify-content-end me-5">
                                     <NavDropdown
-                                        title={loggedUser && <Navbar.Text>¡Hello, {loggedUser.username}!</Navbar.Text>}
+                                        title={loggedUser && <Navbar.Text className=" me-5"> <p style={{ fontSize: "18px" }}>Hi, {loggedUser.username} ! </p></Navbar.Text>}
                                         id={`offcanvasNavbarDropdown-expand`}
+
                                     >
                                         <NavDropdown.Item href={'/profile'} style={{ fontSize: "18px" }}>Profile</NavDropdown.Item>
                                         <NavDropdown.Item onClick={handleLogout} style={{ fontSize: "18px" }}>Log out </NavDropdown.Item>
@@ -61,7 +58,7 @@ const Navigation = () => {
                             :
                             <div className='me-5'>
                                 <Navbar.Text className="justify-content-end  me-5">
-                                    <Link to={'/login'} className='nav-link' style={{ fontSize: "20px" }}>Log in</Link>
+                                    <Link to={'/login'} className='nav-link' style={{ fontSize: "18px" }}>Log in</Link>
                                 </Navbar.Text>
                             </div>
                     }
