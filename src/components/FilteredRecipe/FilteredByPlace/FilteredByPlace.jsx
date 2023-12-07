@@ -12,6 +12,9 @@ import british from "../../../assets/british.png"
 import american from "../../../assets/american.png"
 import caribean from "../../../assets/caribean.png"
 import chinase from "../../../assets/chinase.png"
+import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+
 
 import foto from '../../../assets/heropage2.png'
 
@@ -21,10 +24,11 @@ const FilteredByPlace = () => {
 
     const [recipes, setRecipes] = useState([])
 
+
     const getRecipe2 = (selectedPlace) => {
         edamamService
             .getFilteredByPlace(selectedPlace)
-            .then(response => { setRecipes(response.data.hits); console.log("Estoy seleccionado y estos son mis datos", response.data.hits) })
+            .then(response => { setRecipes(response.data.hits) })
             .catch(err => console.log(err))
     }
 
@@ -47,7 +51,6 @@ const FilteredByPlace = () => {
 
         <Container>
             <Row>
-
                 {places.map((place, index) => (
                     <Col md={3} key={index}>
                         <Card style={{ width: '18rem', cursor: 'pointer', margin: '10px' }}>
@@ -69,7 +72,6 @@ const FilteredByPlace = () => {
             </Row>
             <Row>
                 <CardResults recipes={recipes} />
-                {/* <Carousel2 recipes={recipes} /> */}
             </Row>
 
         </Container>

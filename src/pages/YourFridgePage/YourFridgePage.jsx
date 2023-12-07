@@ -17,10 +17,7 @@ const YourFridge = () => {
                 <h3 className="text-center mb-5 mt-5">By health concerns</h3>
                 <HealthyMeals />
             </div>
-            <div className=" mb-5 mt-5">
-                <h3 className="text-center">Around the world</h3>
-                <FilteredByPlace />
-            </div>
+
         </>
     )
 }

@@ -13,6 +13,8 @@ import { IoIosAddCircleOutline } from "react-icons/io"
 import { menuBase } from "../../consts/menu-consts"
 
 
+
+
 const NewMenuForm = () => {
     const { loggedUser } = useContext(AuthContext)
     const params = useParams()
@@ -102,7 +104,7 @@ const NewMenuForm = () => {
                         < Accordion defaultActiveKey="0" bsPrefix="my-accordion" >
                             <Accordion.Item eventKey="0">
                                 <Row>
-                                    <Accordion.Header className="mt-5 mb-5 bigger"><p className="bigger">{day.day}</p></Accordion.Header>
+                                    <Accordion.Header className="mt-5 mb-5 bigger"><p className="bigger">{day.day} </p></Accordion.Header>
                                     <Col>
                                         <div className="text-center">
                                             <Accordion.Body>

@@ -50,7 +50,6 @@ const AppRoutes = () => {
             <Route path={'/addDinner/:menuId/:day'} element={< FilteredDinner />} />
 
             <Route path={'*'} element={<ErrorPage />} />
-            {/* <Route path={'/:_id'} element={<MenuDetails />} /> */}
 
         </Routes>
     )

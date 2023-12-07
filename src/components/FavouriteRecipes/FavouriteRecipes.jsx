@@ -33,7 +33,7 @@ const FavouriteRecipes = () => {
 
     return (
 
-        !objectRecipe
+        objectRecipe === null
             ?
             <p>Loading...</p>
             :

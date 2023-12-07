@@ -39,15 +39,13 @@ const Navigation = () => {
                         loggedUser
                             ?
                             <>
-                                <Navbar.Text className="justify-content-end me-5">
-
+                                <Navbar.Text className="justify-content-end ">
                                     <NavDropdown
-
-                                        title={loggedUser && <Navbar.Text style={{ fontSize: "18px" }}>Hi,{loggedUser.username}! </Navbar.Text>}
+                                        title={loggedUser && <Navbar.Text> <p style={{ fontSize: "16px" }}>Hi, {loggedUser.username} ! </p></Navbar.Text>}
                                         id={`offcanvasNavbarDropdown-expand`}
                                     >
-                                        <NavDropdown.Item href={'/profile'} style={{ fontSize: "18px" }}>Profile</NavDropdown.Item>
-                                        <NavDropdown.Item onClick={handleLogout} style={{ fontSize: "18px" }}>Log out </NavDropdown.Item>
+                                        <NavDropdown.Item href={'/profile'} style={{ fontSize: "16px" }}>Profile</NavDropdown.Item>
+                                        <NavDropdown.Item onClick={handleLogout} style={{ fontSize: "16px" }}>Log out </NavDropdown.Item>
 
                                     </NavDropdown>
 
@@ -56,8 +54,8 @@ const Navigation = () => {
                             </>
                             :
                             <div className='me-5'>
-                                <Navbar.Text className="justify-content-end  me-5">
-                                    <Link to={'/login'} className='nav-link' style={{ fontSize: "18px" }}>Log in</Link>
+                                <Navbar.Text className="justify-content-end  ">
+                                    <Link to={'/login'} className='nav-link' style={{ fontSize: "16px" }}>Log in</Link>
                                 </Navbar.Text>
                             </div>
                     }

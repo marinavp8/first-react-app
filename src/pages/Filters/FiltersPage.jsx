@@ -12,10 +12,8 @@ import ExcludeIngredient from "../../components/FilteredRecipe/FilterExcluding/F
 import Carousel2 from "../../components/Carousel/Carousel2"
 import RangeForm from "../../components/RangeFilter/RangeFilter"
 
-import { Container } from "react-bootstrap"
 
 import './FiltersPage.css'
-import HealthyMeals from "../../components/HealthyMeals/HealthyMeals"
 import MultipleFilter from "../../components/FilteredRecipe/MultipleFilter/MultipleFilter"
 
 

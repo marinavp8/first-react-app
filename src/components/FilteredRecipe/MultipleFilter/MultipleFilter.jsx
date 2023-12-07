@@ -32,94 +32,58 @@ const MultipleFilter = () => {
     const pressChange = e => {
         const { value, name } = e.currentTarget
         setQueryData({ ...queryData, [name]: value })
+        console.log(queryData)
+
     }
 
     const pressImput = e => {
-        console.log(calories)
         e.preventDefault()
         getRecipe(queryData)
+        console.log(queryData)
     }
 
 
+
     return (
-        <div className="d-flex align-items-start ms-5">
+        <div >
+            <Form onSubmit={pressImput} style={{ maxWidth: "800px", margin: "auto" }} className="d-flex align-items-start ms-5 ">
+                <Container>
+                    <Form.Group className="mb-3 focus">
+                        <Row>
+                            <Col md={2}>
+                                <Form.Control className="focus" type="text" name='ingredient' value={queryData.ingredient} onChange={pressChange} placeholder="ingredient" />
+                            </Col>
 
-            <Form onSubmit={pressImput} style={{ maxWidth: "800px", margin: "auto" }}>
-                <Form.Group className="mb-3">
-                    <Row>
-                        <Col md={2}>
+                            <Col md={2}>
+                                <Form.Control className="focus" type="text" name='calories' value={queryData.calories} onChange={pressChange} placeholder="calories" />
+                            </Col>
+                            <Col md={2}>
+                                <Form.Control className="focus" type="text" name='time' value={queryData.time} onChange={pressChange} placeholder="time" />
+                            </Col>
+                            <Col md={2}>
+                                <Form.Control className="focus" type="text" name='health' value={queryData.health} onChange={pressChange} placeholder="health" />
+                            </Col>
+                            <Col md={2}>
+                                <Form.Control className="focus" type="text" name='mealtype' value={queryData.mealtype} onChange={pressChange} placeholder="mealtype" />
+                            </Col>
 
-                            <Form.Control type="text" name='ingredient' value={queryData.ingredient} onChange={pressChange} placeholder="ingredient" />
-                        </Col>
+                            <Col md={2}>
+                                <Button variant="outline-success" type="submit"><GrLinkNext /></Button>
+                            </Col>
 
-
-
-                        <Col md={2} >
-                            <Form.Select aria-label="Default select example">
-                                <option>Health</option>
-                                <option value={queryData.health.vegan}>Vegan</option>
-                                <option value={queryData.health.vegetarian}>Vegetarian</option>
-                                {/* <option value={queryData.health.sugar-conscious}>sugar-conscious</option> */}
-                                {/* <option value={queryData.health.low-sugar}>low-sugar</option> */}
-                                {/* <option value={queryData.health.gluten-free}>gluten-free</option> */}
-                                {/* <option value={queryData.health.keto-friendly}>keto-friendly</option> */}
-                                {/* <option value={queryData.health.pork-free}>pork-free</option> */}
-                                <option value={queryData.health.pescatarian}>pescatarian</option>
-                                <option value={queryData.health.paleo}>paleo</option>
-                            </Form.Select>
-                        </Col>
-
-
-
-                        <Col md={2}>
-                            <Form.Select aria-label="Default select example">
-                                <option>Meal Type</option>
-                                <option value={queryData.mealtype.breakfast}>Breakfast</option>
-                                <option value={queryData.mealtype.lunch}>Lunch</option>
-                                <option value={queryData.mealtype.dinner}>Dinner</option>
-                                <option value={queryData.mealtype.snack}>Snack</option>
-                                <option value={queryData.mealtype.teatime}>Teatime</option>
-                            </Form.Select>
-                        </Col>
-
-
-
-                        <Col md={2}>
-                            <Form.Control type="text" name='calories' value={queryData.calories} onChange={pressChange} placeholder="calories" />
-                        </Col>
-
-
-                        <Col md={2}>
-                            <Form.Control type="text" name='time' value={queryData.time} onChange={pressChange} placeholder="time" />
-                        </Col>
-                        <Col md={2}>
-                            <Button style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none' }} type="submit"><GrLinkNext /></Button>
-                        </Col>
-
-
-                        {/* <Form.Control type="text" name='health' value={queryData.health} onChange={pressChange} placeholder="health" /> */}
-
-
-
-
-
-                        {/* <Form.Control type="text" name='mealtype' value={queryData.mealtype} onChange={pressChange} placeholder="mealtype" /> */}
-
-
-                    </Row>
-                </Form.Group>
+                        </Row>
+                    </Form.Group>
+                </Container>
             </Form>
 
 
 
-
-            <Container>
-                <Row>
-                    <CardResults recipes={recipes} />
-                </Row>
+            <Container >
+                <CardResults recipes={recipes} />
             </Container>
 
-        </div>
+
+        </div >
 
     )
 }
