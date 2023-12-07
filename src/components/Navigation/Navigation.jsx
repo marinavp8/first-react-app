@@ -17,7 +17,6 @@ const Navigation = () => {
         navigate('/')
     }
 
-
     return (
         <>
             <Navbar bg="white" data-bs-theme="light" className='mb-5 mt-2' expand="lg">
@@ -36,35 +35,33 @@ const Navigation = () => {
                         <Link to={'/aboutUs'} className='nav-link size ' style={{ fontSize: "18px" }}> About</Link>
                     </Nav>
 
-
-
                     {
                         loggedUser
                             ?
                             <>
-                                <Navbar.Text className="justify-content-end me-5">
+                                <Navbar.Text className="justify-content-end ">
                                     <NavDropdown
-                                        title={loggedUser && <Navbar.Text className=" me-5"> <p style={{ fontSize: "18px" }}>Hi, {loggedUser.username} ! </p></Navbar.Text>}
+                                        title={loggedUser && <Navbar.Text> <p style={{ fontSize: "16px" }}>Hi, {loggedUser.username} ! </p></Navbar.Text>}
                                         id={`offcanvasNavbarDropdown-expand`}
-
                                     >
-                                        <NavDropdown.Item href={'/profile'} style={{ fontSize: "18px" }}>Profile</NavDropdown.Item>
-                                        <NavDropdown.Item onClick={handleLogout} style={{ fontSize: "18px" }}>Log out </NavDropdown.Item>
+                                        <NavDropdown.Item href={'/profile'} style={{ fontSize: "16px" }}>Profile</NavDropdown.Item>
+                                        <NavDropdown.Item onClick={handleLogout} style={{ fontSize: "16px" }}>Log out </NavDropdown.Item>
 
                                     </NavDropdown>
+
                                 </Navbar.Text>
 
                             </>
                             :
                             <div className='me-5'>
-                                <Navbar.Text className="justify-content-end  me-5">
-                                    <Link to={'/login'} className='nav-link' style={{ fontSize: "18px" }}>Log in</Link>
+                                <Navbar.Text className="justify-content-end  ">
+                                    <Link to={'/login'} className='nav-link' style={{ fontSize: "16px" }}>Log in</Link>
                                 </Navbar.Text>
                             </div>
                     }
 
-                </Navbar.Collapse>
 
+                </Navbar.Collapse>
 
             </Navbar >
 

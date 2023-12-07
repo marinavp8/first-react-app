@@ -9,6 +9,7 @@ import { Col, Container, Row, Table, Button } from "react-bootstrap"
 import commentService from "../../../services/comment.services"
 import EggButton from '../../EggButton/EggButton'
 import '../DetailsRecipe/DetailsRecipe.css'
+import { Link } from "react-router-dom"
 
 const DetailsRecipe = () => {
 
@@ -77,12 +78,9 @@ const DetailsRecipe = () => {
                             <h2 style={{ fontWeight: 'bold' }} className="mb-3">Preparation :</h2>
                             <p className="mb-3">This recipe is provided by {(recipe.source)} . You can view the detailed preparation instructions by clicking the following link.</p>
                             <div className="text-center">
-                                <a href={recipe.url} target="_blank" rel="noopener noreferrer">
-                                    <Button variant="success">Step by step</Button>                                </a>
-                                {/*
-                                <LinkContainer to={recipe.url} >
-                                    <Button variant="success">Step by step</Button>
-                                </LinkContainer> */}
+                                <Link to={recipe.url}>
+                                    <Button style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none' }}>Step by step</Button>
+                                </Link>
                             </div>
                         </div>
                     </Col>
@@ -94,7 +92,6 @@ const DetailsRecipe = () => {
                                     <thead>
                                         <tr>
                                             <th>Label</th>
-                                            {/* <th>Daily</th> */}
                                             <th>Total</th>
                                         </tr>
                                     </thead>
@@ -102,7 +99,6 @@ const DetailsRecipe = () => {
                                         {recipe.digest.map((step, _id) => (
                                             <tr key={_id}>
                                                 <td className="mb-2">{step.label}</td>
-                                                {/* <td>{step.daily}</td> */}
                                                 <td>{Math.round(step.total)}{step.unit}</td>
                                             </tr>
                                         ))}
@@ -128,6 +124,7 @@ const DetailsRecipe = () => {
                         }
                     </div>
                 </Row>
+
             </Container>
     )
 }

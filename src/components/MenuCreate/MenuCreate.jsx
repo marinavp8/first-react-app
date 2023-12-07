@@ -13,6 +13,8 @@ import { IoIosAddCircleOutline } from "react-icons/io"
 import { menuBase } from "../../consts/menu-consts"
 
 
+
+
 const NewMenuForm = () => {
     const { loggedUser } = useContext(AuthContext)
     const params = useParams()
@@ -102,7 +104,7 @@ const NewMenuForm = () => {
                         < Accordion defaultActiveKey="0" bsPrefix="my-accordion" >
                             <Accordion.Item eventKey="0">
                                 <Row>
-                                    <Accordion.Header className="mt-5 mb-5 bigger"><p className="bigger">{day.day}</p></Accordion.Header>
+                                    <Accordion.Header className="mt-5 mb-5 bigger"><p className="bigger">{day.day} </p></Accordion.Header>
                                     <Col>
                                         <div className="text-center">
                                             <Accordion.Body>
@@ -112,7 +114,7 @@ const NewMenuForm = () => {
                                                 </div>
                                             </Accordion.Body>
                                             <Accordion.Body>
-                                                <Button variant="outline-success" type="button" onClick={() => handleSearch(menuData._id, day.day)}><IoIosAddCircleOutline style={{ width: "30px", height: '30px' }} /></Button>
+                                                <Button style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none', width: "30px", height: '30px' }} type="button" onClick={() => handleSearch(menuData._id, day.day)}><IoIosAddCircleOutline /></Button>
                                             </Accordion.Body>
                                             <Accordion.Body>
                                                 {
@@ -132,7 +134,7 @@ const NewMenuForm = () => {
                                                 </div>
                                             </Accordion.Body>
                                             <Accordion.Body>
-                                                <Button variant="outline-success" type="button" onClick={() => handleSearchLunch(menuData._id, day.day)}><IoIosAddCircleOutline style={{ width: "30px", height: '30px' }} /></Button>
+                                                <Button style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none', width: "30px", height: '30px' }} type="button" onClick={() => handleSearchLunch(menuData._id, day.day)}><IoIosAddCircleOutline /></Button>
                                             </Accordion.Body>
                                             <Accordion.Body>
                                                 {
@@ -155,7 +157,7 @@ const NewMenuForm = () => {
                                                 </div>
                                             </Accordion.Body>
                                             <Accordion.Body>
-                                                <Button variant="outline-success" type="button" onClick={() => handleSearchDinner(menuData._id, day.day)}><IoIosAddCircleOutline style={{ width: "30px", height: '30px' }} /></Button>
+                                                <Button style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none', width: "30px", height: '30px' }} type="button" onClick={() => handleSearchDinner(menuData._id, day.day)}><IoIosAddCircleOutline /></Button>
                                             </Accordion.Body>
                                             <Accordion.Body>
                                                 {

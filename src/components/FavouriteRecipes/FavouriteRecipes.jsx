@@ -33,7 +33,7 @@ const FavouriteRecipes = () => {
 
     return (
 
-        !objectRecipe
+        objectRecipe === null
             ?
             <p>Loading...</p>
             :
@@ -45,7 +45,7 @@ const FavouriteRecipes = () => {
                     <>
                         <Col key={i}>
                             <Card.Title> <h4>{recipe.label}</h4> </Card.Title>
-                            <Link to={`/recipes/${id}`} className="btn btn-success btn-sm mt-4">Details</Link>
+                            <Link to={`/recipes/${id}`} className="btn" style={{ backgroundColor: 'rgb(58, 125, 19)', color: 'white', border: 'none' }}>Details</Link>
                         </Col>
                     </>
                 )

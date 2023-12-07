@@ -60,7 +60,7 @@ const FilteredDinner = () => {
                             <Form.Label>Serch by ingredients:</Form.Label>
                             <Form.Control type="text" className="mb-3" placeholder="eggs" value={ingredient} onChange={pressChange} />
                             <figure className="d-flex justify-content-center">
-                                <Button variant="success" type="submit" >
+                                <Button style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none' }} type="submit" >
                                     Search
                                 </Button>
                             </figure>

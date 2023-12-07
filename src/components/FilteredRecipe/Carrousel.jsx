@@ -38,7 +38,7 @@ const CarouselFunc = () => {
                         <Form.Label className="form">Ingredientes</Form.Label>
                         <Form.Control className="sc-cyRfQX sc-lnAgIa feypbo cJByGc" type="text" value={ingredient} onChange={pressChange} />
                         <div className="d-grid mt-3">
-                            <Button variant="dark" type="submit">enviar</Button>
+                            <Button style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none' }} type="submit">enviar</Button>
                         </div>
                     </Form.Group>
                 </Form>
@@ -69,7 +69,7 @@ const CarouselFunc = () => {
                                                             {recipe.recipe.totalTime} mins
                                                             <br /><br />
                                                             <figure className="d-flex justify-content-center">
-                                                                <Button variant="success">See recipe</Button>
+                                                                <Button style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none' }}>See recipe</Button>
                                                             </figure>
 
                                                         </Card.Text>

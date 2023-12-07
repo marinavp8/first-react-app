@@ -22,7 +22,7 @@ function RecipeMenu({ recipe }) {
                             {recipe.totalNutrients.ENERC_KCAL.quantity.toFixed(2)}Kcal|{recipe.totalTime}min</Card.Text>
                     </Card.Body>
                     <figure className=" text-center mb-4">
-                        <Button variant="success"> <Link to={`/recipes/${id}`} className="no-link-style" >Details</Link></Button>
+                        <Button style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none' }}> <Link to={`/recipes/${id}`} className="no-link-style" >Details</Link></Button>
                     </figure>
                 </Card>
             }

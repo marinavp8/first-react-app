@@ -17,6 +17,7 @@ import AboutUsPage from '../pages/AboutUsPage/AboutUsPage'
 import AdminProfilePage from '../pages/AdminProfilePage/AdminProfilePage'
 import MenuCreate from '../pages/MenuPages/MenuCreate'
 import MenuListPage from '../pages/MenuPages/MenuList'
+import ErrorPage from '../pages/ErrorPage/ErrorPage'
 
 const AppRoutes = () => {
 
@@ -38,22 +39,17 @@ const AppRoutes = () => {
 
             </Route>
 
-
-            <Route path={':_id'} element={<MenuDetails />} />
-            <Route path={'/edit/:_id'} element={<MenuEdit />} />
-
             <Route path={'/fridge'} element={<YourFridgePage />} />
             <Route path={'/search/results'} element={<FiltersPage />} />
             <Route path={'/recipes/:id'} element={<DetailsRecipe />} />
             <Route path={'/menulist'} element={< MenuListPage />} />
-            <Route path={':_id'} element={<MenuDetails />} />
             <Route path={'/edit/:_id'} element={<MenuEdit />} />
             <Route path={'/createmenu/:menuId?'} element={< MenuCreate />} />
             <Route path={'/breakfastprueba/:menuId/:day'} element={< FilteredBreakfast2 />} />
             <Route path={'/addLunch/:menuId/:day'} element={< FilteredLunch />} />
             <Route path={'/addDinner/:menuId/:day'} element={< FilteredDinner />} />
 
-            {/* <Route path={'*'} element={<p>NON FOUND</p>} /> */}
+            <Route path={'*'} element={<ErrorPage />} />
 
         </Routes>
     )

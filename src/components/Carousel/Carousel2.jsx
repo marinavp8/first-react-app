@@ -5,31 +5,25 @@ import heroPage from '../../assets/heropage2.png'
 import { Link } from "react-router-dom"
 import "./Carousel2.css"
 
-
-
 const Carousel2 = ({ recipes }) => {
 
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
             items: 3,
-            slidesToSlide: 3 // optional, default to 1.
+            slidesToSlide: 3
         },
         tablet: {
             breakpoint: { max: 1024, min: 464 },
             items: 2,
-            slidesToSlide: 2 // optional, default to 1.
+            slidesToSlide: 2
         },
         mobile: {
             breakpoint: { max: 464, min: 0 },
             items: 1,
-            slidesToSlide: 1 // optional, default to 1.
+            slidesToSlide: 1
         }
-
-
-
     }
-
 
     return (
 
@@ -55,7 +49,7 @@ const Carousel2 = ({ recipes }) => {
                 let startPos = urlUri.length - 32
                 let id = urlUri.slice(startPos)
                 return (
-                    <div key={id} className=" text-center mb-5"> {/* Asegúrate de dar una clave única a cada elemento del carrusel */}
+                    <div key={id} className=" text-center mb-5">
                         <Card style={{ width: '18rem' }} className="ml-5">
                             <Card.Img variant="top" src={recipe.recipe.images.SMALL.url} />
                             <Card.Body>
@@ -64,7 +58,7 @@ const Carousel2 = ({ recipes }) => {
                                     {Math.round(recipe.recipe.calories)}kcal | {recipe.recipe.totalTime} min
                                 </Card.Text>
                                 <div className="d-flex justify-content-center align-items-center">
-                                    <Button variant="success"> <Link to={`/recipes/${id}`} className="no-link-style" >Details</Link></Button>
+                                    <Button style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none' }}> <Link to={`/recipes/${id}`} className="no-link-style" >Details</Link></Button>
                                 </div>
                             </Card.Body>
                         </Card>
