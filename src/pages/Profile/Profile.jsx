@@ -6,20 +6,30 @@ import EditProfile from "../../components/EditProfile/EditProfile"
 import '../Profile/Profile.css'
 import FavouriteRecipes from "../../components/FavouriteRecipes/FavouriteRecipes"
 import { Link } from "react-router-dom"
+import Basket from "../../assets/basket-fill.svg"
+import List from "../../components/List/List"
 
 
 const ProfilePage = () => {
 
     const { loggedUser } = useContext(AuthContext)
 
-    const [show, setShow] = useState(false)
 
-    const handleClose = () => setShow(false)
-    const handleShow = () => setShow(true)
+    const [editShow, setEditShow] = useState(false)
+    const handleEditClose = () => setEditShow(false)
+    const handleEditShow = () => {
+        setIngrListShow(false)
+        setEditShow(true)
+    }
+    const [ingrListShow, setIngrListShow] = useState(false)
+    const handleIngrListClose = () => setIngrListShow(false)
+    const handleIngrListShow = () => {
+        setEditShow(false)
+        setIngrListShow(true)
+    }
 
     return (
 
-        // TODO: REVISAR LAYOUTS DE BOOTSTRAP
 
         <Container className="mt-5">
 
@@ -35,7 +45,7 @@ const ProfilePage = () => {
                     <p className="pm-4 mt-5" >{loggedUser.email}</p>
 
 
-                    <Button variant="success" onClick={handleShow} className="me-4">Edit Profile</Button>
+                    <Button variant="success" onClick={handleEditShow} className="me-4">Edit Profile</Button>
 
                     {
                         (loggedUser.role === 'ADMIN') &&
@@ -47,7 +57,7 @@ const ProfilePage = () => {
 
                     }
 
-                    <Offcanvas show={show} onHide={handleClose} >
+                    <Offcanvas show={editShow} onHide={handleEditClose} >
 
                         <Offcanvas.Header closeButton>
                             <Offcanvas.Title>{loggedUser.username}</Offcanvas.Title>
@@ -57,6 +67,18 @@ const ProfilePage = () => {
                             <EditProfile />
                         </Offcanvas.Body>
 
+                    </Offcanvas>
+
+                    <Button variant="success" onClick={handleIngrListShow} className="me-4">
+                        <img src={Basket}></img>
+                    </Button>
+                    <Offcanvas show={ingrListShow} onHide={handleIngrListClose} placement={'end'}>
+                        <Offcanvas.Header closeButton>
+                            <Offcanvas.Title>{loggedUser.username}'s List</Offcanvas.Title>
+                        </Offcanvas.Header>
+                        <Offcanvas.Body>
+                            <List />
+                        </Offcanvas.Body>
                     </Offcanvas>
 
                 </Col>

@@ -26,7 +26,6 @@ const FavouriteRecipes = () => {
             })
             .then(recipesData => {
                 const recipesInfo = recipesData.map(elm => elm.data.recipe)
-                console.log('---------------------------------', recipesInfo)
                 setObjectRecipe(recipesInfo)
             })
             .catch(err => console.log(err))

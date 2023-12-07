@@ -46,7 +46,6 @@ const AdminProfilePage = () => {
                             usersData.map((elm, i) => {
                                 return (
                                     <Col key={i}>
-                                        {/* // TODO: DESACOPLAR A UN COMPONENTE USERADMINCARDK */}
                                         <Card border="success" style={{ width: '18rem' }}>
                                             <Card.Img variant="top" src={elm.avatar} />
                                             <Card.Body>
