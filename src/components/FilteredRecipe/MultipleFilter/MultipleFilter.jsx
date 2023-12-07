@@ -35,7 +35,6 @@ const MultipleFilter = () => {
     }
 
     const pressImput = e => {
-        console.log(calories)
         e.preventDefault()
         getRecipe(queryData)
     }
