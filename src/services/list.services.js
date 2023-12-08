@@ -8,7 +8,7 @@ class ListServices {
         })
         this.api.interceptors.request.use((config) => {
 
-            const storedToken = localStorage.getItem("authToken");
+            const storedToken = localStorage.getItem("authToken")
 
             if (storedToken) {
                 config.headers = { Authorization: `Bearer ${storedToken}` }
@@ -20,12 +20,12 @@ class ListServices {
     }
 
     postIngredient(ingredient) {
-        return this.api.post('', {ingredient})
+        return this.api.post('', { ingredient })
     }
-   
+
     deleteIngredient(ingredient) {
 
-        return this.api.post('/delete', {ingredient})
+        return this.api.post('/delete', { ingredient })
     }
 
     getAllList() {

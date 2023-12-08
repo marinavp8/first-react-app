@@ -53,7 +53,7 @@ const CarouselFunc = () => {
                             recipes.map((recipe) => {
 
                                 const urlUri = recipe.recipe.uri
-                                let startPos = urlUri.length - 32;
+                                let startPos = urlUri.length - 32
                                 let id = urlUri.slice(startPos)
 
                                 return (

@@ -5,7 +5,7 @@ import foto from '../../../assets/heropage2.png'
 import CardResults from "../CardResults/CardResults"
 import ReactSlider from 'react-slider'
 import "./MultipleFilter.css"
-import { GrLinkNext } from "react-icons/gr";
+import { GrLinkNext } from "react-icons/gr"
 
 
 const MultipleFilter = () => {
@@ -24,7 +24,7 @@ const MultipleFilter = () => {
         edamamService
             .getMultipleFiltering(queryData)
             .then(response => {
-                setRecipes(response.data.hits);
+                setRecipes(response.data.hits)
             })
             .catch(err => console.log(err))
     }

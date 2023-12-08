@@ -36,7 +36,6 @@ const AppRoutes = () => {
                 <Route path={'/profile'} element={<ProfilePage />} />
                 <Route path={'/createmenu'} element={< MenuCreate />} />
                 <Route path={'/users'} element={<AdminProfilePage />} />
-
             </Route>
 
             <Route path={'/fridge'} element={<YourFridgePage />} />

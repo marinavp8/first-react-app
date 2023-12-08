@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 import { useState } from "react"
 import { useEffect } from "react"
 import EditMenuForm from "../MenuEdit/MenuEdit"
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 import Loader from "../Loader/Loader"
 
 const MenuDetails = () => {
@@ -29,7 +29,7 @@ const MenuDetails = () => {
         setIsEditing(false)
     }
 
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
     const handleDelete = () => {
         menuService
@@ -61,8 +61,8 @@ const MenuDetails = () => {
                                         <div className="d-grid">
                                         </div>
                                     </Card.Body>
-                                    <button onClick={() => setIsEditing(true)}>Editar</button>
-                                    <button onClick={handleDelete}>Eliminar</button>
+                                    <button onClick={() => setIsEditing(true)}>Edit</button>
+                                    <button onClick={handleDelete}>Delete</button>
                                 </Card>
                             </article>
                         </Col>

@@ -16,17 +16,14 @@ const List = () => {
   const handleInputChange = (e) => {
     setNewIngredient(e.target.value)
   }
-
   const handleAddIngredient = () => {
     if (newIngredient.trim() !== '') {
       setIngredients([...ingredients, newIngredient])
-
       listServices
         .postIngredient(newIngredient)
         .then(() => console.log(newIngredient))
         .catch(err => console.log(err))
     }
-
   }
   const handleDeleteIngredient = (elm, i) => {
     const newList = [...ingredients]
@@ -41,8 +38,6 @@ const List = () => {
   }
  
   const chargeList = () => {
-
-
     usersServices
       .getOneUser(loggedUser._id)
       .then(({ data }) => setDataList(data.myList)
@@ -52,30 +47,24 @@ const List = () => {
 
   useEffect(() => {
     chargeList()
-
   }, [])
 
-
-
   return (
-
-     <>
-
+    <>
       <InputGroup className="mb-3" type="text" value={newIngredient} onChange={handleInputChange} >
-       
         <Form.Control
           aria-label="Example text with button addon"
           aria-describedby="basic-addon2"
         />
-        <Button variant="success" id="button-addon2" onClick={handleAddIngredient}>
+        <Button style={{ backgroundColor: 'rgb(58, 125, 19)', color: 'white', border: 'none' }} id="button-addon2" onClick={handleAddIngredient}>
           Add to list
         </Button>
       </InputGroup>
 
       <ul>
-        {ingredients.map((ingredient, i) => 
+        {ingredients.map((ingredient, i) =>
           <>
-            <Form.Check type="radio" aria-label="radio 1" key={i} > </Form.Check>
+            <Form.Check type="radio" aria-label="radio 1" key={i}> </Form.Check>
             {ingredient}
           </>
            )}
@@ -105,7 +94,3 @@ const List = () => {
 
 
 export default List
-
-
-
-

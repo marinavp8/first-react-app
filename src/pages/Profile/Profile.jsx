@@ -9,11 +9,9 @@ import { Link } from "react-router-dom"
 import Basket from "../../assets/basket-fill.svg"
 import List from "../../components/List/List"
 
-
 const ProfilePage = () => {
 
     const { loggedUser } = useContext(AuthContext)
-
 
     const [editShow, setEditShow] = useState(false)
     const handleEditClose = () => setEditShow(false)
@@ -29,7 +27,6 @@ const ProfilePage = () => {
     }
 
     return (
-
 
         <Container className="mt-5">
 
@@ -51,16 +48,16 @@ const ProfilePage = () => {
                         (loggedUser.role === 'ADMIN') &&
 
                         <>
-                            <Link to={`/users`} className="btn btn-outline-success btn-sm pb-2" >Ver usuarios</Link>
+                            <Link to={`/users`} className="btn btn-outline-success btn-sm pb-2" > Users</Link>
 
                         </>
 
                     }
 
-                    <Offcanvas show={editShow} onHide={handleEditClose} >
+                    <Offcanvas show={editShow} onHide={handleEditClose}>
 
                         <Offcanvas.Header closeButton>
-                            <Offcanvas.Title>{loggedUser.username}</Offcanvas.Title>
+                            <Offcanvas.Title className="p-4">{loggedUser.username}'s Profile</Offcanvas.Title>
                         </Offcanvas.Header>
 
                         <Offcanvas.Body>
@@ -74,7 +71,7 @@ const ProfilePage = () => {
                     </Button>
                     <Offcanvas show={ingrListShow} onHide={handleIngrListClose} placement={'end'}>
                         <Offcanvas.Header closeButton>
-                            <Offcanvas.Title>{loggedUser.username}'s List</Offcanvas.Title>
+                            <Offcanvas.Title className="p-4">{loggedUser.username}'s List</Offcanvas.Title>
                         </Offcanvas.Header>
                         <Offcanvas.Body>
                             <List />
@@ -96,8 +93,8 @@ const ProfilePage = () => {
                         </Accordion.Item>
                     </Accordion>
                 </Col >
-                <Col>
 
+                <Col>
                     <Accordion defaultActiveKey="1" className="mb-4 mt-5">
                         <Accordion.Item eventKey="0">
                             <Accordion.Header>My Favourite recipes</Accordion.Header>
@@ -109,7 +106,6 @@ const ProfilePage = () => {
                 </Col>
 
             </Row >
-
 
         </Container >
     )

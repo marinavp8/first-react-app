@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { MdDelete } from "react-icons/md";
+import { MdDelete } from "react-icons/md"
 
 
 function RecipeMenu({ recipe }) {

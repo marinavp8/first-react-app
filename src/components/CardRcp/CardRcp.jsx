@@ -1,8 +1,8 @@
 import { Button, Card } from "react-bootstrap"
 
-
 const CardRcp = ({ recipe, handleComeBack }) => {
     return (
+
         <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src={recipe.recipe.images.SMALL.url} />
             <Card.Body>

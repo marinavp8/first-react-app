@@ -26,12 +26,12 @@ const NewMenuForm = () => {
         if (params.menuId) {
             menuService
                 .detailsMenu(params.menuId)
-                .then((response) => { setMenuData(response.data); })
+                .then((response) => { setMenuData(response.data) })
                 .catch(err => console.log(err))
         } else {
             menuService
                 .createMenu(menuBase)
-                .then((response) => { setMenuData(response.data); })
+                .then((response) => { setMenuData(response.data) })
                 .catch(err => console.log(err))
         }
     }, [])
@@ -109,12 +109,11 @@ const NewMenuForm = () => {
                                         <div className="text-center">
                                             <Accordion.Body>
                                                 <div className="mb-3 bigger" >
-
                                                     BREAKFAST
                                                 </div>
                                             </Accordion.Body>
                                             <Accordion.Body>
-                                                <Button style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none', width: "30px", height: '30px' }} type="button" onClick={() => handleSearch(menuData._id, day.day)}><IoIosAddCircleOutline /></Button>
+                                                <Button variant="outline-success" type="button" onClick={() => handleSearch(menuData._id, day.day)}><IoIosAddCircleOutline style={{ width: "30px", height: '30px' }} /></Button>
                                             </Accordion.Body>
                                             <Accordion.Body>
                                                 {
@@ -134,7 +133,7 @@ const NewMenuForm = () => {
                                                 </div>
                                             </Accordion.Body>
                                             <Accordion.Body>
-                                                <Button style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none', width: "30px", height: '30px' }} type="button" onClick={() => handleSearchLunch(menuData._id, day.day)}><IoIosAddCircleOutline /></Button>
+                                                <Button variant="outline-success" type="button" onClick={() => handleSearchLunch(menuData._id, day.day)}><IoIosAddCircleOutline style={{ width: "30px", height: '30px' }} /></Button>
                                             </Accordion.Body>
                                             <Accordion.Body>
                                                 {
@@ -157,7 +156,7 @@ const NewMenuForm = () => {
                                                 </div>
                                             </Accordion.Body>
                                             <Accordion.Body>
-                                                <Button style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none', width: "30px", height: '30px' }} type="button" onClick={() => handleSearchDinner(menuData._id, day.day)}><IoIosAddCircleOutline /></Button>
+                                                <Button variant="outline-success" type="button" onClick={() => handleSearchDinner(menuData._id, day.day)}><IoIosAddCircleOutline style={{ width: "30px", height: '30px' }} /></Button>
                                             </Accordion.Body>
                                             <Accordion.Body>
                                                 {

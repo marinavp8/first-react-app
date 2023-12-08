@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Form, Button } from "react-bootstrap"
 import menuService from "../../services/menu.services"
 import { Navigate, useNavigate, useParams } from "react-router-dom"
-import { GrLinkNext } from "react-icons/gr";
+import { GrLinkNext } from "react-icons/gr"
 
 
 const EditMenuForm = ({ existingMenuData, handleUpdateMenu }) => {
@@ -32,7 +32,6 @@ const EditMenuForm = ({ existingMenuData, handleUpdateMenu }) => {
     }
 
     return (
-
 
         <Form onSubmit={handleUpdateMenu}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
