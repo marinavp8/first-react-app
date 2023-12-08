@@ -10,7 +10,6 @@ const FavouriteRecipes = () => {
     const { loggedUser } = useContext(AuthContext)
     const [objectRecipe, setObjectRecipe] = useState(null)
 
-
     useEffect(() => {
         getMyFavsByRecipe()
     }, [])
@@ -39,7 +38,7 @@ const FavouriteRecipes = () => {
             :
             objectRecipe.map((recipe) => {
                 const { uri: urlUri } = recipe
-                let startPos = urlUri.length - 32;
+                let startPos = urlUri.length - 32
                 let id = urlUri.slice(startPos)
                 return (
                     <>

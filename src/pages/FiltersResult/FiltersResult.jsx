@@ -1,9 +1,7 @@
 
 import CardResults from '../../components/FilteredRecipe/CardResults/CardResults'
 
-
 const FiltersResultPage = ({ recipes }) => {
-
 
     return (
         <>

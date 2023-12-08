@@ -1,7 +1,6 @@
 import { Container } from "react-bootstrap"
 import NewMenuForm from "../../components/MenuCreate/MenuCreate"
 
-
 const MenuCreate = () => {
     return (
 

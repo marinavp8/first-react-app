@@ -2,24 +2,18 @@ import { Container, Row, Col, Button } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import heroPage from '../../assets/heropage2.png'
 import "./HomePage.css"
-import { useRef, useEffect } from "react";
-import gsap from 'gsap';
-
-
-
-
-
-
+import { useRef, useEffect } from "react"
+import gsap from 'gsap'
 
 const HomePage = () => {
 
-    const myElement = useRef(null);
-    const myElement2 = useRef(null);
+    const myElement = useRef(null)
+    const myElement2 = useRef(null)
 
     useEffect(() => {
-        gsap.to(myElement.current, { x: -100, duration: 3 });
-        gsap.to(myElement2.current, { x: -100, duration: 3 });
-    }, []);
+        gsap.to(myElement.current, { x: -100, duration: 3 })
+        gsap.to(myElement2.current, { x: -100, duration: 3 })
+    }, [])
 
     return (
 

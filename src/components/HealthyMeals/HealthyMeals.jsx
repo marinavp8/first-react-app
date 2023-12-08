@@ -6,6 +6,7 @@ import vegan from "../../assets/vegan.png"
 import vege from "../../assets/vege.png"
 import glu from "../../assets/glu-free.png"
 import fod from "../../assets/fodmap-free.png"
+
 const HealthyMeals = () => {
 
     const [recipes, setRecipes] = useState([])
@@ -15,7 +16,6 @@ const HealthyMeals = () => {
             .getHealthRecipe(selectedHealthy)
             .then((response) => setRecipes(response.data.hits))
             .catch(err => console.log(err))
-
     }
 
     const healthyParams = [
@@ -27,8 +27,8 @@ const HealthyMeals = () => {
 
     return (
         <Container>
-            <Row className="mb-5">
 
+            <Row className="mb-5">
                 {healthyParams.map((health, index) => (
                     <Col md={3} key={index}>
                         <Card style={{ width: '18rem', cursor: 'pointer', margin: '10px' }}>
@@ -45,14 +45,13 @@ const HealthyMeals = () => {
                             </Card.Body>
                         </Card>
                     </Col>
-
                 ))}
             </Row>
+
             <Row>
                 {/* <CardResults recipes={healthyMeals} /> */}
                 <Carousel2 recipes={recipes} />
             </Row>
-
 
         </Container>
 

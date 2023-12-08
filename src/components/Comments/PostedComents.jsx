@@ -37,18 +37,18 @@ const PostedComments = ({ refreshComments, comments, id }) => {
 
                                         <Col md={2}>
 
-
                                             <img src={comment.owner.avatar} style={{ width: '5%' }} alt="" />
 
                                             <h5>{comment.owner.username}</h5>
 
                                         </Col>
 
-
                                     )}
+
                                     <Col md={2}>
                                         <p>posted : {comment.comment}</p>
                                     </Col>
+
                                     {
                                         (loggedUser.role === 'ADMIN') &&
 

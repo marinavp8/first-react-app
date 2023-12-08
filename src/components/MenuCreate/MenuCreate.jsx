@@ -26,12 +26,12 @@ const NewMenuForm = () => {
         if (params.menuId) {
             menuService
                 .detailsMenu(params.menuId)
-                .then((response) => { setMenuData(response.data); })
+                .then((response) => { setMenuData(response.data) })
                 .catch(err => console.log(err))
         } else {
             menuService
                 .createMenu(menuBase)
-                .then((response) => { setMenuData(response.data); })
+                .then((response) => { setMenuData(response.data) })
                 .catch(err => console.log(err))
         }
     }, [])
@@ -109,7 +109,6 @@ const NewMenuForm = () => {
                                         <div className="text-center">
                                             <Accordion.Body>
                                                 <div className="mb-3 bigger" >
-
                                                     BREAKFAST
                                                 </div>
                                             </Accordion.Body>

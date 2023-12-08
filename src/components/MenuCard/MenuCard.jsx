@@ -5,13 +5,16 @@ import MenuDelete from "../MenuDelete/MenuDelete"
 const MenuCard = ({ name, _id, f }) => {
     return (
         <article className='mb-3'>
+
             <Card>
                 <Card.Body>
                     <Card.Title className="text-center">{name}</Card.Title>
                     <div className="d-grid">
                     </div>
                 </Card.Body>
+
                 <div className="text-center">
+
                     <Container>
                         <Row>
                             <Col >
@@ -20,14 +23,13 @@ const MenuCard = ({ name, _id, f }) => {
 
                             <Col>
                                 <Link to={`/createmenu/${_id}`} className="btn" style={{ backgroundColor: 'rgb(58, 125, 19)', color: 'white', border: 'none' }} >Details</Link>
-
-
-
                             </Col>
                         </Row >
                     </Container >
                 </div >
+
             </Card >
+
         </article >
     )
 }

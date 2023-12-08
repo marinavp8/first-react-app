@@ -55,9 +55,9 @@ const FilteredDinner = () => {
             </Card>
             <Container >
                 {recipes.map((recipe) => {
-                    const { uri: urlUri } = recipe.recipe;
-                    let startPos = urlUri.length - 32;
-                    let id = urlUri.slice(startPos);
+                    const { uri: urlUri } = recipe.recipe
+                    let startPos = urlUri.length - 32
+                    let id = urlUri.slice(startPos)
 
                     return (
                         <Container>

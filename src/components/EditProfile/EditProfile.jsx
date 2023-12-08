@@ -1,6 +1,6 @@
 
 import { useContext, useState } from "react"
-import { Col, Container, FloatingLabel, Form, Image, Button } from "react-bootstrap"
+import { Col, Container, FloatingLabel, Form, Image, Button, Row } from "react-bootstrap"
 import { AuthContext } from "../../contexts/auth.contexts"
 import authService from "../../services/auth.services"
 import uploadServices from "../../services/upload.services"
@@ -34,7 +34,6 @@ const EditProfile = () => {
             .edit(newSignupData)
             .then(() => navigate('/profile'))
             .catch(err => console.log(err))
-
     }
 
     const handleFileUpload = e => {
@@ -55,40 +54,41 @@ const EditProfile = () => {
             })
     }
 
-
     return (
 
         <Container>
+            <Row>
+                <Col>
+                    <Image src={loggedUser.avatar} style={{ width: '150px' }} roundedCircle />
 
-            <Col>
-                <Image src={loggedUser.avatar} style={{ width: '150px' }} roundedCircle />
+                    <Form.Group className="p-3" controlId="avatar">
+                        <Form.Label>Profile image</Form.Label>
+                        <Form.Control type="file" onChange={handleFileUpload} />
+                    </Form.Group>
 
-                <Form.Group className="mb-3" controlId="avatar">
-                    <Form.Label>Imagen del perfil</Form.Label>
-                    <Form.Control type="file" onChange={handleFileUpload} />
-                </Form.Group>
+                    <Form onSubmit={handleSubmit}>
 
-                <Form onSubmit={handleSubmit}>
+                        <FloatingLabel
+                            controlId="floatingInput"
+                            label="email"
+                            className="p-3"
+                        >
+                            <Form.Control type="email" value={loggedUser.email} name="email" onChange={handleInputChange} />
+                        </FloatingLabel>
 
-                    <FloatingLabel
-                        controlId="floatingInput"
-                        label="email"
-                        className="mb-3"
-                    >
-                        <Form.Control type="email" value={loggedUser.email} name="email" onChange={handleInputChange} />
-                    </FloatingLabel>
+                        <FloatingLabel controlId="username" label="username" className="p-3">
+                            <Form.Control type="text" value={loggedUser.username} name="username" onChange={handleInputChange} />
+                        </FloatingLabel>
 
-                    <FloatingLabel controlId="username" label="username">
-                        <Form.Control type="text" value={loggedUser.username} name="username" onChange={handleInputChange} />
-                    </FloatingLabel>
+                        <div className="d-grid p-3">
+                            <Button style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none' }} type="submit" disabled={loadingIamge}>{loadingIamge ? 'Loading ...' : 'Update info'}</Button>
+                        </div>
 
-                    <div className="d-grid">
-                        <Button style={{ backgroundColor: 'rgb(58, 125, 19)', border: 'none' }} type="submit" disabled={loadingIamge}>{loadingIamge ? 'Loading ...' : 'Update info'}</Button>
-                    </div>
+                    </Form>
 
-                </Form>
+                </Col>
+            </Row>
 
-            </Col>
 
         </Container>
     )

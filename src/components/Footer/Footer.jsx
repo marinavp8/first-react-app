@@ -1,6 +1,5 @@
 
 import './Footer.css'
-import { Container, Row, Col } from 'react-bootstrap'
 
 const Footer = () => {
 
@@ -8,10 +7,9 @@ const Footer = () => {
 
         <footer>
 
-            <div className="text-center "  >
+            <div className="text-center" >
                 © 2023 DishDash
             </div>
-
 
         </footer >
     )
