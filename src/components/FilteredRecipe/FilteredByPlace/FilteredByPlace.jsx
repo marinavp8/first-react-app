@@ -28,7 +28,7 @@ const FilteredByPlace = () => {
     const getRecipe2 = (selectedPlace) => {
         edamamService
             .getFilteredByPlace(selectedPlace)
-            .then(response => { setRecipes(response.data.hits) })
+            .then(response => { setRecipes(response.data.hits)})
             .catch(err => console.log(err))
     }
 

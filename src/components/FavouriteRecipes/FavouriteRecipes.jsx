@@ -36,13 +36,13 @@ const FavouriteRecipes = () => {
             ?
             <p>Loading...</p>
             :
-            objectRecipe.map((recipe) => {
+            objectRecipe.map((recipe, i) => {
                 const { uri: urlUri } = recipe
                 let startPos = urlUri.length - 32
                 let id = urlUri.slice(startPos)
                 return (
                     <>
-                        <Col>
+                        <Col key={i}>
                             <Card.Title> <h4>{recipe.label}</h4> </Card.Title>
                             <Link to={`/recipes/${id}`} className="btn" style={{ backgroundColor: 'rgb(58, 125, 19)', color: 'white', border: 'none' }}>Details</Link>
                         </Col>

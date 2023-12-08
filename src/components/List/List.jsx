@@ -16,7 +16,6 @@ const List = () => {
   const handleInputChange = (e) => {
     setNewIngredient(e.target.value)
   }
-
   const handleAddIngredient = () => {
     if (newIngredient.trim() !== '') {
       setIngredients([...ingredients, newIngredient])
@@ -26,24 +25,15 @@ const List = () => {
         .catch(err => console.log(err))
     }
   }
-
-  const handleDeleteIngredient = (i) => {
+  const handleDeleteIngredient = (elm, i) => {
     const newList = [...ingredients]
     newList.splice(i, 1)
     setIngredients(newList)
-    listServices
-      .deleteIngredient(newIngredient)
-      .then(() => console.log(newIngredient))
-      .catch(err => console.log(err))
-  }
-
-  const handleDeleteIngredient2 = (elm) => {
     listServices
       .deleteIngredient(elm)
       .then(() => chargeList())
       .catch(err => console.log(err))
   }
-
   const chargeList = () => {
     usersServices
       .getOneUser(loggedUser._id)
@@ -85,7 +75,7 @@ const List = () => {
                 <p>-   {elm}</p>
               </Col>
               <Col>
-                <Button variant="outline-danger" id="button-addon1" onClick={() => handleDeleteIngredient2(elm)}>
+                <Button variant="outline-danger" id="button-addon1" onClick={() => handleDeleteIngredient(elm)}>
                   <IoTrash />
                 </Button>
               </Col>
