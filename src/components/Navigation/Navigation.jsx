@@ -39,7 +39,7 @@ const Navigation = () => {
                         loggedUser
                             ?
                             <>
-                                <Navbar.Text className="justify-content-end ">
+                                <Navbar.Text className="justify-content-end me-5 ">
                                     <NavDropdown
                                         title={loggedUser && <Navbar.Text> <p style={{ fontSize: "16px" }}>Hi, {loggedUser.username} ! </p></Navbar.Text>}
                                         id={`offcanvasNavbarDropdown-expand`}
