@@ -1,7 +1,6 @@
 .backgroundHome p {
     color: rgb(58, 125, 19);
     font-size: 70px;
-    font-family: sans-serif;
     font-weight: 400;
 }
 
@@ -12,13 +11,12 @@
 
 .centerHome h5 {
     line-height: 40px;
-    font-weight: 100;
+    /* font-weight: 500px; */
 }
 
 img.img-fluid {
-    /* padding-left: 100px; */
     max-width: 100%;
     height: auto;
-    width: 700px;
+    width: 450px;
 
 }

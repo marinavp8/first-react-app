@@ -48,7 +48,7 @@ const ProfilePage = () => {
                         (loggedUser.role === 'ADMIN') &&
 
                         <>
-                            <Link to={`/users`} className="btn btn-outline-success btn-sm pb-2" > Users</Link>
+                            <Link to={`/users`} className="btn btn-outline-success btn-sm pb-2 me-3" > Users</Link>
 
                         </>
 
